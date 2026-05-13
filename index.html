@@ -892,6 +892,75 @@
     .slider-thumb { width: 50px; height: 36px; }
     .slider-arrow { display: none; }
   }
+
+  /* ═══════════════════════════════
+     FLOATING WHATSAPP BUTTON
+  ═══════════════════════════════ */
+  .wa-float {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 9999;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.5);
+    text-decoration: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: wa-pulse 2.5s ease-in-out infinite;
+  }
+  .wa-float:hover {
+    transform: scale(1.12);
+    box-shadow: 0 8px 32px rgba(37,211,102,0.7);
+    animation: none;
+  }
+  .wa-float svg {
+    width: 32px;
+    height: 32px;
+    fill: white;
+  }
+  .wa-float-tooltip {
+    position: absolute;
+    right: 70px;
+    background: #1a1a1a;
+    color: white;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 7px 14px;
+    border-radius: 8px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(8px);
+    transition: opacity 0.25s, transform 0.25s;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .wa-float-tooltip::after {
+    content: '';
+    position: absolute;
+    right: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 6px solid transparent;
+    border-right: none;
+    border-left-color: #1a1a1a;
+  }
+  .wa-float:hover .wa-float-tooltip {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  @keyframes wa-pulse {
+    0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.5); }
+    50%       { box-shadow: 0 4px 32px rgba(37,211,102,0.85), 0 0 0 10px rgba(37,211,102,0.12); }
+  }
+  @media (max-width: 600px) {
+    .wa-float { bottom: 20px; right: 16px; width: 54px; height: 54px; }
+    .wa-float svg { width: 28px; height: 28px; }
+  }
 </style>
 </head>
 <body>
@@ -2192,5 +2261,16 @@ createParticles();
 observeStatsBar();
 setTimeout(initReveal, 300);
 </script>
+
+<!-- FLOATING WHATSAPP BUTTON -->
+<a class="wa-float"
+   href="https://api.whatsapp.com/send/?phone=918447478791&text=Hello%20Matro%20Art%20Studio%2C%20I%20am%20interested%20in%20your%20event%20management%20services."
+   target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <span class="wa-float-tooltip">Chat with us!</span>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+    <path d="M16 0C7.164 0 0 7.163 0 16c0 2.822.737 5.469 2.027 7.773L0 32l8.489-2.001A15.93 15.93 0 0016 32c8.836 0 16-7.163 16-16S24.836 0 16 0zm0 29.333a13.28 13.28 0 01-6.77-1.848l-.485-.287-5.04 1.188 1.262-4.9-.317-.503A13.254 13.254 0 012.667 16C2.667 8.636 8.636 2.667 16 2.667c7.364 0 13.333 5.969 13.333 13.333 0 7.364-5.969 13.333-13.333 13.333zm7.307-9.987c-.4-.2-2.368-1.168-2.735-1.301-.368-.133-.636-.2-.904.2-.267.4-1.035 1.301-1.27 1.568-.234.267-.467.3-.867.1-.4-.2-1.688-.622-3.214-1.982-1.188-1.059-1.99-2.368-2.223-2.768-.234-.4-.025-.616.175-.816.18-.18.4-.467.6-.7.2-.234.267-.4.4-.667.133-.267.067-.5-.033-.7-.1-.2-.904-2.174-1.238-2.974-.326-.78-.658-.674-.904-.686l-.77-.013c-.267 0-.7.1-1.068.5-.367.4-1.4 1.368-1.4 3.335 0 1.967 1.434 3.867 1.634 4.135.2.267 2.82 4.303 6.83 6.034.955.413 1.7.659 2.28.844.958.305 1.83.262 2.52.159.768-.114 2.368-.968 2.702-1.902.333-.934.333-1.735.233-1.902-.1-.167-.367-.267-.767-.467z"/>
+  </svg>
+</a>
+
 </body>
 </html>
