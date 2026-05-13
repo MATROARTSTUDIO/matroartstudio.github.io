@@ -47,35 +47,40 @@
 
 <style>
   /* ═══════════════════════════════════════════
-     DESIGN TOKENS — Premium Forest Green Theme
+     DESIGN TOKENS — Dark Studio Theme
   ═══════════════════════════════════════════ */
   :root {
-    /* Core greens */
-    --g50:  #f0fdf4;
-    --g100: #dcfce7;
-    --g200: #bbf7d0;
-    --g300: #86efac;
-    --g400: #4ade80;
-    --g500: #22c55e;
-    --g600: #16a34a;
-    --g700: #15803d;
-    --g800: #166534;
-    --g900: #14532d;
-    --g950: #052e16;
+    /* Dark backgrounds */
+    --g50:  #0d1f17;
+    --g100: #112518;
+    --g200: #1a3524;
+    --g300: #234d32;
+    --g400: #2e6641;
+    /* Teal/mint accent greens (from image) */
+    --g500: #3ecf8e;
+    --g600: #2dba7e;
+    --g700: #1ea36a;
+    --g800: #158c58;
+    --g900: #0e6040;
+    --g950: #071a10;
     /* Gold accents */
-    --gold:       #c9a84c;
-    --gold-light: #f0d080;
-    --gold-dim:   #a07832;
-    /* Neutrals */
-    --dark:       #0b1a10;
-    --text:       #1c2b20;
-    --muted:      #4a6651;
-    --bg:         #f6fef8;
-    --white:      #ffffff;
+    --gold:       #3ecf8e;
+    --gold-light: #7ef5c5;
+    --gold-dim:   #2aa876;
+    /* Neutrals — DARK THEME */
+    --dark:       #071a10;
+    --text:       #e8f5ee;
+    --muted:      #8ab89e;
+    --bg:         #0a1a12;
+    --white:      #0d2018;
     /* Shadows */
-    --shadow:    0 4px 24px rgba(22,163,74,0.12);
-    --shadow-lg: 0 16px 56px rgba(22,163,74,0.20);
-    --shadow-xl: 0 24px 80px rgba(22,163,74,0.28);
+    --shadow:    0 4px 24px rgba(0,0,0,0.5);
+    --shadow-lg: 0 16px 56px rgba(0,0,0,0.6);
+    --shadow-xl: 0 24px 80px rgba(0,0,0,0.7);
+    /* Card/surface colors */
+    --card-bg:    #0f2a1a;
+    --card-border: #1e4030;
+    --nav-bg:     rgba(7,26,16,0.97);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -92,17 +97,17 @@
   ═══════════════════════════════ */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-    background: rgba(246,254,248,0.97);
+    background: var(--nav-bg);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--g200);
+    border-bottom: 1px solid var(--card-border);
     padding: 0 32px;
     display: flex; align-items: center; justify-content: space-between;
     height: 64px;
-    box-shadow: 0 2px 20px rgba(22,163,74,0.08);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.4);
     transition: box-shadow 0.3s;
   }
-  nav.scrolled { box-shadow: 0 4px 32px rgba(22,163,74,0.2); }
+  nav.scrolled { box-shadow: 0 4px 32px rgba(0,0,0,0.6); }
 
   .nav-logo {
     display: flex; align-items: center; gap: 12px;
@@ -115,8 +120,8 @@
     border: 2px solid var(--g400);
     box-shadow: 0 0 0 4px rgba(74,222,128,0.12);
   }
-  .nav-logo-text { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; color: var(--g800); line-height: 1.2; }
-  .nav-logo-sub  { font-size: 9px; color: var(--g600); letter-spacing: 2px; text-transform: uppercase; }
+  .nav-logo-text { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; color: var(--text); line-height: 1.2; }
+  .nav-logo-sub  { font-size: 9px; color: var(--g500); letter-spacing: 2px; text-transform: uppercase; }
 
   .nav-links { display: flex; align-items: center; gap: 2px; }
   .nav-links a {
@@ -124,36 +129,36 @@
     color: var(--muted); padding: 7px 12px; border-radius: 8px;
     transition: all 0.2s; cursor: pointer; letter-spacing: 0.3px; white-space: nowrap;
   }
-  .nav-links a:hover, .nav-links a.active { background: var(--g100); color: var(--g700); }
+  .nav-links a:hover, .nav-links a.active { background: var(--g200); color: var(--g500); }
   .nav-links a.contact-btn {
-    background: linear-gradient(135deg, var(--g600), var(--g700));
-    color: white; padding: 8px 18px; margin-left: 6px;
-    box-shadow: 0 2px 12px rgba(22,163,74,0.3);
+    background: var(--g500);
+    color: var(--dark); padding: 8px 18px; margin-left: 6px;
+    box-shadow: 0 2px 12px rgba(62,207,142,0.3);
   }
-  .nav-links a.contact-btn:hover { background: linear-gradient(135deg, var(--g700), var(--g800)); transform: translateY(-1px); }
+  .nav-links a.contact-btn:hover { background: var(--gold-light); transform: translateY(-1px); }
 
   .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; }
-  .hamburger span { width: 24px; height: 2px; background: var(--g700); border-radius: 2px; transition: 0.3s; }
+  .hamburger span { width: 24px; height: 2px; background: var(--g500); border-radius: 2px; transition: 0.3s; }
   .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
   .hamburger.open span:nth-child(2) { opacity: 0; }
   .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
 
   .mobile-menu {
     display: none; position: fixed; top: 64px; left: 0; right: 0;
-    background: var(--white); border-bottom: 2px solid var(--g200);
+    background: var(--g50); border-bottom: 2px solid var(--card-border);
     flex-direction: column; padding: 12px; z-index: 999;
-    box-shadow: 0 8px 32px rgba(22,163,74,0.15);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
     max-height: calc(100vh - 64px); overflow-y: auto;
   }
   .mobile-menu.open { display: flex; }
   .mobile-menu a {
     text-decoration: none; color: var(--text); padding: 14px 16px;
     border-radius: 8px; font-size: 15px; font-weight: 500; cursor: pointer;
-    border-bottom: 1px solid var(--g50); transition: background 0.2s;
+    border-bottom: 1px solid var(--card-border); transition: background 0.2s;
   }
-  .mobile-menu a:hover { background: var(--g100); color: var(--g700); }
-  .mobile-menu a:last-child { border-bottom: none; background: linear-gradient(135deg,var(--g600),var(--g700)); color: white; margin-top: 8px; border-radius: 8px; text-align: center; }
-  .mobile-menu a:last-child:hover { background: var(--g700); }
+  .mobile-menu a:hover { background: var(--g200); color: var(--g500); }
+  .mobile-menu a:last-child { border-bottom: none; background: var(--g500); color: var(--dark); margin-top: 8px; border-radius: 8px; text-align: center; }
+  .mobile-menu a:last-child:hover { background: var(--gold-light); }
 
   /* ═══════════════════════════════
      PAGES
@@ -286,18 +291,18 @@
      STATS BAR
   ═══════════════════════════════ */
   .stats-bar {
-    background: var(--white); padding: 36px 40px;
+    background: var(--g50); padding: 36px 40px;
     display: flex; justify-content: center; gap: 0; flex-wrap: wrap;
-    border-bottom: 1px solid var(--g100);
+    border-bottom: 1px solid var(--card-border);
   }
   .stat { text-align: center; padding: 0 44px; position: relative; }
   .stat:not(:last-child)::after {
     content: ''; position: absolute; right: 0; top: 50%;
-    transform: translateY(-50%); width: 1px; height: 52px; background: var(--g200);
+    transform: translateY(-50%); width: 1px; height: 52px; background: var(--card-border);
   }
   .stat-number {
     font-family: 'Playfair Display', serif; font-size: 40px; font-weight: 700;
-    color: var(--g700); line-height: 1;
+    color: var(--g500); line-height: 1;
   }
   .stat-label { font-size: 11px; color: var(--muted); letter-spacing: 1.5px; text-transform: uppercase; margin-top: 6px; }
 
@@ -308,10 +313,10 @@
   .section-inner { max-width: 1120px; margin: 0 auto; }
   .section-title {
     font-family: 'Playfair Display', serif; font-size: clamp(30px, 4vw, 48px);
-    font-weight: 700; color: var(--g900); margin-bottom: 12px;
+    font-weight: 700; color: var(--text); margin-bottom: 12px;
   }
   .section-sub { color: var(--muted); font-size: 16px; margin-bottom: 54px; max-width: 600px; line-height: 1.7; }
-  .accent-line { width: 56px; height: 4px; background: linear-gradient(90deg, var(--gold), var(--gold-light)); border-radius: 2px; margin-bottom: 18px; }
+  .accent-line { width: 56px; height: 4px; background: linear-gradient(90deg, var(--g500), var(--gold-light)); border-radius: 2px; margin-bottom: 18px; }
 
   /* ═══════════════════════════════
      HOME PAGE — ABOUT VIDEO SECTION
@@ -366,28 +371,100 @@
   ═══════════════════════════════ */
   .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
   .service-card {
-    background: var(--white); border-radius: 18px; overflow: hidden;
-    border: 1px solid var(--g100); transition: all 0.35s;
+    background: var(--card-bg); border-radius: 18px; overflow: hidden;
+    border: 1px solid var(--card-border); transition: all 0.35s;
     position: relative; box-shadow: var(--shadow);
+    cursor: pointer;
   }
-  .service-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-xl); border-color: var(--g300); }
+  .service-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-xl); border-color: var(--g500); }
   .service-card-img { width: 100%; height: 200px; object-fit: cover; transition: transform 0.45s ease; display: block; }
   .service-card:hover .service-card-img { transform: scale(1.07); }
   .service-card-img-wrap { overflow: hidden; position: relative; }
   .service-card-img-wrap::after {
     content: ''; position: absolute; inset: 0;
-    background: linear-gradient(to bottom, transparent 40%, rgba(21,128,61,0.25));
+    background: linear-gradient(to bottom, transparent 40%, rgba(7,26,16,0.5));
     transition: opacity 0.3s;
   }
   .service-card-body { padding: 24px 26px 28px; }
   .service-card::before {
     content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
-    background: linear-gradient(90deg, var(--gold), var(--g400));
+    background: linear-gradient(90deg, var(--g500), var(--gold-light));
     transform: scaleX(0); transform-origin: left; transition: transform 0.35s; z-index: 2;
   }
   .service-card:hover::before { transform: scaleX(1); }
-  .service-title { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 600; color: var(--g900); margin-bottom: 10px; }
-  .service-desc { color: var(--muted); font-size: 14px; line-height: 1.65; }
+  .service-title { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 600; color: var(--text); margin-bottom: 10px; }
+  .service-desc { color: var(--muted); font-size: 14px; line-height: 1.65; margin-bottom: 14px; }
+  .service-card-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    color: var(--g500); font-size: 13px; font-weight: 600;
+    letter-spacing: 0.3px; transition: gap 0.2s, color 0.2s;
+    margin-top: 4px;
+  }
+  .service-card:hover .service-card-link { gap: 10px; color: var(--gold-light); }
+
+  /* ═══════════════════════════════
+     GALLERY PAGE — IMAGE GRID
+  ═══════════════════════════════ */
+  .gallery-grid-section {
+    padding: 0 40px 72px; background: var(--dark);
+  }
+  .gallery-grid-inner { max-width: 1200px; margin: 0 auto; }
+  .gallery-grid-header {
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 12px;
+    padding: 48px 0 28px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .gallery-grid-title {
+    font-family: 'Playfair Display', serif; font-size: 22px; color: white; font-weight: 700;
+  }
+  .gallery-grid-count {
+    font-size: 12px; color: var(--muted); letter-spacing: 1.5px; text-transform: uppercase;
+  }
+  .gallery-img-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+  }
+  .gallery-grid-item {
+    position: relative; border-radius: 10px; overflow: hidden;
+    aspect-ratio: 4/3;
+    background: var(--g200);
+    cursor: pointer;
+  }
+  .gallery-grid-item img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    transition: transform 0.4s ease;
+  }
+  .gallery-grid-item:hover img { transform: scale(1.08); }
+  .gallery-grid-item::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 60%);
+    opacity: 0; transition: opacity 0.3s;
+  }
+  .gallery-grid-item:hover::after { opacity: 1; }
+  .gallery-grid-item .grid-zoom {
+    position: absolute; bottom: 10px; right: 10px; z-index: 2;
+    width: 32px; height: 32px; border-radius: 50%;
+    background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);
+    color: white; font-size: 14px; display: flex; align-items: center; justify-content: center;
+    opacity: 0; transform: scale(0.7); transition: all 0.25s;
+    backdrop-filter: blur(4px);
+  }
+  .gallery-grid-item:hover .grid-zoom { opacity: 1; transform: scale(1); }
+  .gallery-grid-item.featured {
+    grid-column: span 2;
+    grid-row: span 2;
+    aspect-ratio: auto;
+  }
+  @media (max-width: 900px) {
+    .gallery-img-grid { grid-template-columns: repeat(3, 1fr); }
+    .gallery-grid-item.featured { grid-column: span 1; grid-row: span 1; aspect-ratio: 4/3; }
+  }
+  @media (max-width: 600px) {
+    .gallery-img-grid { grid-template-columns: repeat(2, 1fr); gap: 6px; }
+    .gallery-grid-section { padding: 0 16px 48px; }
+  }
 
   /* ═══════════════════════════════
      CLIENTS MARQUEE
@@ -398,24 +475,24 @@
   .clients-track:hover { animation-play-state: paused; }
   @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
   .client-logo-card {
-    background: var(--white); border: 1px solid var(--g200);
+    background: var(--card-bg); border: 1px solid var(--card-border);
     border-radius: 14px; padding: 16px 28px; min-width: 180px;
     display: flex; flex-direction: column; align-items: center; gap: 8px;
-    box-shadow: 0 2px 12px rgba(22,163,74,0.07);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.3);
     transition: all 0.25s; cursor: default; flex-shrink: 0;
   }
-  .client-logo-card:hover { box-shadow: var(--shadow); transform: translateY(-3px); border-color: var(--g300); }
+  .client-logo-card:hover { box-shadow: var(--shadow); transform: translateY(-3px); border-color: var(--g500); }
   .client-logo-icon {
     width: 44px; height: 44px; border-radius: 10px;
-    background: linear-gradient(135deg, var(--g100), var(--g200));
+    background: linear-gradient(135deg, var(--g200), var(--g300));
     display: flex; align-items: center; justify-content: center;
-    font-size: 11px; font-weight: 700; color: var(--g800);
+    font-size: 11px; font-weight: 700; color: var(--g500);
     font-family: 'Playfair Display', serif;
-    border: 1px solid var(--g200);
+    border: 1px solid var(--card-border);
     letter-spacing: 0.5px;
   }
-  .client-logo-name { font-size: 12px; font-weight: 600; color: var(--g800); text-align: center; letter-spacing: 0.3px; line-height: 1.3; max-width: 140px; }
-  .client-logo-tag { font-size: 10px; color: var(--muted); letter-spacing: 0.5px; text-transform: uppercase; background: var(--g50); padding: 2px 8px; border-radius: 4px; }
+  .client-logo-name { font-size: 12px; font-weight: 600; color: var(--text); text-align: center; letter-spacing: 0.3px; line-height: 1.3; max-width: 140px; }
+  .client-logo-tag { font-size: 10px; color: var(--muted); letter-spacing: 0.5px; text-transform: uppercase; background: var(--g200); padding: 2px 8px; border-radius: 4px; }
 
   /* ═══════════════════════════════
      CTA SECTION
@@ -454,8 +531,8 @@
 
   /* Big service card with dropdown */
   .service-big-card {
-    background: var(--white); border-radius: 22px; overflow: hidden;
-    border: 1px solid var(--g100); margin-bottom: 28px;
+    background: var(--card-bg); border-radius: 22px; overflow: hidden;
+    border: 1px solid var(--card-border); margin-bottom: 28px;
     box-shadow: var(--shadow); transition: box-shadow 0.3s, transform 0.3s;
   }
   .service-big-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
@@ -469,19 +546,19 @@
   .service-big-card:hover .service-big-img { transform: scale(1.04); }
   .service-big-img-wrap { overflow: hidden; }
   .service-big-body { padding: 36px; display: flex; flex-direction: column; justify-content: center; }
-  .service-big-title { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; color: var(--g900); margin-bottom: 10px; }
+  .service-big-title { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; color: var(--text); margin-bottom: 10px; }
   .service-big-desc { color: var(--muted); font-size: 15px; line-height: 1.75; margin-bottom: 20px; }
 
   /* Dropdown toggle button */
   .service-dropdown-btn {
     display: inline-flex; align-items: center; gap: 8px;
-    background: var(--g50); border: 1.5px solid var(--g200);
-    color: var(--g700); font-size: 13px; font-weight: 600; letter-spacing: 0.5px;
+    background: var(--g200); border: 1.5px solid var(--card-border);
+    color: var(--g500); font-size: 13px; font-weight: 600; letter-spacing: 0.5px;
     padding: 9px 18px; border-radius: 8px; cursor: pointer;
     transition: all 0.25s; width: fit-content;
     font-family: 'DM Sans', sans-serif;
   }
-  .service-dropdown-btn:hover { background: var(--g100); border-color: var(--g400); }
+  .service-dropdown-btn:hover { background: var(--g300); border-color: var(--g500); }
   .service-dropdown-btn .dd-icon {
     display: inline-block; transition: transform 0.3s;
     font-style: normal; font-size: 11px;
@@ -916,60 +993,70 @@
       <div class="section-sub reveal">Comprehensive event management solutions tailored to every occasion — from intimate gatherings to grand state conferences.</div>
       <div class="services-grid">
         <!-- [UPDATE: SERVICES] Swap images or text for each card -->
-        <div class="service-card reveal reveal-delay-1">
+        <div class="service-card reveal reveal-delay-1" onclick="showPage('services')" title="View all services">
           <div class="service-card-img-wrap">
             <img class="service-card-img" src="images/DSC_8558.JPG" alt="Corporate Events">
           </div>
           <div class="service-card-body">
             <div class="service-title">Corporate Events</div>
             <div class="service-desc">High-level conferences, ministerial meetings, and government summits executed with flawless precision and protocol.</div>
+            <div class="service-card-link">Explore Service →</div>
           </div>
         </div>
-        <div class="service-card reveal reveal-delay-2">
+        <div class="service-card reveal reveal-delay-2" onclick="showPage('services')" title="View all services">
           <div class="service-card-img-wrap">
             <img class="service-card-img" src="images/EXBITION.jpg" alt="Exhibition & Display">
           </div>
           <div class="service-card-body">
             <div class="service-title">Exhibition &amp; Display</div>
             <div class="service-desc">Creative exhibition setups, themed displays, and immersive brand experiences that captivate and engage audiences.</div>
+            <div class="service-card-link">Explore Service →</div>
           </div>
         </div>
-        <div class="service-card reveal reveal-delay-3">
+        <div class="service-card reveal reveal-delay-3" onclick="showPage('services')" title="View all services">
           <div class="service-card-img-wrap">
             <img class="service-card-img" src="images/Gemini_Generated_Image_7vo0jn7vo0jn7vo0.png" alt="Audio-Visual Solutions">
           </div>
           <div class="service-card-body">
             <div class="service-title">Audio-Visual Solutions</div>
             <div class="service-desc">State-of-the-art AV production, live streaming, sound engineering, and lighting design for impactful presentations.</div>
+            <div class="service-card-link">Explore Service →</div>
           </div>
         </div>
-        <div class="service-card reveal reveal-delay-1">
+        <div class="service-card reveal reveal-delay-1" onclick="showPage('services')" title="View all services">
           <div class="service-card-img-wrap">
             <img class="service-card-img" src="images/printing.png" alt="Printing Services">
           </div>
           <div class="service-card-body">
             <div class="service-title">Printing Services</div>
             <div class="service-desc">Premium quality printing for banners, backdrops, signage, brochures, and all event collateral.</div>
+            <div class="service-card-link">Explore Service →</div>
           </div>
         </div>
-        <div class="service-card reveal reveal-delay-2">
+        <div class="service-card reveal reveal-delay-2" onclick="showPage('services')" title="View all services">
           <div class="service-card-img-wrap">
             <img class="service-card-img" src="images/Gemini_Generated_Image_la5qijla5qijla5q.png" alt="Conference Material">
           </div>
           <div class="service-card-body">
             <div class="service-title">Conference Material</div>
             <div class="service-desc">End-to-end conference kit production including folders, badges, agendas, and delegate packs.</div>
+            <div class="service-card-link">Explore Service →</div>
           </div>
         </div>
-        <div class="service-card reveal reveal-delay-3">
+        <div class="service-card reveal reveal-delay-3" onclick="showPage('services')" title="View all services">
           <div class="service-card-img-wrap">
             <img class="service-card-img" src="images/Vigyan_Bhawan_Delhi_P_20170403_093253.jpg" alt="Venue Selection">
           </div>
           <div class="service-card-body">
             <div class="service-title">Venue Selection</div>
             <div class="service-desc">Expert venue scouting, contract negotiation, and logistics coordination across Delhi's premier event spaces.</div>
+            <div class="service-card-link">Explore Service →</div>
           </div>
         </div>
+      </div>
+      <!-- View All Services button -->
+      <div style="text-align:center; margin-top:36px;">
+        <button class="btn-primary" onclick="showPage('services')">View All Services →</button>
       </div>
     </div>
   </div>
@@ -1573,6 +1660,81 @@
       <div class="slider-thumbs" id="sliderThumbs"></div>
     </div>
   </div>
+
+  <!-- IMAGE GRID below slider -->
+  <div class="gallery-grid-section">
+    <div class="gallery-grid-inner">
+      <div class="gallery-grid-header">
+        <div class="gallery-grid-title">All Photos</div>
+        <div class="gallery-grid-count">15 images</div>
+      </div>
+      <div class="gallery-img-grid">
+        <!-- Featured large item -->
+        <div class="gallery-grid-item featured">
+          <img src="https://lh3.googleusercontent.com/sitesv/AA5AbUB396FLj7qCaBGeBRrSHNI7MgwTNPUhKdMJo_c6gR7AK5QLSIgMrN2597_elhgbTTTxt2UkaYjzAlE_v_V_3lEEAxN6pN8Hd4WJPcDukCaKOVVomKbhAJ0SzCXKbAYeiQW16p3-Fbj33Vvwx5LFHZ00xknmz5Ygj2WikZs4gZSy6FfZv9VtFNkBscP_q0WL92-P__I6Off3D9qKe9EPNGhxp3-Ij2iKYqi8EPY=w1280" alt="Gallery 1" onclick="openLightbox(this)" loading="lazy">
+          <span class="grid-zoom">⤢</span>
+        </div>
+        <!-- Regular items -->
+        <div class="gallery-grid-item">
+          <img src="https://lh3.googleusercontent.com/sitesv/AA5AbUBUQkmwyaXDQK-Zy99UIb0ltc8Qdac1oriUFxSYnc8qTsDdtLP7g_MXor55mEOMlVcjEz67XUBEOzAn-0kjTCZs8g4ApeYkBY6CQT-_Pk6GJ7iWC17dn9c6BKX-r2qgX5FJYI8Gypg2_EknzrXyQ9Vk36kUt8jh0KPVFeJM6Ikdt8JeZ_F-wn4ngozclqZFzuPNtBNUl-GoAXg2DBqYqX2ZmGvLCFcKe6rT=w1280" alt="Gallery 2" onclick="openLightbox(this)" loading="lazy">
+          <span class="grid-zoom">⤢</span>
+        </div>
+        <div class="gallery-grid-item">
+          <img src="https://lh3.googleusercontent.com/sitesv/AA5AbUDLk8dmcPospwdsJt9BP6VzDsSuuIrziDzpJPTVFefYNJq1uVTj2XjUFdqcjM3IoSe51go0pFTatNphEZq68xxmigYYgUUKJHb3rVJLYXJx543qoFw_GyUzDqoBk_dg0r432YS5hFCIim9pSsJTWnTVoByZe2H2SnW0Asmx-5Vos7I7-DismudtDQDB0ccnaupIWqhopkNRk8WgK=w1280" alt="Gallery 3" onclick="openLightbox(this)" loading="lazy">
+          <span class="grid-zoom">⤢</span>
+        </div>
+        <div class="gallery-grid-item">
+          <img src="https://lh3.googleusercontent.com/sitesv/AA5AbUC9tQ9PLGMTP9N3giTYaMf2wTN2jpIjQreVxTYmdZOJ4uh_oSEV6pWVXQfSM6jkHjudlOjlDb1aB3a-Y0ikP39wyuVRqFqecinB0K1HeO8m2_2jh9EWBVJr_cP7zESuv7FjmaCuJAAnfUy0EtRSjzP6OyezOh7-JXc57R93SYOaqKhtfjNdJu0cxzXPgtl1KVRcpNr-pYSCnBZhBs1Mp22rsW4Tsg8A3WQ2=w1280" alt="Gallery 4" onclick="openLightbox(this)" loading="lazy">
+          <span class="grid-zoom">⤢</span>
+        </div>
+        <div class="gallery-grid-item">
+          <img src="https://lh3.googleusercontent.com/sitesv/AA5AbUB_Dgo-5Tw2HbCBWfGVwyrQiNmjns-xcVeyikPxX30ARcBELphF3dtGfI3NTHUZIxpm2m5xBzteX2L16ehjgl1fepaMHK0rKVQkW3COC5Ef15MFppbxqO1ewx7fjV-gw9BrHV3EpU9uTFVsvRK6Rec4cvV3bnAhqD8znEh-s4hwWPwfcchR0NmDfLr9KHj2Kqu4lqX6F5ecgYG2GjsihbnnY0-WrHYfnXRE=w1280" alt="Gallery 5" onclick="openLightbox(this)" loading="lazy">
+          <span class="grid-zoom">⤢</span>
+        </div>
+        <div class="gallery-grid-item">
+          <img src="https://lh3.googleusercontent.com/sitesv/AA5AbUBY8rmVeWIvkd0yo6uidXSruZ1xy36Q8fW_8YIjQlu_c4BuN8dUEzaNOk4cOQ3NZOZvxmprs17MdqqrB8eTyZzJ68bZAkqrJktK_sANEIrU9vVZZBjB6FTE2xeturCRkc3SWAOwcgklm2sRCQyHAmjIOJlkoN6tNULeJbneOYgaUoJQb83VbNqYsv-N9jadLHuU0AbhHaxa1jFnNNKwXM0-NgonWZW4l3V_=w1280" alt="Gallery 6" onclick="openLightbox(this)" loading="lazy">
+          <span class="grid-zoom">⤢</span>
+        </div>
+        <div class="gallery-grid-item">
+          <img src="https://lh3.googleusercontent.com/sitesv/AA5AbUCS_z8DD7xn_uUI7XFeTj3GiReZubPoz2yjK7jY7iaBI8vB1RwUUtgHWd0YlzikFJl0MB7sXXLtlmVsl6UKO_HFcC1TpTNpYZe6z3e0GXHBRc1_Xrz5XzkKLSmfnk81sSn_KIYVd6LJZZLcGyU3wiGramUVEAtEBVXlj4QkYSy3-CmwhBNjLhAYiE7T2IFC6jpc7hQ-VBmFKRpb3rISMwVdXxaelToGyM=w1280" alt="Gallery 7" onclick="openLightbox(this)" loading="lazy">
+          <span class="grid-zoom">⤢</span>
+        </div>
+        <div class="gallery-grid-item">
+          <img src="https://lh3.googleusercontent.com/sitesv/AA5AbUATHF4rZnMtpHlUIB5ZiIOjPiSI8xZnuUhsvXKDRNvTkHCnzYj4480v-fi078PKf3mIAj5i5FIcJBA_EsjP2_xiqMWRyMSMnAZ6CUgPiX6FRckzzFX987ufSiO9smgeITH6i4IRbdTBOVE7shPUUslEL0ZO3idIqK2L9LtrQDmxNWQksxk-akp1Hp7NMhTXO79LD4Vj1JC77lktoUKY570861U4sea79UmeIHo=w1280" alt="Gallery 8" onclick="openLightbox(this)" loading="lazy">
+          <span class="grid-zoom">⤢</span>
+        </div>
+        <div class="gallery-grid-item">
+          <img src="https://lh3.googleusercontent.com/sitesv/AA5AbUCbD2WfTSNOSLtwf6b3wtsAmEDXTt5q_moANnWrKn_QVXhl32ubS7aiHPznksmRffHAD-H-he0RkBw_clLXshgafxZ0bVzPBvm_3lx3L4ezvBN2-E5KHh46vbRUxKlX55CLnpcwQX1t3mGFlM23N9dXUpewXd7SZ2OZEHO7Q7C2RvWwaX3ELYvyX-Ly6StE4bKqV-JW-14uVr7ikQO15UkWr1Fg-OPfeTf22hM=w1280" alt="Gallery 9" onclick="openLightbox(this)" loading="lazy">
+          <span class="grid-zoom">⤢</span>
+        </div>
+        <div class="gallery-grid-item">
+          <img src="https://lh3.googleusercontent.com/sitesv/AA5AbUDQN20JhzQ49f7j8FoC4TG_QhEFKHmoCICHgex3a3wGVRUbT1EY1zTkX00IGz7juRoIrqIYeoguxBKp6Yx-J_MO9BJh8mBJPG3J6R4S_6Kyqwl2KnXzCk4e8TsiQgAC-dDFVKcznSXBDWA8FqXjheq9PU0LnyuokMODfYiW4EPcNka1jXGdfl-5JqtQGTo8gZ6zbNvJTU4mdWP02TQ6QMQFs9-ITGCUqHpE=w1280" alt="Gallery 10" onclick="openLightbox(this)" loading="lazy">
+          <span class="grid-zoom">⤢</span>
+        </div>
+        <div class="gallery-grid-item">
+          <img src="https://lh3.googleusercontent.com/sitesv/AA5AbUDcgYrQC0YR3uFx7_6BNHykyAxwlzUOIexsoGKDsB9H4dEY6iZVQsn39-Kl7oGpSVWdSx1QRxcWP1Zr0CCpmMqZ2GK-9pLUl-DELEEeFaxvNgvHWbKYjX_QHeO-KY7H8AKGeHM4aoQpi-1kGfBunzEyD2YAZcOzh4kD5ecXGZFPnMTrW3e99IXuLTZv4E9Suok7D5azFfkqCa7TlJCVwUYym0qVbcnf15C9=w1280" alt="Gallery 11" onclick="openLightbox(this)" loading="lazy">
+          <span class="grid-zoom">⤢</span>
+        </div>
+        <div class="gallery-grid-item">
+          <img src="https://lh3.googleusercontent.com/sitesv/AA5AbUDOKuQu9XOj2i2dJgfcV2-RYaBcesCCm3qHn5PuUpmGZ5L4BqGMz2BN2m9_JWj105RIBkxo8BDpk9NQapCNvmLy0etlzlIbTLRaCWA4WTzokJOmW-aiELQAqT9KIfVcmX38L0U6Kre78e8SluIm3Xjh6tyKm87Ql6VdylkdjTetuc0G79h4plmfMHSwyXsRC9DAm406yUUmXt-RlOiJCqRAkdMwn5xtZcvN1bA=w1280" alt="Gallery 12" onclick="openLightbox(this)" loading="lazy">
+          <span class="grid-zoom">⤢</span>
+        </div>
+        <div class="gallery-grid-item">
+          <img src="https://lh3.googleusercontent.com/sitesv/AA5AbUCg5uLfuDkD6DraEx76094zFCBqQsbpNY_hylHvdpJb6WAGrW3wTdRnAZf8PAjfFn8nxi_k94pi87eaEZu3O2ut1juXHRfJ1GPmY-qdFxQ9rRroab4TZ_zKGwaCfs1mEJAU5uuPsJWKby7-Ydw0c9SEKGsIKWk5jjOk2nIl_awQCkRL2W6wZjUOqiyNR0Bg1KiBdBfChivom9mIP-8qLn7x1y4xntrV2YK4=w1280" alt="Gallery 13" onclick="openLightbox(this)" loading="lazy">
+          <span class="grid-zoom">⤢</span>
+        </div>
+        <div class="gallery-grid-item">
+          <img src="https://lh3.googleusercontent.com/sitesv/AA5AbUBxhJJaFpf0Fd50Be0IcmyRdOPQ3-GteGKu80f1pJ9TFfTIFnW2ffLpoY9XZq8GsNrWL4K3JxSI4mseo00pjTivkMkT3_lVbOsqmK1gqbvNpoirno33tFmfnaXETEvH6MCDi9ts20RvzJ-mRqIUc_dwdq04lKvlSLsZLlZ3EW2hiWUHX1hFdXcwuTffNUbtTQ7Cp_brOYySA2D-nsDmC-BBJR8W2zllY9T0S8Y=w1280" alt="Gallery 14" onclick="openLightbox(this)" loading="lazy">
+          <span class="grid-zoom">⤢</span>
+        </div>
+        <div class="gallery-grid-item">
+          <img src="https://lh3.googleusercontent.com/sitesv/AA5AbUDBDY9v-dC6s9l3nm348ed1-m7-7-w7K_cv7rS5S7xyz-0oJ1ExdckNGrWtmihqZy_46fVpnIqZ-FpoPuPuCNw1tMXivx6mQ-byWpaEL6IHS326LkNoTAzT9MvEqR6FwCbMU0QXKp0juVgMUYjM75ObSdOPQfLsF6c4o8tx1bUayLospc9BXSAxaUyZKIJ5ymbHAEHizGw9u8D6MeRGyx7qHvF6L8F4Dt5q4N8=w1280" alt="Gallery 15" onclick="openLightbox(this)" loading="lazy">
+          <span class="grid-zoom">⤢</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div><!-- /page-gallery -->
 
 
