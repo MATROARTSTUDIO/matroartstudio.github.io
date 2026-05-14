@@ -164,6 +164,33 @@
     --nav-bg:     rgba(7,26,16,0.97);
   }
 
+  /* ═══════════════════════════════════════════
+     IMAGE COPY PROTECTION
+  ═══════════════════════════════════════════ */
+  img {
+    -webkit-user-drag: none;
+    user-drag: none;
+    -webkit-user-select: none;
+    user-select: none;
+    pointer-events: none;
+  }
+  /* Wrapper for images that need click (lightbox, sliders) */
+  .gallery-grid-item,
+  .service-card-img-wrap,
+  .slider-slide,
+  .client-logo-card {
+    position: relative;
+  }
+  .gallery-grid-item::before,
+  .service-card-img-wrap::before,
+  .slider-slide::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    cursor: pointer;
+  }
+
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
@@ -612,13 +639,14 @@
 
   /* Big service card with dropdown */
   .service-big-card {
-    background: var(--card-bg); border-radius: 22px; overflow: hidden;
+    background: var(--card-bg); border-radius: 22px; overflow: visible;
     border: 1px solid var(--card-border); margin-bottom: 28px;
     box-shadow: var(--shadow); transition: box-shadow 0.3s, transform 0.3s;
   }
   .service-big-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
   .service-big-card-main {
     display: grid; grid-template-columns: 300px 1fr; gap: 0; align-items: stretch;
+    border-radius: 22px 22px 0 0; overflow: hidden;
   }
   .service-big-img {
     width: 100%; height: 100%; min-height: 220px; object-fit: cover; display: block;
@@ -646,14 +674,17 @@
   }
   .service-dropdown-btn.open .dd-icon { transform: rotate(180deg); }
 
-  /* Dropdown content */
   .service-dropdown-content {
     max-height: 0; overflow: hidden;
-    transition: max-height 0.45s cubic-bezier(0.4,0,0.2,1), opacity 0.3s;
+    transition: max-height 0.5s cubic-bezier(0.4,0,0.2,1), opacity 0.3s;
     opacity: 0; background: var(--g50);
     border-top: 1px solid var(--g100);
+    border-radius: 0 0 22px 22px;
+    border: 1px solid var(--card-border);
+    border-top: none;
+    margin-top: -1px;
   }
-  .service-dropdown-content.open { max-height: 600px; opacity: 1; }
+  .service-dropdown-content.open { max-height: 2000px; opacity: 1; }
   .service-dropdown-inner { padding: 28px 36px 32px; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
   .dd-item {
     display: flex; align-items: flex-start; gap: 10px;
@@ -2333,6 +2364,24 @@ document.getElementById('contactForm').addEventListener('submit', async function
 /* ═══════════════════════════════════════
    INIT
 ═══════════════════════════════════════ */
+/* ═══════════════════════════════════════
+   IMAGE COPY PROTECTION
+═══════════════════════════════════════ */
+// Block right-click on images
+document.addEventListener('contextmenu', function(e) {
+  if (e.target.tagName === 'IMG') e.preventDefault();
+});
+// Block drag
+document.addEventListener('dragstart', function(e) {
+  if (e.target.tagName === 'IMG') e.preventDefault();
+});
+// Block keyboard shortcuts for saving (Ctrl+S / Ctrl+U)
+document.addEventListener('keydown', function(e) {
+  if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'u')) {
+    e.preventDefault();
+  }
+});
+
 createParticles();
 observeStatsBar();
 setTimeout(initReveal, 300);
