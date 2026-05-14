@@ -172,23 +172,7 @@
     user-drag: none;
     -webkit-user-select: none;
     user-select: none;
-    pointer-events: none;
-  }
-  /* Wrapper for images that need click (lightbox, sliders) */
-  .gallery-grid-item,
-  .service-card-img-wrap,
-  .slider-slide,
-  .client-logo-card {
-    position: relative;
-  }
-  .gallery-grid-item::before,
-  .service-card-img-wrap::before,
-  .slider-slide::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: 10;
-    cursor: pointer;
+    /* pointer-events kept ON so lightbox clicks still work */
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
