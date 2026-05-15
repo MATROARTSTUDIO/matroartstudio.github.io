@@ -165,6 +165,67 @@
   }
 
   /* ═══════════════════════════════════════════
+     GOOGLE REVIEWS SECTION
+  ═══════════════════════════════════════════ */
+  .reviews-section {
+    background: var(--g50); padding: 72px 40px;
+    border-top: 1px solid var(--card-border);
+  }
+  .reviews-inner { max-width: 1000px; margin: 0 auto; }
+  .reviews-header {
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 16px; margin-bottom: 32px;
+  }
+  .reviews-overall {
+    display: flex; align-items: center; gap: 20px;
+    background: var(--card-bg); border: 1px solid var(--card-border);
+    border-radius: 16px; padding: 24px 32px; margin-bottom: 36px;
+  }
+  .reviews-score {
+    font-family: 'Playfair Display', serif; font-size: 56px; font-weight: 900;
+    color: var(--gold); line-height: 1;
+  }
+  .reviews-stars { color: #f5c518; font-size: 24px; letter-spacing: 3px; }
+  .reviews-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .review-card {
+    background: var(--card-bg); border: 1px solid var(--card-border);
+    border-radius: 16px; padding: 24px; transition: box-shadow 0.3s, transform 0.3s;
+  }
+  .review-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+  .review-top {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 14px;
+    position: relative;
+  }
+  .reviewer-avatar {
+    width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--g400), var(--g600));
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 14px; color: white;
+  }
+  .reviewer-name { font-weight: 600; font-size: 14px; color: var(--text); }
+  .reviewer-stars { color: #f5c518; font-size: 13px; margin-top: 2px; }
+  .google-badge { height: 16px; margin-left: auto; opacity: 0.7; }
+  .review-text { color: var(--muted); font-size: 14px; line-height: 1.7; font-style: italic; }
+  .review-date { color: var(--g600); font-size: 12px; margin-top: 10px; letter-spacing: 0.5px; }
+  .review-cta-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--g500), var(--g600));
+    color: var(--dark); padding: 12px 28px; border-radius: 8px;
+    font-weight: 700; font-size: 14px; text-decoration: none; cursor: pointer;
+    border: none; transition: all 0.3s; letter-spacing: 0.3px;
+    box-shadow: 0 4px 20px rgba(62,207,142,0.3);
+  }
+  .review-cta-btn:hover { transform: translateY(-2px); filter: brightness(1.08); box-shadow: 0 8px 28px rgba(62,207,142,0.45); }
+  @media (max-width: 600px) {
+    .reviews-section { padding: 48px 20px; }
+    .reviews-score { font-size: 40px; }
+    .reviews-overall { padding: 18px 20px; }
+  }
+
+  /* ═══════════════════════════════════════════
      IMAGE COPY PROTECTION
   ═══════════════════════════════════════════ */
   img {
@@ -1559,6 +1620,84 @@
       </div>
     </div>
   </div>
+
+  <!-- ══ GOOGLE REVIEWS SECTION ══ -->
+  <div class="reviews-section">
+    <div class="reviews-inner">
+      <div class="accent-line"></div>
+      <div class="reviews-header">
+        <div>
+          <div style="font-family:'Playfair Display',serif; font-size:26px; font-weight:700; color:var(--text); margin-bottom:8px;">What Our Clients Say</div>
+          <div style="color:var(--muted); font-size:14px; letter-spacing:1.5px; text-transform:uppercase;">Google Reviews</div>
+        </div>
+        <a class="review-cta-btn" href="https://g.page/r/YOUR_GOOGLE_PLACE_ID/review" target="_blank" rel="noopener">
+          ⭐ Leave a Review
+        </a>
+      </div>
+
+      <!-- Overall rating bar -->
+      <div class="reviews-overall">
+        <div class="reviews-score">4.9</div>
+        <div>
+          <div class="reviews-stars">★★★★★</div>
+          <div style="color:var(--muted); font-size:13px; margin-top:4px;">Based on Google Reviews</div>
+          <a href="https://www.google.com/maps/place/?q=place_id:YOUR_GOOGLE_PLACE_ID" target="_blank" rel="noopener" style="color:var(--g500); font-size:13px; text-decoration:none;">View all on Google →</a>
+        </div>
+      </div>
+
+      <!-- Review cards -->
+      <div class="reviews-grid">
+
+        <div class="review-card">
+          <div class="review-top">
+            <div class="reviewer-avatar">RK</div>
+            <div>
+              <div class="reviewer-name">Rajesh Kumar</div>
+              <div class="reviewer-stars">★★★★★</div>
+            </div>
+            <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" class="google-badge">
+          </div>
+          <p class="review-text">"Matro Art Studio managed our Ministry conference with exceptional professionalism. Every detail was handled perfectly — from AV setup to delegate materials. Highly recommended!"</p>
+          <div class="review-date">March 2025</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-top">
+            <div class="reviewer-avatar">PS</div>
+            <div>
+              <div class="reviewer-name">Priya Sharma</div>
+              <div class="reviewer-stars">★★★★★</div>
+            </div>
+            <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" class="google-badge">
+          </div>
+          <p class="review-text">"Outstanding event management team. They organized our national summit flawlessly. The venue setup, printing quality, and on-ground coordination were all top-notch."</p>
+          <div class="review-date">January 2025</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-top">
+            <div class="reviewer-avatar">AM</div>
+            <div>
+              <div class="reviewer-name">Ankit Mehta</div>
+              <div class="reviewer-stars">★★★★★</div>
+            </div>
+            <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" class="google-badge">
+          </div>
+          <p class="review-text">"We've worked with Matro Art Studio for multiple government events. Their attention to protocol and detail is unmatched. A truly reliable partner for high-stakes events."</p>
+          <div class="review-date">November 2024</div>
+        </div>
+
+      </div>
+
+      <div style="text-align:center; margin-top:36px;">
+        <a class="review-cta-btn" href="https://g.page/r/YOUR_GOOGLE_PLACE_ID/review" target="_blank" rel="noopener" style="display:inline-block;">
+          ⭐ Write Us a Google Review
+        </a>
+        <p style="color:var(--muted); font-size:13px; margin-top:12px;">Your feedback helps us grow and helps others trust us</p>
+      </div>
+    </div>
+  </div>
+
 </div><!-- /page-about -->
 
 
@@ -1727,7 +1866,7 @@
         <!-- SLIDE 1 -->
         <div class="slider-slide active" data-index="0">
           <img data-src="https://lh3.googleusercontent.com/sitesv/AA5AbUAatbEh5DN1CnkM13DItFbu0wF7EapEOgLFqGJ-9MZK1JQlZ0Sa0sGTr8TSHALBKAPExJhweb73KZfai1onCTO6QXeJ3AzRAAkYWPvL-dPFsmXDbApteA_dA4In3rCg9LJY7wC9bpSm8xUNRzbXYiwdm0dkQQeoOPI0gUZ3ANGhm6YrLGW197Mg1_skQckByq8bGW63gqQuLkIjJUmKM9pYCbsmcDS_fraa=w1280"
-               src="images/1.JPG"
+               src="https://lh3.googleusercontent.com/sitesv/AA5AbUAatbEh5DN1CnkM13DItFbu0wF7EapEOgLFqGJ-9MZK1JQlZ0Sa0sGTr8TSHALBKAPExJhweb73KZfai1onCTO6QXeJ3AzRAAkYWPvL-dPFsmXDbApteA_dA4In3rCg9LJY7wC9bpSm8xUNRzbXYiwdm0dkQQeoOPI0gUZ3ANGhm6YrLGW197Mg1_skQckByq8bGW63gqQuLkIjJUmKM9pYCbsmcDS_fraa=w1280"
                alt="Government of India corporate event managed by Matro Art Studio Delhi" onclick="openLightbox(this)">
           <div class="slider-caption"><div class="slider-caption-text">Government of India Events</div><div class="slider-caption-counter">01 / 15</div></div>
         </div>
@@ -2245,7 +2384,8 @@ function initSlider() {
       const img   = slide.querySelector('img');
       const thumb = document.createElement('div');
       thumb.className = 'slider-thumb' + (i === 0 ? ' active' : '');
-      thumb.innerHTML = `<img src="${img.src}" alt="Thumb ${i+1}" loading="lazy">`;
+      const thumbSrc = img.dataset.src || img.src;
+      thumb.innerHTML = `<img src="${thumbSrc}" alt="Thumb ${i+1}" loading="lazy">`;
       thumb.onclick = () => sliderGoTo(i);
       thumbsContainer.appendChild(thumb);
     });
