@@ -7,6 +7,8 @@
 <meta name="description" content="Matro Art Studio is Delhi's premier corporate event management company. Trusted by 100+ Ministries of the Government of India since 2008.">
 <meta name="keywords" content="corporate event management Delhi, government event management company Delhi, conference management Delhi, event planner Delhi, ministry events India">
 <meta name="author" content="Matro Art Studio">
+<meta name="ceo" content="Founder & CEO - Matro Art Studio">
+<meta name="experience" content="18+ Years of Professional Event Management Experience since 2008">
 <link rel="canonical" href="https://matroartstudio.github.io/">
 <meta property="og:title" content="Matro Art Studio | Corporate Event Management Delhi">
 <meta property="og:description" content="Delhi's premier corporate event management company. Trusted by 100+ Ministries of the Government of India since 2008.">
@@ -552,6 +554,42 @@ nav.scrolled::before {
 .about-home-media {
   position: relative;
 }
+/* Video wrapper (replaces photo) */
+.about-home-video-wrap {
+  position: relative; overflow: hidden; border-radius: var(--radius);
+  aspect-ratio: 4/5;
+  background: var(--deep);
+}
+.about-home-video-wrap::before {
+  content: ''; position: absolute;
+  top: -20px; left: -20px; right: 20px; bottom: 20px;
+  border: 1px solid var(--border-bright); border-radius: var(--radius);
+  pointer-events: none; z-index: 1;
+  transition: transform 0.4s;
+}
+.about-home-video-wrap:hover::before { transform: translate(5px,5px); }
+.about-home-video {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  filter: brightness(0.85) saturate(0.9);
+  transition: filter 0.4s;
+}
+.about-home-video-wrap:hover .about-home-video { filter: brightness(0.95); }
+.about-video-overlay {
+  position: absolute; inset: 0; z-index: 2;
+  background: linear-gradient(to top, rgba(3,6,8,0.5) 0%, transparent 40%);
+  display: flex; align-items: flex-end; padding: 20px;
+  pointer-events: none;
+}
+.about-video-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(3,6,8,0.7); border: 1px solid var(--border-bright);
+  backdrop-filter: blur(8px);
+  padding: 8px 16px; border-radius: 40px;
+  font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--gold);
+}
+/* Legacy img wrap kept for other uses */
 .about-home-img-wrap {
   position: relative; overflow: hidden; border-radius: var(--radius);
 }
@@ -674,7 +712,7 @@ nav.scrolled::before {
 }
 .stats-track {
   display: flex; gap: 0;
-  animation: ticker-move 30s linear infinite;
+  animation: ticker-move 18s linear infinite;
   white-space: nowrap;
 }
 @keyframes ticker-move {
@@ -895,7 +933,7 @@ nav.scrolled::before {
 .services-full-inner { max-width: 1200px; margin: 0 auto; }
 
 .service-full-card {
-  display: grid; grid-template-columns: 380px 1fr;
+  display: grid; grid-template-columns: clamp(260px, 32%, 380px) 1fr;
   border: 1px solid var(--border);
   border-radius: var(--radius); overflow: hidden;
   margin-bottom: 24px;
@@ -910,9 +948,10 @@ nav.scrolled::before {
 }
 .service-full-img-wrap { overflow: hidden; position: relative; }
 .service-full-img {
-  width: 100%; height: 100%; min-height: 280px;
+  width: 100%; height: 100%; min-height: 240px; max-height: 340px;
   object-fit: cover; display: block; filter: saturate(0.8) brightness(0.7);
   transition: filter 0.5s, transform 0.5s;
+  will-change: transform;
 }
 .service-full-card:hover .service-full-img { filter: saturate(0.95) brightness(0.85); transform: scale(1.06); }
 .service-full-img-overlay {
@@ -984,12 +1023,16 @@ nav.scrolled::before {
 ============================================ */
 .events-section {
   padding: 80px 48px; background: var(--black);
+  contain: layout style;
 }
 .events-inner { max-width: 1200px; margin: 0 auto; }
 .event-card {
   background: var(--deep); border: 1px solid var(--border);
   border-radius: var(--radius); overflow: hidden;
-  margin-bottom: 24px; transition: all 0.3s;
+  margin-bottom: 24px; transition: border-color 0.25s, box-shadow 0.25s;
+  will-change: auto;
+  content-visibility: auto;
+  contain-intrinsic-size: 0 380px;
 }
 .event-card:hover {
   border-color: var(--border-bright);
@@ -1019,7 +1062,8 @@ nav.scrolled::before {
 .event-gallery img {
   width: 100%; aspect-ratio: 16/10; object-fit: cover;
   display: block; filter: brightness(0.8) saturate(0.85);
-  transition: filter 0.4s, transform 0.4s; cursor: zoom-in;
+  transition: filter 0.3s, transform 0.3s; cursor: zoom-in;
+  will-change: auto;
 }
 .event-gallery img:hover { filter: brightness(1) saturate(1); transform: scale(1.02); z-index: 1; }
 
@@ -1038,6 +1082,8 @@ nav.scrolled::before {
   margin-bottom: 4px; overflow: hidden; position: relative;
   border-radius: var(--radius);
   cursor: zoom-in; break-inside: avoid;
+  will-change: auto;
+  contain: layout style;
 }
 .gallery-item::after {
   content: '⤢';
@@ -1045,13 +1091,14 @@ nav.scrolled::before {
   background: rgba(3,6,8,0.7); color: var(--gold);
   width: 32px; height: 32px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  font-size: 14px; opacity: 0; transition: opacity 0.3s;
+  font-size: 14px; opacity: 0; transition: opacity 0.2s;
 }
 .gallery-item:hover::after { opacity: 1; }
 .gallery-item img {
   width: 100%; display: block;
   filter: brightness(0.8) saturate(0.85);
-  transition: filter 0.4s, transform 0.5s;
+  transition: filter 0.3s, transform 0.4s;
+  will-change: auto;
 }
 .gallery-item:hover img { filter: brightness(1) saturate(1); transform: scale(1.04); }
 
@@ -1066,11 +1113,13 @@ nav.scrolled::before {
   overflow: hidden; aspect-ratio: 16/9;
   box-shadow: 0 32px 80px rgba(0,0,0,0.6);
   background: #000;
+  contain: layout style paint;
 }
 .slider-slide {
   position: absolute; inset: 0;
-  opacity: 0; transition: opacity 0.7s ease, transform 0.7s ease;
+  opacity: 0; transition: opacity 0.6s ease, transform 0.6s ease;
   transform: scale(1.04);
+  will-change: opacity, transform;
 }
 .slider-slide.active { opacity: 1; transform: scale(1); z-index: 2; }
 .slider-slide.prev { opacity: 0; transform: scale(0.97); z-index: 1; }
@@ -1090,7 +1139,7 @@ nav.scrolled::before {
   width: 52px; height: 52px; background: rgba(3,6,8,0.7);
   border: 1px solid var(--border); color: var(--text);
   display: flex; align-items: center; justify-content: center;
-  font-size: 22px; cursor: pointer; transition: all 0.3s;
+  font-size: 22px; cursor: pointer; transition: all 0.25s;
   border-radius: 50%; backdrop-filter: blur(8px);
 }
 .slider-arrow:hover { background: var(--gold); color: var(--black); border-color: var(--gold); }
@@ -1105,17 +1154,19 @@ nav.scrolled::before {
 }
 .slider-dot {
   width: 32px; height: 2px; background: var(--surface);
-  border-radius: 1px; cursor: pointer; transition: all 0.3s;
+  border-radius: 1px; cursor: pointer; transition: all 0.25s;
 }
 .slider-dot.active { background: var(--gold); width: 48px; }
 .slider-thumbs {
   display: flex; gap: 8px; margin-top: 16px; overflow-x: auto; padding-bottom: 4px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 .slider-thumbs::-webkit-scrollbar { height: 2px; }
 .slider-thumb {
   flex-shrink: 0; width: 80px; height: 52px; overflow: hidden;
   border-radius: 3px; cursor: pointer;
-  border: 2px solid transparent; transition: border-color 0.3s, opacity 0.3s;
+  border: 2px solid transparent; transition: border-color 0.25s, opacity 0.25s;
   opacity: 0.5;
 }
 .slider-thumb.active { border-color: var(--gold); opacity: 1; }
@@ -1523,7 +1574,7 @@ footer {
         <div class="hero-stat-label">Events Managed</div>
       </div>
       <div class="hero-stat">
-        <span class="hero-stat-num" data-target="17" data-suffix="+">17+</span>
+        <span class="hero-stat-num" data-target="18" data-suffix="+">18+</span>
         <div class="hero-stat-label">Years Excellence</div>
       </div>
       <div class="hero-stat">
@@ -1567,8 +1618,28 @@ footer {
   <section class="section about-home">
     <div class="about-home-inner">
       <div class="about-home-media reveal">
-        <div class="about-home-img-wrap">
-          <img class="about-home-img" src="images/DSC_8558.JPG" alt="Matro Art Studio corporate event Delhi">
+        <div class="about-home-video-wrap">
+          <video
+            class="about-home-video"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="images/DSC_8558.JPG"
+            aria-label="Matro Art Studio event highlights reel"
+          >
+            <!-- Replace the src below with your actual video file path -->
+            <source src="images/showreel.mp4" type="video/mp4">
+            <!-- Fallback image if video not found -->
+            <img src="images/DSC_8558.JPG" alt="Matro Art Studio corporate event Delhi" class="about-home-img" style="width:100%;aspect-ratio:4/5;object-fit:cover;">
+          </video>
+          <div class="about-video-overlay">
+            <div class="about-video-badge">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--gold)"><path d="M8 5v14l11-7z"/></svg>
+              <span>Event Highlights</span>
+            </div>
+          </div>
           <div class="about-badge">
             <span class="about-badge-num">2008</span>
             <span class="about-badge-label">Est.</span>
@@ -1614,7 +1685,6 @@ footer {
         <div class="service-card reveal">
           <div class="service-icon-wrap">
             <div class="service-icon">🎤</div>
-            <span class="service-num">01</span>
           </div>
           <div class="service-title">Corporate Event Management</div>
           <div class="service-desc">From national summits to ministerial conferences. We handle concept, logistics, coordination, and execution — delivering precision at every scale.</div>
@@ -1624,7 +1694,6 @@ footer {
         <div class="service-card reveal reveal-delay-1">
           <div class="service-icon-wrap">
             <div class="service-icon">🖼️</div>
-            <span class="service-num">02</span>
           </div>
           <div class="service-title">Exhibition & Display</div>
           <div class="service-desc">Creative design and fabrication of exhibition stalls, thematic displays, and product showcases — from concept visualization to complete installation.</div>
@@ -1634,7 +1703,6 @@ footer {
         <div class="service-card reveal reveal-delay-2">
           <div class="service-icon-wrap">
             <div class="service-icon">📺</div>
-            <span class="service-num">03</span>
           </div>
           <div class="service-title">Audio-Visual Solutions</div>
           <div class="service-desc">Professional AV setup including LED walls, projection systems, PA systems, stage lighting, live streaming, and video production for events of all scales.</div>
@@ -1644,7 +1712,6 @@ footer {
         <div class="service-card reveal">
           <div class="service-icon-wrap">
             <div class="service-icon">🖨️</div>
-            <span class="service-num">04</span>
           </div>
           <div class="service-title">Printing Services</div>
           <div class="service-desc">High-quality printing for all event materials — backdrops, roll-up banners, flex displays, signage, name plates, and all event collateral.</div>
@@ -1654,7 +1721,6 @@ footer {
         <div class="service-card reveal reveal-delay-1">
           <div class="service-icon-wrap">
             <div class="service-icon">📋</div>
-            <span class="service-num">05</span>
           </div>
           <div class="service-title">Conference Materials</div>
           <div class="service-desc">Comprehensive delegate kits, speaker materials, stationery sets, notepads, pens, folders, and all conference documentation needs.</div>
@@ -1664,7 +1730,6 @@ footer {
         <div class="service-card reveal reveal-delay-2">
           <div class="service-icon-wrap">
             <div class="service-icon">🏛️</div>
-            <span class="service-num">06</span>
           </div>
           <div class="service-title">Venue Selection & Setup</div>
           <div class="service-desc">Venue scouting, site inspection, contract negotiation, and complete setup — from five-star hotels to iconic government venues across Delhi.</div>
@@ -1824,7 +1889,7 @@ footer {
         <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);margin-top:4px;">Events Managed</div>
       </div>
       <div style="text-align:center;padding:12px 32px;">
-        <div style="font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:700;color:var(--gold);" class="count-num" data-target="17" data-suffix="+">17+</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:700;color:var(--gold);" class="count-num" data-target="18" data-suffix="+">18+</div>
         <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);margin-top:4px;">Years Experience</div>
       </div>
     </div>
@@ -2510,7 +2575,7 @@ footer {
 </a>
 
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"EventPlanner","name":"Matro Art Studio","url":"https://matroartstudio.github.io/","description":"Delhi's premier corporate event management company. Trusted by 100+ Ministries of the Government of India since 2008.","foundingDate":"2008","address":{"@type":"PostalAddress","streetAddress":"133, Lajpat Nagar, Vinoba Puri, 3rd Floor","addressLocality":"New Delhi","addressRegion":"Delhi","postalCode":"110024","addressCountry":"IN"},"telephone":["+91-9971383939","+91-8447478791"],"email":"matroartstudio@gmail.com"}
+{"@context":"https://schema.org","@type":"EventPlanner","name":"Matro Art Studio","url":"https://matroartstudio.github.io/","description":"Delhi's premier corporate event management company. Trusted by 100+ Ministries of the Government of India since 2008. 18+ years of professional event management experience.","foundingDate":"2008","numberOfEmployees":{"@type":"QuantitativeValue","value":"Professional Event Management Team"},"employee":{"@type":"Person","jobTitle":"CEO & Founder","worksFor":{"@type":"Organization","name":"Matro Art Studio"}},"address":{"@type":"PostalAddress","streetAddress":"133, Lajpat Nagar, Vinoba Puri, 3rd Floor","addressLocality":"New Delhi","addressRegion":"Delhi","postalCode":"110024","addressCountry":"IN"},"telephone":["+91-9971383939","+91-8447478791"],"email":"matroartstudio@gmail.com"}
 </script>
 
 <script>
