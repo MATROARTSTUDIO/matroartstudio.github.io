@@ -1910,7 +1910,7 @@ footer{
       ═══════════════════════════════════════
       -->
 
-          <div class="ev-card rv">
+       <div class="ev-card rv">
         <div class="ev-hdr">
           <div>
             <div class="ev-title">Pre-Budget Meeting with Finance Ministers of States &amp; UTs 2026</div>
@@ -1919,13 +1919,13 @@ footer{
           <div class="ev-venue">📍 The Ashok Hotel, New Delhi</div>
         </div>
         <div class="ev-gallery">
-          <img src="images2/finance 1.jpeg" alt="Pre-Budget Meeting Ashok Hotel photo 1" onclick="openLB(this)" loading="lazy">
-          <img src="images2/finacne 2.jpeg" alt="Pre-Budget Meeting Ashok Hotel photo 2" onclick="openLB(this)" loading="lazy">
-          <img src="images2/finance3.jpeg" alt="Pre-Budget Meeting Ashok Hotel photo 3" onclick="openLB(this)" loading="lazy">
+          <img src="images2/1.JPG" alt="Pre-Budget Meeting Ashok Hotel 1" onclick="openLB(this)" loading="lazy">
+          <img src="images2/2.JPG" alt="Pre-Budget Meeting Ashok Hotel 2" onclick="openLB(this)" loading="lazy">
+          <img src="images2/3.JPG" alt="Pre-Budget Meeting Ashok Hotel 3" onclick="openLB(this)" loading="lazy">
         </div>
       </div>
-
-      <div class="ev-card rv">
+         
+     <div class="ev-card rv">
         <div class="ev-hdr">
           <div>
             <div class="ev-title">NCORD Meeting — Ministry of Home Affairs 2025</div>
@@ -2477,8 +2477,10 @@ function renderRecentEvents() {
   const container = document.getElementById('homeRecentEvents');
   if (!container) return;
   const toShow = RECENT_EVENTS.slice(0, 3); /* shows 3 latest */
-  container.innerHTML = toShow.map(ev => `
-    <div class="re-card rv" onclick="showPage('events')" title="View all events">
+
+  container.innerHTML = toShow.map((ev, i) => `
+    <div class="re-card" onclick="showPage('events')" title="View all events"
+      style="opacity:0;transform:translateY(32px);transition:opacity .7s ease ${i * 0.15}s, transform .7s ease ${i * 0.15}s;">
       <div class="re-card-img-wrap">
         <img class="re-card-img" src="${ev.image}" alt="${ev.title}" loading="lazy"
           onerror="this.src='images/DSC_8558.JPG'">
@@ -2492,8 +2494,16 @@ function renderRecentEvents() {
       </div>
     </div>
   `).join('');
-  /* re-run reveal observer on newly injected cards */
-  setTimeout(initReveal, 50);
+
+  /* Trigger animation on next frame — bypasses IntersectionObserver timing issue */
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      container.querySelectorAll('.re-card').forEach(card => {
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      });
+    });
+  });
 }
 
 /* ═══ CURSOR ═══ */
@@ -2516,6 +2526,7 @@ window.addEventListener('load', () => {
     document.getElementById('loader').classList.add('out');
     initParticles();
     initReveal();
+    renderRecentEvents(); /* populate home page recent events after page fully loads */
   }, 2000);
 });
 
@@ -2679,7 +2690,6 @@ document.addEventListener('contextmenu', e => { if (e.target.tagName === 'IMG') 
 document.addEventListener('dragstart', e => { if (e.target.tagName === 'IMG') e.preventDefault(); });
 
 /* ═══ INIT ═══ */
-renderRecentEvents(); /* auto-populates home page Recent Events from RECENT_EVENTS array */
 initReveal();
 </script>
 </body>
