@@ -929,10 +929,13 @@ body::after{
   margin-bottom:10px;break-inside:avoid;
   position:relative;overflow:hidden;border-radius:var(--r);
   cursor:zoom-in;
+  pointer-events:auto;
 }
 .gl-item img{
   width:100%;display:block;
   filter:brightness(.8);transition:all .6s;
+  cursor:zoom-in !important;
+  pointer-events:auto !important;
 }
 .gl-item:hover img{filter:brightness(1);transform:scale(1.04);}
 .gl-overlay{
@@ -1376,7 +1379,8 @@ footer{
       </p>
       <div class="hero-btns">
         <button class="btn-g" onclick="showPage('services')">Explore Services →</button>
-        <button class="btn-o" onclick="showPage('gallery')">View Our Work</button>
+        <button class="btn-o" onclick="showPage('events')">View Our Work</button>
+        <button class="btn-o" onclick="showPage('gallery')">Gallery ✦</button>
       </div>
     </div>
 
@@ -1481,52 +1485,52 @@ footer{
     </div>
     <div style="max-width:1240px;margin:0 auto;padding:0 0;">
       <div class="srv-grid">
-        <div class="srv-card rv">
+        <div class="srv-card rv" onclick="showPage('services')" style="cursor:pointer;">
           <span class="srv-icon">🎤</span>
           <span class="srv-num">01</span>
           <div class="srv-title">Corporate Event Management</div>
           <div class="srv-desc">From national summits to ministerial conferences. We handle concept, logistics, coordination, and execution — delivering precision at every scale.</div>
-          <div class="srv-arr" onclick="showPage('services')">Explore <span>→</span></div>
+          <div class="srv-arr">Explore <span>→</span></div>
           <div class="srv-line"></div>
         </div>
-        <div class="srv-card rv d1">
+        <div class="srv-card rv d1" onclick="showPage('services')" style="cursor:pointer;">
           <span class="srv-icon">🖼️</span>
           <span class="srv-num">02</span>
           <div class="srv-title">Exhibition & Display</div>
           <div class="srv-desc">Creative design and fabrication of exhibition stalls, thematic displays, and product showcases — from concept to complete installation.</div>
-          <div class="srv-arr" onclick="showPage('services')">Explore <span>→</span></div>
+          <div class="srv-arr">Explore <span>→</span></div>
           <div class="srv-line"></div>
         </div>
-        <div class="srv-card rv d2">
+        <div class="srv-card rv d2" onclick="showPage('services')" style="cursor:pointer;">
           <span class="srv-icon">📺</span>
           <span class="srv-num">03</span>
           <div class="srv-title">Audio-Visual Solutions</div>
           <div class="srv-desc">Professional AV setup including LED walls, projection systems, PA systems, stage lighting, live streaming, and full video production.</div>
-          <div class="srv-arr" onclick="showPage('services')">Explore <span>→</span></div>
+          <div class="srv-arr">Explore <span>→</span></div>
           <div class="srv-line"></div>
         </div>
-        <div class="srv-card rv">
+        <div class="srv-card rv" onclick="showPage('services')" style="cursor:pointer;">
           <span class="srv-icon">🖨️</span>
           <span class="srv-num">04</span>
           <div class="srv-title">Printing Services</div>
           <div class="srv-desc">High-quality printing for all event materials — backdrops, roll-up banners, flex displays, signage, name plates, and every collateral need.</div>
-          <div class="srv-arr" onclick="showPage('services')">Explore <span>→</span></div>
+          <div class="srv-arr">Explore <span>→</span></div>
           <div class="srv-line"></div>
         </div>
-        <div class="srv-card rv d1">
+        <div class="srv-card rv d1" onclick="showPage('services')" style="cursor:pointer;">
           <span class="srv-icon">📋</span>
           <span class="srv-num">05</span>
           <div class="srv-title">Conference Materials</div>
           <div class="srv-desc">Comprehensive delegate kits, speaker materials, stationery sets, notepads, pens, folders, and all conference documentation.</div>
-          <div class="srv-arr" onclick="showPage('services')">Explore <span>→</span></div>
+          <div class="srv-arr">Explore <span>→</span></div>
           <div class="srv-line"></div>
         </div>
-        <div class="srv-card rv d2">
+        <div class="srv-card rv d2" onclick="showPage('services')" style="cursor:pointer;">
           <span class="srv-icon">🏛️</span>
           <span class="srv-num">06</span>
           <div class="srv-title">Venue Selection & Setup</div>
           <div class="srv-desc">Venue scouting, site inspection, contract negotiation, and complete setup — from five-star hotels to iconic government venues across Delhi.</div>
-          <div class="srv-arr" onclick="showPage('services')">Explore <span>→</span></div>
+          <div class="srv-arr">Explore <span>→</span></div>
           <div class="srv-line"></div>
         </div>
       </div>
@@ -2303,20 +2307,20 @@ footer{
       ═══════════════════════════════════════
       -->
       <div class="gallery-grid" id="galleryGrid">
-        <div class="gl-item"><img src="gallery-images/1.JPG" alt="Gallery 1" onclick="openLB(this)" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-        <div class="gl-item"><img src="gallery-images/2.JPG" alt="Gallery 2" onclick="openLB(this)" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-        <div class="gl-item"><img src="gallery-images/3.JPG" alt="Gallery 3" onclick="openLB(this)" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-        <div class="gl-item"><img src="gallery-images/4.JPG" alt="Gallery 4" onclick="openLB(this)" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-        <div class="gl-item"><img src="gallery-images/5.JPG" alt="Gallery 5" onclick="openLB(this)" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-        <div class="gl-item"><img src="gallery-images/6.JPG" alt="Gallery 6" onclick="openLB(this)" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-        <div class="gl-item"><img src="gallery-images/7.JPG" alt="Gallery 7" onclick="openLB(this)" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-        <div class="gl-item"><img src="gallery-images/8.JPG" alt="Gallery 8" onclick="openLB(this)" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-        <div class="gl-item"><img src="gallery-images/9.JPG" alt="Gallery 9" onclick="openLB(this)" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-        <div class="gl-item"><img src="gallery-images/10.JPG" alt="Gallery 10" onclick="openLB(this)" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-        <div class="gl-item"><img src="gallery-images/11.JPG" alt="Gallery 11" onclick="openLB(this)" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-        <div class="gl-item"><img src="gallery-images/12.JPG" alt="Gallery 12" onclick="openLB(this)" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-        <div class="gl-item"><img src="gallery-images/13.JPG" alt="Gallery 13" onclick="openLB(this)" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-        <div class="gl-item"><img src="gallery-images/14.JPG" alt="Gallery 14" onclick="openLB(this)" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
+        <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/1.JPG" alt="Gallery 1" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
+        <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/2.JPG" alt="Gallery 2" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
+        <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/3.JPG" alt="Gallery 3" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
+        <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/4.JPG" alt="Gallery 4" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
+        <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/5.JPG" alt="Gallery 5" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
+        <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/6.JPG" alt="Gallery 6" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
+        <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/7.JPG" alt="Gallery 7" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
+        <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/8.JPG" alt="Gallery 8" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
+        <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/9.JPG" alt="Gallery 9" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
+        <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/10.JPG" alt="Gallery 10" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
+        <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/11.JPG" alt="Gallery 11" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
+        <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/12.JPG" alt="Gallery 12" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
+        <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/13.JPG" alt="Gallery 13" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
+        <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/14.JPG" alt="Gallery 14" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
       </div>
     </div>
   </div>
@@ -2807,13 +2811,19 @@ function showPage(id) {
   const page = document.getElementById('page-' + id);
   if (page) {
     page.classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    /* Scroll to very top immediately — works cross-browser */
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    window.scrollTo(0, 0);
     setTimeout(initReveal, 200);
     if (id === 'gallery') setTimeout(initSlider, 100);
     if (id === 'home') renderRecentEvents(); /* refresh home preview when returning */
   }
   const btn = document.querySelector(`.nl[onclick*="'${id}'"]`);
   if (btn) btn.classList.add('active');
+  /* Close mobile menu if open */
+  const mob = document.getElementById('mobMenu');
+  if (mob && mob.classList.contains('open')) toggleMob();
 }
 
 /* ═══ MOBILE MENU ═══ */
@@ -2896,8 +2906,13 @@ function resetSl() { startSl(); }
 let lbImgs = [], lbIdx = 0;
 function openLB(img) {
   const page = document.querySelector('.page.active');
-  lbImgs = Array.from(page.querySelectorAll('img[onclick]'));
+  /* Collect all clickable images: those with onclick attr OR inside gl-item */
+  lbImgs = Array.from(page.querySelectorAll('img[onclick], .gl-item img, .sl-slide img'));
+  /* Deduplicate by src */
+  const seen = new Set();
+  lbImgs = lbImgs.filter(el => { const k = el.src; if (seen.has(k)) return false; seen.add(k); return true; });
   lbIdx = lbImgs.indexOf(img);
+  if (lbIdx === -1) lbIdx = 0;
   document.getElementById('lb-img').src = img.src;
   document.getElementById('lightbox').classList.add('open');
   document.body.style.overflow = 'hidden';
