@@ -3227,7 +3227,17 @@ function showPage(id) {
     document.body.scrollTop = 0;
     window.scrollTo(0, 0);
     setTimeout(initReveal, 200);
-    if (id === 'gallery') setTimeout(initSlider, 100);
+    if (id === 'gallery') {
+      setTimeout(() => {
+        initSlider();
+        /* Re-anchor to top after slider finishes its own setup */
+        setTimeout(() => {
+          document.documentElement.scrollTop = 0;
+          document.body.scrollTop = 0;
+          window.scrollTo({ top: 0, behavior: 'instant' });
+        }, 50);
+      }, 100);
+    }
     if (id === 'home') renderRecentEvents(); /* refresh home preview when returning */
   }
   const btn = document.querySelector(`.nl[onclick*="'${id}'"]`);
@@ -3301,7 +3311,14 @@ function goSlide(idx) {
   dots.forEach((d, i) => d.classList.toggle('active', i === slIdx));
   thumbs.forEach((t, i) => {
     t.classList.toggle('active', i === slIdx);
-    if (i === slIdx) t.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    if (i === slIdx) {
+      const container = document.getElementById('slThumbs');
+      if (container) {
+        const thumbLeft = t.offsetLeft - container.offsetLeft;
+        const thumbCenter = thumbLeft - (container.clientWidth / 2) + (t.clientWidth / 2);
+        container.scrollTo({ left: thumbCenter, behavior: 'smooth' });
+      }
+    }
   });
   const bar = document.getElementById('slProg');
   if (bar) {
