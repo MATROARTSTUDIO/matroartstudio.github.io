@@ -1,17 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" prefix="og: https://ogp.me/ns#">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Matro Art Studio | Corporate Event Management Delhi</title>
-<meta name="description" content="Matro Art Studio is Delhi's premier corporate event management company. Trusted by 100+ Ministries of the Government of India since 2008.">
-<meta name="keywords" content="corporate event management Delhi, government event management company Delhi, conference management Delhi, event planner Delhi, ministry events India">
+<title>Matro Art Studio | Corporate Event Management Delhi | Government Events Since 2008</title>
+<meta name="description" content="Matro Art Studio — Delhi's premier corporate & government event management company. Trusted by 100+ Ministries of India since 2008. Conferences, exhibitions, AV, printing.">
+<meta name="keywords" content="corporate event management Delhi, government event management company Delhi, conference management Delhi, event planner Delhi, ministry events India, Vigyan Bhawan events, DoPT IAS inauguration, CBSE AI curriculum launch, NACO Suraksha review, MoSPI workshop Delhi, NDMA event management, Ministry of Finance event, exhibition design Delhi, audio visual solutions Delhi">
 <meta name="author" content="Matro Art Studio">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <link rel="canonical" href="https://matroartstudio.github.io/">
+<link rel="icon" type="image/png" href="images/Letter Head Matro Art Studio-2.png">
+<link rel="apple-touch-icon" href="images/Letter Head Matro Art Studio-2.png">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Matro Art Studio">
+<meta property="og:url" content="https://matroartstudio.github.io/">
 <meta property="og:title" content="Matro Art Studio | Corporate Event Management Delhi">
 <meta property="og:description" content="Delhi's premier corporate event management company. Trusted by 100+ Ministries of the Government of India since 2008.">
-<meta property="og:type" content="website">
 <meta property="og:image" content="https://matroartstudio.github.io/images/DSC_8558.JPG">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Matro Art Studio — Government Event Management, New Delhi">
+<meta property="og:locale" content="en_IN">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Matro Art Studio | Corporate Event Management Delhi">
+<meta name="twitter:description" content="Delhi's premier corporate event management company. Trusted by 100+ Ministries of India since 2008.">
+<meta name="twitter:image" content="https://matroartstudio.github.io/images/DSC_8558.JPG">
+<meta name="twitter:image:alt" content="Matro Art Studio — Government Event Management, New Delhi">
+
+<!-- Geo / Local SEO -->
+<meta name="geo.region" content="IN-DL">
+<meta name="geo.placename" content="New Delhi">
+<meta name="geo.position" content="28.5694;77.2370">
+<meta name="ICBM" content="28.5694, 77.2370">
+
+<!-- Image indexing hint -->
+<link rel="image_src" href="https://matroartstudio.github.io/images/DSC_8558.JPG">
+<link rel="image_src" href="https://matroartstudio.github.io/images2/DOPT1.jpeg">
+<link rel="image_src" href="https://matroartstudio.github.io/images2/CBC1.JPG">
+<link rel="image_src" href="https://matroartstudio.github.io/images2/NAC1.JPG">
+<link rel="image_src" href="https://matroartstudio.github.io/images2/sci1.JPG">
+<link rel="image_src" href="https://matroartstudio.github.io/images2/obe1.jpeg">
+<link rel="image_src" href="https://matroartstudio.github.io/images2/COS1.JPG">
 
 <!-- ═══════════════════════════════════════════
      MEDIA CONFIG — Edit images and video here!
@@ -821,6 +855,7 @@ body::after{
   background:var(--panel);border:1px solid var(--edge);
   border-radius:var(--r2);overflow:hidden;
   transition:all .4s;
+  contain:layout style;
 }
 .ev-card:hover{border-color:var(--edge-hi);box-shadow:0 20px 70px rgba(0,0,0,.5);}
 .ev-hdr{
@@ -930,14 +965,21 @@ body::after{
   position:relative;overflow:hidden;border-radius:var(--r);
   cursor:zoom-in;
   pointer-events:auto;
+  transform:translateZ(0);
+  backface-visibility:hidden;
+  contain:layout style;
 }
 .gl-item img{
   width:100%;display:block;
-  filter:brightness(.8);transition:all .6s;
+  filter:brightness(.8);
+  transition:filter .45s ease, transform .45s ease;
   cursor:zoom-in !important;
   pointer-events:auto !important;
+  will-change:filter,transform;
+  transform:translateZ(0);
+  backface-visibility:hidden;
 }
-.gl-item:hover img{filter:brightness(1);transform:scale(1.04);}
+.gl-item:hover img{filter:brightness(1);transform:translateZ(0) scale(1.04);}
 .gl-overlay{
   position:absolute;inset:0;
   background:linear-gradient(to top,rgba(5,6,10,.7) 0%,transparent 50%);
@@ -1340,12 +1382,12 @@ footer{
   </button>
 </nav>
 <div class="mob-menu" id="mobMenu">
-  <button class="nl" onclick="showPage('home');toggleMob()">Home</button>
-  <button class="nl" onclick="showPage('services');toggleMob()">Services</button>
-  <button class="nl" onclick="showPage('events');toggleMob()">Events</button>
-  <button class="nl" onclick="showPage('gallery');toggleMob()">Gallery</button>
-  <button class="nl" onclick="showPage('about');toggleMob()">About</button>
-  <button class="nl" onclick="showPage('contact');toggleMob()">Contact Us</button>
+  <button class="nl" onclick="showPage('home')">Home</button>
+  <button class="nl" onclick="showPage('services')">Services</button>
+  <button class="nl" onclick="showPage('events')">Events</button>
+  <button class="nl" onclick="showPage('gallery')">Gallery</button>
+  <button class="nl" onclick="showPage('about')">About</button>
+  <button class="nl" onclick="showPage('contact')">Contact Us</button>
 </div>
 
 
@@ -2170,9 +2212,9 @@ footer{
           <div class="ev-venue">📍 Vigyan Bhawan, New Delhi</div>
         </div>
         <div class="ev-gallery">
-          <img src="images2/NARCO1.JPG" alt="NCORD Meeting 1" onclick="openLB(this)" loading="lazy">
-          <img src="images2/NARCO2.JPG" alt="NCORD Meeting 2" onclick="openLB(this)" loading="lazy">
-          <img src="images2/NARCO1.JPG" alt="NCORD Meeting 3" onclick="openLB(this)" loading="lazy">
+          <img src="images2/NARCO1.JPG" alt="NCORD Meeting Ministry of Home Affairs 2025 Vigyan Bhawan New Delhi — event by Matro Art Studio" onclick="openLB(this)" loading="lazy">
+          <img src="images2/NARCO2.JPG" alt="NCORD narcotics coordination committee meeting government event New Delhi 2025" onclick="openLB(this)" loading="lazy">
+          <img src="images2/NARCO1.JPG" alt="Ministry of Home Affairs NCORD conference Vigyan Bhawan managed by Matro Art Studio" onclick="openLB(this)" loading="lazy">
         </div>
       </div>
 
@@ -2609,14 +2651,14 @@ footer{
           <li><a href="tel:+919971383939">+91 99713 83939</a></li>
           <li><a href="tel:+918447478791">+91 84474 78791</a></li>
           <li><a href="mailto:matroartstudio@gmail.com">matroartstudio@gmail.com</a></li>
-          <li><a href="#" style="pointer-events:none;cursor:default;">133, Lajpat Nagar</a></li>
-          <li><a href="#" style="pointer-events:none;cursor:default;">Vinoba Puri, New Delhi</a></li>
-          <li><a href="#" style="pointer-events:none;cursor:default;">110024</a></li>
         </ul>
+        <div style="margin-top:16px;font-size:13px;color:var(--cream-m);line-height:1.8;font-weight:300;">
+          📍 133, Lajpat Nagar, Vinoba Puri, 3rd Floor, New Delhi — 110024
+        </div>
       </div>
     </div>
     <div class="ft-bottom">
-      <span>© 2025 Matro Art Studio. All rights reserved.</span>
+      <span>© 2026 Matro Art Studio. All rights reserved.</span>
       <span>Crafting extraordinary events since 2008 ✦</span>
     </div>
   </div>
@@ -2638,9 +2680,350 @@ footer{
 </a>
 
 
-<!-- SCHEMA -->
+<!-- SCHEMA — Organization + LocalBusiness -->
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"EventPlanner","name":"Matro Art Studio","url":"https://matroartstudio.github.io/","description":"Delhi's premier corporate event management company. Trusted by 100+ Ministries of the Government of India since 2008.","foundingDate":"2008","address":{"@type":"PostalAddress","streetAddress":"133, Lajpat Nagar, Vinoba Puri, 3rd Floor","addressLocality":"New Delhi","addressRegion":"Delhi","postalCode":"110024","addressCountry":"IN"},"telephone":["+91-9971383939","+91-8447478791"],"email":"matroartstudio@gmail.com"}
+{
+  "@context": "https://schema.org",
+  "@type": ["EventPlanner","LocalBusiness"],
+  "@id": "https://matroartstudio.github.io/#organization",
+  "name": "Matro Art Studio",
+  "alternateName": "Matro Art Studio Event Management",
+  "url": "https://matroartstudio.github.io/",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://matroartstudio.github.io/images/Letter Head Matro Art Studio-2.png",
+    "width": 200,
+    "height": 200
+  },
+  "image": [
+    {
+      "@type": "ImageObject",
+      "url": "https://matroartstudio.github.io/images/DSC_8558.JPG",
+      "caption": "Matro Art Studio — Government Event Management New Delhi",
+      "representativeOfPage": true
+    },
+    {
+      "@type": "ImageObject",
+      "url": "https://matroartstudio.github.io/images2/DOPT1.jpeg",
+      "caption": "IAS 2024 Batch Inauguration — DoPT, Vigyan Bhawan"
+    },
+    {
+      "@type": "ImageObject",
+      "url": "https://matroartstudio.github.io/images2/NAC1.JPG",
+      "caption": "Mobilisation For Suraksha National Review — NACO, Vigyan Bhawan"
+    },
+    {
+      "@type": "ImageObject",
+      "url": "https://matroartstudio.github.io/images2/CBC1.JPG",
+      "caption": "CBSE CA & AI Curriculum Launch — Vigyan Bhawan 2026"
+    },
+    {
+      "@type": "ImageObject",
+      "url": "https://matroartstudio.github.io/images2/NARCO1.JPG",
+      "caption": "NCORD Meeting — Ministry of Home Affairs, Vigyan Bhawan 2025"
+    },
+    {
+      "@type": "ImageObject",
+      "url": "https://matroartstudio.github.io/images2/MOSPI1.JPG",
+      "caption": "MoSPI All India Workshop of Trainers — Manekshaw Centre 2025"
+    },
+    {
+      "@type": "ImageObject",
+      "url": "https://matroartstudio.github.io/images2/GR2.jpeg",
+      "caption": "India-Germany Annual Negotiations Meeting — The Claridges, New Delhi 2025"
+    },
+    {
+      "@type": "ImageObject",
+      "url": "https://matroartstudio.github.io/images2/NDMA1.jpeg",
+      "caption": "NDMA National Disaster Management Authority Event — Vigyan Bhawan 2025"
+    },
+    {
+      "@type": "ImageObject",
+      "url": "https://matroartstudio.github.io/images2/COS1.JPG",
+      "caption": "National Symposium on Customs Reforms 2026 — Vigyan Bhawan"
+    },
+    {
+      "@type": "ImageObject",
+      "url": "https://matroartstudio.github.io/images2/sci1.JPG",
+      "caption": "National Science Day 2026 — Vigyan Bhawan, New Delhi"
+    },
+    {
+      "@type": "ImageObject",
+      "url": "https://matroartstudio.github.io/images2/obe1.jpeg",
+      "caption": "Youth Dialogue on Budget 2026-27 — The Oberoi Hotel, New Delhi"
+    },
+    {
+      "@type": "ImageObject",
+      "url": "https://matroartstudio.github.io/images2/med1.JPG",
+      "caption": "GDP Data Press Conference — National Media Center, New Delhi 2026"
+    },
+    {
+      "@type": "ImageObject",
+      "url": "https://matroartstudio.github.io/images2/1.JPG",
+      "caption": "Pre-Budget Meeting Finance Ministers States UTs 2026 — The Ashok Hotel, New Delhi"
+    }
+  ],
+  "description": "Delhi's premier corporate event management company. Trusted by 100+ Ministries of the Government of India since 2008. Specialising in government conferences, exhibitions, AV production and printing.",
+  "foundingDate": "2008",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "133, Lajpat Nagar, Vinoba Puri, 3rd Floor",
+    "addressLocality": "New Delhi",
+    "addressRegion": "Delhi",
+    "postalCode": "110024",
+    "addressCountry": "IN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 28.5694,
+    "longitude": 77.2370
+  },
+  "telephone": ["+91-9971383939", "+91-8447478791"],
+  "email": "matroartstudio@gmail.com",
+  "sameAs": ["https://matroartstudio.github.io/"],
+  "areaServed": {"@type": "Country", "name": "India"},
+  "priceRange": "₹₹₹",
+  "openingHours": "Mo-Sa 09:00-19:00"
+}
+</script>
+
+<!-- SCHEMA — Individual Event structured data (Google Image indexing per event topic) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Recent Events by Matro Art Studio",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@type": "Event",
+        "name": "Inauguration of Assistant Secretary Programme — IAS 2024 Batch",
+        "organizer": {"@type": "Organization", "name": "Department of Personnel & Training (DoPT)"},
+        "location": {"@type": "Place", "name": "Vigyan Bhawan", "address": "New Delhi, India"},
+        "startDate": "2026",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://matroartstudio.github.io/images2/DOPT1.jpeg",
+          "caption": "IAS 2024 Batch Inauguration — DoPT event managed by Matro Art Studio at Vigyan Bhawan, New Delhi"
+        },
+        "description": "Inauguration of the Assistant Secretary Programme for Officer Trainees of IAS 2024 Batch, organised by Department of Personnel & Training (DoPT) at Vigyan Bhawan, New Delhi. Event managed by Matro Art Studio.",
+        "performer": {"@type": "Organization", "name": "Matro Art Studio"}
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@type": "Event",
+        "name": "Mobilisation For Suraksha — National Review Meeting",
+        "organizer": {"@type": "Organization", "name": "Ministry of Health & Family Welfare — NACO"},
+        "location": {"@type": "Place", "name": "Vigyan Bhawan", "address": "New Delhi, India"},
+        "startDate": "2026",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://matroartstudio.github.io/images2/NAC1.JPG",
+          "caption": "Mobilisation For Suraksha National Review — NACO, Ministry of Health, Vigyan Bhawan, managed by Matro Art Studio"
+        },
+        "description": "Mobilisation For Suraksha National Review meeting organised by NACO under Ministry of Health & Family Welfare at Vigyan Bhawan, New Delhi. Event managed by Matro Art Studio.",
+        "performer": {"@type": "Organization", "name": "Matro Art Studio"}
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "item": {
+        "@type": "Event",
+        "name": "Launch of CA & AI Curriculum for Classes III–VIII — CBSE",
+        "organizer": {"@type": "Organization", "name": "Central Board of Secondary Education (CBSE)"},
+        "location": {"@type": "Place", "name": "Vigyan Bhawan", "address": "New Delhi, India"},
+        "startDate": "2026",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://matroartstudio.github.io/images2/CBC1.JPG",
+          "caption": "CBSE Computational Thinking and AI Curriculum Launch, Vigyan Bhawan 2026, managed by Matro Art Studio"
+        },
+        "description": "Launch of Computational Thinking and Artificial Intelligence (CA & AI) Curriculum for Classes III to VIII by Central Board of Secondary Education at Vigyan Bhawan, New Delhi. Event managed by Matro Art Studio.",
+        "performer": {"@type": "Organization", "name": "Matro Art Studio"}
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "item": {
+        "@type": "Event",
+        "name": "NCORD Meeting — Ministry of Home Affairs 2025",
+        "organizer": {"@type": "Organization", "name": "Ministry of Home Affairs, Government of India"},
+        "location": {"@type": "Place", "name": "Vigyan Bhawan", "address": "New Delhi, India"},
+        "startDate": "2025",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://matroartstudio.github.io/images2/NARCO1.JPG",
+          "caption": "NCORD Meeting Ministry of Home Affairs 2025 at Vigyan Bhawan, managed by Matro Art Studio"
+        },
+        "description": "NCORD Meeting organised by Ministry of Home Affairs at Vigyan Bhawan, New Delhi 2025. Event managed by Matro Art Studio.",
+        "performer": {"@type": "Organization", "name": "Matro Art Studio"}
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "item": {
+        "@type": "Event",
+        "name": "MoSPI All India Workshop of Trainers 2025",
+        "organizer": {"@type": "Organization", "name": "Ministry of Statistics and Programme Implementation (MoSPI)"},
+        "location": {"@type": "Place", "name": "Manekshaw Centre", "address": "New Delhi, India"},
+        "startDate": "2025",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://matroartstudio.github.io/images2/MOSPI1.JPG",
+          "caption": "MoSPI All India Workshop of Trainers 2025 at Manekshaw Centre, managed by Matro Art Studio"
+        },
+        "description": "MoSPI All India Workshop of Trainers 2025 at Manekshaw Centre, New Delhi. Event managed by Matro Art Studio.",
+        "performer": {"@type": "Organization", "name": "Matro Art Studio"}
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "item": {
+        "@type": "Event",
+        "name": "Annual Negotiations Meeting 2025 — India & Germany",
+        "organizer": {"@type": "Organization", "name": "Ministry of Finance, Government of India"},
+        "location": {"@type": "Place", "name": "The Claridges Hotel", "address": "New Delhi, India"},
+        "startDate": "2025",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://matroartstudio.github.io/images2/GR2.jpeg",
+          "caption": "India Germany Annual Negotiations Meeting 2025 at The Claridges Hotel New Delhi, managed by Matro Art Studio"
+        },
+        "description": "Annual Negotiations Meeting between India and Germany, organised by Ministry of Finance at The Claridges Hotel, New Delhi 2025. Event managed by Matro Art Studio.",
+        "performer": {"@type": "Organization", "name": "Matro Art Studio"}
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
+      "item": {
+        "@type": "Event",
+        "name": "NDMA National Disaster Management Authority Event 2025",
+        "organizer": {"@type": "Organization", "name": "National Disaster Management Authority (NDMA)"},
+        "location": {"@type": "Place", "name": "Vigyan Bhawan", "address": "New Delhi, India"},
+        "startDate": "2025",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://matroartstudio.github.io/images2/NDMA1.jpeg",
+          "caption": "NDMA National Disaster Management Authority event at Vigyan Bhawan 2025, managed by Matro Art Studio"
+        },
+        "description": "NDMA National Disaster Management Authority event at Vigyan Bhawan, New Delhi 2025. Event managed by Matro Art Studio.",
+        "performer": {"@type": "Organization", "name": "Matro Art Studio"}
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 8,
+      "item": {
+        "@type": "Event",
+        "name": "National Symposium on Customs Reforms 2026",
+        "organizer": {"@type": "Organization", "name": "Central Board of Indirect Taxes and Customs (CBIC)"},
+        "location": {"@type": "Place", "name": "Vigyan Bhawan", "address": "New Delhi, India"},
+        "startDate": "2026",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://matroartstudio.github.io/images2/COS1.JPG",
+          "caption": "National Symposium on Customs Reforms 2026 at Vigyan Bhawan, managed by Matro Art Studio"
+        },
+        "description": "National Symposium on Customs Reforms 2026 at Vigyan Bhawan, New Delhi. Event managed by Matro Art Studio.",
+        "performer": {"@type": "Organization", "name": "Matro Art Studio"}
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 9,
+      "item": {
+        "@type": "Event",
+        "name": "Press Conference — Release of GDP Data (Base Year 2022–23)",
+        "organizer": {"@type": "Organization", "name": "Ministry of Statistics and Programme Implementation"},
+        "location": {"@type": "Place", "name": "National Media Center", "address": "New Delhi, India"},
+        "startDate": "2026",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://matroartstudio.github.io/images2/med1.JPG",
+          "caption": "GDP Data Press Conference Base Year 2022-23 at National Media Center, managed by Matro Art Studio"
+        },
+        "description": "Press Conference for release of GDP Data with new Base Year 2022-23, organised by Ministry of Statistics and Programme Implementation at National Media Center, New Delhi. Event managed by Matro Art Studio.",
+        "performer": {"@type": "Organization", "name": "Matro Art Studio"}
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 10,
+      "item": {
+        "@type": "Event",
+        "name": "National Science Day 2026",
+        "organizer": {"@type": "Organization", "name": "Ministry of Science and Technology, Department of Science & Technology"},
+        "location": {"@type": "Place", "name": "Vigyan Bhawan", "address": "New Delhi, India"},
+        "startDate": "2026",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://matroartstudio.github.io/images2/sci1.JPG",
+          "caption": "National Science Day 2026 at Vigyan Bhawan New Delhi, managed by Matro Art Studio"
+        },
+        "description": "National Science Day 2026, organised by Ministry of Science and Technology at Vigyan Bhawan, New Delhi. Event managed by Matro Art Studio.",
+        "performer": {"@type": "Organization", "name": "Matro Art Studio"}
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 11,
+      "item": {
+        "@type": "Event",
+        "name": "Youth Dialogue on Budget 2026–27",
+        "organizer": {"@type": "Organization", "name": "Ministry of Finance"},
+        "location": {"@type": "Place", "name": "The Oberoi Hotel", "address": "New Delhi, India"},
+        "startDate": "2026",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://matroartstudio.github.io/images2/obe1.jpeg",
+          "caption": "Youth Dialogue on Budget 2026-27 at The Oberoi Hotel New Delhi, managed by Matro Art Studio"
+        },
+        "description": "Youth Dialogue on Budget 2026-27 organised by Ministry of Finance at The Oberoi Hotel, New Delhi. Event managed by Matro Art Studio.",
+        "performer": {"@type": "Organization", "name": "Matro Art Studio"}
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 12,
+      "item": {
+        "@type": "Event",
+        "name": "Pre-Budget Meeting with Finance Ministers of States and UTs 2026",
+        "organizer": {"@type": "Organization", "name": "Ministry of Finance"},
+        "location": {"@type": "Place", "name": "The Ashok Hotel", "address": "New Delhi, India"},
+        "startDate": "2026",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://matroartstudio.github.io/images2/1.JPG",
+          "caption": "Pre-Budget Meeting Finance Ministers States UTs 2026 at The Ashok Hotel New Delhi, managed by Matro Art Studio"
+        },
+        "description": "Pre-Budget Meeting with Finance Ministers of States and Union Territories 2026 at The Ashok Hotel, New Delhi. Event managed by Matro Art Studio.",
+        "performer": {"@type": "Organization", "name": "Matro Art Studio"}
+      }
+    }
+  ]
+}
 </script>
 
 <script>
@@ -2665,6 +3048,34 @@ footer{
    ═══════════════════════════════════════════════════════════════ */
 const RECENT_EVENTS = [
   /* ── ADD NEW EVENTS AT THE TOP ── */
+{
+    title: "National Symposium on Customs Reforms 2026",
+    ministry: "Central Board of Indirect Taxes and Customs (CBIC)",
+    venue: "Vigyan Bhawan",
+    badge: "2026",
+    image: "images2/COS1.JPG"
+  },
+{
+    title: "Press Conference — Release of GDP Data (Base Year 2022–23)",
+    ministry: "Ministry of Statistics and Programme Implementation",
+    venue: "National Media Center",
+    badge: "2026",
+    image: "images2/med1.JPG"
+  },
+{
+    title: "National Science Day 2026",
+    ministry: "Ministry of Science and Technology, DST",
+    venue: "Vigyan Bhawan",
+    badge: "2026",
+    image: "images2/sci1.JPG"
+  },
+{
+    title: "Youth Dialogue on Budget 2026–27",
+    ministry: "Ministry of Finance",
+    venue: "The Oberoi Hotel, New Delhi",
+    badge: "2026",
+    image: "images2/obe1.jpeg"
+  },
 {
     title: "Inauguration Assistant Secretary Programme Officer Trainees of IAS 2024 Batch",
     ministry: "Department of Personnel & Training (DoPT)",
