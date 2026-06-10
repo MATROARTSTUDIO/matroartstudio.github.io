@@ -93,7 +93,7 @@
    RESET
 ════════════════════════════════════ */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;font-size:16px;}
+html{scroll-behavior:smooth;font-size:16px;height:-webkit-fill-available;}
 body{
   font-family:'DM Sans',sans-serif;
   background:var(--ink);
@@ -282,8 +282,9 @@ body::after{
 ════════════════════════════════════ */
 .hero{
   position:relative;
-  min-height:100svh; /* dynamic viewport height — hides mobile browser chrome */
-  min-height:100vh;  /* fallback for older browsers */
+  height:100dvh; /* fills exactly the visible viewport on mobile */
+  min-height:100svh;
+  min-height:100vh; /* fallback */
   display:flex;flex-direction:column;
   align-items:center;justify-content:center;
   overflow:hidden;
@@ -293,16 +294,32 @@ body::after{
 
 /* Hero background slider */
 .hero-slider-bg{
-  position:absolute;inset:0;z-index:1;
+  position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;
 }
 .hero-sl-slide{
-  position:absolute;inset:0;
+  position:absolute;top:0;left:0;width:100%;height:100%;
   opacity:0;transition:opacity 1.2s ease;
 }
 .hero-sl-slide.active{opacity:1;}
 .hero-sl-slide img{
-  width:100%;height:100%;object-fit:cover;object-position:center top;display:block;
-  filter:brightness(.55) saturate(.85);
+  width:100%;height:100%;
+  object-fit:cover;
+  object-position:center center;
+  display:block;
+  filter:brightness(.72) saturate(.92);
+}
+/* Mobile: ensure full-bleed image fills screen */
+@media(max-width:768px){
+  .hero-slider-bg,
+  .hero-sl-slide{
+    position:absolute;top:0;left:0;
+    width:100vw;height:100%;
+  }
+  .hero-sl-slide img{
+    width:100vw;height:100%;
+    object-fit:cover;
+    object-position:center center;
+  }
 }
 .hero-sl-prog{
   position:absolute;bottom:0;left:0;height:3px;width:0;z-index:20;
@@ -343,17 +360,17 @@ body::after{
 .hero-mesh{
   position:absolute;inset:0;z-index:2;
   background:
-    radial-gradient(ellipse 70% 80% at 15% 25%, rgba(212,175,80,.07) 0%,transparent 60%),
-    radial-gradient(ellipse 60% 60% at 85% 70%, rgba(192,57,43,.04) 0%,transparent 55%),
-    radial-gradient(ellipse 100% 50% at 50% 50%, rgba(13,17,32,.55) 0%,rgba(5,6,10,.7) 80%);
+    radial-gradient(ellipse 70% 80% at 15% 25%, rgba(212,175,80,.05) 0%,transparent 60%),
+    radial-gradient(ellipse 60% 60% at 85% 70%, rgba(192,57,43,.03) 0%,transparent 55%),
+    radial-gradient(ellipse 100% 50% at 50% 50%, rgba(13,17,32,.28) 0%,rgba(5,6,10,.38) 80%);
 }
 .hero-grid{
   position:absolute;inset:0;z-index:2;
   background-image:
-    linear-gradient(rgba(212,175,80,.04) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(212,175,80,.04) 1px,transparent 1px);
+    linear-gradient(rgba(212,175,80,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(212,175,80,.025) 1px,transparent 1px);
   background-size:80px 80px;
-  mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 30%,transparent 75%);
+  mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,transparent 30%,black 80%);
   animation:grid-drift 40s linear infinite;
 }
 @keyframes grid-drift{to{transform:translateY(80px);}}
@@ -1352,6 +1369,11 @@ footer{
   .dd-grid{grid-template-columns:1fr 1fr;}
 }
 @media(max-width:768px){
+  .hero{
+    height:100dvh;
+    height:100svh; /* fallback */
+    min-height:-webkit-fill-available; /* iOS Safari fix */
+  }
   .sec{padding:80px 24px;}
   .srv-grid{grid-template-columns:1fr;}
   .gallery-grid{columns:2;}
