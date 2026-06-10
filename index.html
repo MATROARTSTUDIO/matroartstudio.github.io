@@ -311,7 +311,7 @@ body::after{
 /* Dots — always visible, repositioned on mobile */
 .hero-sl-dots{
   position:absolute;bottom:clamp(56px,8vw,88px);left:50%;transform:translateX(-50%);
-  display:flex;gap:8px;z-index:20;
+  display:none;gap:8px;z-index:20;
 }
 .hero-sl-dot{
   width:6px;height:6px;border-radius:50%;
@@ -1502,8 +1502,7 @@ footer{
       <div class="hs"><span class="hs-n">5<span style="color:var(--gold-2)">★</span></span><div class="hs-l">Client Rating</div></div>
     </div>
 
-    <!-- Dot nav -->
-    <div class="hero-sl-dots" id="heroSlDots"></div>
+
 
     <!-- Progress bar -->
     <div class="hero-sl-prog" id="heroSlProg"></div>
