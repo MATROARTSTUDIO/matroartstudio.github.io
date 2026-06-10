@@ -281,10 +281,13 @@ body::after{
    HERO
 ════════════════════════════════════ */
 .hero{
-  position:relative;min-height:100vh;
+  position:relative;
+  min-height:100svh; /* dynamic viewport height — hides mobile browser chrome */
+  min-height:100vh;  /* fallback for older browsers */
   display:flex;flex-direction:column;
   align-items:center;justify-content:center;
-  overflow:hidden;padding:120px 40px 60px;
+  overflow:hidden;
+  padding:clamp(80px,12vh,120px) clamp(16px,5vw,56px) clamp(60px,10vh,100px);
   text-align:center;
 }
 
@@ -298,35 +301,43 @@ body::after{
 }
 .hero-sl-slide.active{opacity:1;}
 .hero-sl-slide img{
-  width:100%;height:100%;object-fit:cover;display:block;
+  width:100%;height:100%;object-fit:cover;object-position:center top;display:block;
   filter:brightness(.55) saturate(.85);
 }
 .hero-sl-prog{
   position:absolute;bottom:0;left:0;height:3px;width:0;z-index:20;
   background:linear-gradient(90deg,var(--gold-3),var(--gold-2));
 }
+/* Dots — always visible, repositioned on mobile */
 .hero-sl-dots{
-  position:absolute;bottom:80px;left:50%;transform:translateX(-50%);
-  display:none;gap:8px;z-index:20;
+  position:absolute;bottom:clamp(56px,8vw,88px);left:50%;transform:translateX(-50%);
+  display:flex;gap:8px;z-index:20;
 }
 .hero-sl-dot{
   width:6px;height:6px;border-radius:50%;
-  background:rgba(245,240,232,.3);border:none;cursor:none;
+  background:rgba(245,240,232,.35);border:none;cursor:none;
   transition:all .3s;padding:0;
+  -webkit-tap-highlight-color:transparent;
 }
+@media(max-width:768px){.hero-sl-dot{cursor:pointer;width:8px;height:8px;}}
 .hero-sl-dot.active{width:24px;border-radius:3px;background:var(--gold);}
+/* Arrows */
 .hero-sl-arrow{
   position:absolute;top:50%;transform:translateY(-50%);z-index:20;
-  width:48px;height:48px;border-radius:50%;
+  width:clamp(36px,6vw,48px);height:clamp(36px,6vw,48px);border-radius:50%;
   background:rgba(5,6,10,.5);border:1px solid var(--edge);
-  backdrop-filter:blur(10px);color:var(--cream);font-size:24px;
+  backdrop-filter:blur(10px);color:var(--cream);
+  font-size:clamp(18px,3vw,24px);
   cursor:none;display:flex;align-items:center;justify-content:center;
   transition:all .3s;
 }
 .hero-sl-arrow:hover{background:var(--gold);color:var(--ink);border-color:var(--gold);}
-.hero-sl-arrow.l{left:24px;}
-.hero-sl-arrow.r{right:24px;}
-@media(max-width:768px){.hero-sl-arrow{display:none;}}
+.hero-sl-arrow.l{left:clamp(10px,3vw,24px);}
+.hero-sl-arrow.r{right:clamp(10px,3vw,24px);}
+/* Hide arrows on touch devices — swipe is used instead */
+@media(max-width:768px){
+  .hero-sl-arrow{display:none;}
+}
 
 /* Animated mesh background */
 .hero-mesh{
@@ -1696,63 +1707,28 @@ footer{
     </div>
   </div>
 
-  <!-- REVIEWS -->
-  <section class="reviews-sec">
+
+
+  <!-- RATINGS -->
+  <section class="reviews-sec" style="padding:80px 56px;">
     <div class="reviews-inner">
-      <div class="sec-label rv">Client Testimonials</div>
-      <h2 class="sec-h2 rv">What Our Clients<br><em>Say About Us</em></h2>
-      <div class="reviews-layout">
-        <div style="display:flex;flex-direction:column;gap:16px;">
-          <div class="score-block rv">
-            <div class="score-big">5.0</div>
-            <div class="score-stars">★★★★★</div>
-            <div class="score-lbl">Google Rating</div>
-            <div style="margin-top:28px;">
-              <a href="https://share.google/VBesVzpxNdPon7krQ" target="_blank" class="btn-g" style="font-size:10px;padding:12px 24px;">Write a Review</a>
-            </div>
-          </div>
-          <div class="score-block rv" style="background:linear-gradient(135deg,rgba(0,100,60,.18) 0%,var(--panel) 100%);border-color:rgba(0,160,80,.3);">
-            <div style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(0,200,100,.8);margin-bottom:10px;font-weight:600;">GeM Portal</div>
-            <div class="score-big" style="font-size:72px;">5</div>
-            <div class="score-stars" style="color:#00c864;">★★★★★</div>
-            <div class="score-lbl" style="margin-top:6px;">Seller Rating</div>
-            <div style="margin-top:16px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(0,200,100,.6);line-height:1.6;">Government e-Marketplace<br>Official Platform</div>
+      <div class="sec-label rv">Client Ratings</div>
+      <h2 class="sec-h2 rv">Our <em>Ratings &amp; Recognition</em></h2>
+      <div style="display:flex;flex-wrap:wrap;gap:24px;margin-top:48px;justify-content:center;">
+        <div class="score-block rv" style="flex:1;min-width:220px;max-width:280px;">
+          <div class="score-big">5.0</div>
+          <div class="score-stars">★★★★★</div>
+          <div class="score-lbl">Google Rating</div>
+          <div style="margin-top:28px;">
+            <a href="https://share.google/VBesVzpxNdPon7krQ" target="_blank" class="btn-g" style="font-size:10px;padding:12px 24px;">Write a Review</a>
           </div>
         </div>
-        <div class="review-cards">
-          <div class="rv-card rv">
-            <div class="rv-info">
-              <div class="rv-av">M</div>
-              <div>
-                <div class="rv-nm">Mandeep Singh</div>
-                <div class="rv-stars">★★★★★</div>
-              </div>
-            </div>
-            <div class="rv-txt">Excellent work by the Matro Art Studio team. Highly professional execution and impeccable attention to detail. Our ministry event was flawlessly handled.</div>
-            <div class="rv-date">2 months ago</div>
-          </div>
-          <div class="rv-card rv d1">
-            <div class="rv-info">
-              <div class="rv-av">P</div>
-              <div>
-                <div class="rv-nm">Priya Sharma</div>
-                <div class="rv-stars">★★★★★</div>
-              </div>
-            </div>
-            <div class="rv-txt">Outstanding professionalism. They managed our national conference with precision and grace. From AV setup to printing — everything was top-tier quality.</div>
-            <div class="rv-date">3 months ago</div>
-          </div>
-          <div class="rv-card rv d2">
-            <div class="rv-info">
-              <div class="rv-av">R</div>
-              <div>
-                <div class="rv-nm">Rajesh Kumar</div>
-                <div class="rv-stars">★★★★★</div>
-              </div>
-            </div>
-            <div class="rv-txt">Trusted partners for government events. Matro Art Studio consistently delivers above expectations. Their experience with high-protocol events is truly unmatched.</div>
-            <div class="rv-date">4 months ago</div>
-          </div>
+        <div class="score-block rv" style="flex:1;min-width:220px;max-width:280px;background:linear-gradient(135deg,rgba(0,100,60,.18) 0%,var(--panel) 100%);border-color:rgba(0,160,80,.3);">
+          <div style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(0,200,100,.8);margin-bottom:10px;font-weight:600;">GeM Portal</div>
+          <div class="score-big" style="font-size:72px;">5</div>
+          <div class="score-stars" style="color:#00c864;">★★★★★</div>
+          <div class="score-lbl" style="margin-top:6px;">Seller Rating</div>
+          <div style="margin-top:16px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(0,200,100,.6);line-height:1.6;">Government e-Marketplace<br>Official Platform</div>
         </div>
       </div>
     </div>
@@ -3297,12 +3273,17 @@ document.querySelectorAll('a,button,[onclick]').forEach(el => {
 
 /* ═══ LOADER ═══ */
 window.addEventListener('load', () => {
+  /* Always start from very top */
+  window.scrollTo({ top: 0, behavior: 'instant' });
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
   setTimeout(() => {
     document.getElementById('loader').classList.add('out');
     initParticles();
     initReveal();
     renderRecentEvents();
     initHeroSlider();
+    window.scrollTo({ top: 0, behavior: 'instant' });
   }, 800);
 });
 
@@ -3345,6 +3326,18 @@ function heroSlNav(d) { goHeroSlide(heroSlIdx + d); resetHeroSl(); }
 function startHeroSl() { clearInterval(heroSlTimer); heroSlTimer = setInterval(() => heroSlNav(1), HERO_SL_DUR); }
 function resetHeroSl() { startHeroSl(); }
 
+/* Touch/swipe support for hero slider */
+(function(){
+  const hero = document.querySelector('.hero');
+  if (!hero) return;
+  let tx = 0;
+  hero.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
+  hero.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - tx;
+    if (Math.abs(dx) > 40) { heroSlNav(dx < 0 ? 1 : -1); }
+  }, { passive: true });
+})();
+
 /* ═══ PARTICLES ═══ */
 function initParticles() {
   const c = document.getElementById('heroParticles');
@@ -3386,7 +3379,11 @@ function showPage(id) {
         }, 50);
       }, 100);
     }
-    if (id === 'home') renderRecentEvents(); /* refresh home preview when returning */
+    if (id === 'home') {
+      renderRecentEvents(); /* refresh home preview when returning */
+      /* Guarantee hero is visible from the top */
+      setTimeout(() => { window.scrollTo({ top: 0, behavior: 'instant' }); }, 50);
+    }
   }
   const btn = document.querySelector(`.nl[onclick*="'${id}'"]`);
   if (btn) btn.classList.add('active');
