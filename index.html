@@ -452,11 +452,9 @@ body::after{
   color:var(--gold);letter-spacing:-1px;
 }
 .hero-h1 .t-outline{
-  -webkit-text-stroke:2px var(--gold);
+  -webkit-text-stroke:1.5px var(--cream-d);
   color:transparent;
   font-style:normal;
-  text-shadow:0 0 40px rgba(212,175,80,0.4);
-  filter:drop-shadow(0 2px 8px rgba(0,0,0,0.6));
 }
 .hero-h1 .t-shimmer{
   background:linear-gradient(135deg,var(--cream) 0%,var(--gold-2) 40%,var(--cream) 80%);
@@ -1466,6 +1464,7 @@ footer{
     <button class="nl" onclick="showPage('events')">Events</button>
     <button class="nl" onclick="showPage('gallery')">Gallery</button>
     <button class="nl" onclick="showPage('about')">About</button>
+    <a href="tel:+919971383939" style="color:var(--gold);font-size:11px;font-weight:600;letter-spacing:1px;text-decoration:none;margin-right:4px;">📞 +91 99713 83939</a>
     <button class="nav-cta" onclick="showPage('contact')">Contact Us</button>
   </div>
   <button class="hbg" id="hbg" onclick="toggleMob()">
@@ -1590,12 +1589,7 @@ footer{
           Poster = fallback image shown before video loads
           ═══════════════════════════════════
           -->
-          <video class="aho-video" autoplay muted loop playsinline preload="metadata"
-            poster="images/DSC_8558.JPG"
-            aria-label="Matro Art Studio event highlights reel">
-            <source src="https://player.vimeo.com/progressive_redirect/download/1191881175/container/6fa1a8c9-57d6-4e24-9f04-2b1c06ded3f3/a640f4ea-47db-4c34-817a-da5dfce35d50/Matro%2BArt%2BStudio%2BEvent%2BHighlights%2BReel.mp4?expires=1747926143&loc=external&signature=b81ae9f78cf38cae73dfb1b13e5c23edb8adde31c20c2e1c0db764e3b2c5d7aa" type="video/mp4">
-            <source src="https://player.vimeo.com/video/1191881175?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1" type="video/mp4">
-          </video>
+          <iframe class="aho-video" src="https://player.vimeo.com/video/1191881175?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1&background=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="width:100%;height:100%;position:absolute;top:0;left:0;" title="Matro Art Studio Event Highlights Reel"></iframe>
           <div class="aho-vid-overlay">
             <div class="aho-vid-badge">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--gold)"><path d="M8 5v14l11-7z"/></svg>
@@ -1937,7 +1931,7 @@ footer{
       <!-- Service 5 -->
       <div class="svc-card rv">
         <div class="svc-img-wrap">
-          <img class="svc-img" src="images/Gemini_Generated_Image_la5qijla5qijla5q.png" alt="Conference Materials">
+          <img class="svc-img" src="images/DSC_8558.JPG" alt="Conference Materials">
           <div class="svc-img-overlay"></div>
         </div>
         <div class="svc-body">
