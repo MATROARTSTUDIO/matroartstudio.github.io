@@ -589,12 +589,12 @@ body::after{
 /* ════════════════════════════════════
    ABOUT HOME SECTION
 ════════════════════════════════════ */
-.about-home-sec{padding:120px 56px;background:var(--void);}
+.about-home-sec{padding:120px 56px;background:var(--void);overflow:visible;}
 .aho-inner{
   max-width:1240px;margin:0 auto;
   display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;
 }
-.aho-media-wrap{position:relative;min-width:0;}
+.aho-media-wrap{position:relative;min-width:0;padding-right:44px;padding-bottom:0;}
 .aho-text{min-width:0;}
 .aho-vid-box{
   position:relative;border-radius:var(--r2);
@@ -631,7 +631,7 @@ body::after{
   font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);
 }
 .aho-est-badge{
-  position:absolute;bottom:-22px;right:-22px;z-index:4;
+  position:absolute;bottom:-20px;right:-20px;z-index:10;
   background:linear-gradient(135deg,var(--gold),var(--gold-2));
   color:var(--ink);padding:22px 28px;border-radius:var(--r);
   box-shadow:0 12px 40px rgba(212,175,80,.45);text-align:center;
@@ -1445,11 +1445,20 @@ footer{
   .services-full{padding:60px 24px;}
   .svc-inner{}
   .cta-band{padding:80px 24px;}
-  .about-home-sec{padding:80px 24px;overflow:hidden;}
+  .about-home-sec{padding:80px 24px;overflow:visible;}
   .aho-inner{grid-template-columns:minmax(0,1fr);gap:48px;}
-  .aho-media-wrap{margin:0 12px;}
-  .aho-vid-box::before{left:-12px;right:12px;top:-12px;bottom:12px;}
-  .aho-est-badge{right:0;bottom:-16px;padding:16px 20px;}
+  .aho-media-wrap{margin:0;padding-right:0;padding-bottom:0;position:relative;}
+  .aho-vid-box{overflow:hidden;width:100%;max-width:100%;aspect-ratio:16/9;}
+  .aho-vid-box::before{display:none;}
+  .aho-est-badge{
+    position:absolute;
+    bottom:-16px;right:-8px;
+    padding:10px 16px;
+    border-radius:var(--r);
+    z-index:10;
+  }
+  .aho-est-num{font-size:32px;}
+  .aho-est-lbl{font-size:8px;}
   .clients-hdr{padding:0 24px;}
   .reviews-sec,.srv-sec{padding:80px 24px;}
   .pg-banner{height:240px;}
@@ -1499,7 +1508,6 @@ footer{
     <button class="nl" onclick="showPage('events')">Events</button>
     <button class="nl" onclick="showPage('gallery')">Gallery</button>
     <button class="nl" onclick="showPage('about')">About</button>
-    <a href="tel:+919971383939" style="color:var(--gold);font-size:11px;font-weight:600;letter-spacing:1px;text-decoration:none;margin-right:4px;">📞 +91 99713 83939</a>
     <button class="nav-cta" onclick="showPage('contact')">Contact Us</button>
   </div>
   <button class="hbg" id="hbg" onclick="toggleMob()">
@@ -1631,10 +1639,10 @@ footer{
               Event Highlights
             </div>
           </div>
-          <div class="aho-est-badge">
-            <div class="aho-est-num">2008</div>
-            <div class="aho-est-lbl">Est.</div>
-          </div>
+        </div>
+        <div class="aho-est-badge">
+          <div class="aho-est-num">2008</div>
+          <div class="aho-est-lbl">Est.</div>
         </div>
       </div>
       <div class="aho-text">
@@ -2575,12 +2583,13 @@ footer{
         </div>
       </div>
       <div class="rv d1">
-        <div class="aho-vid-box" style="aspect-ratio:3/4;max-height:600px;">
-          <img class="aho-video" src="images/DSC_8558.JPG" alt="Matro Art Studio Events" style="object-position:center top;">
+        <div class="aho-vid-box" id="aboutStoryImgBox" style="aspect-ratio:3/4;max-height:600px;">
+          <img class="aho-video" src="images/DSC_8558.JPG" alt="Matro Art Studio Events" style="object-position:center top;" onerror="document.getElementById('aboutStoryImgBox').style.display='none';document.getElementById('aboutStoryBadge').style.position='relative';document.getElementById('aboutStoryBadge').style.display='inline-flex';">
           <div class="aho-vid-overlay">
             <div class="aho-vid-badge">📍 Lajpat Nagar, New Delhi</div>
           </div>
-          <div class="aho-est-badge">
+        </div>
+        <div class="aho-est-badge" id="aboutStoryBadge">
             <div class="aho-est-num">18+</div>
             <div class="aho-est-lbl">Years</div>
           </div>
