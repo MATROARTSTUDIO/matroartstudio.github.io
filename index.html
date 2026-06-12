@@ -594,7 +594,8 @@ body::after{
   max-width:1240px;margin:0 auto;
   display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;
 }
-.aho-media-wrap{position:relative;}
+.aho-media-wrap{position:relative;min-width:0;}
+.aho-text{min-width:0;}
 .aho-vid-box{
   position:relative;border-radius:var(--r2);
   overflow:hidden;aspect-ratio:16/9;
@@ -638,7 +639,6 @@ body::after{
 .aho-est-num{font-family:'Bebas Neue',serif;font-size:52px;line-height:1;letter-spacing:2px;}
 .aho-est-lbl{font-size:9px;letter-spacing:3px;text-transform:uppercase;font-weight:600;}
 
-.aho-text{}
 .aho-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:32px;}
 .aho-tag{
   padding:7px 16px;border:1px solid var(--edge);
@@ -1446,7 +1446,7 @@ footer{
   .svc-inner{}
   .cta-band{padding:80px 24px;}
   .about-home-sec{padding:80px 24px;overflow:hidden;}
-  .aho-inner{grid-template-columns:1fr;gap:48px;}
+  .aho-inner{grid-template-columns:minmax(0,1fr);gap:48px;}
   .aho-media-wrap{margin:0 12px;}
   .aho-vid-box::before{left:-12px;right:12px;top:-12px;bottom:12px;}
   .aho-est-badge{right:0;bottom:-16px;padding:16px 20px;}
