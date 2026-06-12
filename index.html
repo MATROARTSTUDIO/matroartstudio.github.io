@@ -441,7 +441,7 @@ body::after{
 .hero-h1{
   font-family:'Playfair Display',serif;
   font-size:clamp(48px,9vw,120px);
-  font-weight:900;line-height:.9;
+  font-weight:900;line-height:1;
   letter-spacing:-3px;
   margin-bottom:0;
   animation:fadeInUp .9s .1s ease both;
@@ -461,6 +461,7 @@ body::after{
   background-size:200% auto;
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
   animation:shimmer 4s linear infinite;
+  padding-bottom:0.15em;
 }
 @keyframes shimmer{to{background-position:200% center;}}
 
@@ -1386,7 +1387,7 @@ footer{
   }
   .hero-content{width:100%;}
   .hero-eyebrow{font-size:8px;letter-spacing:2px;padding:6px 14px;margin-bottom:16px;}
-  .hero-h1{font-size:clamp(30px,10vw,48px);letter-spacing:-1px;line-height:.95;}
+  .hero-h1{font-size:clamp(30px,10vw,48px);letter-spacing:-1px;line-height:1;}
   .hero-rule{margin:16px auto;width:60px;}
   .hero-sub{font-size:13px;margin-bottom:20px;line-height:1.6;}
   .hero-btns{gap:8px;}
