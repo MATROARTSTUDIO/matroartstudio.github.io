@@ -93,12 +93,13 @@
    RESET
 ════════════════════════════════════ */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;font-size:16px;height:-webkit-fill-available;}
+html{scroll-behavior:smooth;font-size:16px;width:100%;max-width:100%;}
 body{
   font-family:'DM Sans',sans-serif;
   background:var(--ink);
   color:var(--cream);
   overflow-x:hidden;
+  width:100%;max-width:100%;
   cursor:none;
 }
 img{user-select:none;-webkit-user-drag:none;max-width:100%;}
@@ -264,7 +265,7 @@ body::after{
 /* ════════════════════════════════════
    PAGES
 ════════════════════════════════════ */
-.page{display:none;}
+.page{display:none;width:100%;max-width:100%;overflow-x:hidden;}
 .page.active{display:block;}
 
 /* ════════════════════════════════════
@@ -282,12 +283,13 @@ body::after{
 ════════════════════════════════════ */
 .hero{
   position:relative;
-  height:100dvh; /* fills exactly the visible viewport on mobile */
+  height:100dvh;
   min-height:100svh;
-  min-height:100vh; /* fallback */
+  min-height:100vh;
+  width:100%;
   display:flex;flex-direction:column;
   align-items:center;justify-content:center;
-  overflow:hidden;
+  overflow:clip;
   padding:clamp(80px,12vh,120px) clamp(16px,5vw,56px) clamp(60px,10vh,100px);
   text-align:center;
 }
@@ -328,7 +330,7 @@ body::after{
 /* Dots — always visible, repositioned on mobile */
 .hero-sl-dots{
   position:absolute;bottom:clamp(56px,8vw,88px);left:50%;transform:translateX(-50%);
-  display:none;gap:8px;z-index:20;
+  display:flex;gap:8px;z-index:20;
 }
 .hero-sl-dot{
   width:6px;height:6px;border-radius:50%;
@@ -424,7 +426,7 @@ body::after{
 .shine-lines::after{top:60%;animation-delay:8s;}
 @keyframes shine-sweep{0%,100%{transform:rotate(-25deg) translateX(-20%);}50%{transform:rotate(-25deg) translateX(20%);}}
 
-.hero-content{position:relative;z-index:3;max-width:940px;}
+.hero-content{position:relative;z-index:10;max-width:940px;}
 
 .hero-eyebrow{
   display:inline-flex;align-items:center;gap:10px;
@@ -441,9 +443,11 @@ body::after{
 .hero-h1{
   font-family:'Playfair Display',serif;
   font-size:clamp(48px,9vw,120px);
-  font-weight:900;line-height:.9;
+  font-weight:900;line-height:1.05;
   letter-spacing:-3px;
   margin-bottom:0;
+  padding-bottom:16px; /* generous space for descenders like y, g, p */
+  overflow:visible;
   animation:fadeInUp .9s .1s ease both;
 }
 .hero-h1 .t-line{display:block;}
@@ -460,6 +464,8 @@ body::after{
   background:linear-gradient(135deg,var(--cream) 0%,var(--gold-2) 40%,var(--cream) 80%);
   background-size:200% auto;
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  padding-bottom:0.15em; /* prevents -webkit-background-clip from cropping descenders */
+  display:inline-block;
   animation:shimmer 4s linear infinite;
 }
 @keyframes shimmer{to{background-position:200% center;}}
@@ -590,9 +596,13 @@ body::after{
 .aho-media-wrap{position:relative;}
 .aho-vid-box{
   position:relative;border-radius:var(--r2);
-  overflow:hidden;aspect-ratio:4/5;
+  overflow:hidden;aspect-ratio:16/9;
   border:1px solid var(--edge);
   box-shadow:0 24px 80px rgba(0,0,0,.6);
+  min-height:300px;
+}
+.aho-vid-box iframe{
+  position:absolute;top:0;left:0;width:100%;height:100%;border:0;
 }
 .aho-vid-box::before{
   content:'';position:absolute;z-index:2;
@@ -1370,32 +1380,51 @@ footer{
 }
 @media(max-width:768px){
   .hero{
-    height:100dvh;
-    height:100svh; /* fallback */
-    min-height:-webkit-fill-available; /* iOS Safari fix */
+    height:auto;
+    min-height:100dvh;
+    min-height:100svh;
+    width:100vw;
+    max-width:100vw;
+    margin:0;
+    overflow:clip;
+    padding:90px 20px 48px;
+    justify-content:flex-start;
+    align-items:center;
+    flex-direction:column;
+  }
+  .hero-slider-bg,
+  .hero-sl-slide{
+    position:absolute;top:0;left:0;
+    width:100%;height:100%;
+  }
+  .hero-sl-slide img{
+    width:100%;height:100%;
+    object-fit:cover;object-position:center center;
   }
   .sec{padding:80px 24px;}
   .srv-grid{grid-template-columns:1fr;}
   .gallery-grid{columns:2;}
   .review-cards{grid-template-columns:1fr;}
-  /* ── Hero: scale everything down so full image is visible ── */
-  .hero{
-    padding:76px 20px 20px;
-    justify-content:flex-start;
-    padding-top:96px;
-  }
-  .hero-content{width:100%;}
+  .hero-content{width:100%;position:relative;z-index:10;}
   .hero-eyebrow{font-size:8px;letter-spacing:2px;padding:6px 14px;margin-bottom:16px;}
-  .hero-h1{font-size:clamp(30px,10vw,48px);letter-spacing:-1px;line-height:.95;}
+  .hero-h1{font-size:clamp(30px,10vw,48px);letter-spacing:-1px;line-height:1.05;padding-bottom:6px;}
   .hero-rule{margin:16px auto;width:60px;}
   .hero-sub{font-size:13px;margin-bottom:20px;line-height:1.6;}
   .hero-btns{gap:8px;}
   .btn-g,.btn-o{padding:10px 20px;font-size:10px;}
-  .hero-stats{flex-direction:row;flex-wrap:wrap;gap:0;margin-top:16px;justify-content:center;}
-  .hs{padding:10px 16px;border-right:1px solid var(--edge);border-bottom:none;flex:1;min-width:80px;}
+  .hero-stats{
+    flex-direction:row;flex-wrap:wrap;gap:0;
+    margin-top:20px;justify-content:center;
+    position:relative;z-index:10; /* must sit above absolute bg */
+    width:100%;
+    background:rgba(5,6,10,.45);
+    backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+    border:1px solid var(--edge);border-radius:var(--r);
+  }
+  .hs{padding:12px 10px;border-right:1px solid var(--edge);border-bottom:none;flex:1;min-width:72px;}
   .hs:last-child{border-right:none;}
-  .hs-n{font-size:28px;}
-  .hs-l{font-size:7px;letter-spacing:1.5px;}
+  .hs-n{font-size:26px;}
+  .hs-l{font-size:7px;letter-spacing:1px;}
   .scroll-ind{display:none;}
   .slider-sec,.gallery-sec{padding:48px 24px;}
   .events-list{padding:60px 24px;}
@@ -1464,6 +1493,7 @@ footer{
     <button class="nl" onclick="showPage('events')">Events</button>
     <button class="nl" onclick="showPage('gallery')">Gallery</button>
     <button class="nl" onclick="showPage('about')">About</button>
+    <a href="tel:+919971383939" style="color:var(--gold);font-size:11px;font-weight:600;letter-spacing:1px;text-decoration:none;margin-right:4px;">📞 +91 99713 83939</a>
     <button class="nav-cta" onclick="showPage('contact')">Contact Us</button>
   </div>
   <button class="hbg" id="hbg" onclick="toggleMob()">
@@ -1588,12 +1618,7 @@ footer{
           Poster = fallback image shown before video loads
           ═══════════════════════════════════
           -->
-          <video class="aho-video" autoplay muted loop playsinline preload="metadata"
-            poster="images/DSC_8558.JPG"
-            aria-label="Matro Art Studio event highlights reel">
-            <source src="https://player.vimeo.com/progressive_redirect/download/1191881175/container/6fa1a8c9-57d6-4e24-9f04-2b1c06ded3f3/a640f4ea-47db-4c34-817a-da5dfce35d50/Matro%2BArt%2BStudio%2BEvent%2BHighlights%2BReel.mp4?expires=1747926143&loc=external&signature=b81ae9f78cf38cae73dfb1b13e5c23edb8adde31c20c2e1c0db764e3b2c5d7aa" type="video/mp4">
-            <source src="https://player.vimeo.com/video/1191881175?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1" type="video/mp4">
-          </video>
+          <iframe class="aho-video" src="https://player.vimeo.com/video/1191881175?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1&background=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="width:100%;height:100%;position:absolute;top:0;left:0;" title="Matro Art Studio Event Highlights Reel"></iframe>
           <div class="aho-vid-overlay">
             <div class="aho-vid-badge">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--gold)"><path d="M8 5v14l11-7z"/></svg>
@@ -1935,7 +1960,7 @@ footer{
       <!-- Service 5 -->
       <div class="svc-card rv">
         <div class="svc-img-wrap">
-          <img class="svc-img" src="images/Gemini_Generated_Image_la5qijla5qijla5q.png" alt="Conference Materials">
+          <img class="svc-img" src="images/DSC_8558.JPG" alt="Conference Materials">
           <div class="svc-img-overlay"></div>
         </div>
         <div class="svc-body">
