@@ -38,6 +38,12 @@
 <meta name="geo.position" content="28.5694;77.2370">
 <meta name="ICBM" content="28.5694, 77.2370">
 
+<!-- Preload LCP hero image -->
+<link rel="preload" as="image" href="images/1.JPG" fetchpriority="high">
+<!-- DNS prefetch for external services -->
+<link rel="dns-prefetch" href="https://api.whatsapp.com">
+<link rel="dns-prefetch" href="https://share.google">
+
 <!-- Image indexing hint -->
 <link rel="image_src" href="https://matroartstudio.github.io/images/DSC_8558.JPG">
 <link rel="image_src" href="https://matroartstudio.github.io/images2/DOPT1.jpeg">
@@ -57,7 +63,9 @@
 ═══════════════════════════════════════════ -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@200;300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=Bebas+Neue&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet"></noscript>
 
 <style>
 /* ════════════════════════════════════
@@ -140,9 +148,18 @@ button{font-family:'DM Sans',sans-serif;cursor:none;}
   background:var(--ink);
   display:flex;flex-direction:column;
   align-items:center;justify-content:center;gap:28px;
-  transition:opacity .9s ease,visibility .9s ease;
+  transition:opacity .4s ease,visibility .4s ease;
+  touch-action:none;
+  overscroll-behavior:none;
 }
-#loader.out{opacity:0;visibility:hidden;}
+#loader.out{opacity:0;visibility:hidden;pointer-events:none;}
+body.loading{
+  overflow:hidden;
+  position:fixed;
+  width:100%;
+  touch-action:none;
+  overscroll-behavior:none;
+}
 .ld-name{
   font-family:'Playfair Display',serif;
   font-size:clamp(36px,8vw,72px);
@@ -155,7 +172,7 @@ button{font-family:'DM Sans',sans-serif;cursor:none;}
 .ld-fill{
   position:absolute;top:0;left:0;height:100%;width:0;
   background:linear-gradient(90deg,var(--gold-3),var(--gold-2));
-  animation:ld-grow .7s cubic-bezier(.4,0,.2,1) forwards;
+  animation:ld-grow .45s cubic-bezier(.4,0,.2,1) forwards;
 }
 @keyframes ld-grow{to{width:100%;}}
 .ld-tag{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--cream-d);}
@@ -374,11 +391,12 @@ body::after{
   background-size:80px 80px;
   mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,transparent 30%,black 80%);
   animation:grid-drift 40s linear infinite;
+  will-change:transform;
 }
-@keyframes grid-drift{to{transform:translateY(80px);}}
+@keyframes grid-drift{to{transform:translate3d(0,80px,0);}}
 
 /* Orbs */
-.orb{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:2;}
+.orb{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:2;will-change:transform;}
 .orb-a{
   width:700px;height:500px;
   background:radial-gradient(ellipse,rgba(212,175,80,.09) 0%,transparent 65%);
@@ -484,6 +502,66 @@ body::after{
   animation:fadeInUp .9s .3s ease both;
 }
 
+.hero-trust-badge{
+  margin:0 auto 36px;
+  max-width:640px;
+  padding:22px 32px;
+  border:1px solid var(--edge-hi);
+  border-radius:8px;
+  background:rgba(212,175,80,.07);
+  backdrop-filter:blur(8px);
+  animation:fadeInUp .9s .3s ease both;
+  position:relative;
+  overflow:hidden;
+}
+.hero-trust-badge::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(212,175,80,.08) 0%,transparent 60%);
+  pointer-events:none;
+}
+.htb-line1{
+  font-size:clamp(14px,1.8vw,17px);
+  font-weight:500;
+  color:var(--cream);
+  letter-spacing:.4px;
+  line-height:1.6;
+  text-align:center;
+}
+.htb-highlight{
+  color:var(--gold-2);
+  font-weight:700;
+  font-family:'Playfair Display',serif;
+  font-size:1.1em;
+}
+.htb-icon{
+  color:var(--gold);
+  font-size:.75em;
+  margin:0 6px;
+  opacity:.8;
+}
+.htb-divider{
+  width:60px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  margin:14px auto;
+}
+.htb-line2{
+  font-size:clamp(13px,1.5vw,15px);
+  font-weight:300;
+  color:var(--cream-m);
+  letter-spacing:.8px;
+  text-align:center;
+  font-style:normal;
+}
+.htb-line2 em{
+  color:var(--gold);
+  font-style:italic;
+  font-weight:400;
+}
+@media(max-width:600px){
+  .hero-trust-badge{padding:18px 20px;}
+  .htb-line1{font-size:13px;}
+}
+
 .hero-btns{
   display:flex;gap:16px;justify-content:center;flex-wrap:wrap;
   animation:fadeInUp .9s .5s ease both;
@@ -552,7 +630,7 @@ body::after{
 
 /* Ticker */
 .ticker{background:linear-gradient(135deg,var(--gold),var(--gold-2));padding:18px 0;overflow:hidden;}
-.ticker-track{display:flex;white-space:nowrap;animation:tick 22s linear infinite;}
+.ticker-track{display:flex;white-space:nowrap;animation:tick 22s linear infinite;will-change:transform;}
 @keyframes tick{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 .tick-item{
   display:inline-flex;align-items:center;gap:14px;
@@ -1566,10 +1644,15 @@ footer{
         <span class="t-line t-outline">Events</span>
       </h1>
       <div class="hero-rule"></div>
-      <p class="hero-sub">
-        Trusted by 100+ Ministries & PSUs of the Government of India since 2008.
-        We transform visions into unforgettable experiences.
-      </p>
+      <div class="hero-trust-badge">
+        <div class="htb-line1">
+          <span class="htb-icon">✦</span>
+          Trusted by <span class="htb-highlight">100+ Ministries &amp; PSUs</span> of the Government of India since <span class="htb-highlight">2008</span>
+          <span class="htb-icon">✦</span>
+        </div>
+        <div class="htb-divider"></div>
+        <div class="htb-line2">We transform visions into <em>unforgettable experiences.</em></div>
+      </div>
       <div class="hero-btns">
         <button class="btn-g" onclick="showPage('contact')">Contact Us →</button>
         <button class="btn-o" onclick="showPage('events')">View Our Work</button>
@@ -3298,31 +3381,49 @@ function renderRecentEvents() {
 /* ═══ CURSOR ═══ */
 const cur = document.getElementById('cur');
 const ring = document.getElementById('cur-ring');
-document.addEventListener('mousemove', e => {
-  cur.style.left = e.clientX + 'px';
-  cur.style.top = e.clientY + 'px';
-  ring.style.left = e.clientX + 'px';
-  ring.style.top = e.clientY + 'px';
-});
-document.querySelectorAll('a,button,[onclick]').forEach(el => {
-  el.addEventListener('mouseenter', () => { cur.classList.add('big'); ring.classList.add('big'); });
-  el.addEventListener('mouseleave', () => { cur.classList.remove('big'); ring.classList.remove('big'); });
-});
+if (cur && ring) {
+  let _cx = 0, _cy = 0, _curTick = false;
+  document.addEventListener('mousemove', e => {
+    _cx = e.clientX; _cy = e.clientY;
+    if (_curTick) return;
+    _curTick = true;
+    requestAnimationFrame(() => {
+      cur.style.left = _cx + 'px'; cur.style.top = _cy + 'px';
+      ring.style.left = _cx + 'px'; ring.style.top = _cy + 'px';
+      _curTick = false;
+    });
+  }, { passive: true });
+  document.addEventListener('mouseover', e => {
+    if (e.target.closest('a,button,[onclick]')) { cur.classList.add('big'); ring.classList.add('big'); }
+    else { cur.classList.remove('big'); ring.classList.remove('big'); }
+  }, { passive: true });
+}
 
 /* ═══ LOADER ═══ */
+/* Lock scroll immediately — before anything loads */
+document.body.classList.add('loading');
+window.scrollTo({ top: 0, behavior: 'instant' });
+
 window.addEventListener('load', () => {
-  /* Always start from very top */
   window.scrollTo({ top: 0, behavior: 'instant' });
   document.documentElement.scrollTop = 0;
   document.body.scrollTop = 0;
   setTimeout(() => {
-    document.getElementById('loader').classList.add('out');
+    const loader = document.getElementById('loader');
+    loader.classList.add('out');
+    /* Re-enable scroll only after loader fully fades (matches .4s transition) */
+    setTimeout(() => {
+      document.body.classList.remove('loading');
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }, 420);
     initParticles();
     initReveal();
     renderRecentEvents();
     initHeroSlider();
-    window.scrollTo({ top: 0, behavior: 'instant' });
-  }, 800);
+  }, 350);
 });
 
 /* ═══ HERO BACKGROUND SLIDER ═══ */
@@ -3390,9 +3491,16 @@ function initParticles() {
 }
 
 /* ═══ NAV ═══ */
+let _navTicking = false;
+const _nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
-  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
-});
+  if (_navTicking) return;
+  _navTicking = true;
+  requestAnimationFrame(() => {
+    _nav.classList.toggle('scrolled', window.scrollY > 40);
+    _navTicking = false;
+  });
+}, { passive: true });
 
 /* ═══ PAGE NAV ═══ */
 function showPage(id) {
@@ -3437,12 +3545,18 @@ function toggleMob() {
 }
 
 /* ═══ REVEAL ═══ */
+let _revealObs = null;
 function initReveal() {
-  const items = document.querySelectorAll('.page.active .rv');
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  if (_revealObs) _revealObs.disconnect();
+  _revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        _revealObs.unobserve(e.target); /* stop watching once revealed */
+      }
+    });
   }, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
-  items.forEach(el => obs.observe(el));
+  document.querySelectorAll('.page.active .rv').forEach(el => _revealObs.observe(el));
 }
 
 /* ═══ SERVICE DROPDOWNS ═══ */
