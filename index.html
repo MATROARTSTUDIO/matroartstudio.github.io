@@ -1594,6 +1594,7 @@ footer{
     <button class="nl" onclick="showPage('services')">Services</button>
     <button class="nl" onclick="showPage('events')">Events</button>
     <button class="nl" onclick="showPage('gallery')">Gallery</button>
+    <button class="nl" onclick="showPage('blog')">Blog</button>
     <button class="nl" onclick="showPage('about')">About</button>
     <button class="nl" onclick="showPage('seo')">Why Us</button>
     <button class="nav-cta" onclick="showPage('contact')">Contact Us</button>
@@ -1607,6 +1608,7 @@ footer{
   <button class="nl" onclick="showPage('services')">Services</button>
   <button class="nl" onclick="showPage('events')">Events</button>
   <button class="nl" onclick="showPage('gallery')">Gallery</button>
+  <button class="nl" onclick="showPage('blog')">Blog</button>
   <button class="nl" onclick="showPage('about')">About</button>
   <button class="nl" onclick="showPage('seo')">Why Us</button>
   <button class="nl" onclick="showPage('contact')">Contact Us</button>
@@ -2869,6 +2871,49 @@ footer{
 
 
 <!-- ═══ SEO LANDING PAGE ═══ -->
+<!-- ═══ BLOG PAGE ═══ -->
+<div id="page-blog" class="page">
+  <div class="pg-banner">
+    <div class="pg-banner-bg"></div>
+    <div class="pg-banner-grid"></div>
+    <div class="pg-banner-glow"></div>
+    <div class="pg-banner-content">
+      <div class="pg-label">Event Stories</div>
+      <div class="pg-title">Our <em>Blog</em></div>
+    </div>
+  </div>
+
+  <section style="padding:80px 0;background:var(--ink);">
+    <div style="max-width:1100px;margin:0 auto;padding:0 32px;">
+
+      <div class="rv" style="margin-bottom:56px;text-align:center;">
+        <div class="sec-label">Behind Every Event</div>
+        <h2 class="sec-h2">Stories from <em>India's Most Important Events</em></h2>
+        <p class="sec-p" style="max-width:640px;margin:16px auto 0;">A behind-the-scenes look at the government conferences, national summits, and high-profile ceremonies we've had the privilege of managing.</p>
+      </div>
+
+      <div id="blog-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:32px;"></div>
+
+    </div>
+  </section>
+</div>
+
+<!-- ═══ BLOG POST PAGE ═══ -->
+<div id="page-blog-post" class="page">
+  <div class="pg-banner">
+    <div class="pg-banner-bg"></div>
+    <div class="pg-banner-grid"></div>
+    <div class="pg-banner-glow"></div>
+    <div class="pg-banner-content" id="blog-post-banner">
+      <div class="pg-label" id="blog-post-label">Event Story</div>
+      <div class="pg-title" id="blog-post-banner-title">Loading...</div>
+    </div>
+  </div>
+  <section style="padding:80px 0;background:var(--ink);">
+    <div style="max-width:800px;margin:0 auto;padding:0 32px;" id="blog-post-body"></div>
+  </section>
+</div>
+
 <div id="page-seo" class="page">
   <div class="pg-banner">
     <div class="pg-banner-bg"></div>
@@ -3009,6 +3054,7 @@ footer{
           <li><a onclick="showPage('home')">Home</a></li>
           <li><a onclick="showPage('events')">Recent Events</a></li>
           <li><a onclick="showPage('gallery')">Gallery</a></li>
+          <li><a onclick="showPage('blog')">Blog</a></li>
           <li><a onclick="showPage('about')">About Us</a></li>
           <li><a onclick="showPage('seo')">Why Choose Us</a></li>
           <li><a onclick="showPage('contact')">Contact</a></li>
@@ -3736,12 +3782,195 @@ function showPage(id) {
       /* Guarantee hero is visible from the top */
       setTimeout(() => { window.scrollTo({ top: 0, behavior: 'instant' }); }, 50);
     }
+    if (id === 'blog') {
+      renderBlog();
+    }
   }
   const btn = document.querySelector(`.nl[onclick*="'${id}'"]`);
   if (btn) btn.classList.add('active');
   /* Close mobile menu if open */
   const mob = document.getElementById('mobMenu');
   if (mob && mob.classList.contains('open')) toggleMob();
+}
+
+/* ═══ BLOG ═══ */
+const BLOG_CONTENT = {
+  "National Capital Region Planning Board 42nd Board Meeting": {
+    date: "March 2026", readTime: "3 min read",
+    intro: "The National Capital Region Planning Board (NCRPB) convened its 42nd Board Meeting at Vigyan Bhawan, New Delhi — one of India's most iconic venues for high-level government gatherings.",
+    body: `<p>Matro Art Studio was entrusted with the complete event management of the 42nd Board Meeting of the National Capital Region Planning Board (NCRPB), held at the prestigious Vigyan Bhawan, New Delhi in 2026.</p>
+<p>The NCRPB Board Meeting is a high-level assembly that brings together senior officials from the Central Government and multiple state governments to deliberate on the planned development of the National Capital Region. Managing an event of this nature demands absolute precision — from seating protocols and AV setup to branding and printed materials.</p>
+<p>Our team handled end-to-end logistics including venue dressing, branded backdrop design, delegate seating arrangements, audio-visual production, printed conference materials, and on-site coordination. Every detail was executed to meet the high standards expected at a government board meeting of this stature.</p>
+<p>This event is a testament to Matro Art Studio's capability in managing multi-stakeholder government meetings with the professionalism and discretion they require.</p>`
+  },
+  "MoU Signing Ceremony Between National Health Authority and Department of Health and Family Welfare for West Bangal": {
+    date: "March 2026", readTime: "3 min read",
+    intro: "Matro Art Studio managed the MoU Signing Ceremony between the National Health Authority and the Department of Health and Family Welfare, Government of West Bengal at Vigyan Bhawan — a landmark moment in India's public health cooperation.",
+    body: `<p>MoU signing ceremonies are among the most photographed and media-covered government events — every visual detail matters. Matro Art Studio was honoured to manage this landmark ceremony between the National Health Authority (NHA) and the Department of Health and Family Welfare, Government of West Bengal, held at Vigyan Bhawan, New Delhi.</p>
+<p>The ceremony marked a significant step in expanding Ayushman Bharat — PM-JAY coverage to West Bengal, bringing health insurance to millions of beneficiaries. Our team designed and produced the ceremonial stage setup, branded backdrops, table arrangements, standees, and all printed collateral for the event.</p>
+<p>Precise timing, flawless AV, and a stage that photographs well under press cameras — these are the standards Matro Art Studio delivers at every signing ceremony we manage.</p>`
+  },
+  "National Symposium on Customs Reforms 2026": {
+    date: "January 2026", readTime: "4 min read",
+    intro: "The Central Board of Indirect Taxes and Customs (CBIC) brought together customs officials from across India for a national-level symposium on reforms — managed entirely by Matro Art Studio at Vigyan Bhawan.",
+    body: `<p>The National Symposium on Customs Reforms 2026, organised by the Central Board of Indirect Taxes and Customs (CBIC) at Vigyan Bhawan, New Delhi, was a landmark gathering of senior customs officials, policymakers, and trade facilitation experts from across India.</p>
+<p>Matro Art Studio managed the complete event — from the grand stage design and LED backdrop to delegate registration, conference kits, printed brochures, audio-visual production, and live session coordination. The symposium featured multiple sessions with senior government officials and required seamless transitions between presentations, panel discussions, and ceremonial segments.</p>
+<p>Vigyan Bhawan demands a certain standard of production quality — and that is precisely what our team delivers. With 18+ years of experience managing events at this iconic venue, we understand its unique requirements and consistently exceed expectations.</p>`
+  },
+  "Press Conference — Release of GDP Data (Base Year 2022–23)": {
+    date: "February 2026", readTime: "3 min read",
+    intro: "When the Ministry of Statistics released India's new GDP data with a revised base year, Matro Art Studio managed the national press conference at the National Media Centre — one of the most media-sensitive events we handle.",
+    body: `<p>The release of GDP data is one of the most closely watched economic events in India. When the Ministry of Statistics and Programme Implementation (MoSPI) needed a flawless press conference setup for the release of GDP Data with the new Base Year 2022-23, they trusted Matro Art Studio.</p>
+<p>Held at the National Media Centre, New Delhi, the press conference required precise media-facing stage design, branded podium and backdrops, professional AV setup for live TV coverage, press kits, and on-site coordination with both government officials and media representatives.</p>
+<p>Press conferences of this nature are broadcast live on national television and covered by hundreds of journalists. Every element must be camera-ready and protocol-compliant. Matro Art Studio's experience in government media events ensures that nothing is left to chance.</p>`
+  },
+  "National Science Day 2026": {
+    date: "February 2026", readTime: "4 min read",
+    intro: "National Science Day — celebrated on February 28 each year to honour Sir C.V. Raman's discovery of the Raman Effect — was organised by the Ministry of Science and Technology at Vigyan Bhawan. Matro Art Studio brought the celebration to life.",
+    body: `<p>National Science Day is one of India's most celebrated scientific occasions, marking the anniversary of Sir C.V. Raman's discovery of the Raman Effect on February 28, 1928. The 2026 celebrations, organised by the Ministry of Science and Technology's Department of Science & Technology (DST), were held at the grand Vigyan Bhawan, New Delhi.</p>
+<p>Matro Art Studio managed the complete event production — thematic stage design reflecting the spirit of scientific discovery, LED wall displays, audio-visual coordination for keynote addresses, exhibition areas showcasing India's scientific achievements, delegate management, and all printed materials including event programmes and certificates.</p>
+<p>Events that celebrate national achievements carry an added weight of responsibility. Our team understands that and approaches every such event with the pride and professionalism it deserves. National Science Day 2026 was a moment of celebration for Indian science — and we were proud to be part of it.</p>`
+  },
+  "Youth Dialogue on Budget 2026–27": {
+    date: "January 2026", readTime: "3 min read",
+    intro: "The Ministry of Finance hosted a Youth Dialogue ahead of the Union Budget 2026-27 at The Oberoi Hotel, New Delhi — a fresh, modern event format that Matro Art Studio brought to life with elegant production.",
+    body: `<p>In a first-of-its-kind initiative, the Ministry of Finance organised a Youth Dialogue on the Union Budget 2026-27 at The Oberoi Hotel, New Delhi — gathering young economists, students, entrepreneurs, and finance professionals to share their expectations and perspectives with senior ministry officials.</p>
+<p>The format demanded a different kind of event design — less formal than a traditional conference, but still befitting the gravity of the Ministry of Finance. Matro Art Studio designed and delivered an elegant, contemporary event setup with branded stage, AV production, panel seating arrangements, delegate materials, and seamless on-site coordination.</p>
+<p>The Oberoi Hotel is one of Delhi's finest venues, and our team is experienced in executing government events at luxury properties where both protocol and aesthetics must be in perfect balance.</p>`
+  },
+  "Inauguration Assistant Secretary Programme Officer Trainees of IAS 2024 Batch": {
+    date: "January 2026", readTime: "4 min read",
+    intro: "The Department of Personnel & Training (DoPT) inaugurated the Assistant Secretary Programme for the IAS 2024 Batch at Vigyan Bhawan — a ceremony marking the entry of India's finest young officers into their first central government postings.",
+    body: `<p>The Inauguration of the Assistant Secretary Programme for Officer Trainees of the IAS 2024 Batch is one of the most significant events in the annual calendar of the Government of India. Organised by the Department of Personnel & Training (DoPT), the ceremony was held at Vigyan Bhawan, New Delhi.</p>
+<p>This programme marks the formal induction of freshly trained IAS officers into their first posting as Assistant Secretaries in Central Government ministries — a moment of immense pride for the officers, their families, and the nation. The event is typically graced by senior dignitaries including Cabinet Ministers and senior IAS officers.</p>
+<p>Matro Art Studio managed the complete event — ceremonial stage setup, branded backdrops, audio-visual production, delegate management, printed programmes, and on-site coordination. Our team ensured that every aspect of the inauguration reflected the gravitas of this milestone occasion in India's civil service tradition.</p>`
+  },
+  "Mobilisation For Suraksha National Review": {
+    date: "February 2026", readTime: "3 min read",
+    intro: "NACO under the Ministry of Health & Family Welfare held a national review meeting for the Mobilisation For Suraksha programme at Vigyan Bhawan — a critical public health gathering managed by Matro Art Studio.",
+    body: `<p>The Mobilisation For Suraksha National Review Meeting, organised by the National AIDS Control Organisation (NACO) under the Ministry of Health & Family Welfare, Government of India, was held at Vigyan Bhawan, New Delhi.</p>
+<p>This national review brought together state health officials, programme managers, and public health experts from across India to assess the progress of HIV prevention and awareness programmes. Events of this nature are operationally complex — managing delegates from multiple states, coordinating with senior ministry officials, and ensuring smooth AV production for data-heavy presentations.</p>
+<p>Matro Art Studio handled venue setup, branded conference materials, audio-visual production, delegate seating, printed reports and kits, and full on-site event management. Our experience with Ministry of Health events means we understand the technical and logistical demands of large-scale public health conferences.</p>`
+  },
+  "Launch of Computational Thinking and Artificial Intelligence (CA & AI) Curriculam For Classes III TO VIII": {
+    date: "March 2026", readTime: "3 min read",
+    intro: "CBSE launched a landmark AI and Computational Thinking curriculum for classes III to VIII at Vigyan Bhawan — a historic moment for Indian school education, managed by Matro Art Studio.",
+    body: `<p>The launch of the Computational Thinking and Artificial Intelligence (CA & AI) Curriculum for Classes III to VIII by the Central Board of Secondary Education (CBSE) was a landmark event in Indian education. Held at Vigyan Bhawan, New Delhi, this launch marks CBSE's commitment to preparing the next generation for an AI-driven world.</p>
+<p>The event was attended by senior education officials, school principals, educators, and media representatives. Matro Art Studio managed the complete event production — stage design, branded backdrops, AV setup for curriculum presentations, media coordination, printed launch materials, and delegate management.</p>
+<p>Education policy launches are media-heavy events that require both visual polish and operational precision. Our team delivered both, ensuring the CBSE AI curriculum launch received the national attention it deserved.</p>`
+  },
+  "NCORD Meeting — Ministry of Home Affairs 2025": {
+    date: "November 2025", readTime: "3 min read",
+    intro: "The NCORD (Narco-Coordination Centre) Meeting organised by the Ministry of Home Affairs at Vigyan Bhawan is one of India's most important inter-agency anti-narcotics coordination events — managed by Matro Art Studio.",
+    body: `<p>The NCORD Meeting, organised by the Ministry of Home Affairs at Vigyan Bhawan, New Delhi, is a high-security, high-protocol inter-agency meeting that brings together senior officials from the NCB, state police forces, customs, and intelligence agencies to coordinate India's anti-narcotics strategy.</p>
+<p>Events of this sensitivity require absolute discretion, strict protocol adherence, and flawless logistics. Matro Art Studio's experience with Ministry of Home Affairs events means our team understands the security requirements, seating protocols, and operational standards expected at such gatherings.</p>
+<p>We managed venue setup, branded conference materials, audio-visual production, delegate coordination, and on-site management — delivering an event that met the Ministry's exacting standards.</p>`
+  },
+  "Chairpersons of Debts Recovery Tribunals 2025": {
+    date: "October 2025", readTime: "3 min read",
+    intro: "The Department of Financial Services brought together Chairpersons of Debt Recovery Tribunals from across India at Vigyan Bhawan — a judicial-administrative conference managed by Matro Art Studio.",
+    body: `<p>The Conference of Chairpersons of Debt Recovery Tribunals, organised by the Department of Financial Services, Ministry of Finance at Vigyan Bhawan, New Delhi, brought together the heads of DRTs from across India for a high-level review of debt recovery processes and judicial performance.</p>
+<p>This is a specialised judicial-administrative event requiring formal conference setup, secure document handling protocols, and a production standard befitting senior judicial officers. Matro Art Studio managed the full event — venue dressing, branded materials, AV setup, printed conference documents, and delegate coordination.</p>
+<p>Our long-standing relationship with the Ministry of Finance and Department of Financial Services means we are trusted with their most sensitive and important gatherings year after year.</p>`
+  },
+  "MoSPI All India Workshop of Trainers 2025": {
+    date: "October 2025", readTime: "3 min read",
+    intro: "MoSPI's All India Workshop of Trainers at Manekshaw Centre, New Delhi, brought together statistical trainers from across the country — a large-scale national workshop managed by Matro Art Studio.",
+    body: `<p>The MoSPI All India Workshop of Trainers 2025, organised by the Ministry of Statistics and Programme Implementation, was held at the Manekshaw Centre, New Delhi — a premier venue for large government conferences and workshops.</p>
+<p>This workshop brought together statistical trainers and data officers from state governments and central agencies across India to align on data collection methodologies and statistical best practices. Managing a national workshop of this scale requires meticulous planning of delegate accommodation, workshop materials, breakout session logistics, and AV production.</p>
+<p>Matro Art Studio delivered end-to-end event management — venue setup, branded conference materials, training kits, audio-visual production, and full on-site coordination across all workshop sessions.</p>`
+  },
+  "Annual Negotiations Meeting 2025 — India & Germany": {
+    date: "September 2025", readTime: "4 min read",
+    intro: "The Annual Negotiations Meeting between India and Germany, organised by the Ministry of Finance at The Claridges Hotel, New Delhi — a bilateral diplomatic event managed by Matro Art Studio.",
+    body: `<p>The Annual Negotiations Meeting between India and Germany is a bilateral diplomatic event organised by the Ministry of Finance, Government of India. The 2025 meeting was held at The Claridges Hotel, New Delhi — one of the capital's most prestigious luxury properties.</p>
+<p>Bilateral government negotiations are among the most protocol-sensitive events in the diplomatic calendar. Every element — from seating arrangements and flag placements to AV setup and printed materials — must conform to international diplomatic standards while reflecting the warmth of the India-Germany partnership.</p>
+<p>Matro Art Studio managed the complete event production including ceremonial table setups, branded materials, delegate coordination, audio-visual production, and on-site management. Our experience with high-protocol diplomatic events at luxury Delhi venues ensures that every bilateral meeting we manage reflects the dignity and importance of the occasion.</p>`
+  },
+  "NDMA — National Disaster Management Authority": {
+    date: "August 2025", readTime: "3 min read",
+    intro: "The National Disaster Management Authority (NDMA) event at Vigyan Bhawan brought together disaster management officials from across India — a high-priority government event managed by Matro Art Studio.",
+    body: `<p>The National Disaster Management Authority (NDMA) event at Vigyan Bhawan, New Delhi, organised under the Ministry of Home Affairs, brought together disaster management officials, first responders, and state SDMA representatives from across India.</p>
+<p>NDMA events carry the weight of national preparedness — they are working sessions where policy decisions with real impact on disaster response are made. Matro Art Studio managed the complete event setup including stage design, AV production for multi-media presentations, branded conference materials, delegate management, and on-site coordination.</p>
+<p>Our team understands that for events of this nature, reliability is everything. Equipment must work, logistics must be seamless, and the event must run on time — because the officials attending have no margin for disruption. That is the standard Matro Art Studio delivers, every time.</p>`
+  }
+};
+
+function renderBlog() {
+  const grid = document.getElementById('blog-grid');
+  if (!grid || grid.dataset.rendered) return;
+  grid.dataset.rendered = '1';
+
+  RECENT_EVENTS.forEach((ev, idx) => {
+    const content = BLOG_CONTENT[ev.title] || {
+      date: ev.badge, readTime: '3 min read',
+      intro: `Matro Art Studio managed ${ev.title} organised by ${ev.ministry} at ${ev.venue}.`,
+      body: `<p>Matro Art Studio managed ${ev.title} for ${ev.ministry} at ${ev.venue}. This is one of many high-profile government events our team has delivered with precision and professionalism.</p>`
+    };
+
+    const card = document.createElement('div');
+    card.className = 'rv';
+    card.style.cssText = 'background:var(--panel);border:1px solid var(--edge);border-radius:12px;overflow:hidden;cursor:pointer;';
+    card.innerHTML = `
+      <div style="height:200px;overflow:hidden;position:relative;">
+        <img src="${ev.image}" alt="${ev.title}" loading="lazy"
+          style="width:100%;height:100%;object-fit:cover;filter:brightness(.8);display:block;">
+        <div style="position:absolute;top:14px;left:14px;background:rgba(212,175,80,.92);color:var(--ink);font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 12px;border-radius:2px;">${ev.badge}</div>
+      </div>
+      <div style="padding:24px;">
+        <div style="font-size:11px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;">${ev.ministry}</div>
+        <h3 style="font-family:var(--serif);font-size:18px;color:var(--cream);font-weight:400;line-height:1.4;margin:0 0 12px;">${ev.title}</h3>
+        <p style="font-size:13px;color:rgba(240,234,214,.6);line-height:1.6;margin:0 0 20px;">${content.intro.substring(0, 120)}...</p>
+        <div style="display:flex;align-items:center;justify-content:space-between;">
+          <span style="font-size:11px;color:rgba(240,234,214,.4);">${content.date} · ${content.readTime}</span>
+          <span style="font-size:11px;color:var(--gold);letter-spacing:1.5px;text-transform:uppercase;">Read More →</span>
+        </div>
+      </div>`;
+    card.addEventListener('click', () => openBlogPost(idx));
+    grid.appendChild(card);
+  });
+  setTimeout(initReveal, 100);
+}
+
+function openBlogPost(idx) {
+  const ev = RECENT_EVENTS[idx];
+  const content = BLOG_CONTENT[ev.title] || {
+    date: ev.badge, readTime: '3 min read',
+    intro: `Matro Art Studio managed ${ev.title} for ${ev.ministry} at ${ev.venue}.`,
+    body: `<p>Matro Art Studio managed this event with full end-to-end event management services.</p>`
+  };
+
+  document.getElementById('blog-post-label').textContent = ev.ministry;
+  document.getElementById('blog-post-banner-title').innerHTML = ev.title.length > 60
+    ? ev.title.substring(0, 55) + '...'
+    : ev.title;
+
+  document.getElementById('blog-post-body').innerHTML = `
+    <button onclick="showPage('blog')" style="background:none;border:1px solid rgba(212,175,80,.3);color:var(--gold);font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:10px 20px;border-radius:4px;cursor:pointer;margin-bottom:40px;">← Back to Blog</button>
+
+    <div style="margin-bottom:32px;">
+      <img src="${ev.image}" alt="${ev.title}" style="width:100%;border-radius:12px;object-fit:cover;max-height:420px;filter:brightness(.85);">
+    </div>
+
+    <div style="display:flex;gap:20px;align-items:center;margin-bottom:32px;flex-wrap:wrap;">
+      <span style="background:rgba(212,175,80,.12);border:1px solid rgba(212,175,80,.25);color:var(--gold);font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:6px 14px;border-radius:4px;">${ev.badge}</span>
+      <span style="font-size:12px;color:rgba(240,234,214,.5);">${content.date}</span>
+      <span style="font-size:12px;color:rgba(240,234,214,.5);">📍 ${ev.venue}</span>
+      <span style="font-size:12px;color:rgba(240,234,214,.5);">${content.readTime}</span>
+    </div>
+
+    <h1 style="font-family:var(--serif);font-size:clamp(22px,3.5vw,36px);color:var(--cream);font-weight:400;line-height:1.3;margin:0 0 20px;">${ev.title}</h1>
+    <p style="font-size:16px;color:var(--gold);font-style:italic;line-height:1.7;margin:0 0 32px;padding-bottom:32px;border-bottom:1px solid rgba(212,175,80,.15);">${content.intro}</p>
+    <div style="font-size:16px;color:rgba(240,234,214,.78);line-height:1.9;">${content.body}</div>
+
+    <div style="margin-top:56px;padding:32px;background:rgba(212,175,80,.06);border:1px solid rgba(212,175,80,.2);border-radius:12px;text-align:center;">
+      <p style="color:var(--cream);font-family:var(--serif);font-size:20px;margin:0 0 8px;">Planning a similar event?</p>
+      <p style="color:rgba(240,234,214,.6);font-size:14px;margin:0 0 24px;">Get in touch with our team for a detailed proposal within 24 hours.</p>
+      <button class="btn-g" onclick="showPage('contact')">Contact Us →</button>
+    </div>
+  `;
+
+  showPage('blog-post');
 }
 
 /* ═══ MOBILE MENU ═══ */
