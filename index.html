@@ -139,6 +139,7 @@ button{font-family:'DM Sans',sans-serif;cursor:none;}
 #cur.big{width:22px;height:22px;}
 #cur-ring.big{width:66px;height:66px;}
 @media(max-width:768px){#cur,#cur-ring{display:none;}body{cursor:auto;}button{cursor:pointer;}}
+@media(hover:none){#cur,#cur-ring{display:none;}body{cursor:auto;}button{cursor:pointer;}}
 
 /* ════════════════════════════════════
    LOADER
@@ -193,14 +194,14 @@ body::after{
   position:fixed;top:0;left:0;right:0;z-index:1000;
   height:76px;display:flex;align-items:center;justify-content:space-between;
   padding:0 56px;
-  transition:all .4s ease;
+  transition:background .4s ease,box-shadow .4s ease;
 }
 #nav::before{
   content:'';position:absolute;inset:0;z-index:-1;
   background:linear-gradient(180deg,rgba(5,6,10,.97) 0%,rgba(5,6,10,.82) 100%);
   backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
   border-bottom:1px solid var(--edge);
-  transition:all .4s;
+  transition:background .4s,box-shadow .4s;
 }
 #nav.scrolled::before{background:rgba(5,6,10,.99);box-shadow:0 4px 48px rgba(0,0,0,.7);}
 
@@ -211,7 +212,6 @@ body::after{
   box-shadow:0 0 24px var(--gold-glow);
   transition:box-shadow .4s,transform .4s;
 }
-.nav-brand:hover .nav-logo{box-shadow:0 0 40px rgba(212,175,80,.4);transform:rotate(-3deg);}
 .nav-name{
   font-family:'Playfair Display',serif;
   font-size:19px;font-weight:700;
@@ -236,8 +236,6 @@ body::after{
   transform:scaleX(0);transform-origin:right;
   transition:transform .3s ease;
 }
-.nl:hover{color:var(--gold);}
-.nl:hover::after,.nl.active::after{transform:scaleX(1);transform-origin:left;}
 .nl.active{color:var(--gold);}
 
 .nav-cta{
@@ -247,15 +245,13 @@ body::after{
   background:linear-gradient(135deg,var(--gold),var(--gold-2));
   border:none;cursor:none;
   box-shadow:0 6px 28px rgba(212,175,80,.35);
-  transition:all .3s;position:relative;overflow:hidden;
+  transition:box-shadow .3s,transform .3s;position:relative;overflow:hidden;
 }
 .nav-cta::before{
   content:'';position:absolute;inset:0;
   background:linear-gradient(135deg,rgba(255,255,255,.15),transparent);
   transform:translateX(-100%);transition:transform .4s;
 }
-.nav-cta:hover::before{transform:translateX(100%);}
-.nav-cta:hover{box-shadow:0 10px 40px rgba(212,175,80,.55);transform:translateY(-2px);}
 
 /* Hamburger */
 .hbg{
@@ -352,7 +348,7 @@ body::after{
 .hero-sl-dot{
   width:6px;height:6px;border-radius:50%;
   background:rgba(245,240,232,.35);border:none;cursor:none;
-  transition:all .3s;padding:0;
+  transition:background .3s,box-shadow .3s;padding:0;
   -webkit-tap-highlight-color:transparent;
 }
 @media(max-width:768px){.hero-sl-dot{cursor:pointer;width:8px;height:8px;}}
@@ -365,9 +361,8 @@ body::after{
   backdrop-filter:blur(10px);color:var(--cream);
   font-size:clamp(18px,3vw,24px);
   cursor:none;display:flex;align-items:center;justify-content:center;
-  transition:all .3s;
+  transition:border-color .3s,box-shadow .3s,color .3s;
 }
-.hero-sl-arrow:hover{background:var(--gold);color:var(--ink);border-color:var(--gold);}
 .hero-sl-arrow.l{left:clamp(10px,3vw,24px);}
 .hero-sl-arrow.r{right:clamp(10px,3vw,24px);}
 /* Hide arrows on touch devices — swipe is used instead */
@@ -396,7 +391,7 @@ body::after{
 @keyframes grid-drift{to{transform:translate3d(0,80px,0);}}
 
 /* Orbs */
-.orb{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:2;will-change:transform;}
+.orb{position:absolute;border-radius:50%;filter:blur(60px);pointer-events:none;z-index:2;contain:strict;}
 .orb-a{
   width:700px;height:500px;
   background:radial-gradient(ellipse,rgba(212,175,80,.09) 0%,transparent 65%);
@@ -418,7 +413,7 @@ body::after{
 @keyframes orb-breathe{0%,100%{transform:scale(1);}50%{transform:scale(1.18);}}
 
 /* Particles */
-.particles{position:absolute;inset:0;z-index:2;overflow:hidden;pointer-events:none;}
+.particles{position:absolute;inset:0;z-index:2;overflow:hidden;pointer-events:none;contain:strict;}
 .pt{
   position:absolute;border-radius:50%;background:var(--gold);
   animation:pt-rise linear infinite;
@@ -573,7 +568,7 @@ body::after{
   color:var(--ink);font-size:11px;font-weight:700;
   letter-spacing:2.5px;text-transform:uppercase;
   padding:16px 38px;border-radius:3px;border:none;cursor:none;
-  transition:all .3s;position:relative;overflow:hidden;
+  transition:box-shadow .3s,transform .3s;position:relative;overflow:hidden;
   box-shadow:0 8px 36px rgba(212,175,80,.35);
 }
 .btn-g::before{
@@ -581,8 +576,6 @@ body::after{
   background:linear-gradient(135deg,rgba(255,255,255,.2),transparent);
   transform:translateX(-100%);transition:transform .45s;
 }
-.btn-g:hover::before{transform:translateX(100%);}
-.btn-g:hover{transform:translateY(-3px);box-shadow:0 16px 50px rgba(212,175,80,.55);}
 
 .btn-o{
   display:inline-flex;align-items:center;gap:10px;
@@ -590,9 +583,8 @@ body::after{
   font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;
   padding:15px 38px;border-radius:3px;
   border:1px solid var(--edge-hi);cursor:none;
-  transition:all .3s;
+  transition:border-color .3s,box-shadow .3s,color .3s;
 }
-.btn-o:hover{border-color:var(--gold);color:var(--gold);background:rgba(212,175,80,.06);}
 
 /* Hero stats */
 .hero-stats{
@@ -690,13 +682,11 @@ body::after{
   border:1px solid var(--edge-hi);border-radius:var(--r2);
   pointer-events:none;transition:transform .5s;
 }
-.aho-vid-box:hover::before{transform:translate(6px,6px);}
 .aho-video{
   width:100%;height:100%;object-fit:cover;
   filter:brightness(.8) saturate(.9);
   transition:filter .5s;
 }
-.aho-vid-box:hover .aho-video{filter:brightness(.9) saturate(1);}
 .aho-vid-overlay{
   position:absolute;inset:0;z-index:3;
   background:linear-gradient(to top,rgba(5,6,10,.6) 0%,transparent 45%);
@@ -721,9 +711,8 @@ body::after{
 .aho-tag{
   padding:7px 16px;border:1px solid var(--edge);
   font-size:10px;letter-spacing:2px;text-transform:uppercase;
-  color:var(--cream-d);border-radius:2px;transition:all .3s;
+  color:var(--cream-d);border-radius:2px;transition:border-color .3s,box-shadow .3s,color .3s;
 }
-.aho-tag:hover{border-color:var(--gold-3);color:var(--gold);}
 
 /* ════════════════════════════════════
    SERVICES GRID
@@ -738,20 +727,17 @@ body::after{
 .srv-card{
   background:var(--ink);padding:52px 44px;
   position:relative;overflow:hidden;
-  transition:all .4s;
+  transition:background .4s,box-shadow .4s;
 }
 .srv-card::after{
   content:'';position:absolute;inset:0;
   background:linear-gradient(135deg,rgba(212,175,80,.07) 0%,transparent 55%);
   opacity:0;transition:opacity .4s;
 }
-.srv-card:hover::after{opacity:1;}
-.srv-card:hover{background:var(--void);}
 .srv-icon{
   font-size:36px;margin-bottom:28px;
   display:block;transition:transform .4s;
 }
-.srv-card:hover .srv-icon{transform:scale(1.15) rotate(-5deg);}
 .srv-num{
   font-family:'Bebas Neue',serif;font-size:11px;letter-spacing:3px;
   color:var(--gold-3);margin-bottom:8px;display:block;
@@ -761,7 +747,6 @@ body::after{
   font-size:22px;font-weight:700;color:var(--cream);
   margin-bottom:14px;transition:color .3s;
 }
-.srv-card:hover .srv-title{color:var(--gold-2);}
 .srv-desc{font-size:14px;color:var(--cream-d);line-height:1.85;font-weight:300;}
 .srv-arr{
   display:inline-flex;align-items:center;gap:8px;
@@ -769,13 +754,11 @@ body::after{
   color:var(--gold-3);margin-top:24px;
   transition:gap .3s,color .3s;
 }
-.srv-card:hover .srv-arr{gap:16px;color:var(--gold);}
 .srv-line{
   position:absolute;bottom:0;left:0;right:0;height:2px;
   background:linear-gradient(90deg,transparent,var(--gold),transparent);
   transform:scaleX(0);transition:transform .45s;
 }
-.srv-card:hover .srv-line{transform:scaleX(1);}
 
 /* ════════════════════════════════════
    CLIENTS MARQUEE
@@ -795,18 +778,12 @@ body::after{
   display:flex;gap:16px;width:max-content;
   animation:cq-roll 36s linear infinite;
 }
-.cq-track:hover{animation-play-state:paused;}
 @keyframes cq-roll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 .c-card{
   background:var(--panel);border:1px solid var(--edge);
   border-radius:var(--r);padding:22px 32px;min-width:200px;
   display:flex;flex-direction:column;align-items:center;gap:8px;
-  transition:all .35s;flex-shrink:0;
-}
-.c-card:hover{
-  border-color:var(--edge-hi);
-  box-shadow:var(--sh-gold);
-  transform:translateY(-4px);
+  transition:border-color .35s,box-shadow .35s,transform .35s;flex-shrink:0;
 }
 .c-abbr{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--gold);}
 .c-name{font-size:11px;color:var(--cream-m);text-align:center;line-height:1.4;font-weight:400;}
@@ -838,7 +815,7 @@ body::after{
 .rv-card{
   background:var(--panel);border:1px solid var(--edge);
   border-radius:var(--r2);padding:28px;
-  transition:all .35s;position:relative;overflow:hidden;
+  transition:border-color .35s,box-shadow .35s,transform .35s;position:relative;overflow:hidden;
 }
 .rv-card::before{
   content:'❝';
@@ -846,7 +823,6 @@ body::after{
   font-size:40px;color:rgba(212,175,80,.1);
   font-family:'Playfair Display',serif;
 }
-.rv-card:hover{border-color:var(--edge-hi);box-shadow:var(--sh-gold);}
 .rv-info{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
 .rv-av{
   width:40px;height:40px;border-radius:50%;
@@ -885,9 +861,8 @@ body::after{
   background:#25D366;color:#fff;
   font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
   padding:16px 32px;border-radius:3px;border:none;cursor:none;
-  box-shadow:0 8px 32px rgba(37,211,102,.35);transition:all .3s;
+  box-shadow:0 8px 32px rgba(37,211,102,.35);transition:border-color .3s,box-shadow .3s,color .3s;
 }
-.wa-btn:hover{transform:translateY(-3px);box-shadow:0 14px 44px rgba(37,211,102,.5);}
 
 /* ════════════════════════════════════
    PAGE BANNER (inner pages)
@@ -953,14 +928,12 @@ body::after{
   border:1px solid var(--edge);border-radius:var(--r2);
   overflow:hidden;margin-bottom:2px;
   background:var(--panel);
-  transition:all .4s;
+  transition:background .4s,box-shadow .4s;
 }
 .svc-card:nth-child(even){direction:rtl;}
 .svc-card:nth-child(even) > *{direction:ltr;}
-.svc-card:hover{border-color:var(--edge-hi);box-shadow:0 24px 80px rgba(0,0,0,.5);}
 .svc-img-wrap{position:relative;overflow:hidden;min-height:360px;}
 .svc-img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.75) saturate(.9);transition:filter .6s,transform .7s;}
-.svc-card:hover .svc-img{filter:brightness(.9) saturate(1);transform:scale(1.04);}
 .svc-img-overlay{
   position:absolute;inset:0;
   background:linear-gradient(90deg,transparent 0%,rgba(5,6,10,.4) 100%);
@@ -980,9 +953,8 @@ body::after{
   color:var(--gold);background:none;border:1px solid var(--edge);
   padding:10px 20px;border-radius:3px;cursor:none;
   margin-top:28px;width:fit-content;
-  transition:all .3s;
+  transition:border-color .3s,box-shadow .3s,color .3s;
 }
-.svc-toggle:hover{border-color:var(--edge-hi);background:rgba(212,175,80,.06);}
 .toggle-arr{transition:transform .3s;}
 .svc-toggle.open .toggle-arr{transform:rotate(180deg);}
 .svc-dd{
@@ -996,9 +968,8 @@ body::after{
   display:flex;align-items:flex-start;gap:14px;
   background:var(--panel);border:1px solid var(--edge);
   border-radius:var(--r);padding:20px;
-  transition:all .3s;
+  transition:border-color .3s,box-shadow .3s,color .3s;
 }
-.dd-item:hover{border-color:var(--edge-hi);}
 .dd-ico{font-size:24px;flex-shrink:0;}
 .dd-title{font-size:13px;font-weight:600;color:var(--cream);display:block;}
 .dd-desc{font-size:12px;color:var(--cream-d);margin-top:4px;line-height:1.6;}
@@ -1011,10 +982,9 @@ body::after{
 .ev-card{
   background:var(--panel);border:1px solid var(--edge);
   border-radius:var(--r2);overflow:hidden;
-  transition:all .4s;
+  transition:background .4s,box-shadow .4s;
   contain:layout style;
 }
-.ev-card:hover{border-color:var(--edge-hi);box-shadow:0 20px 70px rgba(0,0,0,.5);}
 .ev-hdr{
   padding:28px 36px;display:flex;align-items:center;
   justify-content:space-between;gap:24px;flex-wrap:wrap;
@@ -1037,7 +1007,6 @@ body::after{
   transform:translateZ(0); /* force GPU layer from the start */
   backface-visibility:hidden;
 }
-.ev-gallery img:hover{filter:brightness(1);transform:translateZ(0) scale(1.03);}
 
 /* ════════════════════════════════════
    GALLERY PAGE
@@ -1074,9 +1043,8 @@ body::after{
   background:rgba(5,6,10,.6);border:1px solid var(--edge);
   backdrop-filter:blur(10px);color:var(--cream);font-size:26px;cursor:none;
   display:flex;align-items:center;justify-content:center;
-  transition:all .3s;z-index:10;
+  transition:border-color .3s,box-shadow .3s,color .3s;z-index:10;
 }
-.sl-arrow:hover{background:var(--gold);color:var(--ink);border-color:var(--gold);}
 .sl-arrow.l{left:16px;}
 .sl-arrow.r{right:16px;}
 .sl-prog{
@@ -1086,7 +1054,7 @@ body::after{
 .sl-dots{display:flex;justify-content:center;gap:8px;margin-top:24px;}
 .sl-dot{
   width:6px;height:6px;border-radius:50%;
-  background:var(--edge-hi);cursor:none;transition:all .3s;
+  background:var(--edge-hi);cursor:none;transition:border-color .3s,box-shadow .3s,color .3s;
   border:none;padding:0;
 }
 .sl-dot.active{width:24px;border-radius:3px;background:var(--gold);}
@@ -1098,7 +1066,7 @@ body::after{
 .sl-thumb{
   flex-shrink:0;width:80px;height:56px;
   border-radius:4px;overflow:hidden;cursor:none;
-  border:2px solid transparent;transition:all .3s;
+  border:2px solid transparent;transition:border-color .3s,box-shadow .3s,color .3s;
 }
 .sl-thumb.active{border-color:var(--gold);}
 .sl-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
@@ -1113,9 +1081,8 @@ body::after{
   font-size:10px;letter-spacing:2.5px;text-transform:uppercase;
   padding:9px 20px;border-radius:3px;background:none;
   border:1px solid var(--edge);color:var(--cream-d);cursor:none;
-  transition:all .3s;
+  transition:border-color .3s,box-shadow .3s,color .3s;
 }
-.gf-btn:hover,.gf-btn.active{border-color:var(--gold);color:var(--gold);background:rgba(212,175,80,.07);}
 .gallery-grid{columns:3;gap:10px;column-gap:10px;}
 .gl-item{
   margin-bottom:10px;break-inside:avoid;
@@ -1136,14 +1103,12 @@ body::after{
   transform:translateZ(0);
   backface-visibility:hidden;
 }
-.gl-item:hover img{filter:brightness(1);transform:translateZ(0) scale(1.04);}
 .gl-overlay{
   position:absolute;inset:0;
   background:linear-gradient(to top,rgba(5,6,10,.7) 0%,transparent 50%);
   opacity:0;transition:opacity .4s;
   display:flex;align-items:flex-end;padding:16px;
 }
-.gl-item:hover .gl-overlay{opacity:1;}
 .gl-ico{color:var(--gold);font-size:20px;}
 
 /* ════════════════════════════════════
@@ -1163,17 +1128,14 @@ body::after{
 }
 .val-item{
   background:var(--ink);padding:44px 36px;text-align:center;
-  position:relative;overflow:hidden;transition:all .4s;
+  position:relative;overflow:hidden;transition:background .4s,box-shadow .4s;
 }
 .val-item::after{
   content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
   background:linear-gradient(90deg,transparent,var(--gold),transparent);
   transform:scaleX(0);transition:transform .45s;
 }
-.val-item:hover::after{transform:scaleX(1);}
-.val-item:hover{background:var(--void);}
 .val-ico{font-size:40px;margin-bottom:20px;display:block;transition:transform .4s;}
-.val-item:hover .val-ico{transform:scale(1.15) rotate(5deg);}
 .val-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--cream);margin-bottom:10px;}
 .val-desc{font-size:13px;color:var(--cream-d);line-height:1.75;font-weight:300;}
 
@@ -1205,9 +1167,8 @@ body::after{
   display:flex;align-items:center;justify-content:center;
   flex-shrink:0;
   font-family:'Bebas Neue',serif;font-size:11px;color:var(--gold);letter-spacing:1px;
-  transition:all .3s;
+  transition:border-color .3s,box-shadow .3s,color .3s;
 }
-.tl-item:hover .tl-dot{background:var(--gold);border-color:var(--gold);color:var(--ink);}
 .tl-yr{font-family:'Bebas Neue',serif;font-size:32px;color:var(--gold);letter-spacing:2px;line-height:1;}
 .tl-desc{font-size:14px;color:var(--cream-m);margin-top:6px;line-height:1.7;font-weight:300;}
 
@@ -1224,9 +1185,8 @@ body::after{
   display:flex;align-items:flex-start;gap:16px;
   margin-bottom:32px;padding:24px;
   background:var(--panel);border:1px solid var(--edge);border-radius:var(--r);
-  transition:all .35s;
+  transition:border-color .35s,box-shadow .35s;
 }
-.ci-block:hover{border-color:var(--edge-hi);box-shadow:var(--sh-gold);}
 .ci-ico{
   width:48px;height:48px;border-radius:var(--r);
   background:linear-gradient(135deg,var(--gold-3),var(--gold));
@@ -1297,8 +1257,6 @@ footer{
   transition:color .3s;display:flex;align-items:center;gap:6px;
 }
 .ft-links a::before{content:'›';color:var(--gold-3);transition:color .3s;}
-.ft-links a:hover{color:var(--gold);}
-.ft-links a:hover::before{color:var(--gold);}
 .ft-bottom{
   display:flex;align-items:center;justify-content:space-between;
   gap:16px;flex-wrap:wrap;
@@ -1326,18 +1284,16 @@ footer{
   background:none;border:1px solid var(--edge);
   color:var(--cream);font-size:22px;cursor:none;
   display:flex;align-items:center;justify-content:center;
-  transition:all .3s;
+  transition:border-color .3s,box-shadow .3s,color .3s;
 }
-.lb-close:hover{border-color:var(--gold);color:var(--gold);}
 .lb-nav{
   position:fixed;top:50%;transform:translateY(-50%);
   width:56px;height:56px;border-radius:50%;
   background:rgba(5,6,10,.7);border:1px solid var(--edge);
   color:var(--cream);font-size:28px;cursor:none;
   display:flex;align-items:center;justify-content:center;
-  backdrop-filter:blur(10px);transition:all .3s;z-index:10;
+  backdrop-filter:blur(10px);transition:border-color .3s,box-shadow .3s,color .3s;z-index:10;
 }
-.lb-nav:hover{background:var(--gold);color:var(--ink);border-color:var(--gold);}
 .lb-nav.p{left:16px;}
 .lb-nav.n{right:16px;}
 
@@ -1348,9 +1304,8 @@ footer{
   position:fixed;bottom:32px;right:32px;z-index:5000;
   width:58px;height:58px;border-radius:50%;
   background:#25D366;display:flex;align-items:center;justify-content:center;
-  box-shadow:0 8px 28px rgba(37,211,102,.45);transition:all .35s;
+  box-shadow:0 8px 28px rgba(37,211,102,.45);transition:transform .35s,box-shadow .35s;
 }
-.wa-float:hover{transform:scale(1.12);box-shadow:0 14px 40px rgba(37,211,102,.65);}
 .wa-float svg{width:30px;height:30px;fill:white;}
 .wa-tip{
   position:absolute;right:72px;top:50%;transform:translateY(-50%);
@@ -1359,7 +1314,6 @@ footer{
   padding:9px 18px;border-radius:3px;white-space:nowrap;
   opacity:0;transition:opacity .3s;pointer-events:none;
 }
-.wa-float:hover .wa-tip{opacity:1;}
 
 /* ════════════════════════════════════
    RECENT EVENTS — HOME PAGE SECTION
@@ -1381,18 +1335,12 @@ footer{
   cursor:pointer;
   will-change:transform;
 }
-.re-card:hover{
-  border-color:var(--edge-hi);
-  box-shadow:0 24px 70px rgba(0,0,0,.5);
-  transform:translateY(-6px);
-}
 .re-card-img{
   width:100%;aspect-ratio:16/9;object-fit:cover;
   filter:brightness(.8);
   transition:filter .45s ease,transform .45s ease;
   display:block;will-change:filter,transform;transform:translateZ(0);
 }
-.re-card:hover .re-card-img{filter:brightness(1);transform:translateZ(0) scale(1.04);}
 .re-card-img-wrap{overflow:hidden;position:relative;}
 .re-card-badge{
   position:absolute;top:14px;left:14px;
@@ -1420,7 +1368,6 @@ footer{
   letter-spacing:2px;text-transform:uppercase;color:var(--gold);
   transition:gap .3s;
 }
-.re-card:hover .re-card-link{gap:10px;}
 
 /* Recent events "View All" strip */
 .re-view-all{text-align:center;margin-top:48px;}
@@ -1555,7 +1502,69 @@ footer{
   .cta-btns{flex-direction:column;align-items:center;}
   .acs-btns{flex-direction:column;}
 }
+
+/* ══════════════════════════════════════════════════
+   MOBILE PERFORMANCE — disable GPU-heavy effects
+══════════════════════════════════════════════════ */
+@media(max-width:768px){
+  #nav,#mobMenu,.hero-sl-arrow,.lb-nav,.lb-close,.wa-float,.aho-vid-play{
+    backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+  }
+  .orb{display:none;}
+  .particles{display:none;}
+  .rv{transition:opacity .5s ease,transform .5s ease;}
+}
+
+/* ══════════════════════════════════════════════════
+   HOVER RULES — only apply on real pointer devices
+   Fixes "stuck hover" bug on tablets & touchscreens
+══════════════════════════════════════════════════ */
+@media(hover:hover) and (pointer:fine){
+                                        .c-card:hover{border-color:var(--edge-hi);box-shadow:var(--sh-gold);transform:translateY(-4px);}
+                    .gf-btn:hover{border-color:var(--gold);color:var(--gold);background:rgba(212,175,80,.07);}
+                            .re-card:hover{border-color:var(--edge-hi);box-shadow:0 24px 70px rgba(0,0,0,.5);transform:translateY(-6px);}
+    }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Which is the best government event management company in Delhi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Matro Art Studio is one of Delhi's most trusted government event management companies, established in 2008. With 18+ years of experience, 1,000+ events delivered, and services to 100+ Ministries and PSUs, we are a leading choice for government and corporate events in New Delhi."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Matro Art Studio registered on the GeM Portal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, Matro Art Studio is empanelled on the Government e-Marketplace (GeM Portal) and holds a 5-star rating, making it easy for government departments to procure our event management services."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which government ministries has Matro Art Studio worked with?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Matro Art Studio has worked with 100+ Ministries and PSUs of the Government of India including the Ministry of Finance, Ministry of External Affairs, Ministry of Defence, DRDO, ISRO, ONGC, NTPC, and many more."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What types of events does Matro Art Studio manage?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Matro Art Studio specialises in government conferences, ministerial summits, corporate award ceremonies, exhibition design and fabrication, audio-visual production, printing and branding, and full event management for PSUs and central government departments."
+      }
+    }
+  ]
+}
+</script>
 </head>
 
 <body>
@@ -1586,6 +1595,7 @@ footer{
     <button class="nl" onclick="showPage('events')">Events</button>
     <button class="nl" onclick="showPage('gallery')">Gallery</button>
     <button class="nl" onclick="showPage('about')">About</button>
+    <button class="nl" onclick="showPage('seo')">Why Us</button>
     <button class="nav-cta" onclick="showPage('contact')">Contact Us</button>
   </div>
   <button class="hbg" id="hbg" onclick="toggleMob()">
@@ -1598,6 +1608,7 @@ footer{
   <button class="nl" onclick="showPage('events')">Events</button>
   <button class="nl" onclick="showPage('gallery')">Gallery</button>
   <button class="nl" onclick="showPage('about')">About</button>
+  <button class="nl" onclick="showPage('seo')">Why Us</button>
   <button class="nl" onclick="showPage('contact')">Contact Us</button>
 </div>
 
@@ -2857,6 +2868,112 @@ footer{
 </div><!-- /contact -->
 
 
+<!-- ═══ SEO LANDING PAGE ═══ -->
+<div id="page-seo" class="page">
+  <div class="pg-banner">
+    <div class="pg-banner-bg"></div>
+    <div class="pg-banner-grid"></div>
+    <div class="pg-banner-glow"></div>
+    <div class="pg-banner-content">
+      <div class="pg-label">Trusted Since 2008</div>
+      <div class="pg-title">Government Event <em>Management</em></div>
+    </div>
+  </div>
+
+  <section style="padding:80px 0;background:var(--ink);">
+    <div style="max-width:900px;margin:0 auto;padding:0 32px;">
+
+      <div class="rv" style="margin-bottom:56px;">
+        <div class="sec-label">Who We Are</div>
+        <h1 style="font-family:var(--serif);font-size:clamp(28px,4vw,46px);color:var(--cream);font-weight:400;line-height:1.25;margin:12px 0 20px;">Leading Government Event Management Company in Delhi</h1>
+        <p style="color:rgba(240,234,214,.75);font-size:17px;line-height:1.8;max-width:780px;">Matro Art Studio is a Delhi-based government and corporate event management company established in 2008. With over 18 years of experience, we have successfully delivered 1,000+ high-profile events for 100+ Ministries and Public Sector Undertakings (PSUs) across India. From Vigyan Bhawan to The Ashok Hotel, our team manages every detail so your event runs flawlessly.</p>
+      </div>
+
+      <div class="rv" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;margin-bottom:72px;">
+        <div style="background:rgba(212,175,80,.08);border:1px solid rgba(212,175,80,.2);border-radius:12px;padding:28px 24px;text-align:center;">
+          <div style="font-family:var(--serif);font-size:42px;color:var(--gold);font-weight:400;">18+</div>
+          <div style="color:var(--cream);font-size:14px;margin-top:6px;letter-spacing:1px;text-transform:uppercase;">Years of Experience</div>
+        </div>
+        <div style="background:rgba(212,175,80,.08);border:1px solid rgba(212,175,80,.2);border-radius:12px;padding:28px 24px;text-align:center;">
+          <div style="font-family:var(--serif);font-size:42px;color:var(--gold);font-weight:400;">1000+</div>
+          <div style="color:var(--cream);font-size:14px;margin-top:6px;letter-spacing:1px;text-transform:uppercase;">Events Delivered</div>
+        </div>
+        <div style="background:rgba(212,175,80,.08);border:1px solid rgba(212,175,80,.2);border-radius:12px;padding:28px 24px;text-align:center;">
+          <div style="font-family:var(--serif);font-size:42px;color:var(--gold);font-weight:400;">100+</div>
+          <div style="color:var(--cream);font-size:14px;margin-top:6px;letter-spacing:1px;text-transform:uppercase;">Ministries &amp; PSUs</div>
+        </div>
+        <div style="background:rgba(212,175,80,.08);border:1px solid rgba(212,175,80,.2);border-radius:12px;padding:28px 24px;text-align:center;">
+          <div style="font-family:var(--serif);font-size:42px;color:var(--gold);font-weight:400;">⭐ 5</div>
+          <div style="color:var(--cream);font-size:14px;margin-top:6px;letter-spacing:1px;text-transform:uppercase;">Rated on Google &amp; GeM</div>
+        </div>
+      </div>
+
+      <div class="rv" style="margin-bottom:64px;">
+        <div class="sec-label">What We Do</div>
+        <h2 style="font-family:var(--serif);font-size:clamp(24px,3vw,36px);color:var(--cream);font-weight:400;margin:12px 0 32px;">Event Management Services for Government &amp; Corporate Clients</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;">
+          <div style="border-left:2px solid var(--gold);padding-left:20px;">
+            <div style="color:var(--gold);font-size:15px;font-weight:600;margin-bottom:6px;">Government Conferences &amp; Summits</div>
+            <p style="color:rgba(240,234,214,.7);font-size:14px;line-height:1.7;margin:0;">End-to-end management of ministerial conferences, national summits, and inter-departmental events at prestigious Delhi venues.</p>
+          </div>
+          <div style="border-left:2px solid var(--gold);padding-left:20px;">
+            <div style="color:var(--gold);font-size:15px;font-weight:600;margin-bottom:6px;">Exhibition &amp; Stall Design</div>
+            <p style="color:rgba(240,234,214,.7);font-size:14px;line-height:1.7;margin:0;">Custom fabricated exhibition stalls and display solutions for trade fairs, ministry showcases, and PSU exhibitions.</p>
+          </div>
+          <div style="border-left:2px solid var(--gold);padding-left:20px;">
+            <div style="color:var(--gold);font-size:15px;font-weight:600;margin-bottom:6px;">Corporate Award Ceremonies</div>
+            <p style="color:rgba(240,234,214,.7);font-size:14px;line-height:1.7;margin:0;">Award nights, felicitation ceremonies, and gala dinners for PSUs, ministries, and leading corporate organisations.</p>
+          </div>
+          <div style="border-left:2px solid var(--gold);padding-left:20px;">
+            <div style="color:var(--gold);font-size:15px;font-weight:600;margin-bottom:6px;">Audio-Visual &amp; Stage Production</div>
+            <p style="color:rgba(240,234,214,.7);font-size:14px;line-height:1.7;margin:0;">Professional sound, lighting, LED walls, live streaming, and stage design tailored to high-profile government events.</p>
+          </div>
+          <div style="border-left:2px solid var(--gold);padding-left:20px;">
+            <div style="color:var(--gold);font-size:15px;font-weight:600;margin-bottom:6px;">Printing &amp; Branding</div>
+            <p style="color:rgba(240,234,214,.7);font-size:14px;line-height:1.7;margin:0;">Branded backdrops, event kits, standees, banners, brochures, and all printed collateral — delivered on time, every time.</p>
+          </div>
+          <div style="border-left:2px solid var(--gold);padding-left:20px;">
+            <div style="color:var(--gold);font-size:15px;font-weight:600;margin-bottom:6px;">GeM Portal Empanelled Vendor</div>
+            <p style="color:rgba(240,234,214,.7);font-size:14px;line-height:1.7;margin:0;">Registered and 5-star rated on the Government e-Marketplace (GeM Portal), making procurement simple for all central government departments.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="rv" style="margin-bottom:64px;">
+        <div class="sec-label">Why Choose Us</div>
+        <h2 style="font-family:var(--serif);font-size:clamp(24px,3vw,36px);color:var(--cream);font-weight:400;margin:12px 0 24px;">The Most Trusted Event Partner for Government of India</h2>
+        <p style="color:rgba(240,234,214,.75);font-size:16px;line-height:1.9;margin-bottom:20px;">When government ministries and PSUs need a reliable event management company in New Delhi, they choose Matro Art Studio. Our deep understanding of government protocols, security requirements, and procurement processes — combined with 18+ years of on-ground experience — makes us the go-to agency for high-stakes events.</p>
+        <p style="color:rgba(240,234,214,.75);font-size:16px;line-height:1.9;margin-bottom:20px;">We have worked with over 100 ministries including the Ministry of Finance, Ministry of External Affairs, Ministry of Defence, DRDO, ISRO, ONGC, NTPC, and many more. Our team is based in Lajpat Nagar, New Delhi, and operational pan-India.</p>
+        <p style="color:rgba(240,234,214,.75);font-size:16px;line-height:1.9;">Whether it's a 50-person ministerial meeting or a 5,000-delegate national conference, we deliver with the same precision and professionalism that has earned us a 5-star rating on both Google and the GeM Portal.</p>
+      </div>
+
+      <div class="rv" style="margin-bottom:64px;">
+        <div class="sec-label">Our Reach</div>
+        <h2 style="font-family:var(--serif);font-size:clamp(24px,3vw,36px);color:var(--cream);font-weight:400;margin:12px 0 24px;">Event Management Across India — Based in Delhi</h2>
+        <p style="color:rgba(240,234,214,.75);font-size:16px;line-height:1.9;margin-bottom:16px;">While headquartered in New Delhi, Matro Art Studio has executed events across India — from Mumbai and Chennai to Kolkata and Hyderabad. We specialise in:</p>
+        <ul style="color:rgba(240,234,214,.75);font-size:16px;line-height:2;padding-left:20px;margin:0;">
+          <li>Government event management in Delhi NCR</li>
+          <li>PSU and corporate event management in India</li>
+          <li>Ministry conference and summit management</li>
+          <li>Exhibition stall design and fabrication</li>
+          <li>Event management company for central government tenders</li>
+          <li>GeM Portal empanelled event services</li>
+        </ul>
+      </div>
+
+      <div class="rv" style="text-align:center;padding:48px 32px;background:rgba(212,175,80,.06);border:1px solid rgba(212,175,80,.2);border-radius:16px;">
+        <h2 style="font-family:var(--serif);font-size:clamp(22px,3vw,34px);color:var(--cream);font-weight:400;margin:0 0 16px;">Planning a Government or Corporate Event?</h2>
+        <p style="color:rgba(240,234,214,.7);font-size:16px;margin:0 0 32px;">Get in touch with our team for a detailed proposal within 24 hours.</p>
+        <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+          <button class="btn-g" onclick="showPage('contact')">Request a Proposal →</button>
+          <a href="tel:+919971383939" class="btn-o" style="text-decoration:none;">📞 Call Us Now</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</div>
+
 <!-- ═══ FOOTER ═══ -->
 <footer>
   <div class="ft-inner">
@@ -2893,6 +3010,7 @@ footer{
           <li><a onclick="showPage('events')">Recent Events</a></li>
           <li><a onclick="showPage('gallery')">Gallery</a></li>
           <li><a onclick="showPage('about')">About Us</a></li>
+          <li><a onclick="showPage('seo')">Why Choose Us</a></li>
           <li><a onclick="showPage('contact')">Contact</a></li>
           <li><a href="https://share.google/VBesVzpxNdPon7krQ" target="_blank">Write a Review</a></li>
         </ul>
@@ -3543,7 +3661,9 @@ function resetHeroSl() { startHeroSl(); }
 function initParticles() {
   const c = document.getElementById('heroParticles');
   if (!c) return;
-  for (let i = 0; i < 22; i++) {
+  const isMobile = window.innerWidth < 768;
+  const count = isMobile ? 8 : 16;
+  for (let i = 0; i < count; i++) {
     const s = document.createElement('span');
     s.className = 'pt';
     const sz = Math.random() * 2.5 + 1;
