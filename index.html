@@ -3676,9 +3676,9 @@ function dismissLoader() {
 }
 /* Use DOMContentLoaded so loader clears before images finish downloading */
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => setTimeout(dismissLoader, 100));
+  document.addEventListener('DOMContentLoaded', () => setTimeout(dismissLoader, 3000));
 } else {
-  setTimeout(dismissLoader, 100);
+  setTimeout(dismissLoader, 3000);
 }
 
 /* ═══ HERO BACKGROUND SLIDER ═══ */
