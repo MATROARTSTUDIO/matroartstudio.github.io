@@ -1,6 +1,17 @@
 {
   "events": [
     {
+      "badge": "2026",
+      "title": "16th Conference of Central Council of Health & Family Welfare (CCHFW)",
+      "ministry": "MINISTRY OF HEALTH AND FAMILY WELFARE",
+      "venue": "Vigyan Bhawan",
+      "photos": [
+        "images2/ministry-of-health-and-family-welfare-1.jpg",
+        "images2/ministry-of-health-and-family-welfare-2.jpg",
+        "images2/ministry-of-health-and-family-welfare-3.jpg"
+      ]
+    },
+    {
       "title": "Launch of Digital Initiatives for Health Sector",
       "ministry": "National Health Authority",
       "venue": "Vigyan Bhawan",
