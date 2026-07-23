@@ -1,24 +1,290 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Matro Art Studio — Content Admin</title>
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-</head>
-<body>
-  <!-- Decap CMS (formerly Netlify CMS) -->
-  <script src="https://unpkg.com/decap-cms@3.3.3/dist/decap-cms.js"></script>
-  <script>
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", user => {
-        if (!user) {
-          window.netlifyIdentity.on("login", () => {
-            document.location.href = "/admin/";
-          });
-        }
-      });
+{
+  "events": [
+    {
+      "title": "Launch of Digital Initiatives for Health Sector",
+      "ministry": "National Health Authority",
+      "venue": "Vigyan Bhawan",
+      "photos": [
+        "images/National Health Authority 1.JPG",
+        "images/National Health Authority 2.JPG",
+        "images/National Health Authority 3.JPG"
+      ],
+      "badge": "2024"
+    },
+    {
+      "title": "10th Top-Level ENCORD Meeting and release of Vision Document for Narcotics Control: Drug Free India 2029",
+      "ministry": "Narcotics Control Bureau",
+      "venue": "Vigyan Bhawan",
+      "photos": [
+        "images/Narcotics Control Bureau 1.JPG",
+        "images/Narcotics Control Bureau 2.JPG",
+        "images/Narcotics Control Bureau 3.JPG"
+      ],
+      "badge": "2024"
+    },
+    {
+      "title": "Assistant Secretary Programme Trainee IAS Officer of the year 2024 batch",
+      "ministry": "Department of Personnel & Training",
+      "venue": "Vigyan Bhawan",
+      "photos": [
+        "images/Department of Personnel & Training 1.JPG",
+        "images/Department of Personnel & Training 2.JPG",
+        "images/Department of Personnel & Training 3.JPG"
+      ],
+      "badge": "2024"
+    },
+    {
+      "title": "National Capital Region Planning Board 42nd Board Meeting",
+      "ministry": "National Capital Region Planning Board (NCRPB)",
+      "venue": "Vigyan Bhawan",
+      "photos": [
+        "gallery-images/national capital region planing board 1.jpeg",
+        "gallery-images/national capital region planing board 2.jpeg",
+        "gallery-images/national capital region planing board 3.jpeg"
+      ],
+      "badge": "2026"
+    },
+    {
+      "title": "MoU Signing Ceremony Between National Health Authority and Department of Health and Family Welfare for West Bangal",
+      "ministry": "National Health Authority (NHA)",
+      "venue": "Vigyan Bhawan",
+      "photos": [
+        "gallery-images/mou sining ceremoni 1.JPG",
+        "gallery-images/mou sining ceremoni 2.JPG",
+        "gallery-images/mou sining ceremoni 3.JPG"
+      ],
+      "badge": "2026"
+    },
+    {
+      "title": "Inauguration Assistant Secretary Programme Officer Trainees of IAS 2024 Batch",
+      "ministry": "Department of Personnel & Training (DoPT)",
+      "venue": "Vigyan Bhawan",
+      "photos": [
+        "images2/DOPT1.jpeg",
+        "images2/DOPT2.jpeg",
+        "images2/DOPT3.jpeg"
+      ],
+      "badge": "2026"
+    },
+    {
+      "title": "Mobilisation For Suraksha National Review",
+      "ministry": "Ministry of Health & Family Welfare Government of India (NACO)",
+      "venue": "Vigyan Bhawan",
+      "photos": [
+        "images2/NAC1.JPG",
+        "images2/NAC2.JPG",
+        "images2/NAC3.JPG"
+      ],
+      "badge": "2026"
+    },
+    {
+      "title": "Launch of Computational Thinking and Artificial Intelligence (CA & AI) Curriculam For Classes III TO VIII",
+      "ministry": "Central Board of Secondary Education",
+      "venue": "Vigyan Bhawan",
+      "photos": [
+        "images2/CBC1.JPG",
+        "images2/CBC2.JPG",
+        "images2/CBC3.JPG"
+      ],
+      "badge": "2026"
+    },
+    {
+      "title": "Workshop on Reitisation of CPSE Real Estate Assets",
+      "ministry": "Gov of India with IRA",
+      "venue": "Vigyan Bhawan",
+      "photos": [
+        "images2/rai1.JPG",
+        "images2/rai2.JPG",
+        "images2/rai3.JPG"
+      ],
+      "badge": "2024"
+    },
+    {
+      "title": "International Workshop on 6G Stanardization",
+      "ministry": "Department of Telecommunication",
+      "venue": "Vigyan Bhawan",
+      "photos": [
+        "images2/dot1.JPG",
+        "images2/dot2.JPG",
+        "images2/dot3.JPG"
+      ],
+      "badge": "2024"
+    },
+    {
+      "title": "Seminar on Teansparent and Fair Elections of Multi-State Cooperative Societies",
+      "ministry": "Ministry of Coopration, Cooperative Election Authority",
+      "venue": "Vigyan Bhawan",
+      "photos": [
+        "images2/cop1.JPG",
+        "images2/cop2.JPG",
+        "images2/cop3.JPG"
+      ],
+      "badge": "2024"
+    },
+    {
+      "title": "India - UK 6th Home Affairs Dialogue (HAD)",
+      "ministry": "Ministry of Home Affairs",
+      "venue": "The Ashok Hotel, New Delhi",
+      "photos": [
+        "images2/hom1.jpeg",
+        "images2/hom2.jpeg",
+        "images2/hom3.jpeg"
+      ],
+      "badge": "2024"
+    },
+    {
+      "title": "National Symposium on Customs Reforms 2026",
+      "ministry": "Indirect Taxes and Customs",
+      "venue": "Vigyan Bhawan",
+      "photos": [
+        "images2/COS1.JPG",
+        "images2/COS2.JPG",
+        "images2/COS3.JPG"
+      ],
+      "badge": "2026"
+    },
+    {
+      "title": "Press Conference — Release of GDP Data (Base Year 2022–23)",
+      "ministry": "Ministry of Statistics and Programme Implementation",
+      "venue": "National Media Center",
+      "photos": [
+        "images2/med1.JPG",
+        "images2/med2.JPG",
+        "images2/med3.JPG"
+      ],
+      "badge": "2026"
+    },
+    {
+      "title": "18th Foundation Day",
+      "ministry": "Ministry of Statistics and Programme Implementation",
+      "venue": "National Statistical Systems Training Academy",
+      "photos": [
+        "images2/mo1.JPG",
+        "images2/mo2.JPG",
+        "images2/mo3.JPG"
+      ],
+      "badge": "2024"
+    },
+    {
+      "title": "Youth Dialogue on Budget 2026–27",
+      "ministry": "Ministry of Finance",
+      "venue": "The Oberoi Hotel, New Delhi",
+      "photos": [
+        "images2/obe2.jpeg",
+        "images2/obe1.jpeg",
+        "images2/obe3.jpeg"
+      ],
+      "badge": "2026"
+    },
+    {
+      "title": "National Science Day 2026",
+      "ministry": "Ministy of Science and Technology, Department of Science & Technology",
+      "venue": "Vigyan Bhawan",
+      "photos": [
+        "images2/sci1.JPG",
+        "images2/sci2.JPG",
+        "images2/sci3.JPG"
+      ],
+      "badge": "2026"
+    },
+    {
+      "title": "National Review Meeting with Project Directors of all SACS/DACS",
+      "ministry": "Ministry of Health and Family Welfare (NACO)",
+      "venue": "Vigyan Bhawan",
+      "photos": [
+        "images2/naco1.JPG",
+        "images2/naco2.JPG",
+        "images2/naco3.JPG"
+      ],
+      "badge": "2024"
+    },
+    {
+      "title": "Meeting To Review White Revolution 2.0 Animal Husbandry and Dairy Sector",
+      "ministry": "Ministry of Fisheries, Animal Husbandry and Dairying",
+      "venue": "Vigyan Bhawan",
+      "photos": [
+        "images2/animal 1.JPG",
+        "images2/anim2.JPG",
+        "images2/ani3.JPG"
+      ],
+      "badge": "2024"
+    },
+    {
+      "title": "Joint Hindi Advisory Committee 2026",
+      "ministry": "Ministry of Finance",
+      "venue": "Parliament House",
+      "photos": [
+        "images/parliment 1.jpeg",
+        "images/parliment 2.jpeg",
+        "images/parliment 3.jpeg"
+      ],
+      "badge": "2024"
+    },
+    {
+      "title": "Pre-Budget Meeting with Finance Ministers of States UTs 2026",
+      "ministry": "Ministry of Finance",
+      "venue": "The Ashok Hotel, New Delhi",
+      "photos": [
+        "images2/1.JPG",
+        "images2/2.JPG",
+        "images2/3.JPG"
+      ],
+      "badge": "2024"
+    },
+    {
+      "title": "NCORD Meeting — Ministry of Home Affairs 2025",
+      "ministry": "Ministry of Home Affairs",
+      "venue": "Vigyan Bhawan, New Delhi",
+      "photos": [
+        "images2/NARCO1.JPG",
+        "images2/NARCO2.JPG",
+        "images2/NARCO1.JPG"
+      ],
+      "badge": "2025"
+    },
+    {
+      "title": "Chairpersons of Debts Recovery Tribunals 2025",
+      "ministry": "Department of Financial Services",
+      "venue": "Vigyan Bhawan, New Delhi",
+      "photos": [
+        "images2/finance 3.jpeg",
+        "images2/finance 2.jpeg",
+        "images2/WhatsApp Image 2026-05-15 at 5.43.11 PM.jpeg"
+      ],
+      "badge": "2025"
+    },
+    {
+      "title": "MoSPI All India Workshop of Trainers 2025",
+      "ministry": "MoSPI",
+      "venue": "Manekshaw Centre, New Delhi",
+      "photos": [
+        "images2/MOSPI1.JPG",
+        "images2/MOSPI2.JPG",
+        "images2/MOSPI3.jpeg"
+      ],
+      "badge": "2025"
+    },
+    {
+      "title": "Annual Negotiations Meeting 2025 — India & Germany",
+      "ministry": "Ministry of Finance",
+      "venue": "The Claridges Hotel, New Delhi",
+      "photos": [
+        "images2/GR2.jpeg",
+        "images2/GR1.jpeg",
+        "images2/GR3.jpeg"
+      ],
+      "badge": "2025"
+    },
+    {
+      "title": "NDMA — National Disaster Management Authority",
+      "ministry": "Ministry of Home Affairs",
+      "venue": "Vigyan Bhawan, New Delhi",
+      "photos": [
+        "images2/NDMA1.jpeg",
+        "images2/NDMA2.jpeg",
+        "images2/NDMA3.jpeg"
+      ],
+      "badge": "2025"
     }
-  </script>
-</body>
-</html>
+  ]
+}
