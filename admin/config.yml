@@ -1,12 +1,8 @@
 backend:
-  name: github
-  repo: matroartstudio/matroartstudio.github.io
+  name: git-gateway
   branch: main
-  base_url: https://classy-melba-7f5093.netlify.app
-
 media_folder: "images2"
 public_folder: "images2"
-
 collections:
   - name: "events"
     label: "Events"
