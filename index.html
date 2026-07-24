@@ -2210,29 +2210,11 @@ footer{
       <div class="slider-wrap" id="sliderMain">
         <!--
         ═══════════════════════════════════════
-        SLIDER IMAGES: Add or remove sl-slide
-        divs to update the gallery slider.
-        Each slide = one image.
+        SLIDER IMAGES: now managed via the CMS
+        (/admin) and data/gallery.json — slides
+        are injected here by JS at runtime.
         ═══════════════════════════════════════
         -->
-        <div class="sl-slide active"><img src="images/1.JPG" alt="Event 1" onclick="openLB(this)"><div class="sl-caption"><span class="sl-cap-txt">Government Conference Excellence</span><span class="sl-cap-cnt">1 / 17</span></div></div>
-        <div class="sl-slide"><img src="images/2.jpg" alt="Event 2" onclick="openLB(this)"><div class="sl-caption"><span class="sl-cap-txt">Ministerial Summit</span><span class="sl-cap-cnt">2 / 17</span></div></div>
-        <div class="sl-slide"><img src="images/3.JPG" alt="Event 3" onclick="openLB(this)"><div class="sl-caption"><span class="sl-cap-txt">Corporate Conference</span><span class="sl-cap-cnt">3 / 17</span></div></div>
-        <div class="sl-slide"><img src="images/4.jpg" alt="Event 4" onclick="openLB(this)"><div class="sl-caption"><span class="sl-cap-txt">Exhibition Design</span><span class="sl-cap-cnt">4 / 17</span></div></div>
-        <div class="sl-slide"><img src="images/5.jpg" alt="Event 5" onclick="openLB(this)"><div class="sl-caption"><span class="sl-cap-txt">AV Production</span><span class="sl-cap-cnt">5 / 17</span></div></div>
-        <div class="sl-slide"><img src="images/6.JPG" alt="Event 6" onclick="openLB(this)"><div class="sl-caption"><span class="sl-cap-txt">Event Printing</span><span class="sl-cap-cnt">6 / 17</span></div></div>
-        <div class="sl-slide"><img src="images/7.jpg" alt="Event 7" onclick="openLB(this)"><div class="sl-caption"><span class="sl-cap-txt">Delegate Materials</span><span class="sl-cap-cnt">7 / 17</span></div></div>
-        <div class="sl-slide"><img src="images/8.JPG" alt="Event 8" onclick="openLB(this)"><div class="sl-caption"><span class="sl-cap-txt">Venue Setup</span><span class="sl-cap-cnt">8 / 17</span></div></div>
-        <div class="sl-slide"><img src="images/dimond merchant.webp" alt="Event 9" onclick="openLB(this)"><div class="sl-caption"><span class="sl-cap-txt">Stage Lighting Design</span><span class="sl-cap-cnt">9 / 17</span></div></div>
-        <div class="sl-slide"><img src="images/pm.avif" alt="Event 10" onclick="openLB(this)"><div class="sl-caption"><span class="sl-cap-txt">Award Ceremony</span><span class="sl-cap-cnt">10 / 17</span></div></div>
-        <div class="sl-slide"><img src="images/WhatsApp Image 2026-05-15 at 5.48.12 PM.jpeg" alt="Event 11" onclick="openLB(this)"><div class="sl-caption"><span class="sl-cap-txt">National Summit</span><span class="sl-cap-cnt">11 / 17</span></div></div>
-        <div class="sl-slide"><img src="images/IMG_7803.JPG.jpeg" alt="Event 12" onclick="openLB(this)"><div class="sl-caption"><span class="sl-cap-txt">Ministerial Event</span><span class="sl-cap-cnt">12 / 17</span></div></div>
-        <div class="sl-slide"><img src="images/IMG_8927.JPG.jpeg" alt="Event 13" onclick="openLB(this)"><div class="sl-caption"><span class="sl-cap-txt">Event Highlights 2025</span><span class="sl-cap-cnt">13 / 17</span></div></div>
-        <div class="sl-slide"><img src="images/WhatsApp Image 2026-05-15 at 5.58.10 PM.jpeg" alt="Event 14" onclick="openLB(this)"><div class="sl-caption"><span class="sl-cap-txt">Memorable Moments 2026</span><span class="sl-cap-cnt">14 / 17</span></div></div>
-           <div class="sl-slide"><img src="images/old president 2.avif" alt="Event 15" onclick="openLB(this)"><div class="sl-caption"><span class="sl-cap-txt">Memorable Moments 2011</span><span class="sl-cap-cnt">15 / 17</span></div></div>
-           <div class="sl-slide"><img src="images/rajnat singh.avif" alt="Event 16" onclick="openLB(this)"><div class="sl-caption"><span class="sl-cap-txt">Memorable Moments 2012</span><span class="sl-cap-cnt">16 / 17</span></div></div>
-           <div class="sl-slide"><img src="images/old president.jpg" alt="Event 17" onclick="openLB(this)"><div class="sl-caption"><span class="sl-cap-txt">Memorable Moments 2014</span><span class="sl-cap-cnt">17 / 17</span></div></div>
-
         <button class="sl-arrow l" onclick="slNav(-1)">&#8249;</button>
         <button class="sl-arrow r" onclick="slNav(1)">&#8250;</button>
         <div class="sl-prog" id="slProg"></div>
@@ -2251,69 +2233,12 @@ footer{
       </div>
       <!--
       ═══════════════════════════════════════
-      GALLERY GRID IMAGES:
-      Add a new <div class="gl-item"> block
-      with the image src to add photos.
+      GALLERY GRID IMAGES: now managed via the
+      CMS (/admin) and data/gallery.json —
+      items are injected here by JS at runtime.
       ═══════════════════════════════════════
       -->
-      <div class="gallery-grid" id="galleryGrid">
-        <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/1.JPG" alt="Gallery 1" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-        <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/2.JPG" alt="Gallery 2" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-        <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/3.JPG" alt="Gallery 3" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-        <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/4.JPG" alt="Gallery 4" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-        <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/5.JPG" alt="Gallery 5" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-        <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/6.JPG" alt="Gallery 6" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-        <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/7.JPG" alt="Gallery 7" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-        <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/8.JPG" alt="Gallery 8" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-        <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/9.JPG" alt="Gallery 9" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-        <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/10.JPG" alt="Gallery 10" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-        <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/11.JPG" alt="Gallery 11" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-        <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/12.JPG" alt="Gallery 12" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-        <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/13.JPG" alt="Gallery 13" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-        <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/14.JPG" alt="Gallery 14" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-        <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/15.JPG" alt="Gallery 15" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-        <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/16.JPG" alt="Gallery 16" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-        <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/17.JPG" alt="Gallery 17" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-        <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/18.JPG" alt="Gallery 18" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-           <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/19.JPG" alt="Gallery 19" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-           <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/20.JPG" alt="Gallery 20" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-           <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/21.JPG" alt="Gallery 21" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-           <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/22.JPG" alt="Gallery 22" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-           <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/23.JPG" alt="Gallery 23" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-           <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/24.JPG" alt="Gallery 24" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-           <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/25.JPG" alt="Gallery 25" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-           <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/26.JPG" alt="Gallery 26" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-           <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/27.JPG" alt="Gallery 27" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-           <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/28.JPG" alt="Gallery 28" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-           <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/29.JPG" alt="Gallery 29" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-           <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/30.JPG" alt="Gallery 30" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-           <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/31.JPG" alt="Gallery 31" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-           <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/32.JPG" alt="Gallery 32" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-           <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/33.JPG" alt="Gallery 33" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-           <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/34.JPG" alt="Gallery 34" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-           <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/35.JPG" alt="Gallery 35" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-           <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/36.JPG" alt="Gallery 36" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-           <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/37.JPG" alt="Gallery 37" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-           <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/38.JPG" alt="Gallery 38" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-           <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/39.JPG" alt="Gallery 39" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-           <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/40.JPG" alt="Gallery 40" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-           <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/41.JPG" alt="Gallery 41" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-           <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/42.JPG" alt="Gallery 42" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-           <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/43.JPG" alt="Gallery 43" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-           <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/44.JPG" alt="Gallery 44" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-           <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/45.JPG" alt="Gallery 45" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-           <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/46.JPG" alt="Gallery 46" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-           <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/47.JPG" alt="Gallery 47" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-           <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/48.JPG" alt="Gallery 48" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-           <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/49.JPG" alt="Gallery 49" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-           <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="images/pm.avif" alt="Gallery 50" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-           <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="images/rajnat singh.avif" alt="Gallery 51" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-            <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="images/old president.jpg" alt="Gallery 52" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-           <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="images/old president 2.avif" alt="Gallery 53" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-           <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="images/dimond merchant.webp" alt="Gallery 54" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-            <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/national capital region planing board 1.jpeg" alt="Gallery 55" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-           <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="gallery-images/mou sining ceremoni 1.JPG" alt="Gallery 56" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-       </div>
+      <div class="gallery-grid" id="galleryGrid"></div>
     </div>
   </div>
 </div><!-- /gallery -->
@@ -2374,7 +2299,7 @@ footer{
       </div>
       <div class="rv d1">
         <div class="aho-vid-box" id="aboutStoryImgBox" style="aspect-ratio:3/4;max-height:600px;">
-          <img class="aho-video" src="images/DSC_8558.JPG" alt="Matro Art Studio Events" style="object-position:center top;" onerror="document.getElementById('aboutStoryImgBox').style.display='none';document.getElementById('aboutStoryBadge').style.position='relative';document.getElementById('aboutStoryBadge').style.display='inline-flex';">
+          <img class="aho-video" id="aboutStoryPhoto" src="images/DSC_8558.JPG" alt="Matro Art Studio Events" style="object-position:center top;" onerror="document.getElementById('aboutStoryImgBox').style.display='none';document.getElementById('aboutStoryBadge').style.position='relative';document.getElementById('aboutStoryBadge').style.display='inline-flex';">
           <div class="aho-vid-overlay">
             <div class="aho-vid-badge">📍 Lajpat Nagar, New Delhi</div>
           </div>
@@ -3150,6 +3075,90 @@ async function loadEvents() {
 loadEvents();
 
 /* ═══════════════════════════════════════════════════════════════
+   GALLERY DATA — managed via CMS (/admin) → data/gallery.json
+   Loaded once on page load, then used to build the Gallery page
+   slider + photo grid every time that page is opened.
+
+   Do not edit GALLERY_DATA directly — edit data/gallery.json.
+   ═══════════════════════════════════════════════════════════════ */
+let GALLERY_DATA = { slider: [], grid: [] };
+
+async function loadGalleryData() {
+  try {
+    const res = await fetch('data/gallery.json', { cache: 'no-store' });
+    const data = await res.json();
+    GALLERY_DATA = { slider: data.slider || [], grid: data.grid || [] };
+  } catch (err) {
+    console.error('Could not load data/gallery.json', err);
+    GALLERY_DATA = { slider: [], grid: [] };
+  }
+}
+loadGalleryData();
+
+function renderGallerySlider() {
+  const wrap = document.getElementById('sliderMain');
+  if (!wrap) return;
+  wrap.querySelectorAll('.sl-slide').forEach(el => el.remove());
+  const slides = GALLERY_DATA.slider;
+  const total = slides.length;
+  const arrowL = wrap.querySelector('.sl-arrow.l');
+  slides.forEach((s, i) => {
+    const div = document.createElement('div');
+    div.className = 'sl-slide' + (i === 0 ? ' active' : '');
+    div.innerHTML = `<img src="${s.src}" alt="${s.alt || ''}" onclick="openLB(this)"><div class="sl-caption"><span class="sl-cap-txt">${s.caption || ''}</span><span class="sl-cap-cnt">${i + 1} / ${total}</span></div>`;
+    wrap.insertBefore(div, arrowL);
+  });
+  /* Reset dots/thumbs so initSlider() rebuilds them from the new slides */
+  const dots = document.getElementById('slDots');
+  const thumbs = document.getElementById('slThumbs');
+  if (dots) dots.innerHTML = '';
+  if (thumbs) thumbs.innerHTML = '';
+  slIdx = 0;
+}
+
+function renderGalleryGrid() {
+  const grid = document.getElementById('galleryGrid');
+  if (!grid) return;
+  grid.innerHTML = GALLERY_DATA.grid.map((it, i) => `
+    <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="${it.src}" alt="${it.alt || ('Gallery ' + (i + 1))}" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
+  `).join('');
+}
+
+async function renderGalleryPage() {
+  if (!GALLERY_DATA.slider.length && !GALLERY_DATA.grid.length) {
+    await loadGalleryData();
+  }
+  renderGallerySlider();
+  renderGalleryGrid();
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ABOUT DATA — managed via CMS (/admin) → data/about.json
+   Currently just the story photo on the About page.
+
+   Do not edit ABOUT_DATA directly — edit data/about.json.
+   ═══════════════════════════════════════════════════════════════ */
+let ABOUT_DATA = null;
+
+async function loadAboutData() {
+  try {
+    const res = await fetch('data/about.json', { cache: 'no-store' });
+    ABOUT_DATA = await res.json();
+  } catch (err) {
+    console.error('Could not load data/about.json', err);
+    ABOUT_DATA = null;
+  }
+  applyAboutData();
+}
+loadAboutData();
+
+function applyAboutData() {
+  if (!ABOUT_DATA || !ABOUT_DATA.photo) return;
+  const img = document.getElementById('aboutStoryPhoto');
+  if (img) img.src = ABOUT_DATA.photo;
+}
+
+/* ═══════════════════════════════════════════════════════════════
    renderRecentEvents()
    Reads RECENT_EVENTS array, takes the first 3 (latest),
    and injects them into #homeRecentEvents on the home page.
@@ -3366,7 +3375,8 @@ function showPage(id) {
     window.scrollTo(0, 0);
     setTimeout(initReveal, 200);
     if (id === 'gallery') {
-      setTimeout(() => {
+      setTimeout(async () => {
+        await renderGalleryPage();
         initSlider();
         /* Re-anchor to top after slider finishes its own setup */
         setTimeout(() => {
@@ -3383,6 +3393,9 @@ function showPage(id) {
     }
     if (id === 'blog') {
       renderBlog();
+    }
+    if (id === 'about') {
+      applyAboutData(); /* refresh in case it changed since load */
     }
   }
   const btn = document.querySelector(`.nl[onclick*="'${id}'"]`);
