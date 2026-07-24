@@ -25,3 +25,47 @@ collections:
                 widget: "list"
                 summary: "{{fields.photo}}"
                 field: { label: "Photo", name: "photo", widget: "image" }
+
+  - name: "gallery"
+    label: "Gallery Page"
+    files:
+      - name: "gallery"
+        label: "Gallery Content"
+        file: "data/gallery.json"
+        fields:
+          - label: "Top Slider"
+            name: "slider"
+            widget: "list"
+            summary: "{{fields.caption}}"
+            fields:
+              - label: "Photo"
+                name: "src"
+                widget: "image"
+                media_folder: "/images"
+                public_folder: "images"
+              - { label: "Alt text", name: "alt", widget: "string", required: false }
+              - { label: "Caption", name: "caption", widget: "string", required: false }
+          - label: "Photo Grid"
+            name: "grid"
+            widget: "list"
+            summary: "{{fields.alt}}"
+            fields:
+              - label: "Photo"
+                name: "src"
+                widget: "image"
+                media_folder: "/gallery-images"
+                public_folder: "gallery-images"
+              - { label: "Alt text", name: "alt", widget: "string", required: false }
+
+  - name: "about"
+    label: "About Page"
+    files:
+      - name: "about"
+        label: "About Content"
+        file: "data/about.json"
+        fields:
+          - label: "Story Photo"
+            name: "photo"
+            widget: "image"
+            media_folder: "/images"
+            public_folder: "images"
