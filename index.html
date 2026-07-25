@@ -966,6 +966,13 @@ body::after{
   opacity:0;transition:opacity 1.2s ease;
 }
 .gal-sl-slide.active{opacity:1;}
+.gal-sl-caption{
+  position:absolute;left:24px;bottom:24px;z-index:15;
+  background:rgba(5,6,10,.62);border:1px solid var(--edge-hi);
+  backdrop-filter:blur(10px);color:var(--cream);
+  font-size:12px;letter-spacing:.5px;padding:9px 18px;border-radius:4px;
+  max-width:80%;
+}
 .gal-sl-slide img{
   width:100%;height:100%;object-fit:cover;object-position:center center;
   display:block;filter:brightness(.78) saturate(.94);
@@ -2970,23 +2977,25 @@ function renderFullEvents() {
 /* ═══════════════════════════════════════════════════════════════
    ██████  GALLERY DATA — LOADED FROM data/gallery.json  ██████
    ═══════════════════════════════════════════════════════════════
-   Same pattern as the Events data above. Photos are added either
-   through the /admin CMS panel (upload a photo + optional caption,
-   click Publish) or by hand on GitHub, editing data/gallery.json.
+   Same pattern as the Events data above. Matches the CMS schema in
+   admin/config.yml, which defines TWO separate lists inside
+   data/gallery.json:
+     - "slider": curated photos for the top featured slider
+                 (each: src, alt, caption)
+     - "grid":   every photo shown in the full grid below
+                 (each: src, alt)
 
-   GALLERY_IMAGES is populated automatically by loadGallery() and
-   is used to render:
-     - the featured slider at the top of the Gallery page
-     - the full photo grid below it
+   Photos are added either through the /admin CMS panel (click
+   "Gallery Page", add to "Top Slider" and/or "Photo Grid", click
+   Publish) or by hand on GitHub, editing data/gallery.json.
 
-   Do not edit GALLERY_IMAGES directly — edit data/gallery.json.
+   Do not edit GALLERY_DATA directly — edit data/gallery.json.
 
-   NOTE: data/gallery.json currently ships with an empty images
-   array — no photos yet. Both the slider and grid gracefully show
-   an empty state until photos are added via the CMS.
+   NOTE: data/gallery.json currently ships with empty slider/grid
+   arrays — no photos yet. Both sections gracefully show an empty
+   state until photos are added via the CMS.
    ═══════════════════════════════════════════════════════════════ */
-let GALLERY_IMAGES = [];
-let _galleryLoaded = false;
+let GALLERY_DATA = { slider: [], grid: [] };
 let galSlIdx = 0, galSlTotal = 0, galSlTimer = null;
 const GAL_SL_DUR = 5000;
 
@@ -2994,12 +3003,11 @@ async function loadGallery() {
   try {
     const res = await fetch('data/gallery.json', { cache: 'no-store' });
     const data = await res.json();
-    GALLERY_IMAGES = data.images || [];
+    GALLERY_DATA = { slider: data.slider || [], grid: data.grid || [] };
   } catch (err) {
     console.error('Could not load data/gallery.json', err);
-    GALLERY_IMAGES = [];
+    GALLERY_DATA = { slider: [], grid: [] };
   }
-  _galleryLoaded = true;
   renderGallerySlider();
   renderGalleryGrid();
 }
@@ -3010,7 +3018,9 @@ function renderGalleryGrid() {
   const grid = document.getElementById('galleryGrid');
   if (!grid) return;
 
-  if (!GALLERY_IMAGES.length) {
+  const items = GALLERY_DATA.grid;
+
+  if (!items.length) {
     grid.innerHTML = `
       <div class="gal-empty">
         <div style="font-size:32px;margin-bottom:16px;">&#128247;</div>
@@ -3021,8 +3031,8 @@ function renderGalleryGrid() {
   }
 
   grid.innerHTML = `<div class="gal-grid">
-    ${GALLERY_IMAGES.map(img => `
-      <img src="${img.src}" alt="${img.caption || 'Matro Art Studio event photo'}" onclick="openLB(this)" loading="lazy">
+    ${items.map(img => `
+      <img src="${img.src}" alt="${img.alt || 'Matro Art Studio event photo'}" onclick="openLB(this)" loading="lazy">
     `).join('')}
   </div>`;
 
@@ -3038,10 +3048,7 @@ function renderGallerySlider() {
 
   clearInterval(galSlTimer);
 
-  /* Slider shows photos marked "featured" in the CMS; if none are
-     marked (or the field is omitted), it falls back to showing all. */
-  const featured = GALLERY_IMAGES.filter(img => img.featured !== false);
-  const slides = featured.length ? featured : GALLERY_IMAGES;
+  const slides = GALLERY_DATA.slider;
 
   if (!slides.length) {
     slider.style.display = 'none';
@@ -3050,7 +3057,10 @@ function renderGallerySlider() {
   slider.style.display = '';
 
   track.innerHTML = slides.map((img, i) => `
-    <div class="gal-sl-slide${i === 0 ? ' active' : ''}"><img src="${img.src}" alt="${img.caption || 'Matro Art Studio event photo'}" loading="${i === 0 ? 'eager' : 'lazy'}"></div>
+    <div class="gal-sl-slide${i === 0 ? ' active' : ''}">
+      <img src="${img.src}" alt="${img.alt || 'Matro Art Studio event photo'}" loading="${i === 0 ? 'eager' : 'lazy'}">
+      ${img.caption ? `<div class="gal-sl-caption">${img.caption}</div>` : ''}
+    </div>
   `).join('');
 
   dots.innerHTML = '';
@@ -3098,6 +3108,7 @@ function resetGalSl() { startGalSl(); }
   }, { passive: true });
 })();
 
+
 /* ═══════════════════════════════════════════════════════════════
    ██████  ABOUT DATA — LOADED FROM data/about.json  ██████
    ═══════════════════════════════════════════════════════════════
@@ -3141,7 +3152,7 @@ function renderAbout() {
   setText('aboutImgCaption', d.imageCaption);
 
   const img = document.getElementById('aboutImg');
-  if (img && d.image) img.src = d.image;
+  if (img && d.photo) img.src = d.photo;
 
   const paraWrap = document.getElementById('aboutParagraphs');
   if (paraWrap && Array.isArray(d.paragraphs)) {
