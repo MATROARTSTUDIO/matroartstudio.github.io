@@ -1,21 +1,37 @@
 {
-  "label": "Who We Are",
+  "timeline": [
+    {
+      "dot": "08",
+      "year": "2008",
+      "desc": "Founded in Lajpat Nagar, New Delhi with a vision to elevate government event management."
+    },
+    {
+      "dot": "12",
+      "year": "2012",
+      "desc": "Milestone: 100th event completed. Expanded to serve 30+ Ministries across India."
+    },
+    {
+      "dot": "18",
+      "year": "2018",
+      "desc": "Decade of excellence. 500+ events milestone. Expanded to AV and exhibition services."
+    },
+    {
+      "dot": "24",
+      "year": "2024",
+      "desc": "1000+ events managed. 100+ Ministries & PSU served. Recognised as Delhi's premier event studio."
+    }
+  ],
   "titleHtml": "Our <em>Story</em>",
-  "sectionLabel": "Since 2008",
-  "headingHtml": "Delhi's Most Trusted<br><em>Event Partners</em>",
   "paragraphs": [
     "MATRO ART STUDIO was founded in 2008 with a singular vision — to bring world-class event management to India's corridors of power. Based in Lajpat Nagar, New Delhi, we have grown from a passionate startup to the most trusted name in government event management.",
     "Over 18 years, we have built deep expertise in the unique demands of government protocol, media management, and large-scale conference organization. Our clients include 100+ Ministries and premier constitutional bodies of the Government of India.",
     "What sets us apart is not just our capability — it's our integrity, precision, and unwavering commitment to excellence. Every event we touch reflects our belief that the moments we create become part of India's institutional memory."
   ],
-  "timeline": [
-    { "dot": "08", "year": "2008", "desc": "Founded in Lajpat Nagar, New Delhi with a vision to elevate government event management." },
-    { "dot": "12", "year": "2012", "desc": "Milestone: 100th event completed. Expanded to serve 30+ Ministries across India." },
-    { "dot": "18", "year": "2018", "desc": "Decade of excellence. 500+ events milestone. Expanded to AV and exhibition services." },
-    { "dot": "24", "year": "2024", "desc": "1000+ events managed. 100+ Ministries & PSU served. Recognised as Delhi's premier event studio." }
-  ],
-  "photo": "images/DSC_8558.JPG",
-  "imageCaption": "\ud83d\udccd Lajpat Nagar, New Delhi",
+  "imageCaption": "📍 Lajpat Nagar, New Delhi",
   "badgeNumber": "18+",
-  "badgeLabel": "Years"
+  "headingHtml": "Delhi's Most Trusted<br><em>Event Partners</em>",
+  "sectionLabel": "Since 2008",
+  "badgeLabel": "Years",
+  "photo": "images/AUDIO AND VISUAL.jpg",
+  "label": "Who We Are"
 }
