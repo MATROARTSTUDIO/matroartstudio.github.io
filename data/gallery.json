@@ -1,12 +1,4 @@
 {
-  "slider": [
-    {
-      "src": "images/3.JPG"
-    }
-  ],
-  "grid": [
-    {
-      "src": "gallery-images/12.JPG"
-    }
-  ]
+  "slider": [],
+  "grid": []
 }
