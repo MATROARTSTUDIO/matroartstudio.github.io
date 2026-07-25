@@ -69,3 +69,22 @@ collections:
             widget: "image"
             media_folder: "/images"
             public_folder: "images"
+          - { label: "Photo caption (e.g. 📍 Lajpat Nagar, New Delhi)", name: "imageCaption", widget: "string", required: false }
+          - { label: "Eyebrow label (top of banner)", name: "label", widget: "string", default: "Who We Are" }
+          - { label: "Banner title (HTML, e.g. Our <em>Story</em>)", name: "titleHtml", widget: "string", default: "Our <em>Story</em>" }
+          - { label: "Section label (e.g. Since 2008)", name: "sectionLabel", widget: "string", default: "Since 2008" }
+          - { label: "Heading (HTML — <br> and <em> allowed)", name: "headingHtml", widget: "text" }
+          - label: "Story Paragraphs"
+            name: "paragraphs"
+            widget: "list"
+            field: { label: "Paragraph", name: "paragraph", widget: "text" }
+          - label: "Timeline"
+            name: "timeline"
+            widget: "list"
+            summary: "{{fields.year}} — {{fields.desc}}"
+            fields:
+              - { label: "Short label (e.g. 08)", name: "dot", widget: "string" }
+              - { label: "Year", name: "year", widget: "string" }
+              - { label: "Description", name: "desc", widget: "text" }
+          - { label: "Badge number (e.g. 18+)", name: "badgeNumber", widget: "string" }
+          - { label: "Badge label (e.g. Years)", name: "badgeLabel", widget: "string" }
