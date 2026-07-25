@@ -658,64 +658,6 @@ body::after{
 }
 
 /* ════════════════════════════════════
-   ABOUT HOME SECTION
-════════════════════════════════════ */
-.about-home-sec{padding:120px 56px;background:var(--void);overflow:visible;}
-.aho-inner{
-  max-width:1240px;margin:0 auto;
-  display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;
-}
-.aho-media-wrap{position:relative;min-width:0;padding-right:44px;padding-bottom:0;}
-.aho-text{min-width:0;}
-.aho-vid-box{
-  position:relative;border-radius:var(--r2);
-  overflow:hidden;aspect-ratio:16/9;
-  border:1px solid var(--edge);
-  box-shadow:0 24px 80px rgba(0,0,0,.6);
-  min-height:300px;
-}
-.aho-vid-box iframe{
-  position:absolute;top:0;left:0;width:100%;height:100%;border:0;
-}
-.aho-vid-box::before{
-  content:'';position:absolute;z-index:2;
-  top:-24px;left:-24px;right:24px;bottom:24px;
-  border:1px solid var(--edge-hi);border-radius:var(--r2);
-  pointer-events:none;transition:transform .5s;
-}
-.aho-video{
-  width:100%;height:100%;object-fit:cover;
-  filter:brightness(.8) saturate(.9);
-  transition:filter .5s;
-}
-.aho-vid-overlay{
-  position:absolute;inset:0;z-index:3;
-  background:linear-gradient(to top,rgba(5,6,10,.6) 0%,transparent 45%);
-  display:flex;align-items:flex-end;padding:24px;pointer-events:none;
-}
-.aho-vid-badge{
-  display:inline-flex;align-items:center;gap:10px;
-  background:rgba(5,6,10,.72);border:1px solid var(--edge-hi);
-  backdrop-filter:blur(10px);padding:9px 18px;border-radius:30px;
-  font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);
-}
-.aho-est-badge{
-  position:absolute;bottom:-20px;right:-20px;z-index:10;
-  background:linear-gradient(135deg,var(--gold),var(--gold-2));
-  color:var(--ink);padding:22px 28px;border-radius:var(--r);
-  box-shadow:0 12px 40px rgba(212,175,80,.45);text-align:center;
-}
-.aho-est-num{font-family:'Bebas Neue',serif;font-size:52px;line-height:1;letter-spacing:2px;}
-.aho-est-lbl{font-size:9px;letter-spacing:3px;text-transform:uppercase;font-weight:600;}
-
-.aho-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:32px;}
-.aho-tag{
-  padding:7px 16px;border:1px solid var(--edge);
-  font-size:10px;letter-spacing:2px;text-transform:uppercase;
-  color:var(--cream-d);border-radius:2px;transition:border-color .3s,box-shadow .3s,color .3s;
-}
-
-/* ════════════════════════════════════
    SERVICES GRID
 ════════════════════════════════════ */
 .srv-sec{background:var(--ink);padding:120px 56px;}
@@ -1010,71 +952,76 @@ body::after{
 }
 
 /* ════════════════════════════════════
-   GALLERY PAGE — v2 (masonry only)
+   GALLERY PAGE
 ════════════════════════════════════ */
-.gallery-sec-v2{padding:100px 56px;background:var(--ink);}
-.gallery-v2-inner{max-width:1280px;margin:0 auto;}
-.gallery-v2-hdr{text-align:center;margin-bottom:56px;}
-.gallery-v2-hdr .sec-label{justify-content:center;}
-.gallery-v2-hdr .sec-h2{margin-top:8px;}
+.gallery-slider-sec{padding:64px 56px 0;}
+.gal-slider{
+  position:relative;max-width:1240px;margin:0 auto;
+  height:clamp(280px,52vw,540px);border-radius:var(--r2);
+  overflow:hidden;border:1px solid var(--edge);background:var(--panel);
+}
+.gal-sl-track{position:absolute;inset:0;}
+.gal-sl-slide{
+  position:absolute;top:0;left:0;width:100%;height:100%;
+  opacity:0;transition:opacity 1.2s ease;
+}
+.gal-sl-slide.active{opacity:1;}
+.gal-sl-slide img{
+  width:100%;height:100%;object-fit:cover;object-position:center center;
+  display:block;filter:brightness(.78) saturate(.94);
+}
+.gal-sl-prog{
+  position:absolute;bottom:0;left:0;height:3px;width:0;z-index:20;
+  background:linear-gradient(90deg,var(--gold-3),var(--gold-2));
+}
+.gal-sl-dots{
+  position:absolute;bottom:20px;left:50%;transform:translateX(-50%);
+  display:flex;gap:8px;z-index:20;
+}
+.gal-sl-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:rgba(245,240,232,.35);border:none;cursor:none;
+  transition:background .3s,box-shadow .3s;padding:0;
+  -webkit-tap-highlight-color:transparent;
+}
+@media(max-width:768px){.gal-sl-dot{cursor:pointer;width:8px;height:8px;}}
+.gal-sl-dot.active{width:24px;border-radius:3px;background:var(--gold);}
+.gal-sl-arrow{
+  position:absolute;top:50%;transform:translateY(-50%);z-index:20;
+  width:clamp(36px,6vw,48px);height:clamp(36px,6vw,48px);border-radius:50%;
+  background:rgba(5,6,10,.5);border:1px solid var(--edge);
+  backdrop-filter:blur(10px);color:var(--cream);
+  font-size:clamp(18px,3vw,24px);
+  cursor:none;display:flex;align-items:center;justify-content:center;
+  transition:border-color .3s,box-shadow .3s,color .3s;
+}
+.gal-sl-arrow.l{left:clamp(10px,3vw,24px);}
+.gal-sl-arrow.r{right:clamp(10px,3vw,24px);}
+@media(max-width:768px){.gal-sl-arrow{display:none;}}
 
-.gallery-v2-grid{columns:3;column-gap:18px;}
-.gl-item{
-  margin-bottom:18px;break-inside:avoid;
-  position:relative;overflow:hidden;
-  border-radius:var(--r2);
-  border:1px solid var(--edge);
-  cursor:zoom-in;
-  transition:border-color .4s ease,box-shadow .4s ease,transform .4s ease;
-  transform:translateZ(0);
+.gallery-grid-sec{padding:56px 56px 100px;}
+.gal-inner{max-width:1240px;margin:0 auto;}
+.gal-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:10px;
+}
+.gal-grid img{
+  width:100%;aspect-ratio:1/1;object-fit:cover;
+  filter:brightness(.8);
+  transition:filter .35s ease,transform .35s ease;
+  cursor:zoom-in;display:block;border-radius:4px;
+  will-change:filter,transform;transform:translateZ(0);
   backface-visibility:hidden;
-  contain:layout style;
 }
-.gl-item img{
-  width:100%;display:block;
-  filter:brightness(.82) saturate(.95);
-  transition:filter .5s ease, transform .6s cubic-bezier(.2,.8,.2,1);
-  cursor:zoom-in;
-  transform:scale(1);
-  backface-visibility:hidden;
+.gal-empty{
+  text-align:center;padding:90px 24px;
+  border:1px dashed var(--edge);border-radius:var(--r2);
+  background:var(--panel);
 }
-.gl-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(to top,rgba(5,6,10,.82) 0%,rgba(5,6,10,.15) 45%,transparent 65%);
-  opacity:0;transition:opacity .4s ease;
-  display:flex;align-items:flex-end;padding:18px;
-}
-.gl-ico{
-  width:34px;height:34px;border-radius:50%;
-  background:rgba(212,175,80,.15);
-  border:1px solid var(--edge-hi);
-  color:var(--gold);font-size:16px;
-  display:flex;align-items:center;justify-content:center;
-  flex-shrink:0;
-  transition:background .3s ease;
-}
-.gl-cap{
-  font-size:12px;color:var(--cream);
-  line-height:1.4;font-weight:400;
-  margin-left:12px;
-  opacity:0;transform:translateY(6px);
-  transition:opacity .4s ease .05s, transform .4s ease .05s;
-}
-
-@media(hover:hover) and (pointer:fine){
-  .gl-item:hover{border-color:var(--edge-hi);box-shadow:0 20px 60px rgba(0,0,0,.5);transform:translateY(-3px);}
-  .gl-item:hover img{filter:brightness(1) saturate(1.05);transform:scale(1.07);}
-  .gl-item:hover .gl-overlay{opacity:1;}
-  .gl-item:hover .gl-cap{opacity:1;transform:translateY(0);}
-}
-
-@media(max-width:768px){
-  .gallery-sec-v2{padding:60px 24px;}
-  .gallery-v2-grid{columns:2;column-gap:12px;}
-  .gl-item{margin-bottom:12px;}
-}
-@media(max-width:480px){
-  .gallery-v2-grid{columns:1;}
+@media(max-width:900px){.gal-grid{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:600px){
+  .gallery-slider-sec{padding:48px 20px 0;}
+  .gallery-grid-sec{padding:40px 20px 70px;}
+  .gal-grid{grid-template-columns:repeat(2,1fr);gap:8px;}
 }
 
 /* ════════════════════════════════════
@@ -1086,36 +1033,44 @@ body::after{
   display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;
 }
 .about-story-text{}
-.about-vals-sec{padding:100px 56px;background:var(--ink);}
-.vals-grid{
-  max-width:1240px;margin:64px auto 0;
-  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
-  background:var(--edge);border:1px solid var(--edge);
-}
-.val-item{
-  background:var(--ink);padding:44px 36px;text-align:center;
-  position:relative;overflow:hidden;transition:background .4s,box-shadow .4s;
-}
-.val-item::after{
-  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,transparent,var(--gold),transparent);
-  transform:scaleX(0);transition:transform .45s;
-}
-.val-ico{font-size:40px;margin-bottom:20px;display:block;transition:transform .4s;}
-.val-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--cream);margin-bottom:10px;}
-.val-desc{font-size:13px;color:var(--cream-d);line-height:1.75;font-weight:300;}
 
-.about-cta-strip{
-  margin-top:80px;display:flex;align-items:center;
-  justify-content:space-between;gap:32px;
-  padding:48px 56px;
-  background:linear-gradient(135deg,var(--panel),var(--depth));
-  border:1px solid var(--edge);border-radius:var(--r2);
-  flex-wrap:wrap;
+.aho-vid-box{
+  position:relative;border-radius:var(--r2);
+  overflow:hidden;aspect-ratio:16/9;
+  border:1px solid var(--edge);
+  box-shadow:0 24px 80px rgba(0,0,0,.6);
+  min-height:300px;
 }
-.acs-title{font-family:'Playfair Display',serif;font-size:clamp(22px,3vw,36px);font-weight:700;color:var(--cream);}
-.acs-title em{color:var(--gold);font-style:italic;}
-.acs-btns{display:flex;gap:14px;flex-wrap:wrap;}
+.aho-vid-box::before{
+  content:'';position:absolute;z-index:2;
+  top:-24px;left:-24px;right:24px;bottom:24px;
+  border:1px solid var(--edge-hi);border-radius:var(--r2);
+  pointer-events:none;transition:transform .5s;
+}
+.aho-video{
+  width:100%;height:100%;object-fit:cover;
+  filter:brightness(.8) saturate(.9);
+  transition:filter .5s;
+}
+.aho-vid-overlay{
+  position:absolute;inset:0;z-index:3;
+  background:linear-gradient(to top,rgba(5,6,10,.6) 0%,transparent 45%);
+  display:flex;align-items:flex-end;padding:24px;pointer-events:none;
+}
+.aho-vid-badge{
+  display:inline-flex;align-items:center;gap:10px;
+  background:rgba(5,6,10,.72);border:1px solid var(--edge-hi);
+  backdrop-filter:blur(10px);padding:9px 18px;border-radius:30px;
+  font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);
+}
+.aho-est-badge{
+  position:absolute;bottom:-20px;right:-20px;z-index:10;
+  background:linear-gradient(135deg,var(--gold),var(--gold-2));
+  color:var(--ink);padding:22px 28px;border-radius:var(--r);
+  box-shadow:0 12px 40px rgba(212,175,80,.45);text-align:center;
+}
+.aho-est-num{font-family:'Bebas Neue',serif;font-size:52px;line-height:1;letter-spacing:2px;}
+.aho-est-lbl{font-size:9px;letter-spacing:3px;text-transform:uppercase;font-weight:600;}
 
 /* Timeline */
 .timeline{margin-top:60px;}
@@ -1137,6 +1092,14 @@ body::after{
 }
 .tl-yr{font-family:'Bebas Neue',serif;font-size:32px;color:var(--gold);letter-spacing:2px;line-height:1;}
 .tl-desc{font-size:14px;color:var(--cream-m);margin-top:6px;line-height:1.7;font-weight:300;}
+
+@media(max-width:1100px){
+  .about-story-inner{grid-template-columns:1fr;}
+}
+@media(max-width:768px){
+  .about-story-sec{padding:60px 24px;overflow:hidden;}
+  .about-story-inner .aho-vid-box{margin:0 12px;}
+}
 
 /* ════════════════════════════════════
    CONTACT PAGE
@@ -1355,13 +1318,10 @@ footer{
    RESPONSIVE
 ════════════════════════════════════ */
 @media(max-width:1100px){
-  .aho-inner{grid-template-columns:1fr;gap:60px;}
   .srv-grid{grid-template-columns:repeat(2,1fr);}
   .reviews-layout{grid-template-columns:1fr;}
   .review-cards{grid-template-columns:1fr 1fr;}
   .contact-inner{grid-template-columns:1fr;}
-  .about-story-inner{grid-template-columns:1fr;}
-  .vals-grid{grid-template-columns:repeat(2,1fr);}
   .ft-top{grid-template-columns:1fr 1fr;}
   #nav{padding:0 28px;}
   .nav-links{display:none;}
@@ -1395,7 +1355,6 @@ footer{
   }
   .sec{padding:80px 24px;}
   .srv-grid{grid-template-columns:1fr;}
-  .gallery-grid{columns:2;}
   .review-cards{grid-template-columns:1fr;}
   .hero-content{width:100%;position:relative;z-index:10;}
   .hero-eyebrow{font-size:8px;letter-spacing:2px;padding:6px 14px;margin-bottom:16px;}
@@ -1418,11 +1377,8 @@ footer{
   .hs-n{font-size:26px;}
   .hs-l{font-size:7px;letter-spacing:1px;}
   .scroll-ind{display:none;}
-  .slider-sec,.gallery-sec{padding:48px 24px;}
   .events-list{padding:60px 24px;}
   .contact-sec{padding:60px 24px;}
-  .about-story-sec,.about-vals-sec{padding:60px 24px;overflow:hidden;}
-  .about-story-inner .aho-vid-box{margin:0 12px;}
   .srv-card{padding:32px 28px;}
   .svc-body{padding:32px 28px;}
   .ev-gallery{grid-template-columns:repeat(2,1fr);}
@@ -1432,37 +1388,18 @@ footer{
   .stats-bar{padding:28px 24px;}
   .stats-bar-inner{gap:16px;}
   .sb-item{border-right:none;padding:12px 24px;}
-  .about-cta-strip{padding:36px 24px;flex-direction:column;}
   .services-full{padding:60px 24px;}
   .svc-inner{}
   .cta-band{padding:80px 24px;}
-  .about-home-sec{padding:80px 24px;overflow:visible;}
-  .aho-inner{grid-template-columns:minmax(0,1fr);gap:48px;}
-  .aho-media-wrap{margin:0;padding-right:0;padding-bottom:0;position:relative;}
-  .aho-vid-box{overflow:hidden;width:100%;max-width:100%;aspect-ratio:16/9;}
-  .aho-vid-box::before{display:none;}
-  .aho-est-badge{
-    position:absolute;
-    bottom:-16px;right:-8px;
-    padding:10px 16px;
-    border-radius:var(--r);
-    z-index:10;
-  }
-  .aho-est-num{font-size:32px;}
-  .aho-est-lbl{font-size:8px;}
   .clients-hdr{padding:0 24px;}
   .reviews-sec,.srv-sec{padding:80px 24px;}
   .pg-banner{height:240px;}
-  .sl-slide img{height:320px;}
-  .vals-grid{grid-template-columns:1fr 1fr;}
   .form-row{grid-template-columns:1fr;}
   .contact-form{padding:32px 24px;}
   body{cursor:auto;}
 }
 @media(max-width:480px){
-  .gallery-grid{columns:1;}
   .srv-grid{grid-template-columns:1fr;}
-  .vals-grid{grid-template-columns:1fr;}
   .ev-gallery{grid-template-columns:1fr;}
   .hero-btns{flex-direction:column;align-items:center;}
   .cta-btns{flex-direction:column;align-items:center;}
@@ -1641,7 +1578,6 @@ footer{
       <div class="hero-btns">
         <button class="btn-g" onclick="showPage('contact')">Contact Us →</button>
         <button class="btn-o" onclick="showPage('events')">View Our Work</button>
-        <button class="btn-o" onclick="showPage('gallery')">Gallery ✦</button>
       </div>
     </div>
 
@@ -1687,51 +1623,6 @@ footer{
       <span class="tick-item">Conference Materials<span class="tick-dot"></span></span>
     </div>
   </div>
-
-  <!-- ABOUT PREVIEW -->
-  <section class="about-home-sec">
-    <div class="aho-inner">
-      <div class="aho-media-wrap rv">
-        <div class="aho-vid-box">
-          <!--
-          ═══════════════════════════════════
-          VIDEO: Change the src below to update
-          the about section video.
-          Poster = fallback image shown before video loads
-          ═══════════════════════════════════
-          -->
-          <iframe class="aho-video" src="https://player.vimeo.com/video/1191881175?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1&background=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="width:100%;height:100%;position:absolute;top:0;left:0;" title="Matro Art Studio Event Highlights Reel"></iframe>
-          <div class="aho-vid-overlay">
-            <div class="aho-vid-badge">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--gold)"><path d="M8 5v14l11-7z"/></svg>
-              Event Highlights
-            </div>
-          </div>
-        </div>
-        <div class="aho-est-badge">
-          <div class="aho-est-num">2008</div>
-          <div class="aho-est-lbl">Est.</div>
-        </div>
-      </div>
-      <div class="aho-text">
-        <div class="sec-label rv">About Us</div>
-        <h2 class="sec-h2 rv">The Studio Behind<br><em>India's Most Important Events</em></h2>
-        <p class="sec-p rv d1">MATRO ART STUDIO is Delhi's premier event planning and management company, based in Lajpat Nagar. Since our founding in 2008, we've been the trusted partner for India's most important institutions — delivering memorable, precisely-executed experiences at the highest levels.</p>
-        <p class="sec-p rv d2">We specialize in government conferences, ministerial meetings, national summits, and high-profile corporate events. Our portfolio spans 100+ Ministries and government bodies, with 1000+ events executed flawlessly across the country.</p>
-        <div class="aho-tags rv d3">
-          <span class="aho-tag">Government Events</span>
-          <span class="aho-tag">Corporate Conferences</span>
-          <span class="aho-tag">National Summits</span>
-          <span class="aho-tag">Exhibition Design</span>
-          <span class="aho-tag">Audio-Visual</span>
-          <span class="aho-tag">Printing</span>
-        </div>
-        <div style="margin-top:40px;" class="rv d4">
-          <button class="btn-g" onclick="showPage('about')">Our Story →</button>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- SERVICES GRID
        ═══════════════════════════════════════════════════════
@@ -2150,6 +2041,7 @@ footer{
 
       <div id="fullEventsList"><!-- Injected by renderFullEvents() from data/events.json --></div>
   </div>
+</div><!-- /events-list -->
 </div><!-- /events -->
 
 
@@ -2160,128 +2052,93 @@ footer{
     <div class="pg-banner-grid"></div>
     <div class="pg-banner-glow"></div>
     <div class="pg-banner-content">
-      <div class="pg-label">Visual Story</div>
-      <div class="pg-title">Our <em>Gallery</em></div>
+      <div class="pg-label">Moments Captured</div>
+      <div class="pg-title">Photo <em>Gallery</em></div>
     </div>
   </div>
 
-  <!-- SLIDER SECTION -->
-  <div class="slider-sec">
-    <div class="slider-inner">
-      <div style="text-align:center;margin-bottom:40px;">
-        <div class="sec-label" style="justify-content:center;">Highlights</div>
-        <div style="font-family:'Playfair Display',serif;font-size:clamp(22px,4vw,36px);color:var(--cream);font-weight:300;">18 Years · 1000+ Events · Countless Memories</div>
-      </div>
-      <div class="slider-wrap" id="sliderMain">
-        <!--
-        ═══════════════════════════════════════
-        SLIDER IMAGES: now managed via the CMS
-        (/admin) and data/gallery.json — slides
-        are injected here by JS at runtime.
-        ═══════════════════════════════════════
-        -->
-        <button class="sl-arrow l" onclick="slNav(-1)">&#8249;</button>
-        <button class="sl-arrow r" onclick="slNav(1)">&#8250;</button>
-        <div class="sl-prog" id="slProg"></div>
-      </div>
-      <div class="sl-dots" id="slDots"></div>
-      <div class="sl-thumbs" id="slThumbs"></div>
+  <div class="gallery-slider-sec">
+    <div class="gal-slider" id="galSlider">
+      <div class="gal-sl-track" id="galSlTrack"><!-- Injected by renderGallerySlider() from data/gallery.json --></div>
+      <button class="gal-sl-arrow l" onclick="galSlNav(-1)" aria-label="Previous photo">&#8249;</button>
+      <button class="gal-sl-arrow r" onclick="galSlNav(1)" aria-label="Next photo">&#8250;</button>
+      <div class="gal-sl-dots" id="galSlDots"></div>
+      <div class="gal-sl-prog" id="galSlProg"></div>
     </div>
   </div>
 
-  <!-- MASONRY GRID -->
-  <div class="gallery-sec">
-    <div class="gallery-grid-wrap">
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:32px;flex-wrap:wrap;gap:16px;">
-        <div class="sec-label">All Photos</div>
-        <div style="font-size:11px;letter-spacing:3px;color:var(--cream-d);">OUR EVENTS IN PICTURES</div>
-      </div>
+  <div class="gallery-grid-sec">
+    <div class="gal-inner">
+
       <!--
       ═══════════════════════════════════════
-      GALLERY GRID IMAGES: now managed via the
-      CMS (/admin) and data/gallery.json —
-      items are injected here by JS at runtime.
+      GALLERY: The slider above and grid below
+      are generated automatically from
+      data/gallery.json.
+      Add photos via the /admin CMS panel,
+      or edit data/gallery.json directly —
+      never edit this HTML.
       ═══════════════════════════════════════
       -->
-      <div class="gallery-grid" id="galleryGrid"></div>
+
+      <div id="galleryGrid"><!-- Injected by renderGalleryGrid() from data/gallery.json --></div>
     </div>
   </div>
 </div><!-- /gallery -->
 
 
 <!-- ═══ ABOUT ═══ -->
+<!--
+╔══════════════════════════════════════════════════════════════╗
+║  HOW TO EDIT THE ABOUT PAGE — READ THIS FIRST                ║
+╠══════════════════════════════════════════════════════════════╣
+║  All About page content lives in ONE place: data/about.json  ║
+║  This single file feeds every piece of text, the timeline,   ║
+║  and the photo on this page.                                 ║
+║                                                                ║
+║  EASIEST: Go to yoursite.com/admin, log in, click "About",   ║
+║           edit the text/timeline/photo, hit Publish.         ║
+║           Site updates automatically.                        ║
+║  MANUAL:  Edit data/about.json on GitHub directly.           ║
+║  Never edit the placeholders below — they are filled in      ║
+║  automatically by renderAbout() in the script at the bottom. ║
+╚══════════════════════════════════════════════════════════════╝
+-->
 <div id="page-about" class="page">
   <div class="pg-banner">
     <div class="pg-banner-bg"></div>
     <div class="pg-banner-grid"></div>
     <div class="pg-banner-glow"></div>
     <div class="pg-banner-content">
-      <div class="pg-label">Who We Are</div>
-      <div class="pg-title">Our <em>Story</em></div>
+      <div class="pg-label" id="aboutPgLabel">Who We Are</div>
+      <div class="pg-title" id="aboutPgTitle">Our <em>Story</em></div>
     </div>
   </div>
 
   <section class="about-story-sec">
     <div class="about-story-inner">
       <div class="about-story-text">
-        <div class="sec-label rv">Since 2008</div>
-        <h2 class="sec-h2 rv">Delhi's Most Trusted<br><em>Event Partners</em></h2>
-        <p class="sec-p rv d1">MATRO ART STUDIO was founded in 2008 with a singular vision — to bring world-class event management to India's corridors of power. Based in Lajpat Nagar, New Delhi, we have grown from a passionate startup to the most trusted name in government event management.</p>
-        <p class="sec-p rv d2">Over 18 years, we have built deep expertise in the unique demands of government protocol, media management, and large-scale conference organization. Our clients include 100+ Ministries and premier constitutional bodies of the Government of India.</p>
-        <p class="sec-p rv d3">What sets us apart is not just our capability — it's our integrity, precision, and unwavering commitment to excellence. Every event we touch reflects our belief that the moments we create become part of India's institutional memory.</p>
+        <div class="sec-label rv" id="aboutSecLabel">Since 2008</div>
+        <h2 class="sec-h2 rv" id="aboutHeading">Delhi's Most Trusted<br><em>Event Partners</em></h2>
+        <div id="aboutParagraphs"><!-- Injected by renderAbout() from data/about.json --></div>
 
         <!-- Timeline -->
-        <div class="timeline rv d4">
-          <div class="tl-item">
-            <div class="tl-dot">08</div>
-            <div>
-              <div class="tl-yr">2008</div>
-              <div class="tl-desc">Founded in Lajpat Nagar, New Delhi with a vision to elevate government event management.</div>
-            </div>
-          </div>
-          <div class="tl-item">
-            <div class="tl-dot">12</div>
-            <div>
-              <div class="tl-yr">2012</div>
-              <div class="tl-desc">Milestone: 100th event completed. Expanded to serve 30+ Ministries across India.</div>
-            </div>
-          </div>
-          <div class="tl-item">
-            <div class="tl-dot">18</div>
-            <div>
-              <div class="tl-yr">2018</div>
-              <div class="tl-desc">Decade of excellence. 500+ events milestone. Expanded to AV and exhibition services.</div>
-            </div>
-          </div>
-          <div class="tl-item">
-            <div class="tl-dot">24</div>
-            <div>
-              <div class="tl-yr">2024</div>
-              <div class="tl-desc">1000+ events managed. 100+ Ministries & PSU served. Recognised as Delhi's premier event studio.</div>
-            </div>
-          </div>
-        </div>
+        <div class="timeline rv d4" id="aboutTimeline"><!-- Injected by renderAbout() from data/about.json --></div>
       </div>
       <div class="rv d1">
         <div class="aho-vid-box" id="aboutStoryImgBox" style="aspect-ratio:3/4;max-height:600px;">
-          <img class="aho-video" id="aboutStoryPhoto" src="images/DSC_8558.JPG" alt="Matro Art Studio Events" style="object-position:center top;" onerror="document.getElementById('aboutStoryImgBox').style.display='none';document.getElementById('aboutStoryBadge').style.position='relative';document.getElementById('aboutStoryBadge').style.display='inline-flex';">
+          <img class="aho-video" id="aboutImg" src="" alt="Matro Art Studio Events" style="object-position:center top;" onerror="document.getElementById('aboutStoryImgBox').style.display='none';document.getElementById('aboutStoryBadge').style.position='relative';document.getElementById('aboutStoryBadge').style.display='inline-flex';">
           <div class="aho-vid-overlay">
-            <div class="aho-vid-badge">📍 Lajpat Nagar, New Delhi</div>
+            <div class="aho-vid-badge" id="aboutImgCaption">📍 Lajpat Nagar, New Delhi</div>
           </div>
         </div>
         <div class="aho-est-badge" id="aboutStoryBadge">
-            <div class="aho-est-num">18+</div>
-            <div class="aho-est-lbl">Years</div>
-          </div>
+          <div class="aho-est-num" id="aboutBadgeNum">18+</div>
+          <div class="aho-est-lbl" id="aboutBadgeLbl">Years</div>
         </div>
       </div>
     </div>
   </section>
-
-  <!-- VALUES -->
-  
-    <!-- CTA Strip -->
-   
 
 </div><!-- /about -->
 
@@ -2590,9 +2447,7 @@ footer{
         <ul class="ft-links">
           <li><a onclick="showPage('home')">Home</a></li>
           <li><a onclick="showPage('events')">Recent Events</a></li>
-          <li><a onclick="showPage('gallery')">Gallery</a></li>
           <li><a onclick="showPage('blog')">Blog</a></li>
-          <li><a onclick="showPage('about')">About Us</a></li>
           <li><a onclick="showPage('seo')">Why Choose Us</a></li>
           <li><a onclick="showPage('contact')">Contact</a></li>
           <li><a href="https://share.google/VBesVzpxNdPon7krQ" target="_blank">Write a Review</a></li>
@@ -3040,90 +2895,6 @@ async function loadEvents() {
 loadEvents();
 
 /* ═══════════════════════════════════════════════════════════════
-   GALLERY DATA — managed via CMS (/admin) → data/gallery.json
-   Loaded once on page load, then used to build the Gallery page
-   slider + photo grid every time that page is opened.
-
-   Do not edit GALLERY_DATA directly — edit data/gallery.json.
-   ═══════════════════════════════════════════════════════════════ */
-let GALLERY_DATA = { slider: [], grid: [] };
-
-async function loadGalleryData() {
-  try {
-    const res = await fetch('data/gallery.json', { cache: 'no-store' });
-    const data = await res.json();
-    GALLERY_DATA = { slider: data.slider || [], grid: data.grid || [] };
-  } catch (err) {
-    console.error('Could not load data/gallery.json', err);
-    GALLERY_DATA = { slider: [], grid: [] };
-  }
-}
-loadGalleryData();
-
-function renderGallerySlider() {
-  const wrap = document.getElementById('sliderMain');
-  if (!wrap) return;
-  wrap.querySelectorAll('.sl-slide').forEach(el => el.remove());
-  const slides = GALLERY_DATA.slider;
-  const total = slides.length;
-  const arrowL = wrap.querySelector('.sl-arrow.l');
-  slides.forEach((s, i) => {
-    const div = document.createElement('div');
-    div.className = 'sl-slide' + (i === 0 ? ' active' : '');
-    div.innerHTML = `<img src="${s.src}" alt="${s.alt || ''}" onclick="openLB(this)"><div class="sl-caption"><span class="sl-cap-txt">${s.caption || ''}</span><span class="sl-cap-cnt">${i + 1} / ${total}</span></div>`;
-    wrap.insertBefore(div, arrowL);
-  });
-  /* Reset dots/thumbs so initSlider() rebuilds them from the new slides */
-  const dots = document.getElementById('slDots');
-  const thumbs = document.getElementById('slThumbs');
-  if (dots) dots.innerHTML = '';
-  if (thumbs) thumbs.innerHTML = '';
-  slIdx = 0;
-}
-
-function renderGalleryGrid() {
-  const grid = document.getElementById('galleryGrid');
-  if (!grid) return;
-  grid.innerHTML = GALLERY_DATA.grid.map((it, i) => `
-    <div class="gl-item" onclick="openLB(this.querySelector('img'))"><img src="${it.src}" alt="${it.alt || ('Gallery ' + (i + 1))}" loading="lazy"><div class="gl-overlay"><span class="gl-ico">⊕</span></div></div>
-  `).join('');
-}
-
-async function renderGalleryPage() {
-  if (!GALLERY_DATA.slider.length && !GALLERY_DATA.grid.length) {
-    await loadGalleryData();
-  }
-  renderGallerySlider();
-  renderGalleryGrid();
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   ABOUT DATA — managed via CMS (/admin) → data/about.json
-   Currently just the story photo on the About page.
-
-   Do not edit ABOUT_DATA directly — edit data/about.json.
-   ═══════════════════════════════════════════════════════════════ */
-let ABOUT_DATA = null;
-
-async function loadAboutData() {
-  try {
-    const res = await fetch('data/about.json', { cache: 'no-store' });
-    ABOUT_DATA = await res.json();
-  } catch (err) {
-    console.error('Could not load data/about.json', err);
-    ABOUT_DATA = null;
-  }
-  applyAboutData();
-}
-loadAboutData();
-
-function applyAboutData() {
-  if (!ABOUT_DATA || !ABOUT_DATA.photo) return;
-  const img = document.getElementById('aboutStoryPhoto');
-  if (img) img.src = ABOUT_DATA.photo;
-}
-
-/* ═══════════════════════════════════════════════════════════════
    renderRecentEvents()
    Reads RECENT_EVENTS array, takes the first 3 (latest),
    and injects them into #homeRecentEvents on the home page.
@@ -3192,6 +2963,203 @@ function renderFullEvents() {
       </div>
     </div>
   `).join('');
+
+  setTimeout(initReveal, 50);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ██████  GALLERY DATA — LOADED FROM data/gallery.json  ██████
+   ═══════════════════════════════════════════════════════════════
+   Same pattern as the Events data above. Photos are added either
+   through the /admin CMS panel (upload a photo + optional caption,
+   click Publish) or by hand on GitHub, editing data/gallery.json.
+
+   GALLERY_IMAGES is populated automatically by loadGallery() and
+   is used to render:
+     - the featured slider at the top of the Gallery page
+     - the full photo grid below it
+
+   Do not edit GALLERY_IMAGES directly — edit data/gallery.json.
+
+   NOTE: data/gallery.json currently ships with an empty images
+   array — no photos yet. Both the slider and grid gracefully show
+   an empty state until photos are added via the CMS.
+   ═══════════════════════════════════════════════════════════════ */
+let GALLERY_IMAGES = [];
+let _galleryLoaded = false;
+let galSlIdx = 0, galSlTotal = 0, galSlTimer = null;
+const GAL_SL_DUR = 5000;
+
+async function loadGallery() {
+  try {
+    const res = await fetch('data/gallery.json', { cache: 'no-store' });
+    const data = await res.json();
+    GALLERY_IMAGES = data.images || [];
+  } catch (err) {
+    console.error('Could not load data/gallery.json', err);
+    GALLERY_IMAGES = [];
+  }
+  _galleryLoaded = true;
+  renderGallerySlider();
+  renderGalleryGrid();
+}
+loadGallery();
+
+/* ═══ GALLERY GRID ═══ */
+function renderGalleryGrid() {
+  const grid = document.getElementById('galleryGrid');
+  if (!grid) return;
+
+  if (!GALLERY_IMAGES.length) {
+    grid.innerHTML = `
+      <div class="gal-empty">
+        <div style="font-size:32px;margin-bottom:16px;">&#128247;</div>
+        <p style="font-family:'Playfair Display',serif;font-size:20px;color:var(--cream);margin-bottom:10px;">Gallery photos coming soon</p>
+        <p style="font-size:13px;color:rgba(240,234,214,.55);max-width:420px;margin:0 auto;">Photos added via the /admin CMS panel will appear here automatically — no code changes needed.</p>
+      </div>`;
+    return;
+  }
+
+  grid.innerHTML = `<div class="gal-grid">
+    ${GALLERY_IMAGES.map(img => `
+      <img src="${img.src}" alt="${img.caption || 'Matro Art Studio event photo'}" onclick="openLB(this)" loading="lazy">
+    `).join('')}
+  </div>`;
+
+  setTimeout(initReveal, 50);
+}
+
+/* ═══ GALLERY SLIDER ═══ */
+function renderGallerySlider() {
+  const track = document.getElementById('galSlTrack');
+  const dots = document.getElementById('galSlDots');
+  const slider = document.getElementById('galSlider');
+  if (!track || !slider) return;
+
+  clearInterval(galSlTimer);
+
+  /* Slider shows photos marked "featured" in the CMS; if none are
+     marked (or the field is omitted), it falls back to showing all. */
+  const featured = GALLERY_IMAGES.filter(img => img.featured !== false);
+  const slides = featured.length ? featured : GALLERY_IMAGES;
+
+  if (!slides.length) {
+    slider.style.display = 'none';
+    return;
+  }
+  slider.style.display = '';
+
+  track.innerHTML = slides.map((img, i) => `
+    <div class="gal-sl-slide${i === 0 ? ' active' : ''}"><img src="${img.src}" alt="${img.caption || 'Matro Art Studio event photo'}" loading="${i === 0 ? 'eager' : 'lazy'}"></div>
+  `).join('');
+
+  dots.innerHTML = '';
+  slides.forEach((_, i) => {
+    const d = document.createElement('button');
+    d.className = 'gal-sl-dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+    d.onclick = () => { goGalSlide(i); resetGalSl(); };
+    dots.appendChild(d);
+  });
+
+  galSlTotal = slides.length;
+  galSlIdx = 0;
+  goGalSlide(0);
+  if (galSlTotal > 1) startGalSl();
+}
+
+function goGalSlide(idx) {
+  const slides = document.querySelectorAll('#galSlTrack .gal-sl-slide');
+  const dots = document.querySelectorAll('#galSlDots .gal-sl-dot');
+  if (!slides.length) return;
+  slides[galSlIdx].classList.remove('active');
+  galSlIdx = (idx + galSlTotal) % galSlTotal;
+  slides[galSlIdx].classList.add('active');
+  dots.forEach((d, i) => d.classList.toggle('active', i === galSlIdx));
+  const bar = document.getElementById('galSlProg');
+  if (bar) {
+    bar.style.transition = 'none'; bar.style.width = '0%';
+    setTimeout(() => { bar.style.transition = `width ${GAL_SL_DUR}ms linear`; bar.style.width = '100%'; }, 50);
+  }
+}
+function galSlNav(d) { goGalSlide(galSlIdx + d); resetGalSl(); }
+function startGalSl() { clearInterval(galSlTimer); galSlTimer = setInterval(() => galSlNav(1), GAL_SL_DUR); }
+function resetGalSl() { startGalSl(); }
+
+/* Touch/swipe support for gallery slider */
+(function(){
+  const sl = document.getElementById('galSlider');
+  if (!sl) return;
+  let tx = 0;
+  sl.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
+  sl.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - tx;
+    if (Math.abs(dx) > 40 && galSlTotal > 1) { galSlNav(dx < 0 ? 1 : -1); }
+  }, { passive: true });
+})();
+
+/* ═══════════════════════════════════════════════════════════════
+   ██████  ABOUT DATA — LOADED FROM data/about.json  ██████
+   ═══════════════════════════════════════════════════════════════
+   Same pattern as Events and Gallery above. All About page copy —
+   headline, story paragraphs, timeline, and photo — is edited
+   either through the /admin CMS panel (click "About", edit the
+   fields, click Publish) or by hand on GitHub, editing
+   data/about.json.
+
+   Do not edit the About page HTML directly — edit data/about.json.
+   ═══════════════════════════════════════════════════════════════ */
+let ABOUT_DATA = null;
+
+async function loadAbout() {
+  try {
+    const res = await fetch('data/about.json', { cache: 'no-store' });
+    ABOUT_DATA = await res.json();
+  } catch (err) {
+    console.error('Could not load data/about.json', err);
+    ABOUT_DATA = null;
+  }
+  renderAbout();
+}
+loadAbout();
+
+function renderAbout() {
+  const page = document.getElementById('page-about');
+  if (!page || !ABOUT_DATA) return;
+
+  const d = ABOUT_DATA;
+
+  const setHTML = (id, html) => { const el = document.getElementById(id); if (el && html != null) el.innerHTML = html; };
+  const setText = (id, txt) => { const el = document.getElementById(id); if (el && txt != null) el.textContent = txt; };
+
+  setText('aboutPgLabel', d.label);
+  setHTML('aboutPgTitle', d.titleHtml);
+  setText('aboutSecLabel', d.sectionLabel);
+  setHTML('aboutHeading', d.headingHtml);
+  setText('aboutBadgeNum', d.badgeNumber);
+  setText('aboutBadgeLbl', d.badgeLabel);
+  setText('aboutImgCaption', d.imageCaption);
+
+  const img = document.getElementById('aboutImg');
+  if (img && d.image) img.src = d.image;
+
+  const paraWrap = document.getElementById('aboutParagraphs');
+  if (paraWrap && Array.isArray(d.paragraphs)) {
+    paraWrap.innerHTML = d.paragraphs.map((p, i) => `<p class="sec-p rv d${Math.min(i + 1, 4)}">${p}</p>`).join('');
+  }
+
+  const tlWrap = document.getElementById('aboutTimeline');
+  if (tlWrap && Array.isArray(d.timeline)) {
+    tlWrap.innerHTML = d.timeline.map(t => `
+      <div class="tl-item">
+        <div class="tl-dot">${t.dot || ''}</div>
+        <div>
+          <div class="tl-yr">${t.year || ''}</div>
+          <div class="tl-desc">${t.desc || ''}</div>
+        </div>
+      </div>
+    `).join('');
+  }
 
   setTimeout(initReveal, 50);
 }
@@ -3339,18 +3307,6 @@ function showPage(id) {
     document.body.scrollTop = 0;
     window.scrollTo(0, 0);
     setTimeout(initReveal, 200);
-    if (id === 'gallery') {
-      setTimeout(async () => {
-        await renderGalleryPage();
-        initSlider();
-        /* Re-anchor to top after slider finishes its own setup */
-        setTimeout(() => {
-          document.documentElement.scrollTop = 0;
-          document.body.scrollTop = 0;
-          window.scrollTo({ top: 0, behavior: 'instant' });
-        }, 50);
-      }, 100);
-    }
     if (id === 'home') {
       renderRecentEvents(); /* refresh home preview when returning */
       /* Guarantee hero is visible from the top */
@@ -3358,9 +3314,6 @@ function showPage(id) {
     }
     if (id === 'blog') {
       renderBlog();
-    }
-    if (id === 'about') {
-      applyAboutData(); /* refresh in case it changed since load */
     }
   }
   const btn = document.querySelector(`.nl[onclick*="'${id}'"]`);
@@ -3579,73 +3532,12 @@ function toggleDD(btn) {
   if (dd) dd.classList.toggle('open');
 }
 
-/* ═══ SLIDER ═══ */
-let slIdx = 0, slTotal = 0, slTimer = null;
-const SL_DUR = 5000;
-
-function initSlider() {
-  const slides = document.querySelectorAll('#sliderMain .sl-slide');
-  slTotal = slides.length;
-  if (!slTotal) return;
-  const dots = document.getElementById('slDots');
-  const thumbs = document.getElementById('slThumbs');
-  if (dots && !dots.children.length) {
-    slides.forEach((_, i) => {
-      const d = document.createElement('button');
-      d.className = 'sl-dot' + (i === 0 ? ' active' : '');
-      d.onclick = () => { goSlide(i); resetSl(); };
-      dots.appendChild(d);
-    });
-  }
-  if (thumbs && !thumbs.children.length) {
-    slides.forEach((s, i) => {
-      const img = s.querySelector('img');
-      const th = document.createElement('div');
-      th.className = 'sl-thumb' + (i === 0 ? ' active' : '');
-      th.innerHTML = `<img src="${img.src}" loading="lazy">`;
-      th.onclick = () => { goSlide(i); resetSl(); };
-      thumbs.appendChild(th);
-    });
-  }
-  goSlide(0);
-  startSl();
-}
-
-function goSlide(idx) {
-  const slides = document.querySelectorAll('#sliderMain .sl-slide');
-  const dots = document.querySelectorAll('#slDots .sl-dot');
-  const thumbs = document.querySelectorAll('#slThumbs .sl-thumb');
-  slides[slIdx].classList.remove('active');
-  slIdx = (idx + slTotal) % slTotal;
-  slides[slIdx].classList.add('active');
-  dots.forEach((d, i) => d.classList.toggle('active', i === slIdx));
-  thumbs.forEach((t, i) => {
-    t.classList.toggle('active', i === slIdx);
-    if (i === slIdx) {
-      const container = document.getElementById('slThumbs');
-      if (container) {
-        const thumbLeft = t.offsetLeft - container.offsetLeft;
-        const thumbCenter = thumbLeft - (container.clientWidth / 2) + (t.clientWidth / 2);
-        container.scrollTo({ left: thumbCenter, behavior: 'smooth' });
-      }
-    }
-  });
-  const bar = document.getElementById('slProg');
-  if (bar) {
-    bar.style.transition = 'none'; bar.style.width = '0%';
-    setTimeout(() => { bar.style.transition = `width ${SL_DUR}ms linear`; bar.style.width = '100%'; }, 50);
-  }
-}
-function slNav(d) { goSlide(slIdx + d); resetSl(); }
-function startSl() { clearInterval(slTimer); slTimer = setInterval(() => slNav(1), SL_DUR); }
-function resetSl() { startSl(); }
-
 /* ═══ LIGHTBOX ═══ */
 let lbImgs = [], lbIdx = 0;
 function openLB(img) {
   const page = document.querySelector('.page.active');
   /* Collect all clickable images: those with onclick attr OR inside gl-item */
-  lbImgs = Array.from(page.querySelectorAll('img[onclick], .gl-item img, .sl-slide img'));
+  lbImgs = Array.from(page.querySelectorAll('img[onclick]'));
   /* Deduplicate by src */
   const seen = new Set();
   lbImgs = lbImgs.filter(el => { const k = el.src; if (seen.has(k)) return false; seen.add(k); return true; });
