@@ -69,6 +69,51 @@
       "tag": "Govt. of India",
       "abbr": "NDMA",
       "name": "National Disaster Response Force"
+    },
+    {
+      "tag": "Govt. of India",
+      "abbr": "FSSAI",
+      "name": "Food Safety and Standards Authority of India"
+    },
+    {
+      "tag": "Govt. of India",
+      "abbr": "MHA",
+      "name": "Ministry of Home Affairs"
+    },
+    {
+      "tag": "Govt. of India",
+      "abbr": "NCB",
+      "name": "Narcotics Control Bureau"
+    },
+    {
+      "tag": "Govt. of India",
+      "abbr": "DOT",
+      "name": "Department of Telecommunications"
+    },
+    {
+      "tag": "Govt. of India",
+      "abbr": "MOC",
+      "name": "Ministry of Cooperation"
+    },
+    {
+      "tag": "Govt. of India",
+      "abbr": "DOST",
+      "name": " Department of Science & Technology"
+    },
+    {
+      "tag": "Govt. of India",
+      "abbr": "DoAHD",
+      "name": "Ministry of Fisheries, Animal Husbandry and Dairying"
+    },
+    {
+      "tag": "Govt. of India",
+      "abbr": "CBSE",
+      "name": "Central Board of Secondary Education"
+    },
+    {
+      "tag": "Govt. of India",
+      "abbr": "MOC",
+      "name": "Ministry of Culture"
     }
   ]
 }
