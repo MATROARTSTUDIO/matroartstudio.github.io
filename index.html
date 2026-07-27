@@ -1071,7 +1071,7 @@ body::after{
   font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);
 }
 .aho-est-badge{
-  position:absolute;bottom:-20px;right:-20px;z-index:10;
+  position:absolute;bottom:20px;right:-20px;z-index:10;
   background:linear-gradient(135deg,var(--gold),var(--gold-2));
   color:var(--ink);padding:22px 28px;border-radius:var(--r);
   box-shadow:0 12px 40px rgba(212,175,80,.45);text-align:center;
@@ -2132,7 +2132,7 @@ footer{
         <!-- Timeline -->
         <div class="timeline rv d4" id="aboutTimeline"><!-- Injected by renderAbout() from data/about.json --></div>
       </div>
-      <div class="rv d1">
+      <div class="rv d1" style="position:relative;">
         <div class="aho-vid-box" id="aboutStoryImgBox" style="aspect-ratio:3/4;max-height:600px;">
           <img class="aho-video" id="aboutImg" alt="Matro Art Studio Events" style="object-position:center top;" onerror="document.getElementById('aboutStoryImgBox').style.display='none';document.getElementById('aboutStoryBadge').style.position='relative';document.getElementById('aboutStoryBadge').style.display='inline-flex';">
           <div class="aho-vid-overlay">
