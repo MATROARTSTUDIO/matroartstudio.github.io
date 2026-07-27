@@ -11,21 +11,6 @@
       "tag": "Govt. of India"
     },
     {
-      "abbr": "MoHUA",
-      "name": "Ministry of Housing & Urban Affairs",
-      "tag": "Govt. of India"
-    },
-    {
-      "abbr": "MoRD",
-      "name": "Ministry of Rural Development",
-      "tag": "Govt. of India"
-    },
-    {
-      "abbr": "MoLE",
-      "name": "Ministry of Labour & Employment",
-      "tag": "Govt. of India"
-    },
-    {
       "abbr": "MoA&FW",
       "name": "Ministry of Agriculture & Farmers Welfare",
       "tag": "Govt. of India"
@@ -36,34 +21,54 @@
       "tag": "Govt. of India"
     },
     {
-      "abbr": "MSDE",
-      "name": "Ministry of Skill Development & Entrepreneurship",
-      "tag": "Govt. of India"
-    },
-    {
-      "abbr": "MoC&I",
-      "name": "Ministry of Commerce & Industry",
-      "tag": "Govt. of India"
-    },
-    {
       "abbr": "NHA",
       "name": "National Health Authority",
-      "tag": "Govt. of India"
-    },
-    {
-      "abbr": "WDRA",
-      "name": "Warehousing Development & Regulatory Authority",
-      "tag": "Govt. of India"
-    },
-    {
-      "abbr": "UPSC",
-      "name": "Union Public Service Commission",
       "tag": "Govt. of India"
     },
     {
       "tag": "Govt. of India",
       "name": "Department of Post ",
       "abbr": "DOP"
+    },
+    {
+      "tag": "Govt. of India",
+      "abbr": "DOPT",
+      "name": "Department of Personnel and Training"
+    },
+    {
+      "tag": "Govt. of India",
+      "abbr": "MOR",
+      "name": "Ministry of Railways"
+    },
+    {
+      "tag": "Govt. of India",
+      "abbr": "NHRC",
+      "name": "National Human Rights Commission"
+    },
+    {
+      "tag": "Govt. of India",
+      "abbr": "MoSPI",
+      "name": "Ministry of Statistics and Programme Implementation"
+    },
+    {
+      "tag": "Govt. of India",
+      "abbr": "NACO",
+      "name": "National AIDS Control Organisation"
+    },
+    {
+      "tag": "Govt. of India",
+      "abbr": "DCPW",
+      "name": "Directorate of Coordination (Police Wireless)"
+    },
+    {
+      "tag": "Govt. of India",
+      "abbr": "NDRF",
+      "name": "National Disaster Response Force"
+    },
+    {
+      "tag": "Govt. of India",
+      "abbr": "NDMA",
+      "name": "National Disaster Response Force"
     }
   ]
 }
