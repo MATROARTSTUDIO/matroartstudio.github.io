@@ -1,17 +1,63 @@
 {
   "slider": [
     {
+      "src": "images/old president.jpg"
+    },
+    {
+      "src": "images/1.JPG"
+    },
+    {
       "src": "images/2.jpg"
+    },
+    {
+      "src": "images/pm.avif"
+    },
+    {
+      "src": "images/dimond merchant.webp"
+    },
+    {
+      "src": "images/3.JPG"
+    },
+    {
+      "src": "images/7.jpg"
+    },
+    {
+      "src": "images/WhatsApp Image 2026-05-15 at 5.48.12 PM.jpeg"
     },
     {
       "src": "images/4.jpg"
     },
     {
-      "src": "images/9.png"
+      "src": "images/8.JPG"
     },
     {
-      "src": "images/1.JPG"
+      "src": "images/5.jpg"
+    },
+    {
+      "src": "images/lg .jpeg"
+    },
+    {
+      "src": "images/6.JPG"
     }
   ],
-  "grid": []
+  "grid": [
+    {
+      "src": "gallery-images/national capital region planing board 2.jpeg"
+    },
+    {
+      "src": "gallery-images/ministry of health and family welfare 1.JPG"
+    },
+    {
+      "src": "gallery-images/National Health Authority 2.JPG"
+    },
+    {
+      "src": "gallery-images/mou sining ceremoni 1.JPG"
+    },
+    {
+      "src": "gallery-images/10.JPG"
+    },
+    {
+      "src": "gallery-images/11.JPG"
+    }
+  ]
 }
