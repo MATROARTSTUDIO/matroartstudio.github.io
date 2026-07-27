@@ -1,0 +1,16 @@
+{
+  "clients": [
+    { "abbr": "MoF", "name": "Ministry of Finance", "tag": "Govt. of India" },
+    { "abbr": "MoD", "name": "Ministry of Defence", "tag": "Govt. of India" },
+    { "abbr": "MoHUA", "name": "Ministry of Housing & Urban Affairs", "tag": "Govt. of India" },
+    { "abbr": "MoRD", "name": "Ministry of Rural Development", "tag": "Govt. of India" },
+    { "abbr": "MoLE", "name": "Ministry of Labour & Employment", "tag": "Govt. of India" },
+    { "abbr": "MoA&FW", "name": "Ministry of Agriculture & Farmers Welfare", "tag": "Govt. of India" },
+    { "abbr": "MoHFW", "name": "Ministry of Health & Family Welfare", "tag": "Govt. of India" },
+    { "abbr": "MSDE", "name": "Ministry of Skill Development & Entrepreneurship", "tag": "Govt. of India" },
+    { "abbr": "MoC&I", "name": "Ministry of Commerce & Industry", "tag": "Govt. of India" },
+    { "abbr": "NHA", "name": "National Health Authority", "tag": "Govt. of India" },
+    { "abbr": "WDRA", "name": "Warehousing Development & Regulatory Authority", "tag": "Govt. of India" },
+    { "abbr": "UPSC", "name": "Union Public Service Commission", "tag": "Govt. of India" }
+  ]
+}
