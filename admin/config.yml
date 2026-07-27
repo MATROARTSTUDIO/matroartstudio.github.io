@@ -1,6 +1,8 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: MATROARTSTUDIO/matroartstudio.github.io
   branch: main
+  base_url: https://matro-cms-oauth.kartikraj11223.workers.dev
 media_folder: "images2"
 public_folder: "images2"
 collections:
