@@ -25,7 +25,6 @@ collections:
                 widget: "list"
                 summary: "{{fields.photo}}"
                 field: { label: "Photo", name: "photo", widget: "image" }
-
   - name: "gallery"
     label: "Gallery Page"
     files:
@@ -56,7 +55,21 @@ collections:
                 media_folder: "/gallery-images"
                 public_folder: "gallery-images"
               - { label: "Alt text", name: "alt", widget: "string", required: false }
-
+  - name: "clients"
+    label: "Clients (Home Page)"
+    files:
+      - name: "clients"
+        label: "Clients List"
+        file: "data/clients.json"
+        fields:
+          - label: "Clients"
+            name: "clients"
+            widget: "list"
+            summary: "{{fields.name}} ({{fields.abbr}})"
+            fields:
+              - { label: "Short Abbreviation (e.g. MoF)", name: "abbr", widget: "string" }
+              - { label: "Full Name (e.g. Ministry of Finance)", name: "name", widget: "string" }
+              - { label: "Tag (e.g. Govt. of India)", name: "tag", widget: "string", default: "Govt. of India" }
   - name: "about"
     label: "About Page"
     files:
