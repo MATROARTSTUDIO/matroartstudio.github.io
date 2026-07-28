@@ -1502,8 +1502,8 @@ footer{
   <div class="nav-links" id="navLinks">
     <button class="nl active" onclick="showPage('home')">Home</button>
     <button class="nl" onclick="showPage('services')">Services</button>
-    <button class="nl" onclick="showPage('events')">Events</button>
-    <button class="nl" onclick="showPage('gallery')">Gallery</button>
+    <a class="nl" href="events/" onclick="event.preventDefault();showPage('events')">Events</a>
+    <a class="nl" href="gallery/" onclick="event.preventDefault();showPage('gallery')">Gallery</a>
     <button class="nl" onclick="showPage('blog')">Blog</button>
     <button class="nl" onclick="showPage('about')">About</button>
     <button class="nl" onclick="showPage('seo')">Why Us</button>
@@ -1516,8 +1516,8 @@ footer{
 <div class="mob-menu" id="mobMenu">
   <button class="nl" onclick="showPage('home')">Home</button>
   <button class="nl" onclick="showPage('services')">Services</button>
-  <button class="nl" onclick="showPage('events')">Events</button>
-  <button class="nl" onclick="showPage('gallery')">Gallery</button>
+  <a class="nl" href="events/" onclick="event.preventDefault();showPage('events')">Events</a>
+  <a class="nl" href="gallery/" onclick="event.preventDefault();showPage('gallery')">Gallery</a>
   <button class="nl" onclick="showPage('blog')">Blog</button>
   <button class="nl" onclick="showPage('about')">About</button>
   <button class="nl" onclick="showPage('seo')">Why Us</button>
