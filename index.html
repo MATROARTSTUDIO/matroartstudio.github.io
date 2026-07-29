@@ -1502,8 +1502,8 @@ footer{
   <div class="nav-links" id="navLinks">
     <button class="nl active" onclick="showPage('home')">Home</button>
     <button class="nl" onclick="showPage('services')">Services</button>
-    <a class="nl" href="events/" onclick="event.preventDefault();showPage('events')">Events</a>
-    <a class="nl" href="gallery/" onclick="event.preventDefault();showPage('gallery')">Gallery</a>
+    <a class="nl" href="events/">Events</a>
+    <a class="nl" href="gallery/">Gallery</a>
     <button class="nl" onclick="showPage('blog')">Blog</button>
     <button class="nl" onclick="showPage('about')">About</button>
     <button class="nl" onclick="showPage('seo')">Why Us</button>
@@ -1516,8 +1516,8 @@ footer{
 <div class="mob-menu" id="mobMenu">
   <button class="nl" onclick="showPage('home')">Home</button>
   <button class="nl" onclick="showPage('services')">Services</button>
-  <a class="nl" href="events/" onclick="event.preventDefault();showPage('events')">Events</a>
-  <a class="nl" href="gallery/" onclick="event.preventDefault();showPage('gallery')">Gallery</a>
+  <a class="nl" href="events/">Events</a>
+  <a class="nl" href="gallery/">Gallery</a>
   <button class="nl" onclick="showPage('blog')">Blog</button>
   <button class="nl" onclick="showPage('about')">About</button>
   <button class="nl" onclick="showPage('seo')">Why Us</button>
@@ -1584,7 +1584,7 @@ footer{
       </div>
       <div class="hero-btns">
         <button class="btn-g" onclick="showPage('contact')">Contact Us →</button>
-        <button class="btn-o" onclick="showPage('events')">View Our Work</button>
+        <button class="btn-o" onclick="window.location.href='events/'">View Our Work</button>
       </div>
     </div>
 
@@ -1748,7 +1748,7 @@ footer{
       <!-- Cards are injected here by JS — see renderRecentEvents() -->
       <div class="recent-ev-grid" id="homeRecentEvents"></div>
       <div class="re-view-all rv">
-        <button class="btn-o" onclick="showPage('events')">View All Events →</button>
+        <button class="btn-o" onclick="window.location.href='events/'">View All Events →</button>
       </div>
     </div>
   </section>
@@ -1980,76 +1980,7 @@ footer{
 ║  MANUAL:  Edit data/events.json on GitHub directly.          ║
 ╚══════════════════════════════════════════════════════════════╝
 -->
-<div id="page-events" class="page">
-  <div class="pg-banner">
-    <div class="pg-banner-bg"></div>
-    <div class="pg-banner-grid"></div>
-    <div class="pg-banner-glow"></div>
-    <div class="pg-banner-content">
-      <div class="pg-label">Our Portfolio</div>
-      <div class="pg-title">Recent <em>Events</em></div>
-    </div>
-  </div>
 
-  <div class="events-list">
-    <div class="ev-inner">
-
-      <!--
-      ═══════════════════════════════════════
-      EVENTS: This list is now generated
-      automatically from data/events.json.
-      Add new events via the /admin CMS panel,
-      or edit data/events.json directly —
-      never edit this HTML.
-      ═══════════════════════════════════════
-      -->
-
-      <div id="fullEventsList"><!-- Injected by renderFullEvents() from data/events.json --></div>
-  </div>
-</div><!-- /events-list -->
-</div><!-- /events -->
-
-
-<!-- ═══ GALLERY ═══ -->
-<div id="page-gallery" class="page">
-  <div class="pg-banner">
-    <div class="pg-banner-bg"></div>
-    <div class="pg-banner-grid"></div>
-    <div class="pg-banner-glow"></div>
-    <div class="pg-banner-content">
-      <div class="pg-label">Moments Captured</div>
-      <div class="pg-title">Photo <em>Gallery</em></div>
-    </div>
-  </div>
-
-  <div class="gallery-slider-sec">
-    <div class="gal-slider" id="galSlider">
-      <div class="gal-sl-track" id="galSlTrack"><!-- Injected by renderGallerySlider() from data/gallery.json --></div>
-      <button class="gal-sl-arrow l" onclick="galSlNav(-1)" aria-label="Previous photo">&#8249;</button>
-      <button class="gal-sl-arrow r" onclick="galSlNav(1)" aria-label="Next photo">&#8250;</button>
-      <div class="gal-sl-dots" id="galSlDots"></div>
-      <div class="gal-sl-prog" id="galSlProg"></div>
-    </div>
-  </div>
-
-  <div class="gallery-grid-sec">
-    <div class="gal-inner">
-
-      <!--
-      ═══════════════════════════════════════
-      GALLERY: The slider above and grid below
-      are generated automatically from
-      data/gallery.json.
-      Add photos via the /admin CMS panel,
-      or edit data/gallery.json directly —
-      never edit this HTML.
-      ═══════════════════════════════════════
-      -->
-
-      <div id="galleryGrid"><!-- Injected by renderGalleryGrid() from data/gallery.json --></div>
-    </div>
-  </div>
-</div><!-- /gallery -->
 
 
 <!-- ═══ ABOUT ═══ -->
@@ -2411,7 +2342,7 @@ footer{
         <span class="ft-col-title">Quick Links</span>
         <ul class="ft-links">
           <li><a onclick="showPage('home')">Home</a></li>
-          <li><a onclick="showPage('events')">Recent Events</a></li>
+          <li><a href="events/">Recent Events</a></li>
           <li><a onclick="showPage('blog')">Blog</a></li>
           <li><a onclick="showPage('seo')">Why Choose Us</a></li>
           <li><a onclick="showPage('contact')">Contact</a></li>
@@ -2921,7 +2852,7 @@ function renderRecentEvents() {
   const toShow = RECENT_EVENTS.slice(0, 3); /* shows 3 latest */
 
   container.innerHTML = toShow.map((ev, i) => `
-    <div class="re-card" onclick="showPage('events')" title="View all events"
+    <div class="re-card" onclick="window.location.href='events/'" title="View all events"
       style="opacity:0;transform:translateY(32px);transition:opacity .7s ease ${i * 0.15}s, transform .7s ease ${i * 0.15}s;">
       <div class="re-card-img-wrap">
         <img class="re-card-img" src="${(ev.photos && ev.photos[0]) || ''}" alt="${ev.title}" loading="lazy"
