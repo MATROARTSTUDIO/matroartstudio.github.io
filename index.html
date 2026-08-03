@@ -68,6 +68,7 @@
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=Bebas+Neue&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet"></noscript>
 
+
 <style>
 /* ════════════════════════════════════
    DESIGN TOKENS
@@ -1435,6 +1436,7 @@ footer{
                             .re-card:hover{border-color:var(--edge-hi);box-shadow:0 24px 70px rgba(0,0,0,.5);transform:translateY(-6px);}
     }
 </style>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -1475,6 +1477,7 @@ footer{
   ]
 }
 </script>
+
 </head>
 
 <body>
@@ -1492,40 +1495,38 @@ footer{
 
 <!-- NAV -->
 <nav id="nav">
-  <div class="nav-brand" onclick="showPage('home')">
+  <a class="nav-brand" href="./" style="text-decoration:none;display:flex;align-items:center;gap:10px;">
     <img class="nav-logo" src="images/Letter Head Matro Art Studio-2.png" alt="Matro Art Studio Logo" onerror="this.style.display='none'">
     <div>
       <span class="nav-name">Matro Art Studio</span>
       <span class="nav-sub">Event Management · Delhi</span>
     </div>
-  </div>
+  </a>
   <div class="nav-links" id="navLinks">
-    <button class="nl active" onclick="showPage('home')">Home</button>
-    <button class="nl" onclick="showPage('services')">Services</button>
+    <a class="nl active" href="./">Home</a>
+    <a class="nl" href="services/">Services</a>
     <a class="nl" href="events/">Events</a>
     <a class="nl" href="gallery/">Gallery</a>
-    <button class="nl" onclick="showPage('blog')">Blog</button>
-    <button class="nl" onclick="showPage('about')">About</button>
-    <button class="nl" onclick="showPage('seo')">Why Us</button>
-    <button class="nav-cta" onclick="showPage('contact')">Contact Us</button>
+    <a class="nl" href="blog/">Blog</a>
+    <a class="nl" href="about/">About</a>
+    <a class="nl" href="why-us/">Why Us</a>
+    <a class="nav-cta" href="contact/">Contact Us</a>
   </div>
   <button class="hbg" id="hbg" onclick="toggleMob()">
     <span></span><span></span><span></span>
   </button>
 </nav>
 <div class="mob-menu" id="mobMenu">
-  <button class="nl" onclick="showPage('home')">Home</button>
-  <button class="nl" onclick="showPage('services')">Services</button>
+  <a class="nl active" href="./">Home</a>
+  <a class="nl" href="services/">Services</a>
   <a class="nl" href="events/">Events</a>
   <a class="nl" href="gallery/">Gallery</a>
-  <button class="nl" onclick="showPage('blog')">Blog</button>
-  <button class="nl" onclick="showPage('about')">About</button>
-  <button class="nl" onclick="showPage('seo')">Why Us</button>
-  <button class="nl" onclick="showPage('contact')">Contact Us</button>
+  <a class="nl" href="blog/">Blog</a>
+  <a class="nl" href="about/">About</a>
+  <a class="nl" href="why-us/">Why Us</a>
+  <a class="nav-cta" href="contact/">Contact Us</a>
 </div>
 
-
-<!-- ═══ HOME ═══ -->
 <div id="page-home" class="page active">
 
   <!-- HERO -->
@@ -1583,7 +1584,7 @@ footer{
         <div class="htb-line2">We transform visions into <em>unforgettable experiences.</em></div>
       </div>
       <div class="hero-btns">
-        <button class="btn-g" onclick="showPage('contact')">Contact Us →</button>
+        <button class="btn-g" onclick="window.location.href='contact/'">Contact Us →</button>
         <button class="btn-o" onclick="window.location.href='events/'">View Our Work</button>
       </div>
     </div>
@@ -1633,7 +1634,7 @@ footer{
 
   <!-- SERVICES GRID
        ═══════════════════════════════════════════════════════
-       Each srv-card links to the Services page via onclick="showPage('services')"
+       Each srv-card links to the Services page via onclick="window.location.href='services/'"
        The "Explore →" arrow and "View All Services →" button at the bottom
        both navigate directly to the full Services page.
        ═══════════════════════════════════════════════════════ -->
@@ -1644,7 +1645,7 @@ footer{
     </div>
     <div style="max-width:1240px;margin:0 auto;padding:0 0;">
       <div class="srv-grid">
-        <div class="srv-card rv" onclick="showPage('services')" style="cursor:pointer;">
+        <div class="srv-card rv" onclick="window.location.href='services/'" style="cursor:pointer;">
           <span class="srv-icon">🎤</span>
           <span class="srv-num">01</span>
           <div class="srv-title">Corporate Event Management</div>
@@ -1652,7 +1653,7 @@ footer{
           <div class="srv-arr">Explore <span>→</span></div>
           <div class="srv-line"></div>
         </div>
-        <div class="srv-card rv d1" onclick="showPage('services')" style="cursor:pointer;">
+        <div class="srv-card rv d1" onclick="window.location.href='services/'" style="cursor:pointer;">
           <span class="srv-icon">🖼️</span>
           <span class="srv-num">02</span>
           <div class="srv-title">Exhibition & Display</div>
@@ -1660,7 +1661,7 @@ footer{
           <div class="srv-arr">Explore <span>→</span></div>
           <div class="srv-line"></div>
         </div>
-        <div class="srv-card rv d2" onclick="showPage('services')" style="cursor:pointer;">
+        <div class="srv-card rv d2" onclick="window.location.href='services/'" style="cursor:pointer;">
           <span class="srv-icon">📺</span>
           <span class="srv-num">03</span>
           <div class="srv-title">Audio-Visual Solutions</div>
@@ -1668,7 +1669,7 @@ footer{
           <div class="srv-arr">Explore <span>→</span></div>
           <div class="srv-line"></div>
         </div>
-        <div class="srv-card rv" onclick="showPage('services')" style="cursor:pointer;">
+        <div class="srv-card rv" onclick="window.location.href='services/'" style="cursor:pointer;">
           <span class="srv-icon">🖨️</span>
           <span class="srv-num">04</span>
           <div class="srv-title">Printing Services</div>
@@ -1676,7 +1677,7 @@ footer{
           <div class="srv-arr">Explore <span>→</span></div>
           <div class="srv-line"></div>
         </div>
-        <div class="srv-card rv d1" onclick="showPage('services')" style="cursor:pointer;">
+        <div class="srv-card rv d1" onclick="window.location.href='services/'" style="cursor:pointer;">
           <span class="srv-icon">📋</span>
           <span class="srv-num">05</span>
           <div class="srv-title">Conference Materials</div>
@@ -1684,7 +1685,7 @@ footer{
           <div class="srv-arr">Explore <span>→</span></div>
           <div class="srv-line"></div>
         </div>
-        <div class="srv-card rv d2" onclick="showPage('services')" style="cursor:pointer;">
+        <div class="srv-card rv d2" onclick="window.location.href='services/'" style="cursor:pointer;">
           <span class="srv-icon">🏛️</span>
           <span class="srv-num">06</span>
           <div class="srv-title">Venue Selection & Setup</div>
@@ -1694,7 +1695,7 @@ footer{
         </div>
       </div>
       <div style="text-align:center;margin-top:48px;" class="rv">
-        <button class="btn-o" onclick="showPage('services')">View All Services →</button>
+        <button class="btn-o" onclick="window.location.href='services/'">View All Services →</button>
       </div>
     </div>
   </section>
@@ -1759,7 +1760,7 @@ footer{
       <h2 class="cta-h rv">Ready to Plan<br><em>Your Next Event?</em></h2>
       <p class="cta-p rv">Let our experienced team handle every detail. From concept to execution, we make your events extraordinary.</p>
       <div class="cta-btns rv">
-        <button class="btn-g" onclick="showPage('contact')">Contact Us Today →</button>
+        <button class="btn-g" onclick="window.location.href='contact/'">Contact Us Today →</button>
         <a class="wa-btn" href="https://api.whatsapp.com/send/?phone=918447478791&text=Hello%20Matro%20Art%20Studio%2C%20I%20am%20interested%20in%20your%20event%20management%20services." target="_blank">
           <svg viewBox="0 0 32 32" width="18" height="18" fill="white"><path d="M16 0C7.164 0 0 7.163 0 16c0 2.822.737 5.469 2.027 7.773L0 32l8.489-2.001A15.93 15.93 0 0016 32c8.836 0 16-7.163 16-16S24.836 0 16 0z"/></svg>
           WhatsApp Us
@@ -1772,544 +1773,8 @@ footer{
 
 
 <!-- ═══ SERVICES ═══ -->
-<div id="page-services" class="page">
-  <div class="pg-banner">
-    <div class="pg-banner-bg"></div>
-    <div class="pg-banner-grid"></div>
-    <div class="pg-banner-glow"></div>
-    <div class="pg-banner-content">
-      <div class="pg-label">What We Do</div>
-      <div class="pg-title">Our <em>Services</em></div>
-    </div>
-  </div>
-
-  <div class="stats-bar">
-    <div class="stats-bar-inner">
-      <div class="sb-item"><div class="sb-num">100+</div><div class="sb-lbl">Ministries &amp; PSUs Served</div></div>
-      <div class="sb-item"><div class="sb-num">2008</div><div class="sb-lbl">Established</div></div>
-      <div class="sb-item"><div class="sb-num">1000+</div><div class="sb-lbl">Events Managed</div></div>
-      <div class="sb-item"><div class="sb-num">18+</div><div class="sb-lbl">Years Experience</div></div>
-    </div>
-  </div>
-
-  <div class="services-full">
-    <div class="svc-inner">
-
-      <!-- ──────────────────────────────────
-           SERVICE IMAGES: Change src below
-           ────────────────────────────────── -->
-
-      <!-- Service 1 -->
-      <div class="svc-card rv">
-        <div class="svc-img-wrap">
-          <img class="svc-img" src="images/DSC_8558.JPG" alt="Corporate Event Management">
-          <div class="svc-img-overlay"></div>
-        </div>
-        <div class="svc-body">
-          <div class="svc-body-num">Service / 01</div>
-          <div class="svc-body-title">Corporate Event Management</div>
-          <div class="svc-body-desc">We specialize in organizing high-level corporate events for ministries, PSUs, and private sector clients. Our team handles everything from concept development and logistics to on-site coordination and post-event reporting.</div>
-          <button class="svc-toggle" onclick="toggleDD(this)">What's Covered <span class="toggle-arr">▾</span></button>
-        </div>
-        <div class="svc-dd">
-          <div class="dd-grid">
-            <div class="dd-item"><span class="dd-ico">🎤</span><div><strong class="dd-title">National Summits</strong><span class="dd-desc">Inter-ministerial and national-level summit management</span></div></div>
-            <div class="dd-item"><span class="dd-ico">🏛️</span><div><strong class="dd-title">Government Conferences</strong><span class="dd-desc">Protocol-driven ministerial & departmental conferences</span></div></div>
-            <div class="dd-item"><span class="dd-ico">🏆</span><div><strong class="dd-title">Award Ceremonies</strong><span class="dd-desc">Planning and execution of national award events</span></div></div>
-            <div class="dd-item"><span class="dd-ico">📋</span><div><strong class="dd-title">Concept Development</strong><span class="dd-desc">Theme ideation, creative direction, and branding</span></div></div>
-            <div class="dd-item"><span class="dd-ico">🚚</span><div><strong class="dd-title">Logistics Management</strong><span class="dd-desc">End-to-end logistics, transport, and coordination</span></div></div>
-            <div class="dd-item"><span class="dd-ico">📊</span><div><strong class="dd-title">Post-Event Reporting</strong><span class="dd-desc">Documentation, coverage, and detailed event reports</span></div></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Service 2 -->
-      <div class="svc-card rv">
-        <div class="svc-img-wrap">
-          <img class="svc-img" src="images/EXBITION (2).jpg" alt="Exhibition & Display">
-          <div class="svc-img-overlay"></div>
-        </div>
-        <div class="svc-body">
-          <div class="svc-body-num">Service / 02</div>
-          <div class="svc-body-title">Exhibition & Display</div>
-          <div class="svc-body-desc">Creative design and fabrication of exhibition stalls, thematic displays, and product showcases. We deliver end-to-end execution from concept visualization to installation, ensuring powerful and memorable brand communication.</div>
-          <button class="svc-toggle" onclick="toggleDD(this)">What's Covered <span class="toggle-arr">▾</span></button>
-        </div>
-        <div class="svc-dd">
-          <div class="dd-grid">
-            <div class="dd-item"><span class="dd-ico">🎨</span><div><strong class="dd-title">Stall Design</strong><span class="dd-desc">Custom 3D exhibition stall design and visualization</span></div></div>
-            <div class="dd-item"><span class="dd-ico">🏗️</span><div><strong class="dd-title">Stall Fabrication</strong><span class="dd-desc">Build, setup, and dismantling of exhibition stalls</span></div></div>
-            <div class="dd-item"><span class="dd-ico">🖼️</span><div><strong class="dd-title">Thematic Displays</strong><span class="dd-desc">Themed product and government scheme showcases</span></div></div>
-            <div class="dd-item"><span class="dd-ico">💡</span><div><strong class="dd-title">Display Lighting</strong><span class="dd-desc">Accent and display lighting for visual impact</span></div></div>
-            <div class="dd-item"><span class="dd-ico">🔧</span><div><strong class="dd-title">Turnkey Installation</strong><span class="dd-desc">Complete site installation and management</span></div></div>
-            <div class="dd-item"><span class="dd-ico">📸</span><div><strong class="dd-title">Photo Documentation</strong><span class="dd-desc">Professional photography of exhibition setups</span></div></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Service 3 -->
-      <div class="svc-card rv">
-        <div class="svc-img-wrap">
-          <img class="svc-img" src="images/AUDIO AND VISUAL.jpg" alt="Audio-Visual Solutions">
-          <div class="svc-img-overlay"></div>
-        </div>
-        <div class="svc-body">
-          <div class="svc-body-num">Service / 03</div>
-          <div class="svc-body-title">Audio-Visual Solutions</div>
-          <div class="svc-body-desc">Professional AV setup including LED screens, projection systems, PA systems, stage lighting, live streaming, and video production. We ensure flawless technical execution for conferences of all scales.</div>
-          <button class="svc-toggle" onclick="toggleDD(this)">What's Covered <span class="toggle-arr">▾</span></button>
-        </div>
-        <div class="svc-dd">
-          <div class="dd-grid">
-            <div class="dd-item"><span class="dd-ico">📺</span><div><strong class="dd-title">LED Screens</strong><span class="dd-desc">Indoor/outdoor LED video walls of any size</span></div></div>
-            <div class="dd-item"><span class="dd-ico">📡</span><div><strong class="dd-title">Live Streaming</strong><span class="dd-desc">Multi-camera streaming to YouTube/Zoom/Teams</span></div></div>
-            <div class="dd-item"><span class="dd-ico">🔊</span><div><strong class="dd-title">Sound Systems</strong><span class="dd-desc">Professional PA, conference, and lapel microphones</span></div></div>
-            <div class="dd-item"><span class="dd-ico">🎬</span><div><strong class="dd-title">Stage Lighting</strong><span class="dd-desc">LED stage wash, spotlights, and mood lighting</span></div></div>
-            <div class="dd-item"><span class="dd-ico">📽️</span><div><strong class="dd-title">Projection Systems</strong><span class="dd-desc">High-lumen projectors and projection mapping</span></div></div>
-            <div class="dd-item"><span class="dd-ico">🎥</span><div><strong class="dd-title">Video Production</strong><span class="dd-desc">Event highlight reels and video documentation</span></div></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Service 4 -->
-      <div class="svc-card rv">
-        <div class="svc-img-wrap">
-          <img class="svc-img" src="images/printing.png" alt="Printing Services">
-          <div class="svc-img-overlay"></div>
-        </div>
-        <div class="svc-body">
-          <div class="svc-body-num">Service / 04</div>
-          <div class="svc-body-title">Printing Services</div>
-          <div class="svc-body-desc">High-quality printing for all event materials including backdrops, roll-up banners, flex printing, fabric displays, directional signage, name plates, table cards, and all collateral for a professional event environment.</div>
-          <button class="svc-toggle" onclick="toggleDD(this)">What's Covered <span class="toggle-arr">▾</span></button>
-        </div>
-        <div class="svc-dd">
-          <div class="dd-grid">
-            <div class="dd-item"><span class="dd-ico">🎑</span><div><strong class="dd-title">Backdrops & Banners</strong><span class="dd-desc">Large format backdrops, roll-ups, and flex printing</span></div></div>
-            <div class="dd-item"><span class="dd-ico">🪧</span><div><strong class="dd-title">Signage & Wayfinding</strong><span class="dd-desc">Directional and venue signage systems</span></div></div>
-            <div class="dd-item"><span class="dd-ico">🏷️</span><div><strong class="dd-title">Name Plates & Cards</strong><span class="dd-desc">Desk name plates, table cards, and credentials</span></div></div>
-            <div class="dd-item"><span class="dd-ico">📄</span><div><strong class="dd-title">Brochures & Handouts</strong><span class="dd-desc">High-quality event brochures and programme books</span></div></div>
-            <div class="dd-item"><span class="dd-ico">🎴</span><div><strong class="dd-title">Fabric Displays</strong><span class="dd-desc">Fabric banners, tension displays, and popup stands</span></div></div>
-            <div class="dd-item"><span class="dd-ico">🖼️</span><div><strong class="dd-title">Canvas & Fine Art</strong><span class="dd-desc">Large canvas prints for venue décor and branding</span></div></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Service 5 -->
-      <div class="svc-card rv">
-        <div class="svc-img-wrap">
-          <img class="svc-img" src="images/matro art studion branding conference material.png" alt="Conference Materials">
-          <div class="svc-img-overlay"></div>
-        </div>
-        <div class="svc-body">
-          <div class="svc-body-num">Service / 05</div>
-          <div class="svc-body-title">Conference Materials</div>
-          <div class="svc-body-desc">Comprehensive delegate kits, speaker materials, stationery sets, notepads, pens, folders, and all conference documentation needs — customized with event branding for a professional, cohesive experience.</div>
-          <button class="svc-toggle" onclick="toggleDD(this)">What's Covered <span class="toggle-arr">▾</span></button>
-        </div>
-        <div class="svc-dd">
-          <div class="dd-grid">
-            <div class="dd-item"><span class="dd-ico">🗂️</span><div><strong class="dd-title">Delegate Kits</strong><span class="dd-desc">Branded bags, folders, and complete delegate packs</span></div></div>
-            <div class="dd-item"><span class="dd-ico">📝</span><div><strong class="dd-title">Stationery Sets</strong><span class="dd-desc">Custom notepads, pens, and branded stationery</span></div></div>
-            <div class="dd-item"><span class="dd-ico">📚</span><div><strong class="dd-title">Programme Booklets</strong><span class="dd-desc">Detailed event agenda books and handbooks</span></div></div>
-            <div class="dd-item"><span class="dd-ico">🎗️</span><div><strong class="dd-title">Lanyards & Badges</strong><span class="dd-desc">Photo ID badges, lanyards, and access passes</span></div></div>
-            <div class="dd-item"><span class="dd-ico">💼</span><div><strong class="dd-title">Speaker Materials</strong><span class="dd-desc">Presentation folders and speaker support documents</span></div></div>
-            <div class="dd-item"><span class="dd-ico">🎁</span><div><strong class="dd-title">Gift & Mementos</strong><span class="dd-desc">Curated guest gifts and commemorative items</span></div></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Service 6 -->
-      <div class="svc-card rv">
-        <div class="svc-img-wrap">
-          <img class="svc-img" src="images/Vigyan_Bhawan_Delhi_P_20170403_093253.jpg" alt="Venue Selection">
-          <div class="svc-img-overlay"></div>
-        </div>
-        <div class="svc-body">
-          <div class="svc-body-num">Service / 06</div>
-          <div class="svc-body-title">Venue Selection & Setup</div>
-          <div class="svc-body-desc">Venue scouting, site inspection, contract negotiation, and complete setup — from five-star hotels to iconic government venues across Delhi. We ensure every space is transformed to match your event's vision.</div>
-          <button class="svc-toggle" onclick="toggleDD(this)">What's Covered <span class="toggle-arr">▾</span></button>
-        </div>
-        <div class="svc-dd">
-          <div class="dd-grid">
-            <div class="dd-item"><span class="dd-ico">🔍</span><div><strong class="dd-title">Venue Scouting</strong><span class="dd-desc">Sourcing venues across Delhi NCR to match requirements</span></div></div>
-            <div class="dd-item"><span class="dd-ico">📋</span><div><strong class="dd-title">Site Inspection</strong><span class="dd-desc">Detailed inspection and technical assessment</span></div></div>
-            <div class="dd-item"><span class="dd-ico">🤝</span><div><strong class="dd-title">Contract Negotiation</strong><span class="dd-desc">Best rates from five-star hotels and government venues</span></div></div>
-            <div class="dd-item"><span class="dd-ico">🏛️</span><div><strong class="dd-title">Government Venues</strong><span class="dd-desc">Vigyan Bhawan, Manekshaw Centre, Pravasi Bharatiya Kendra</span></div></div>
-            <div class="dd-item"><span class="dd-ico">🏨</span><div><strong class="dd-title">5-Star Hotels</strong><span class="dd-desc">The Ashok, Claridges, ITC Maurya, Oberoi & more</span></div></div>
-            <div class="dd-item"><span class="dd-ico">🪑</span><div><strong class="dd-title">Stage & Seating</strong><span class="dd-desc">Stage design, dais setup, seating layouts, draping</span></div></div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- CTA -->
-  <section class="cta-band">
-    <div class="cta-band-inner">
-      <h2 class="cta-h rv">Let's Create<br><em>Something Memorable</em></h2>
-      <p class="cta-p rv">Share your event brief and we'll craft a custom proposal within 24 hours.</p>
-      <div class="cta-btns rv">
-        <button class="btn-g" onclick="showPage('contact')">Request a Quote →</button>
-        <a class="wa-btn" href="https://api.whatsapp.com/send/?phone=918447478791&text=Hello%20Matro%20Art%20Studio%2C%20I%20am%20interested%20in%20your%20event%20management%20services." target="_blank">
-          <svg viewBox="0 0 32 32" width="18" height="18" fill="white"><path d="M16 0C7.164 0 0 7.163 0 16c0 2.822.737 5.469 2.027 7.773L0 32l8.489-2.001A15.93 15.93 0 0016 32c8.836 0 16-7.163 16-16S24.836 0 16 0z"/></svg>
-          WhatsApp Us
-        </a>
-      </div>
-    </div>
-  </section>
-
-</div><!-- /services -->
 
 
-<!-- ═══ EVENTS ═══ -->
-<!--
-╔══════════════════════════════════════════════════════════════╗
-║  HOW TO ADD A NEW EVENT — READ THIS FIRST                   ║
-╠══════════════════════════════════════════════════════════════╣
-║  All events now live in ONE place: data/events.json         ║
-║  This single file automatically feeds the home page          ║
-║  "Recent Events" preview, the Blog page, and this full       ║
-║  Events page.                                                 ║
-║                                                                ║
-║  EASIEST: Go to yoursite.com/admin, log in, click "Events",  ║
-║           add a new item, upload photo(s), fill in text,     ║
-║           hit Publish. Site updates automatically.            ║
-║  MANUAL:  Edit data/events.json on GitHub directly.          ║
-╚══════════════════════════════════════════════════════════════╝
--->
-
-
-
-<!-- ═══ ABOUT ═══ -->
-<!--
-╔══════════════════════════════════════════════════════════════╗
-║  HOW TO EDIT THE ABOUT PAGE — READ THIS FIRST                ║
-╠══════════════════════════════════════════════════════════════╣
-║  All About page content lives in ONE place: data/about.json  ║
-║  This single file feeds every piece of text, the timeline,   ║
-║  and the photo on this page.                                 ║
-║                                                                ║
-║  EASIEST: Go to yoursite.com/admin, log in, click "About",   ║
-║           edit the text/timeline/photo, hit Publish.         ║
-║           Site updates automatically.                        ║
-║  MANUAL:  Edit data/about.json on GitHub directly.           ║
-║  Never edit the placeholders below — they are filled in      ║
-║  automatically by renderAbout() in the script at the bottom. ║
-╚══════════════════════════════════════════════════════════════╝
--->
-<div id="page-about" class="page">
-  <div class="pg-banner">
-    <div class="pg-banner-bg"></div>
-    <div class="pg-banner-grid"></div>
-    <div class="pg-banner-glow"></div>
-    <div class="pg-banner-content">
-      <div class="pg-label" id="aboutPgLabel">Who We Are</div>
-      <div class="pg-title" id="aboutPgTitle">Our <em>Story</em></div>
-    </div>
-  </div>
-
-  <section class="about-story-sec">
-    <div class="about-story-inner">
-      <div class="about-story-text">
-        <div class="sec-label rv" id="aboutSecLabel">Since 2008</div>
-        <h2 class="sec-h2 rv" id="aboutHeading">Delhi's Most Trusted<br><em>Event Partners</em></h2>
-        <div id="aboutParagraphs"><!-- Injected by renderAbout() from data/about.json --></div>
-
-        <!-- Timeline -->
-        <div class="timeline rv d4" id="aboutTimeline"><!-- Injected by renderAbout() from data/about.json --></div>
-      </div>
-      <div class="rv d1" style="position:relative;">
-        <div class="aho-vid-box" id="aboutStoryImgBox" style="aspect-ratio:3/4;max-height:600px;">
-          <img class="aho-video" id="aboutImg" alt="Matro Art Studio Events" style="object-position:center top;" onerror="document.getElementById('aboutStoryImgBox').style.display='none';document.getElementById('aboutStoryBadge').style.position='relative';document.getElementById('aboutStoryBadge').style.display='inline-flex';">
-          <div class="aho-vid-overlay">
-            <div class="aho-vid-badge" id="aboutImgCaption">📍 Lajpat Nagar, New Delhi</div>
-          </div>
-        </div>
-        <div class="aho-est-badge" id="aboutStoryBadge">
-          <div class="aho-est-num" id="aboutBadgeNum">18+</div>
-          <div class="aho-est-lbl" id="aboutBadgeLbl">Years</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-</div><!-- /about -->
-
-
-<!-- ═══ CONTACT ═══ -->
-<div id="page-contact" class="page">
-  <div class="pg-banner">
-    <div class="pg-banner-bg"></div>
-    <div class="pg-banner-grid"></div>
-    <div class="pg-banner-glow"></div>
-    <div class="pg-banner-content">
-      <div class="pg-label">Let's Talk</div>
-      <div class="pg-title">Get in <em>Touch</em></div>
-    </div>
-  </div>
-
-  <section class="contact-sec">
-    <div class="contact-inner">
-      <div class="contact-info">
-        <div class="sec-label rv">Contact Details</div>
-        <h2 class="sec-h2 rv" style="font-size:clamp(28px,4vw,48px);">We're Here to<br><em>Make It Happen</em></h2>
-        <p class="sec-p rv" style="margin-bottom:40px;">Share your event brief with us and we'll get back to you within 24 hours with a detailed proposal.</p>
-
-        <div class="ci-block rv">
-          <div class="ci-ico">📍</div>
-          <div>
-            <div class="ci-lbl">Address</div>
-            <div class="ci-val">133, Lajpat Nagar, Vinoba Puri<br>3rd Floor, New Delhi — 110024</div>
-          </div>
-        </div>
-        <div class="ci-block rv d1">
-          <div class="ci-ico">📞</div>
-          <div>
-            <div class="ci-lbl">Phone</div>
-            <div class="ci-val">
-              <a href="tel:+919971383939" style="display:block;">+91 99713 83939</a>
-              <a href="tel:+918447478791">+91 84474 78791</a>
-            </div>
-          </div>
-        </div>
-        <div class="ci-block rv d2">
-          <div class="ci-ico">✉️</div>
-          <div>
-            <div class="ci-lbl">Email</div>
-            <div class="ci-val">
-              <a href="mailto:matroartstudio@gmail.com">matroartstudio@gmail.com</a>
-            </div>
-          </div>
-        </div>
-        <div class="ci-block rv d3">
-          <div class="ci-ico">💬</div>
-          <div>
-            <div class="ci-lbl">WhatsApp</div>
-            <div class="ci-val">
-              <a href="https://api.whatsapp.com/send/?phone=918447478791&text=Hello%20Matro%20Art%20Studio" target="_blank">+91 84474 78791</a>
-            </div>
-          </div>
-        </div>
-
-        <div style="margin-top:40px;" class="rv d4">
-          <a href="https://api.whatsapp.com/send/?phone=918447478791&text=Hello%20Matro%20Art%20Studio%2C%20I%20am%20interested%20in%20your%20event%20management%20services." target="_blank" class="wa-btn" style="display:inline-flex;text-decoration:none;">
-            <svg viewBox="0 0 32 32" width="20" height="20" fill="white"><path d="M16 0C7.164 0 0 7.163 0 16c0 2.822.737 5.469 2.027 7.773L0 32l8.489-2.001A15.93 15.93 0 0016 32c8.836 0 16-7.163 16-16S24.836 0 16 0z"/></svg>
-            Chat on WhatsApp
-          </a>
-        </div>
-      </div>
-
-      <div class="contact-form rv d1">
-        <div class="cf-title">Send Us a Message</div>
-        <div class="cf-sub">We respond within 24 hours</div>
-        <form id="contactForm" action="https://formspree.io/f/xwvyalvz" method="POST">
-          <div class="form-row">
-            <div class="form-group">
-              <label class="fg-lbl">Your Name *</label>
-              <input class="fg-inp" type="text" name="name" placeholder="Full Name" required>
-            </div>
-            <div class="form-group">
-              <label class="fg-lbl">Phone Number *</label>
-              <input class="fg-inp" type="tel" name="phone" placeholder="+91 00000 00000" required>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label class="fg-lbl">Email Address</label>
-              <input class="fg-inp" type="email" name="email" placeholder="your@email.com">
-            </div>
-            <div class="form-group">
-              <label class="fg-lbl">Organisation</label>
-              <input class="fg-inp" type="text" name="organisation" placeholder="Ministry / Company Name">
-            </div>
-          </div>
-          <div class="form-row" style="grid-template-columns:1fr 1fr;">
-            <div class="form-group">
-              <label class="fg-lbl">Service Required</label>
-              <select class="fg-sel" name="service">
-                <option value="">Select a Service</option>
-                <option>Corporate Event Management</option>
-                <option>Exhibition & Display</option>
-                <option>Audio-Visual Solutions</option>
-                <option>Printing Services</option>
-                <option>Conference Materials</option>
-                <option>Venue Selection & Setup</option>
-                <option>Multiple Services</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="fg-lbl">Expected Date</label>
-              <input class="fg-inp" type="date" name="event_date">
-            </div>
-          </div>
-          <div class="form-group full" style="margin-bottom:16px;">
-            <label class="fg-lbl">Event Brief</label>
-            <textarea class="fg-ta" name="message" placeholder="Tell us about your event — type, expected attendance, venue preference, and any specific requirements..."></textarea>
-          </div>
-          <button type="submit" class="btn-g" style="width:100%;justify-content:center;">Send Message →</button>
-          <div class="form-success" id="formSuccess">
-            ✓ Thank you! Your message has been sent. We'll be in touch within 24 hours.
-          </div>
-        </form>
-      </div>
-    </div>
-  </section>
-</div><!-- /contact -->
-
-
-<!-- ═══ SEO LANDING PAGE ═══ -->
-<!-- ═══ BLOG PAGE ═══ -->
-<div id="page-blog" class="page">
-  <div class="pg-banner">
-    <div class="pg-banner-bg"></div>
-    <div class="pg-banner-grid"></div>
-    <div class="pg-banner-glow"></div>
-    <div class="pg-banner-content">
-      <div class="pg-label">Event Stories</div>
-      <div class="pg-title">Our <em>Blog</em></div>
-    </div>
-  </div>
-
-  <section style="padding:80px 0;background:var(--ink);">
-    <div style="max-width:1100px;margin:0 auto;padding:0 32px;">
-
-      <div class="rv" style="margin-bottom:56px;text-align:center;">
-        <div class="sec-label">Behind Every Event</div>
-        <h2 class="sec-h2">Stories from <em>India's Most Important Events</em></h2>
-        <p class="sec-p" style="max-width:640px;margin:16px auto 0;">A behind-the-scenes look at the government conferences, national summits, and high-profile ceremonies we've had the privilege of managing.</p>
-      </div>
-
-      <div id="blog-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:32px;"></div>
-
-    </div>
-  </section>
-</div>
-
-<!-- ═══ BLOG POST PAGE ═══ -->
-<div id="page-blog-post" class="page">
-  <div class="pg-banner">
-    <div class="pg-banner-bg"></div>
-    <div class="pg-banner-grid"></div>
-    <div class="pg-banner-glow"></div>
-    <div class="pg-banner-content" id="blog-post-banner">
-      <div class="pg-label" id="blog-post-label">Event Story</div>
-      <div class="pg-title" id="blog-post-banner-title">Loading...</div>
-    </div>
-  </div>
-  <section style="padding:80px 0;background:var(--ink);">
-    <div style="max-width:800px;margin:0 auto;padding:0 32px;" id="blog-post-body"></div>
-  </section>
-</div>
-
-<div id="page-seo" class="page">
-  <div class="pg-banner">
-    <div class="pg-banner-bg"></div>
-    <div class="pg-banner-grid"></div>
-    <div class="pg-banner-glow"></div>
-    <div class="pg-banner-content">
-      <div class="pg-label">Trusted Since 2008</div>
-      <div class="pg-title">Government Event <em>Management</em></div>
-    </div>
-  </div>
-
-  <section style="padding:80px 0;background:var(--ink);">
-    <div style="max-width:900px;margin:0 auto;padding:0 32px;">
-
-      <div class="rv" style="margin-bottom:56px;">
-        <div class="sec-label">Who We Are</div>
-        <h1 style="font-family:var(--serif);font-size:clamp(28px,4vw,46px);color:var(--cream);font-weight:400;line-height:1.25;margin:12px 0 20px;">Leading Government Event Management Company in Delhi</h1>
-        <p style="color:rgba(240,234,214,.75);font-size:17px;line-height:1.8;max-width:780px;">Matro Art Studio is a Delhi-based government and corporate event management company established in 2008. With over 18 years of experience, we have successfully delivered 1,000+ high-profile events for 100+ Ministries and Public Sector Undertakings (PSUs) across India. From Vigyan Bhawan to The Ashok Hotel, our team manages every detail so your event runs flawlessly.</p>
-      </div>
-
-      <div class="rv" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;margin-bottom:72px;">
-        <div style="background:rgba(212,175,80,.08);border:1px solid rgba(212,175,80,.2);border-radius:12px;padding:28px 24px;text-align:center;">
-          <div style="font-family:var(--serif);font-size:42px;color:var(--gold);font-weight:400;">18+</div>
-          <div style="color:var(--cream);font-size:14px;margin-top:6px;letter-spacing:1px;text-transform:uppercase;">Years of Experience</div>
-        </div>
-        <div style="background:rgba(212,175,80,.08);border:1px solid rgba(212,175,80,.2);border-radius:12px;padding:28px 24px;text-align:center;">
-          <div style="font-family:var(--serif);font-size:42px;color:var(--gold);font-weight:400;">1000+</div>
-          <div style="color:var(--cream);font-size:14px;margin-top:6px;letter-spacing:1px;text-transform:uppercase;">Events Delivered</div>
-        </div>
-        <div style="background:rgba(212,175,80,.08);border:1px solid rgba(212,175,80,.2);border-radius:12px;padding:28px 24px;text-align:center;">
-          <div style="font-family:var(--serif);font-size:42px;color:var(--gold);font-weight:400;">100+</div>
-          <div style="color:var(--cream);font-size:14px;margin-top:6px;letter-spacing:1px;text-transform:uppercase;">Ministries &amp; PSUs</div>
-        </div>
-        <div style="background:rgba(212,175,80,.08);border:1px solid rgba(212,175,80,.2);border-radius:12px;padding:28px 24px;text-align:center;">
-          <div style="font-family:var(--serif);font-size:42px;color:var(--gold);font-weight:400;">⭐ 5</div>
-          <div style="color:var(--cream);font-size:14px;margin-top:6px;letter-spacing:1px;text-transform:uppercase;">Rated on Google &amp; GeM</div>
-        </div>
-      </div>
-
-      <div class="rv" style="margin-bottom:64px;">
-        <div class="sec-label">What We Do</div>
-        <h2 style="font-family:var(--serif);font-size:clamp(24px,3vw,36px);color:var(--cream);font-weight:400;margin:12px 0 32px;">Event Management Services for Government &amp; Corporate Clients</h2>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;">
-          <div style="border-left:2px solid var(--gold);padding-left:20px;">
-            <div style="color:var(--gold);font-size:15px;font-weight:600;margin-bottom:6px;">Government Conferences &amp; Summits</div>
-            <p style="color:rgba(240,234,214,.7);font-size:14px;line-height:1.7;margin:0;">End-to-end management of ministerial conferences, national summits, and inter-departmental events at prestigious Delhi venues.</p>
-          </div>
-          <div style="border-left:2px solid var(--gold);padding-left:20px;">
-            <div style="color:var(--gold);font-size:15px;font-weight:600;margin-bottom:6px;">Exhibition &amp; Stall Design</div>
-            <p style="color:rgba(240,234,214,.7);font-size:14px;line-height:1.7;margin:0;">Custom fabricated exhibition stalls and display solutions for trade fairs, ministry showcases, and PSU exhibitions.</p>
-          </div>
-          <div style="border-left:2px solid var(--gold);padding-left:20px;">
-            <div style="color:var(--gold);font-size:15px;font-weight:600;margin-bottom:6px;">Corporate Award Ceremonies</div>
-            <p style="color:rgba(240,234,214,.7);font-size:14px;line-height:1.7;margin:0;">Award nights, felicitation ceremonies, and gala dinners for PSUs, ministries, and leading corporate organisations.</p>
-          </div>
-          <div style="border-left:2px solid var(--gold);padding-left:20px;">
-            <div style="color:var(--gold);font-size:15px;font-weight:600;margin-bottom:6px;">Audio-Visual &amp; Stage Production</div>
-            <p style="color:rgba(240,234,214,.7);font-size:14px;line-height:1.7;margin:0;">Professional sound, lighting, LED walls, live streaming, and stage design tailored to high-profile government events.</p>
-          </div>
-          <div style="border-left:2px solid var(--gold);padding-left:20px;">
-            <div style="color:var(--gold);font-size:15px;font-weight:600;margin-bottom:6px;">Printing &amp; Branding</div>
-            <p style="color:rgba(240,234,214,.7);font-size:14px;line-height:1.7;margin:0;">Branded backdrops, event kits, standees, banners, brochures, and all printed collateral — delivered on time, every time.</p>
-          </div>
-          <div style="border-left:2px solid var(--gold);padding-left:20px;">
-            <div style="color:var(--gold);font-size:15px;font-weight:600;margin-bottom:6px;">GeM Portal Empanelled Vendor</div>
-            <p style="color:rgba(240,234,214,.7);font-size:14px;line-height:1.7;margin:0;">Registered and 5-star rated on the Government e-Marketplace (GeM Portal), making procurement simple for all central government departments.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="rv" style="margin-bottom:64px;">
-        <div class="sec-label">Why Choose Us</div>
-        <h2 style="font-family:var(--serif);font-size:clamp(24px,3vw,36px);color:var(--cream);font-weight:400;margin:12px 0 24px;">The Most Trusted Event Partner for Government of India</h2>
-        <p style="color:rgba(240,234,214,.75);font-size:16px;line-height:1.9;margin-bottom:20px;">When government ministries and PSUs need a reliable event management company in New Delhi, they choose Matro Art Studio. Our deep understanding of government protocols, security requirements, and procurement processes — combined with 18+ years of on-ground experience — makes us the go-to agency for high-stakes events.</p>
-        <p style="color:rgba(240,234,214,.75);font-size:16px;line-height:1.9;margin-bottom:20px;">We have worked with over 100 ministries including the Ministry of Finance, Ministry of External Affairs, Ministry of Defence, DRDO, ISRO, ONGC, NTPC, and many more. Our team is based in Lajpat Nagar, New Delhi, and operational pan-India.</p>
-        <p style="color:rgba(240,234,214,.75);font-size:16px;line-height:1.9;">Whether it's a 50-person ministerial meeting or a 5,000-delegate national conference, we deliver with the same precision and professionalism that has earned us a 5-star rating on both Google and the GeM Portal.</p>
-      </div>
-
-      <div class="rv" style="margin-bottom:64px;">
-        <div class="sec-label">Our Reach</div>
-        <h2 style="font-family:var(--serif);font-size:clamp(24px,3vw,36px);color:var(--cream);font-weight:400;margin:12px 0 24px;">Event Management Across India — Based in Delhi</h2>
-        <p style="color:rgba(240,234,214,.75);font-size:16px;line-height:1.9;margin-bottom:16px;">While headquartered in New Delhi, Matro Art Studio has executed events across India — from Mumbai and Chennai to Kolkata and Hyderabad. We specialise in:</p>
-        <ul style="color:rgba(240,234,214,.75);font-size:16px;line-height:2;padding-left:20px;margin:0;">
-          <li>Government event management in Delhi NCR</li>
-          <li>PSU and corporate event management in India</li>
-          <li>Ministry conference and summit management</li>
-          <li>Exhibition stall design and fabrication</li>
-          <li>Event management company for central government tenders</li>
-          <li>GeM Portal empanelled event services</li>
-        </ul>
-      </div>
-
-      <div class="rv" style="text-align:center;padding:48px 32px;background:rgba(212,175,80,.06);border:1px solid rgba(212,175,80,.2);border-radius:16px;">
-        <h2 style="font-family:var(--serif);font-size:clamp(22px,3vw,34px);color:var(--cream);font-weight:400;margin:0 0 16px;">Planning a Government or Corporate Event?</h2>
-        <p style="color:rgba(240,234,214,.7);font-size:16px;margin:0 0 32px;">Get in touch with our team for a detailed proposal within 24 hours.</p>
-        <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-          <button class="btn-g" onclick="showPage('contact')">Request a Proposal →</button>
-          <a href="tel:+919971383939" class="btn-o" style="text-decoration:none;">📞 Call Us Now</a>
-        </div>
-      </div>
-
-    </div>
-  </section>
-</div>
-
-<!-- ═══ FOOTER ═══ -->
 <footer>
   <div class="ft-inner">
     <div class="ft-top">
@@ -2330,22 +1795,22 @@ footer{
       <div>
         <span class="ft-col-title">Our Services</span>
         <ul class="ft-links">
-          <li><a onclick="showPage('services')">Corporate Events</a></li>
-          <li><a onclick="showPage('services')">Exhibition Design</a></li>
-          <li><a onclick="showPage('services')">Audio-Visual</a></li>
-          <li><a onclick="showPage('services')">Printing Services</a></li>
-          <li><a onclick="showPage('services')">Conference Materials</a></li>
-          <li><a onclick="showPage('services')">Venue Selection</a></li>
+          <li><a href="services/">Corporate Events</a></li>
+          <li><a href="services/">Exhibition Design</a></li>
+          <li><a href="services/">Audio-Visual</a></li>
+          <li><a href="services/">Printing Services</a></li>
+          <li><a href="services/">Conference Materials</a></li>
+          <li><a href="services/">Venue Selection</a></li>
         </ul>
       </div>
       <div>
         <span class="ft-col-title">Quick Links</span>
         <ul class="ft-links">
-          <li><a onclick="showPage('home')">Home</a></li>
+          <li><a href="./">Home</a></li>
           <li><a href="events/">Recent Events</a></li>
-          <li><a onclick="showPage('blog')">Blog</a></li>
-          <li><a onclick="showPage('seo')">Why Choose Us</a></li>
-          <li><a onclick="showPage('contact')">Contact</a></li>
+          <li><a href="blog/">Blog</a></li>
+          <li><a href="why-us/">Why Choose Us</a></li>
+          <li><a href="contact/">Contact</a></li>
           <li><a href="https://share.google/VBesVzpxNdPon7krQ" target="_blank">Write a Review</a></li>
         </ul>
       </div>
@@ -2378,6 +1843,9 @@ footer{
 </div>
 
 <!-- WHATSAPP -->
+
+
+<!-- WHATSAPP -->
 <a class="wa-float" href="https://api.whatsapp.com/send/?phone=918447478791&text=Hello%20Matro%20Art%20Studio%2C%20I%20am%20interested%20in%20your%20event%20management%20services." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
   <span class="wa-tip">Chat with us!</span>
   <svg viewBox="0 0 32 32"><path d="M16 0C7.164 0 0 7.163 0 16c0 2.822.737 5.469 2.027 7.773L0 32l8.489-2.001A15.93 15.93 0 0016 32c8.836 0 16-7.163 16-16S24.836 0 16 0zm0 29.333a13.28 13.28 0 01-6.77-1.848l-.485-.287-5.04 1.188 1.262-4.9-.317-.503A13.254 13.254 0 012.667 16C2.667 8.636 8.636 2.667 16 2.667c7.364 0 13.333 5.969 13.333 13.333 0 7.364-5.969 13.333-13.333 13.333zm7.307-9.987c-.4-.2-2.368-1.168-2.735-1.301-.368-.133-.636-.2-.904.2-.267.4-1.035 1.301-1.27 1.568-.234.267-.467.3-.867.1-.4-.2-1.688-.622-3.214-1.982-1.188-1.059-1.99-2.368-2.223-2.768-.234-.4-.025-.616.175-.816.18-.18.4-.467.6-.7.2-.234.267-.4.4-.667.133-.267.067-.5-.033-.7-.1-.2-.904-2.174-1.238-2.974-.326-.78-.658-.674-.904-.686l-.77-.013c-.267 0-.7.1-1.068.5-.367.4-1.4 1.368-1.4 3.335 0 1.967 1.434 3.867 1.634 4.135.2.267 2.82 4.303 6.83 6.034.955.413 1.7.659 2.28.844.958.305 1.83.262 2.52.159.768-.114 2.368-.968 2.702-1.902.333-.934.333-1.735.233-1.902-.1-.167-.367-.267-.767-.467z"/></svg>
@@ -2385,374 +1853,7 @@ footer{
 
 
 <!-- SCHEMA — Organization + LocalBusiness -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": ["EventPlanner","LocalBusiness"],
-  "@id": "https://matroartstudio.github.io/#organization",
-  "name": "Matro Art Studio",
-  "alternateName": "Matro Art Studio Event Management",
-  "url": "https://matroartstudio.github.io/",
-  "logo": {
-    "@type": "ImageObject",
-    "url": "https://matroartstudio.github.io/images/Letter Head Matro Art Studio-2.png",
-    "width": 200,
-    "height": 200
-  },
-  "image": [
-    {
-      "@type": "ImageObject",
-      "url": "https://matroartstudio.github.io/images/DSC_8558.JPG",
-      "caption": "Matro Art Studio — Government Event Management New Delhi",
-      "representativeOfPage": true
-    },
-    {
-      "@type": "ImageObject",
-      "url": "https://matroartstudio.github.io/images2/DOPT1.jpeg",
-      "caption": "IAS 2024 Batch Inauguration — DoPT, Vigyan Bhawan"
-    },
-    {
-      "@type": "ImageObject",
-      "url": "https://matroartstudio.github.io/images2/NAC1.JPG",
-      "caption": "Mobilisation For Suraksha National Review — NACO, Vigyan Bhawan"
-    },
-    {
-      "@type": "ImageObject",
-      "url": "https://matroartstudio.github.io/images2/CBC1.JPG",
-      "caption": "CBSE CA & AI Curriculum Launch — Vigyan Bhawan 2026"
-    },
-    {
-      "@type": "ImageObject",
-      "url": "https://matroartstudio.github.io/images2/NARCO1.JPG",
-      "caption": "NCORD Meeting — Ministry of Home Affairs, Vigyan Bhawan 2025"
-    },
-    {
-      "@type": "ImageObject",
-      "url": "https://matroartstudio.github.io/images2/MOSPI1.JPG",
-      "caption": "MoSPI All India Workshop of Trainers — Manekshaw Centre 2025"
-    },
-    {
-      "@type": "ImageObject",
-      "url": "https://matroartstudio.github.io/images2/GR2.jpeg",
-      "caption": "India-Germany Annual Negotiations Meeting — The Claridges, New Delhi 2025"
-    },
-    {
-      "@type": "ImageObject",
-      "url": "https://matroartstudio.github.io/images2/NDMA1.jpeg",
-      "caption": "NDMA National Disaster Management Authority Event — Vigyan Bhawan 2025"
-    },
-    {
-      "@type": "ImageObject",
-      "url": "https://matroartstudio.github.io/images2/COS1.JPG",
-      "caption": "National Symposium on Customs Reforms 2026 — Vigyan Bhawan"
-    },
-    {
-      "@type": "ImageObject",
-      "url": "https://matroartstudio.github.io/images2/sci1.JPG",
-      "caption": "National Science Day 2026 — Vigyan Bhawan, New Delhi"
-    },
-    {
-      "@type": "ImageObject",
-      "url": "https://matroartstudio.github.io/images2/obe1.jpeg",
-      "caption": "Youth Dialogue on Budget 2026-27 — The Oberoi Hotel, New Delhi"
-    },
-    {
-      "@type": "ImageObject",
-      "url": "https://matroartstudio.github.io/images2/med1.JPG",
-      "caption": "GDP Data Press Conference — National Media Center, New Delhi 2026"
-    },
-    {
-      "@type": "ImageObject",
-      "url": "https://matroartstudio.github.io/images2/1.JPG",
-      "caption": "Pre-Budget Meeting Finance Ministers States UTs 2026 — The Ashok Hotel, New Delhi"
-    }
-  ],
-  "description": "Delhi's premier corporate event management company. Trusted by 100+ Ministries of the Government of India since 2008. Specialising in government conferences, exhibitions, AV production and printing.",
-  "foundingDate": "2008",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "133, Lajpat Nagar, Vinoba Puri, 3rd Floor",
-    "addressLocality": "New Delhi",
-    "addressRegion": "Delhi",
-    "postalCode": "110024",
-    "addressCountry": "IN"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 28.5694,
-    "longitude": 77.2370
-  },
-  "telephone": ["+91-9971383939", "+91-8447478791"],
-  "email": "matroartstudio@gmail.com",
-  "sameAs": ["https://matroartstudio.github.io/"],
-  "areaServed": {"@type": "Country", "name": "India"},
-  "priceRange": "₹₹₹",
-  "openingHours": "Mo-Sa 09:00-19:00"
-}
-</script>
 
-<!-- SCHEMA — Individual Event structured data (Google Image indexing per event topic) -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  "name": "Recent Events by Matro Art Studio",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "item": {
-        "@type": "Event",
-        "name": "Inauguration of Assistant Secretary Programme — IAS 2024 Batch",
-        "organizer": {"@type": "Organization", "name": "Department of Personnel & Training (DoPT)", "url": "https://matroartstudio.github.io/"},
-        "location": {"@type": "Place", "name": "Vigyan Bhawan", "address": "New Delhi, India"},
-        "startDate": "2026-01-15",
-        "endDate": "2026-01-15",
-        "eventStatus": "https://schema.org/EventScheduled",
-        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR", "availability": "https://schema.org/InStock", "url": "https://matroartstudio.github.io/", "validFrom": "2026-01-15"},
-        "image": {
-          "@type": "ImageObject",
-          "url": "https://matroartstudio.github.io/images2/DOPT1.jpeg",
-          "caption": "IAS 2024 Batch Inauguration — DoPT event managed by Matro Art Studio at Vigyan Bhawan, New Delhi"
-        },
-        "description": "Inauguration of the Assistant Secretary Programme for Officer Trainees of IAS 2024 Batch, organised by Department of Personnel & Training (DoPT) at Vigyan Bhawan, New Delhi. Event managed by Matro Art Studio.",
-        "performer": {"@type": "Organization", "name": "Matro Art Studio"}
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "item": {
-        "@type": "Event",
-        "name": "Mobilisation For Suraksha — National Review Meeting",
-        "organizer": {"@type": "Organization", "name": "Ministry of Health & Family Welfare — NACO", "url": "https://matroartstudio.github.io/"},
-        "location": {"@type": "Place", "name": "Vigyan Bhawan", "address": "New Delhi, India"},
-        "startDate": "2026-02-10",
-        "endDate": "2026-02-10",
-        "eventStatus": "https://schema.org/EventScheduled",
-        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR", "availability": "https://schema.org/InStock", "url": "https://matroartstudio.github.io/", "validFrom": "2026-02-10"},
-        "image": {
-          "@type": "ImageObject",
-          "url": "https://matroartstudio.github.io/images2/NAC1.JPG",
-          "caption": "Mobilisation For Suraksha National Review — NACO, Ministry of Health, Vigyan Bhawan, managed by Matro Art Studio"
-        },
-        "description": "Mobilisation For Suraksha National Review meeting organised by NACO under Ministry of Health & Family Welfare at Vigyan Bhawan, New Delhi. Event managed by Matro Art Studio.",
-        "performer": {"@type": "Organization", "name": "Matro Art Studio"}
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "item": {
-        "@type": "Event",
-        "name": "Launch of CA & AI Curriculum for Classes III–VIII — CBSE",
-        "organizer": {"@type": "Organization", "name": "Central Board of Secondary Education (CBSE)", "url": "https://matroartstudio.github.io/"},
-        "location": {"@type": "Place", "name": "Vigyan Bhawan", "address": "New Delhi, India"},
-        "startDate": "2026-03-05",
-        "endDate": "2026-03-05",
-        "eventStatus": "https://schema.org/EventScheduled",
-        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR", "availability": "https://schema.org/InStock", "url": "https://matroartstudio.github.io/", "validFrom": "2026-03-05"},
-        "image": {
-          "@type": "ImageObject",
-          "url": "https://matroartstudio.github.io/images2/CBC1.JPG",
-          "caption": "CBSE Computational Thinking and AI Curriculum Launch, Vigyan Bhawan 2026, managed by Matro Art Studio"
-        },
-        "description": "Launch of Computational Thinking and Artificial Intelligence (CA & AI) Curriculum for Classes III to VIII by Central Board of Secondary Education at Vigyan Bhawan, New Delhi. Event managed by Matro Art Studio.",
-        "performer": {"@type": "Organization", "name": "Matro Art Studio"}
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 4,
-      "item": {
-        "@type": "Event",
-        "name": "NCORD Meeting — Ministry of Home Affairs 2025",
-        "organizer": {"@type": "Organization", "name": "Ministry of Home Affairs, Government of India", "url": "https://matroartstudio.github.io/"},
-        "location": {"@type": "Place", "name": "Vigyan Bhawan", "address": "New Delhi, India"},
-        "startDate": "2025-11-20",
-        "endDate": "2025-11-20",
-        "eventStatus": "https://schema.org/EventScheduled",
-        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR", "availability": "https://schema.org/InStock", "url": "https://matroartstudio.github.io/", "validFrom": "2025-11-20"},
-        "image": {
-          "@type": "ImageObject",
-          "url": "https://matroartstudio.github.io/images2/NARCO1.JPG",
-          "caption": "NCORD Meeting Ministry of Home Affairs 2025 at Vigyan Bhawan, managed by Matro Art Studio"
-        },
-        "description": "NCORD Meeting organised by Ministry of Home Affairs at Vigyan Bhawan, New Delhi 2025. Event managed by Matro Art Studio.",
-        "performer": {"@type": "Organization", "name": "Matro Art Studio"}
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 5,
-      "item": {
-        "@type": "Event",
-        "name": "MoSPI All India Workshop of Trainers 2025",
-        "organizer": {"@type": "Organization", "name": "Ministry of Statistics and Programme Implementation (MoSPI)", "url": "https://matroartstudio.github.io/"},
-        "location": {"@type": "Place", "name": "Manekshaw Centre", "address": "New Delhi, India"},
-        "startDate": "2025-10-14",
-        "endDate": "2025-10-15",
-        "eventStatus": "https://schema.org/EventScheduled",
-        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR", "availability": "https://schema.org/InStock", "url": "https://matroartstudio.github.io/", "validFrom": "2025-10-14"},
-        "image": {
-          "@type": "ImageObject",
-          "url": "https://matroartstudio.github.io/images2/MOSPI1.JPG",
-          "caption": "MoSPI All India Workshop of Trainers 2025 at Manekshaw Centre, managed by Matro Art Studio"
-        },
-        "description": "MoSPI All India Workshop of Trainers 2025 at Manekshaw Centre, New Delhi. Event managed by Matro Art Studio.",
-        "performer": {"@type": "Organization", "name": "Matro Art Studio"}
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 6,
-      "item": {
-        "@type": "Event",
-        "name": "Annual Negotiations Meeting 2025 — India & Germany",
-        "organizer": {"@type": "Organization", "name": "Ministry of Finance, Government of India", "url": "https://matroartstudio.github.io/"},
-        "location": {"@type": "Place", "name": "The Claridges Hotel", "address": "New Delhi, India"},
-        "startDate": "2025-09-18",
-        "endDate": "2025-09-19",
-        "eventStatus": "https://schema.org/EventScheduled",
-        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR", "availability": "https://schema.org/InStock", "url": "https://matroartstudio.github.io/", "validFrom": "2025-09-18"},
-        "image": {
-          "@type": "ImageObject",
-          "url": "https://matroartstudio.github.io/images2/GR2.jpeg",
-          "caption": "India Germany Annual Negotiations Meeting 2025 at The Claridges Hotel New Delhi, managed by Matro Art Studio"
-        },
-        "description": "Annual Negotiations Meeting between India and Germany, organised by Ministry of Finance at The Claridges Hotel, New Delhi 2025. Event managed by Matro Art Studio.",
-        "performer": {"@type": "Organization", "name": "Matro Art Studio"}
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 7,
-      "item": {
-        "@type": "Event",
-        "name": "NDMA National Disaster Management Authority Event 2025",
-        "organizer": {"@type": "Organization", "name": "National Disaster Management Authority (NDMA)", "url": "https://matroartstudio.github.io/"},
-        "location": {"@type": "Place", "name": "Vigyan Bhawan", "address": "New Delhi, India"},
-        "startDate": "2025-08-25",
-        "endDate": "2025-08-25",
-        "eventStatus": "https://schema.org/EventScheduled",
-        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR", "availability": "https://schema.org/InStock", "url": "https://matroartstudio.github.io/", "validFrom": "2025-08-25"},
-        "image": {
-          "@type": "ImageObject",
-          "url": "https://matroartstudio.github.io/images2/NDMA1.jpeg",
-          "caption": "NDMA National Disaster Management Authority event at Vigyan Bhawan 2025, managed by Matro Art Studio"
-        },
-        "description": "NDMA National Disaster Management Authority event at Vigyan Bhawan, New Delhi 2025. Event managed by Matro Art Studio.",
-        "performer": {"@type": "Organization", "name": "Matro Art Studio"}
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 8,
-      "item": {
-        "@type": "Event",
-        "name": "National Symposium on Customs Reforms 2026",
-        "organizer": {"@type": "Organization", "name": "Central Board of Indirect Taxes and Customs (CBIC)", "url": "https://matroartstudio.github.io/"},
-        "location": {"@type": "Place", "name": "Vigyan Bhawan", "address": "New Delhi, India"},
-        "startDate": "2026-01-28",
-        "endDate": "2026-01-28",
-        "eventStatus": "https://schema.org/EventScheduled",
-        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR", "availability": "https://schema.org/InStock", "url": "https://matroartstudio.github.io/", "validFrom": "2026-01-28"},
-        "image": {
-          "@type": "ImageObject",
-          "url": "https://matroartstudio.github.io/images2/COS1.JPG",
-          "caption": "National Symposium on Customs Reforms 2026 at Vigyan Bhawan, managed by Matro Art Studio"
-        },
-        "description": "National Symposium on Customs Reforms 2026 at Vigyan Bhawan, New Delhi. Event managed by Matro Art Studio.",
-        "performer": {"@type": "Organization", "name": "Matro Art Studio"}
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 9,
-      "item": {
-        "@type": "Event",
-        "name": "Press Conference — Release of GDP Data (Base Year 2022–23)",
-        "organizer": {"@type": "Organization", "name": "Ministry of Statistics and Programme Implementation", "url": "https://matroartstudio.github.io/"},
-        "location": {"@type": "Place", "name": "National Media Center", "address": "New Delhi, India"},
-        "startDate": "2026-02-28",
-        "endDate": "2026-02-28",
-        "eventStatus": "https://schema.org/EventScheduled",
-        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR", "availability": "https://schema.org/InStock", "url": "https://matroartstudio.github.io/", "validFrom": "2026-02-28"},
-        "image": {
-          "@type": "ImageObject",
-          "url": "https://matroartstudio.github.io/images2/med1.JPG",
-          "caption": "GDP Data Press Conference Base Year 2022-23 at National Media Center, managed by Matro Art Studio"
-        },
-        "description": "Press Conference for release of GDP Data with new Base Year 2022-23, organised by Ministry of Statistics and Programme Implementation at National Media Center, New Delhi. Event managed by Matro Art Studio.",
-        "performer": {"@type": "Organization", "name": "Matro Art Studio"}
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 10,
-      "item": {
-        "@type": "Event",
-        "name": "National Science Day 2026",
-        "organizer": {"@type": "Organization", "name": "Ministry of Science and Technology, Department of Science & Technology", "url": "https://matroartstudio.github.io/"},
-        "location": {"@type": "Place", "name": "Vigyan Bhawan", "address": "New Delhi, India"},
-        "startDate": "2026-02-28",
-        "endDate": "2026-02-28",
-        "eventStatus": "https://schema.org/EventScheduled",
-        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR", "availability": "https://schema.org/InStock", "url": "https://matroartstudio.github.io/", "validFrom": "2026-02-28"},
-        "image": {
-          "@type": "ImageObject",
-          "url": "https://matroartstudio.github.io/images2/sci1.JPG",
-          "caption": "National Science Day 2026 at Vigyan Bhawan New Delhi, managed by Matro Art Studio"
-        },
-        "description": "National Science Day 2026, organised by Ministry of Science and Technology at Vigyan Bhawan, New Delhi. Event managed by Matro Art Studio.",
-        "performer": {"@type": "Organization", "name": "Matro Art Studio"}
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 11,
-      "item": {
-        "@type": "Event",
-        "name": "Youth Dialogue on Budget 2026–27",
-        "organizer": {"@type": "Organization", "name": "Ministry of Finance", "url": "https://matroartstudio.github.io/"},
-        "location": {"@type": "Place", "name": "The Oberoi Hotel", "address": "New Delhi, India"},
-        "startDate": "2026-01-20",
-        "endDate": "2026-01-20",
-        "eventStatus": "https://schema.org/EventScheduled",
-        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR", "availability": "https://schema.org/InStock", "url": "https://matroartstudio.github.io/", "validFrom": "2026-01-20"},
-        "image": {
-          "@type": "ImageObject",
-          "url": "https://matroartstudio.github.io/images2/obe1.jpeg",
-          "caption": "Youth Dialogue on Budget 2026-27 at The Oberoi Hotel New Delhi, managed by Matro Art Studio"
-        },
-        "description": "Youth Dialogue on Budget 2026-27 organised by Ministry of Finance at The Oberoi Hotel, New Delhi. Event managed by Matro Art Studio.",
-        "performer": {"@type": "Organization", "name": "Matro Art Studio"}
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 12,
-      "item": {
-        "@type": "Event",
-        "name": "Pre-Budget Meeting with Finance Ministers of States and UTs 2026",
-        "organizer": {"@type": "Organization", "name": "Ministry of Finance", "url": "https://matroartstudio.github.io/"},
-        "location": {"@type": "Place", "name": "The Ashok Hotel", "address": "New Delhi, India"},
-        "startDate": "2026-01-05",
-        "endDate": "2026-01-05",
-        "eventStatus": "https://schema.org/EventScheduled",
-        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR", "availability": "https://schema.org/InStock", "url": "https://matroartstudio.github.io/", "validFrom": "2026-01-05"},
-        "image": {
-          "@type": "ImageObject",
-          "url": "https://matroartstudio.github.io/images2/1.JPG",
-          "caption": "Pre-Budget Meeting Finance Ministers States UTs 2026 at The Ashok Hotel New Delhi, managed by Matro Art Studio"
-        },
-        "description": "Pre-Budget Meeting with Finance Ministers of States and Union Territories 2026 at The Ashok Hotel, New Delhi. Event managed by Matro Art Studio.",
-        "performer": {"@type": "Organization", "name": "Matro Art Studio"}
-      }
-    }
-  ]
-}
-</script>
 
 <script>
 /* ═══════════════════════════════════════════════════════════════
@@ -3146,6 +2247,7 @@ function dismissLoader() {
   document.documentElement.scrollTop = 0;
   document.body.scrollTop = 0;
   const loader = document.getElementById('loader');
+  if (!loader) { initParticles(); initReveal(); renderRecentEvents(); initHeroSlider(); return; }
   loader.classList.add('out');
   /* Re-enable scroll only after loader fully fades (matches .25s transition) */
   setTimeout(() => {
@@ -3246,32 +2348,6 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 /* ═══ PAGE NAV ═══ */
-function showPage(id) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.nl').forEach(a => a.classList.remove('active'));
-  const page = document.getElementById('page-' + id);
-  if (page) {
-    page.classList.add('active');
-    /* Scroll to very top immediately — works cross-browser */
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
-    window.scrollTo(0, 0);
-    setTimeout(initReveal, 200);
-    if (id === 'home') {
-      renderRecentEvents(); /* refresh home preview when returning */
-      /* Guarantee hero is visible from the top */
-      setTimeout(() => { window.scrollTo({ top: 0, behavior: 'instant' }); }, 50);
-    }
-    if (id === 'blog') {
-      renderBlog();
-    }
-  }
-  const btn = document.querySelector(`.nl[onclick*="'${id}'"]`);
-  if (btn) btn.classList.add('active');
-  /* Close mobile menu if open */
-  const mob = document.getElementById('mobMenu');
-  if (mob && mob.classList.contains('open')) toggleMob();
-}
 
 /* ═══ BLOG ═══ */
 const BLOG_CONTENT = {
@@ -3376,6 +2452,23 @@ const BLOG_CONTENT = {
   }
 };
 
+
+/* ═══ BLOG LOCAL VIEW TOGGLE (list <-> single post, no site-wide page routing needed) ═══ */
+function showBlogPostView() {
+  const list = document.getElementById('blogListSection');
+  const post = document.getElementById('blogPostSection');
+  if (list) list.classList.remove('show');
+  if (post) post.classList.add('show');
+  window.scrollTo(0, 0);
+}
+function backToBlogList() {
+  const list = document.getElementById('blogListSection');
+  const post = document.getElementById('blogPostSection');
+  if (post) post.classList.remove('show');
+  if (list) list.classList.add('show');
+  window.scrollTo(0, 0);
+}
+
 function renderBlog() {
   const grid = document.getElementById('blog-grid');
   if (!grid || grid.dataset.rendered) return;
@@ -3427,7 +2520,7 @@ function openBlogPost(idx) {
     : ev.title;
 
   document.getElementById('blog-post-body').innerHTML = `
-    <button onclick="showPage('blog')" style="background:none;border:1px solid rgba(212,175,80,.3);color:var(--gold);font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:10px 20px;border-radius:4px;cursor:pointer;margin-bottom:40px;">← Back to Blog</button>
+    <button onclick="backToBlogList()" style="background:none;border:1px solid rgba(212,175,80,.3);color:var(--gold);font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:10px 20px;border-radius:4px;cursor:pointer;margin-bottom:40px;">← Back to Blog</button>
 
     <div style="margin-bottom:32px;">
       <img src="${(ev.photos && ev.photos[0]) || ''}" alt="${ev.title}" style="width:100%;border-radius:12px;object-fit:cover;max-height:420px;filter:brightness(.85);">
@@ -3447,11 +2540,11 @@ function openBlogPost(idx) {
     <div style="margin-top:56px;padding:32px;background:rgba(212,175,80,.06);border:1px solid rgba(212,175,80,.2);border-radius:12px;text-align:center;">
       <p style="color:var(--cream);font-family:var(--serif);font-size:20px;margin:0 0 8px;">Planning a similar event?</p>
       <p style="color:rgba(240,234,214,.6);font-size:14px;margin:0 0 24px;">Get in touch with our team for a detailed proposal within 24 hours.</p>
-      <button class="btn-g" onclick="showPage('contact')">Contact Us →</button>
+      <button class="btn-g" onclick="window.location.href='contact/'">Contact Us →</button>
     </div>
   `;
 
-  showPage('blog-post');
+  showBlogPostView();
 }
 
 /* ═══ MOBILE MENU ═══ */
@@ -3518,7 +2611,8 @@ document.addEventListener('keydown', e => {
 });
 
 /* ═══ CONTACT FORM ═══ */
-document.getElementById('contactForm').addEventListener('submit', async function(e) {
+const _contactForm = document.getElementById('contactForm');
+if (_contactForm) _contactForm.addEventListener('submit', async function(e) {
   e.preventDefault();
   if (this.action.includes('YOUR_FORM_ID')) {
     document.getElementById('formSuccess').classList.add('show');
@@ -3539,5 +2633,6 @@ document.addEventListener('dragstart', e => { if (e.target.tagName === 'IMG') e.
 /* ═══ INIT ═══ */
 initReveal();
 </script>
+
 </body>
 </html>
