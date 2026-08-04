@@ -1419,10 +1419,22 @@ footer{
     <a class="nl" href="../why-us/">Why Us</a>
     <a class="nav-cta" href="../contact/">Contact Us</a>
   </div>
+  <button class="hbg" id="hbg" onclick="toggleMob()">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="mob-menu" id="mobMenu">
+  <a class="nl" href="../">Home</a>
+  <a class="nl active" href="../services/">Services</a>
+  <a class="nl" href="../events/">Events</a>
+  <a class="nl" href="../gallery/">Gallery</a>
+  <a class="nl" href="../blog/">Blog</a>
+  <a class="nl" href="../about/">About</a>
+  <a class="nl" href="../why-us/">Why Us</a>
+  <a class="nav-cta" href="../contact/">Contact Us</a>
+</div>
 
 <div id="page-services" class="page active">
-<div id="page-services" class="page">
   <div class="pg-banner">
     <div class="pg-banner-bg"></div>
     <div class="pg-banner-grid"></div>
@@ -1651,7 +1663,6 @@ footer{
 ╚══════════════════════════════════════════════════════════════╝
 -->
 
-</div>
 
 <footer>
   <div class="ft-inner">
@@ -2122,7 +2133,14 @@ function dismissLoader() {
   document.documentElement.scrollTop = 0;
   document.body.scrollTop = 0;
   const loader = document.getElementById('loader');
-  if (!loader) { initParticles(); initReveal(); renderRecentEvents(); initHeroSlider(); return; }
+  if (!loader) {
+    document.body.classList.remove('loading');
+    document.body.style.overflow = '';
+    document.body.style.position = '';
+    document.body.style.width = '';
+    initParticles(); initReveal(); renderRecentEvents(); initHeroSlider();
+    return;
+  }
   loader.classList.add('out');
   /* Re-enable scroll only after loader fully fades (matches .25s transition) */
   setTimeout(() => {
