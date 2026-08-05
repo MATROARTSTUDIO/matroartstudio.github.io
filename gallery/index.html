@@ -1753,7 +1753,7 @@ function renderGalleryGrid() {
 
   grid.innerHTML = `<div class="gal-grid">
     ${items.map(img => `
-      <img src="${img.src}" alt="${img.alt || 'Matro Art Studio event photo'}" onclick="openLB(this)" loading="lazy">
+      <img src="${'../' + img.src}" alt="${img.alt || 'Matro Art Studio event photo'}" onclick="openLB(this)" loading="lazy">
     `).join('')}
   </div>`;
 
@@ -1779,7 +1779,7 @@ function renderGallerySlider() {
 
   track.innerHTML = slides.map((img, i) => `
     <div class="gal-sl-slide${i === 0 ? ' active' : ''}">
-      <img src="${img.src}" alt="${img.alt || 'Matro Art Studio event photo'}" loading="${i === 0 ? 'eager' : 'lazy'}">
+      <img src="${'../' + img.src}" alt="${img.alt || 'Matro Art Studio event photo'}" loading="${i === 0 ? 'eager' : 'lazy'}">
       ${img.caption ? `<div class="gal-sl-caption">${img.caption}</div>` : ''}
     </div>
   `).join('');
