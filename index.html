@@ -1507,7 +1507,6 @@ footer{
     <a class="nl" href="services/">Services</a>
     <a class="nl" href="events/">Events</a>
     <a class="nl" href="gallery/">Gallery</a>
-    <a class="nl" href="blog/">Blog</a>
     <a class="nl" href="about/">About</a>
     <a class="nl" href="why-us/">Why Us</a>
     <a class="nav-cta" href="contact/">Contact Us</a>
@@ -1521,7 +1520,6 @@ footer{
   <a class="nl" href="services/">Services</a>
   <a class="nl" href="events/">Events</a>
   <a class="nl" href="gallery/">Gallery</a>
-  <a class="nl" href="blog/">Blog</a>
   <a class="nl" href="about/">About</a>
   <a class="nl" href="why-us/">Why Us</a>
   <a class="nav-cta" href="contact/">Contact Us</a>
@@ -1808,7 +1806,6 @@ footer{
         <ul class="ft-links">
           <li><a href="./">Home</a></li>
           <li><a href="events/">Recent Events</a></li>
-          <li><a href="blog/">Blog</a></li>
           <li><a href="why-us/">Why Choose Us</a></li>
           <li><a href="contact/">Contact</a></li>
           <li><a href="https://share.google/VBesVzpxNdPon7krQ" target="_blank">Write a Review</a></li>
@@ -2237,8 +2234,8 @@ if (cur && ring) {
 }
 
 /* ═══ LOADER ═══ */
-/* Lock scroll immediately — before anything loads */
-document.body.classList.add('loading');
+/* Lock scroll immediately — before anything loads (only if there's a loader screen to show) */
+if (document.getElementById('loader')) document.body.classList.add('loading');
 window.scrollTo({ top: 0, behavior: 'instant' });
 
 /* Dismiss loader on DOMContentLoaded (don't wait for all images) */
@@ -2247,7 +2244,14 @@ function dismissLoader() {
   document.documentElement.scrollTop = 0;
   document.body.scrollTop = 0;
   const loader = document.getElementById('loader');
-  if (!loader) { initParticles(); initReveal(); renderRecentEvents(); initHeroSlider(); return; }
+  if (!loader) {
+    document.body.classList.remove('loading');
+    document.body.style.overflow = '';
+    document.body.style.position = '';
+    document.body.style.width = '';
+    initParticles(); initReveal(); renderRecentEvents(); initHeroSlider();
+    return;
+  }
   loader.classList.add('out');
   /* Re-enable scroll only after loader fully fades (matches .25s transition) */
   setTimeout(() => {
@@ -2262,11 +2266,13 @@ function dismissLoader() {
   renderRecentEvents();
   initHeroSlider();
 }
-/* Use DOMContentLoaded so loader clears before images finish downloading */
+/* Use DOMContentLoaded so loader clears before images finish downloading.
+   Pages with no visual loader (subpages) skip the 3s wait entirely. */
+const _loaderWait = document.getElementById('loader') ? 3000 : 0;
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => setTimeout(dismissLoader, 3000));
+  document.addEventListener('DOMContentLoaded', () => setTimeout(dismissLoader, _loaderWait));
 } else {
-  setTimeout(dismissLoader, 3000);
+  setTimeout(dismissLoader, _loaderWait);
 }
 
 /* ═══ HERO BACKGROUND SLIDER ═══ */

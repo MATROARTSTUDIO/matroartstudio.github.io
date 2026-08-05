@@ -1414,7 +1414,6 @@ footer{
     <a class="nl" href="../services/">Services</a>
     <a class="nl" href="../events/">Events</a>
     <a class="nl" href="../gallery/">Gallery</a>
-    <a class="nl" href="../blog/">Blog</a>
     <a class="nl" href="../about/">About</a>
     <a class="nl" href="../why-us/">Why Us</a>
     <a class="nav-cta" href="../contact/">Contact Us</a>
@@ -1428,13 +1427,13 @@ footer{
   <a class="nl" href="../services/">Services</a>
   <a class="nl" href="../events/">Events</a>
   <a class="nl" href="../gallery/">Gallery</a>
-  <a class="nl" href="../blog/">Blog</a>
   <a class="nl" href="../about/">About</a>
   <a class="nl" href="../why-us/">Why Us</a>
   <a class="nav-cta" href="../contact/">Contact Us</a>
 </div>
 
 <div id="page-contact" class="page active">
+<div id="page-contact" class="page">
   <div class="pg-banner">
     <div class="pg-banner-bg"></div>
     <div class="pg-banner-grid"></div>
@@ -1557,6 +1556,7 @@ footer{
 <!-- ═══ SEO LANDING PAGE ═══ -->
 <!-- ═══ BLOG PAGE ═══ -->
 
+</div>
 
 <footer>
   <div class="ft-inner">
@@ -1591,7 +1591,6 @@ footer{
         <ul class="ft-links">
           <li><a href="../">Home</a></li>
           <li><a href="../events/">Recent Events</a></li>
-          <li><a href="../blog/">Blog</a></li>
           <li><a href="../why-us/">Why Choose Us</a></li>
           <li><a href="../contact/">Contact</a></li>
           <li><a href="https://share.google/VBesVzpxNdPon7krQ" target="_blank">Write a Review</a></li>
@@ -1852,7 +1851,7 @@ function renderGalleryGrid() {
 
   grid.innerHTML = `<div class="gal-grid">
     ${items.map(img => `
-      <img src="${img.src}" alt="${img.alt || 'Matro Art Studio event photo'}" onclick="openLB(this)" loading="lazy">
+      <img src="${'../' + img.src}" alt="${img.alt || 'Matro Art Studio event photo'}" onclick="openLB(this)" loading="lazy">
     `).join('')}
   </div>`;
 
@@ -1878,7 +1877,7 @@ function renderGallerySlider() {
 
   track.innerHTML = slides.map((img, i) => `
     <div class="gal-sl-slide${i === 0 ? ' active' : ''}">
-      <img src="${img.src}" alt="${img.alt || 'Matro Art Studio event photo'}" loading="${i === 0 ? 'eager' : 'lazy'}">
+      <img src="${'../' + img.src}" alt="${img.alt || 'Matro Art Studio event photo'}" loading="${i === 0 ? 'eager' : 'lazy'}">
       ${img.caption ? `<div class="gal-sl-caption">${img.caption}</div>` : ''}
     </div>
   `).join('');
@@ -2017,8 +2016,8 @@ if (cur && ring) {
 }
 
 /* ═══ LOADER ═══ */
-/* Lock scroll immediately — before anything loads */
-document.body.classList.add('loading');
+/* Lock scroll immediately — before anything loads (only if there's a loader screen to show) */
+if (document.getElementById('loader')) document.body.classList.add('loading');
 window.scrollTo({ top: 0, behavior: 'instant' });
 
 /* Dismiss loader on DOMContentLoaded (don't wait for all images) */
@@ -2049,11 +2048,13 @@ function dismissLoader() {
   renderRecentEvents();
   initHeroSlider();
 }
-/* Use DOMContentLoaded so loader clears before images finish downloading */
+/* Use DOMContentLoaded so loader clears before images finish downloading.
+   Pages with no visual loader (subpages) skip the 3s wait entirely. */
+const _loaderWait = document.getElementById('loader') ? 3000 : 0;
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => setTimeout(dismissLoader, 3000));
+  document.addEventListener('DOMContentLoaded', () => setTimeout(dismissLoader, _loaderWait));
 } else {
-  setTimeout(dismissLoader, 3000);
+  setTimeout(dismissLoader, _loaderWait);
 }
 
 /* ═══ HERO BACKGROUND SLIDER ═══ */
