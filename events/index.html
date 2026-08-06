@@ -1916,6 +1916,13 @@ footer{
 </a>
 
 <script>
+/* ═══ MOBILE MENU ═══ */
+function toggleMob() {
+  const hbg = document.getElementById('hbg');
+  const menu = document.getElementById('mobMenu');
+  if (hbg) hbg.classList.toggle('open');
+  if (menu) menu.classList.toggle('open');
+}
 /* ═══ CURSOR ═══ */
 const cur = document.getElementById('cur');
 const ring = document.getElementById('cur-ring');
