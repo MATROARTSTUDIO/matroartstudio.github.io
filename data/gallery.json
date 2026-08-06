@@ -1,15 +1,35 @@
 {
   "slider": [
     {
-      "src": "images/DSC_8558.JPG"
+      "src": "images/dimond merchant.webp"
+    },
+    {
+      "src": "images/pm.avif"
+    },
+    {
+      "src": "images/old president.jpg"
     },
     {
       "src": "images/2.jpg"
+    },
+    {
+      "src": "images/1.JPG"
+    },
+    {
+      "src": "images/7.jpg"
+    },
+    {
+      "src": "images/3.JPG"
+    },
+    {
+      "src": "images/4.jpg"
+    },
+    {
+      "src": "images/5.jpg"
+    },
+    {
+      "src": "images/8.JPG"
     }
   ],
-  "grid": [
-    {
-      "src": "gallery-images/department-of-personnel-training-3.jpg"
-    }
-  ]
+  "grid": []
 }
