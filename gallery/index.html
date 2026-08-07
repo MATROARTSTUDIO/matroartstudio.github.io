@@ -1427,6 +1427,8 @@ footer{
     <span></span><span></span><span></span>
   </button>
 </nav>
+
+<div id="page-gallery" class="page active">
 <div class="mob-menu" id="mobMenu">
   <a class="nl" href="../">Home</a>
   <a class="nl" href="../services/">Services</a>
@@ -1460,6 +1462,7 @@ footer{
 <div class="gallery-grid-sec">
   <div class="gal-inner">
     <div id="galleryGrid"></div></div>
+</div>
 </div>
 
 <footer>
@@ -1683,7 +1686,7 @@ function renderFullEvents() {
       </div>
       <div class="ev-gallery">
         ${(ev.photos || []).map((src, i) => `
-          <img src="${src}" alt="${ev.title} photo ${i + 1}" onclick="openLB(this)" loading="lazy">
+          <img src="${'../' + src}" alt="${ev.title} photo ${i + 1}" onclick="openLB(this)" loading="lazy">
         `).join('')}
       </div>
     </div>
