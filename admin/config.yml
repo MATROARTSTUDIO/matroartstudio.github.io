@@ -54,8 +54,8 @@ collections:
               - label: "Photo"
                 name: "src"
                 widget: "image"
-                media_folder: "/gallery-images"
-                public_folder: "gallery-images"
+                media_folder: "/images2"
+                public_folder: "images2"
               - { label: "Alt text", name: "alt", widget: "string", required: false }
   - name: "clients"
     label: "Clients (Home Page)"
