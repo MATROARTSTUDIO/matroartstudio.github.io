@@ -122,8 +122,13 @@
     },
     {
       "tag": "Govt. of India",
-      "name": "MSME",
-      "abbr": "Micro, Small, and Medium Enterprises"
+      "name": "Micro, Small, and Medium Enterprises",
+      "abbr": "MSME"
+    },
+    {
+      "tag": "Govt. of India",
+      "name": "Bharat Sanchar Nigam Limited",
+      "abbr": "BSNL"
     }
   ]
 }
