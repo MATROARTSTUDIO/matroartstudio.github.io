@@ -129,6 +129,41 @@
       "tag": "Govt. of India",
       "name": "Bharat Sanchar Nigam Limited",
       "abbr": "BSNL"
+    },
+    {
+      "tag": "Govt. of India",
+      "abbr": "IB",
+      "name": "Intelligence Bureau"
+    },
+    {
+      "tag": "Govt. of India",
+      "name": "Ministry of Textile",
+      "abbr": "MoT "
+    },
+    {
+      "tag": "Govt. of India",
+      "abbr": "GSTC",
+      "name": "Goods and Services Tax Council"
+    },
+    {
+      "tag": "Govt. of India",
+      "abbr": "MoM",
+      "name": "Ministry of Mines"
+    },
+    {
+      "tag": "Govt. of India",
+      "name": "NATIONAL HUMAN RIGHTS COMMISSION",
+      "abbr": "NHRC"
+    },
+    {
+      "tag": "Govt. of India",
+      "name": "Narcotics Control Bureau ",
+      "abbr": "NCB"
+    },
+    {
+      "tag": "Govt. of India",
+      "name": "Central Board of Indirect Taxes and Customs",
+      "abbr": "CBIC"
     }
   ]
 }
