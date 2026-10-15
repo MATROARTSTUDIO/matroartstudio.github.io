@@ -2,6 +2,17 @@
   "events": [
     {
       "badge": "2026",
+      "title": "Rajbhasha Sammelan ",
+      "ministry": "Ministry of Mines",
+      "venue": "Kaushal Bhawan",
+      "photos": [
+        "images2/img_3128.jpg",
+        "images2/img_2829.jpg",
+        "images2/img_3383-copy.jpg"
+      ]
+    },
+    {
+      "badge": "2026",
       "title": "Data Harmonisation for Use of Administrative Data in Data Driven Governance",
       "ministry": "Ministry of Statiatice and Programme Implementation",
       "venue": "Akashvani Bhawan",
