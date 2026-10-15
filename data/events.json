@@ -2,6 +2,28 @@
   "events": [
     {
       "badge": "2026",
+      "title": "Data Harmonisation for Use of Administrative Data in Data Driven Governance",
+      "ministry": "Ministry of Statiatice and Programme Implementation",
+      "venue": "Akashvani Bhawan",
+      "photos": [
+        "images2/img_8806.jpg",
+        "images2/img_9018.jpg",
+        "images2/img_9243.jpg"
+      ]
+    },
+    {
+      "badge": "2026",
+      "photos": [
+        "images2/img_7664.jpg",
+        "images2/img_7652.jpg",
+        "images2/img_7669.jpg"
+      ],
+      "title": "Press Conference Release of GDP Estimates for First Quarter (Q1) OF FY 2026-27",
+      "ministry": "Ministry of Statiatice and Programme Implementation",
+      "venue": "National Media Centre "
+    },
+    {
+      "badge": "2026",
       "title": "National Coordination meeting of Central and State Goods and Services Tax Administrarions",
       "ministry": "Good and Service Tax (GST)",
       "venue": "Vigyan Bhawan",
