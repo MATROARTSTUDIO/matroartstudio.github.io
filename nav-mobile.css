@@ -1,0 +1,37 @@
+/* Matro Art Studio — shared mobile navigation (MENU button + bottom tab bar) */
+.mob-bar{display:none;}
+.hbg-label{display:none;}
+@media(max-width:1100px){
+  .hbg{
+    display:flex;flex-direction:row;align-items:center;gap:10px;
+    padding:10px 14px;border:1px solid var(--gold,#d4af50);border-radius:6px;
+    background:rgba(212,175,80,.12);cursor:pointer;
+  }
+  .hbg .hbg-wrap{display:flex;flex-direction:column;gap:4px;}
+  .hbg i{display:block;width:20px;height:2px;background:var(--gold,#d4af50);transition:.3s;}
+  .hbg .hbg-label{display:block;font-size:11px;font-weight:600;letter-spacing:2px;color:var(--gold,#d4af50);text-transform:uppercase;}
+  .hbg.open i:nth-child(1){transform:rotate(45deg) translate(4px,4px);}
+  .hbg.open i:nth-child(2){opacity:0;}
+  .hbg.open i:nth-child(3){transform:rotate(-45deg) translate(4px,-4px);}
+  .mob-menu{max-height:calc(100dvh - 76px);overflow-y:auto;}
+  .mob-menu .nl{font-size:15px;padding:16px;}
+  .mob-menu .nav-cta{text-align:center;margin-top:12px;padding:16px;display:block;}
+
+  .mob-bar{
+    display:flex;position:fixed;left:0;right:0;bottom:0;z-index:1001;
+    background:rgba(5,6,10,.98);border-top:1px solid var(--gold-3,#a8872f);
+    padding-bottom:env(safe-area-inset-bottom,0);
+  }
+  .mob-bar a{
+    flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;
+    padding:9px 2px 8px;color:var(--cream-m,#cfc7b5);text-decoration:none;
+    font-size:9.5px;letter-spacing:1px;text-transform:uppercase;font-weight:500;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .mob-bar a svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
+  .mob-bar a.active{color:var(--gold,#d4af50);}
+  .mob-bar a.cta{color:var(--ink,#05060a);background:linear-gradient(135deg,var(--gold,#d4af50),var(--gold-2,#e8c76a));}
+  body{padding-bottom:calc(58px + env(safe-area-inset-bottom,0));}
+  .wa-float{bottom:calc(74px + env(safe-area-inset-bottom,0)) !important;}
+}
+@media print{.mob-bar{display:none !important;}}

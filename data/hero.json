@@ -1,0 +1,69 @@
+{
+  "slides": [
+    {
+      "image": "images/1.JPG",
+      "alt": "Government Conference Excellence",
+      "active": true
+    },
+    {
+      "image": "images/DSC_8558.JPG",
+      "alt": "Matro Art Studio Event",
+      "active": true
+    },
+    {
+      "image": "images/3.JPG",
+      "alt": "Corporate Conference",
+      "active": true
+    },
+    {
+      "image": "images/4.jpg",
+      "alt": "Exhibition Design",
+      "active": true
+    },
+    {
+      "image": "images/5.jpg",
+      "alt": "AV Production",
+      "active": true
+    },
+    {
+      "image": "images/6.JPG",
+      "alt": "Event Printing",
+      "active": true
+    },
+    {
+      "image": "images/8.JPG",
+      "alt": "Venue Setup",
+      "active": true
+    },
+    {
+      "image": "images/IMG_8927.JPG.jpeg",
+      "alt": "Event Highlights 2025",
+      "active": true
+    },
+    {
+      "image": "images/pm.avif",
+      "alt": "Event Highlights 2025",
+      "active": true
+    },
+    {
+      "image": "images/rajnat singh.avif",
+      "alt": "Event Highlights 2025",
+      "active": true
+    },
+    {
+      "image": "images/dimond merchant.webp",
+      "alt": "Event Highlights 2025",
+      "active": true
+    },
+    {
+      "image": "images/old president.jpg",
+      "alt": "Event Highlights 2025",
+      "active": true
+    },
+    {
+      "image": "images/old president 2.avif",
+      "alt": "Event Highlights 2025",
+      "active": true
+    }
+  ]
+}

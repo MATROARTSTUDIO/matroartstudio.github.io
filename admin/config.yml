@@ -72,6 +72,25 @@ collections:
               - { label: "Short Abbreviation (e.g. MoF)", name: "abbr", widget: "string" }
               - { label: "Full Name (e.g. Ministry of Finance)", name: "name", widget: "string" }
               - { label: "Tag (e.g. Govt. of India)", name: "tag", widget: "string", default: "Govt. of India" }
+  - name: "hero"
+    label: "Home Page Slider"
+    files:
+      - name: "hero"
+        label: "Hero Slider"
+        file: "data/hero.json"
+        fields:
+          - label: "Slides"
+            name: "slides"
+            widget: "list"
+            summary: "{{fields.alt}}"
+            fields:
+              - label: "Photo"
+                name: "image"
+                widget: "image"
+                media_folder: "/images"
+                public_folder: "images"
+              - { label: "Description (alt text)", name: "alt", widget: "string", required: false }
+              - { label: "Show this slide", name: "active", widget: "boolean", default: true }
   - name: "about"
     label: "About Page"
     files:

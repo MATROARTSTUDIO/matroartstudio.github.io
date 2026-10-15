@@ -260,10 +260,10 @@ body::after{
   display:none;flex-direction:column;gap:5px;
   background:none;border:none;padding:8px;cursor:none;
 }
-.hbg span{display:block;width:24px;height:1.5px;background:var(--gold);transition:.3s;}
-.hbg.open span:nth-child(1){transform:rotate(45deg) translate(4.5px,4.5px);}
-.hbg.open span:nth-child(2){opacity:0;}
-.hbg.open span:nth-child(3){transform:rotate(-45deg) translate(4.5px,-4.5px);}
+.hbg i{display:block;width:24px;height:1.5px;background:var(--gold);transition:.3s;}
+.hbg.open i:nth-child(1){transform:rotate(45deg) translate(4.5px,4.5px);}
+.hbg.open i:nth-child(2){opacity:0;}
+.hbg.open i:nth-child(3){transform:rotate(-45deg) translate(4.5px,-4.5px);}
 
 .mob-menu{
   display:none;position:fixed;
@@ -1435,6 +1435,45 @@ footer{
                     .gf-btn:hover{border-color:var(--gold);color:var(--gold);background:rgba(212,175,80,.07);}
                             .re-card:hover{border-color:var(--edge-hi);box-shadow:0 24px 70px rgba(0,0,0,.5);transform:translateY(-6px);}
     }
+
+/* ═══ MOBILE NAV UPGRADE ═══ */
+.mob-bar{display:none;}
+.hbg-label{display:none;}
+@media(max-width:1100px){
+  /* Visible MENU button instead of 3 thin lines */
+  .hbg{
+    flex-direction:row;align-items:center;gap:10px;
+    padding:10px 14px;border:1px solid var(--gold);border-radius:6px;
+    background:rgba(212,175,80,.12);cursor:pointer;
+  }
+  .hbg i{width:20px;height:2px;}
+  .hbg-wrap{display:flex;flex-direction:column;gap:4px;}
+  .hbg-label{display:block;font-size:11px;font-weight:600;letter-spacing:2px;color:var(--gold);text-transform:uppercase;}
+  .hbg.open i:nth-child(1){transform:rotate(45deg) translate(4px,4px);}
+  .hbg.open i:nth-child(3){transform:rotate(-45deg) translate(4px,-4px);}
+  .mob-menu{max-height:calc(100dvh - 76px);overflow-y:auto;}
+  .mob-menu .nl{font-size:15px;padding:16px;}
+  .mob-menu .nav-cta{text-align:center;margin-top:12px;padding:16px;display:block;}
+
+  /* Always-visible bottom tab bar */
+  .mob-bar{
+    display:flex;position:fixed;left:0;right:0;bottom:0;z-index:1001;
+    background:rgba(5,6,10,.98);border-top:1px solid var(--gold-3);
+    padding-bottom:env(safe-area-inset-bottom,0);
+  }
+  .mob-bar a{
+    flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;
+    padding:9px 2px 8px;color:var(--cream-m);text-decoration:none;
+    font-size:9.5px;letter-spacing:1px;text-transform:uppercase;font-weight:500;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .mob-bar a svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
+  .mob-bar a.active{color:var(--gold);}
+  .mob-bar a.cta{color:var(--ink);background:linear-gradient(135deg,var(--gold),var(--gold-2));}
+  body{padding-bottom:calc(58px + env(safe-area-inset-bottom,0));}
+  .wa-float{bottom:calc(74px + env(safe-area-inset-bottom,0)) !important;}
+}
+@media print{.mob-bar{display:none !important;}}
 </style>
 
 <script type="application/ld+json">
@@ -1511,8 +1550,9 @@ footer{
     <a class="nl" href="why-us/">Why Us</a>
     <a class="nav-cta" href="contact/">Contact Us</a>
   </div>
-  <button class="hbg" id="hbg" onclick="toggleMob()">
-    <span></span><span></span><span></span>
+  <button class="hbg" id="hbg" onclick="toggleMob()" aria-label="Open menu" aria-expanded="false">
+    <span class="hbg-wrap"><i></i><i></i><i></i></span>
+    <span class="hbg-label">Menu</span>
   </button>
 </nav>
 <div class="mob-menu" id="mobMenu">
@@ -1524,6 +1564,14 @@ footer{
   <a class="nl" href="why-us/">Why Us</a>
   <a class="nav-cta" href="contact/">Contact Us</a>
 </div>
+
+<nav class="mob-bar" aria-label="Quick navigation">
+  <a href="./" data-p=""><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Home</a>
+  <a href="services/" data-p="services"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>Services</a>
+  <a href="events/" data-p="events"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Events</a>
+  <a href="gallery/" data-p="gallery"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>Gallery</a>
+  <a href="contact/" data-p="contact" class="cta"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>Contact</a>
+</nav>
 
 <div id="page-home" class="page active">
 
@@ -1545,7 +1593,6 @@ footer{
          <div class="hero-sl-slide"><img src="images/dimond merchant.webp" alt="Event Highlights 2025" loading="lazy"></div>
          <div class="hero-sl-slide"><img src="images/old president.jpg" alt="Event Highlights 2025" loading="lazy"></div>
          <div class="hero-sl-slide"><img src="images/old president 2.avif" alt="Event Highlights 2025" loading="lazy"></div>
-         <div class="hero-sl-slide"><img src="gallery-images/mou sining ceremoni 3.JPG" alt="Event Highlights 2026" loading="lazy"></div>
     </div>
 
     <!-- Overlay effects layered above images -->
@@ -1699,6 +1746,26 @@ footer{
     </div>
   </section>
 
+  <!-- ═══════════════════════════════════════════════════════
+       RECENT EVENTS — HOME PAGE PREVIEW
+       This section is AUTO-GENERATED from the RECENT_EVENTS
+       array in the JavaScript below. You do NOT need to edit
+       this HTML. See the JS instructions to add new events.
+       ═══════════════════════════════════════════════════════ -->
+  <section class="recent-ev-sec">
+    <div class="recent-ev-inner">
+      <div class="sec-label rv">Recent Work</div>
+      <h2 class="sec-h2 rv">Our Latest<br><em>Recent Events</em></h2>
+      <p class="sec-p rv" style="max-width:520px;">A glimpse into our most recent high-profile events across India's top ministries and institutions.</p>
+      <!-- Cards are injected here by JS — see renderRecentEvents() -->
+      <div class="recent-ev-grid" id="homeRecentEvents"></div>
+      <div class="re-view-all rv" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+        <button class="btn-o" onclick="window.location.href='events/'">View All Events →</button>
+        <button class="btn-o" onclick="window.location.href='gallery/'">View Gallery →</button>
+      </div>
+    </div>
+  </section>
+
   <!-- CLIENTS MARQUEE -->
   <div class="clients-sec">
     <div class="clients-hdr">
@@ -1730,26 +1797,6 @@ footer{
           <div class="score-lbl" style="margin-top:6px;">Seller Rating</div>
           <div style="margin-top:16px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(0,200,100,.6);line-height:1.6;">Government e-Marketplace<br>Official Platform</div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════
-       RECENT EVENTS — HOME PAGE PREVIEW
-       This section is AUTO-GENERATED from the RECENT_EVENTS
-       array in the JavaScript below. You do NOT need to edit
-       this HTML. See the JS instructions to add new events.
-       ═══════════════════════════════════════════════════════ -->
-  <section class="recent-ev-sec">
-    <div class="recent-ev-inner">
-      <div class="sec-label rv">Recent Work</div>
-      <h2 class="sec-h2 rv">Our Latest<br><em>Recent Events</em></h2>
-      <p class="sec-p rv" style="max-width:520px;">A glimpse into our most recent high-profile events across India's top ministries and institutions.</p>
-      <!-- Cards are injected here by JS — see renderRecentEvents() -->
-      <div class="recent-ev-grid" id="homeRecentEvents"></div>
-      <div class="re-view-all rv" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-        <button class="btn-o" onclick="window.location.href='events/'">View All Events →</button>
-        <button class="btn-o" onclick="window.location.href='gallery/'">View Gallery →</button>
       </div>
     </div>
   </section>
@@ -1920,6 +1967,49 @@ async function loadClients() {
   renderClients();
 }
 loadClients();
+
+/* ═══════════════════════════════════════════════════════════════
+   HERO SLIDER DATA — LOADED FROM data/hero.json
+   Edit through the /admin CMS ("Home Page Slider"), or by hand on
+   GitHub. If the file is missing/empty, the slides hardcoded in the
+   HTML above are used as a fallback, so the hero never goes blank.
+
+   Expected shape of data/hero.json:
+   { "slides": [ { "image": "images/1.JPG", "alt": "text", "active": true }, ... ] }
+   ═══════════════════════════════════════════════════════════════ */
+async function loadHeroSlides() {
+  try {
+    const res = await fetch('data/hero.json', { cache: 'no-store' });
+    if (!res.ok) return;
+    const data = await res.json();
+    const slides = (data.slides || []).filter(x => x && x.image && x.active !== false);
+    if (slides.length) applyHeroSlides(slides);
+  } catch (err) {
+    console.error('Could not load data/hero.json — using built-in slides', err);
+  }
+}
+function applyHeroSlides(slides) {
+  const wrap = document.getElementById('heroSliderBg');
+  if (!wrap) return;
+  wrap.innerHTML = '';
+  slides.forEach((sl, i) => {
+    const d = document.createElement('div');
+    d.className = 'hero-sl-slide' + (i === 0 ? ' active' : '');
+    const img = document.createElement('img');
+    img.src = sl.image;
+    img.alt = sl.alt || 'Matro Art Studio event';
+    img.loading = i === 0 ? 'eager' : 'lazy';
+    d.appendChild(img);
+    wrap.appendChild(d);
+  });
+  const dots = document.getElementById('heroSlDots');
+  if (dots) dots.innerHTML = '';
+  heroSlIdx = 0;
+  /* If the loader already finished, restart the slider on the new slides;
+     otherwise dismissLoader() will start it. */
+  if (_heroInited) initHeroSlider();
+}
+loadHeroSlides();
 
 /* ═══════════════════════════════════════════════════════════════
    renderClients()
@@ -2278,10 +2368,11 @@ if (document.readyState === 'loading') {
 }
 
 /* ═══ HERO BACKGROUND SLIDER ═══ */
-let heroSlIdx = 0, heroSlTotal = 0, heroSlTimer = null;
+let heroSlIdx = 0, heroSlTotal = 0, heroSlTimer = null, _heroInited = false;
 const HERO_SL_DUR = 5000;
 
 function initHeroSlider() {
+  _heroInited = true;
   const slides = document.querySelectorAll('#heroSliderBg .hero-sl-slide');
   heroSlTotal = slides.length;
   if (!heroSlTotal) return;
@@ -2556,10 +2647,28 @@ function openBlogPost(idx) {
 }
 
 /* ═══ MOBILE MENU ═══ */
-function toggleMob() {
-  document.getElementById('hbg').classList.toggle('open');
-  document.getElementById('mobMenu').classList.toggle('open');
+function toggleMob(force) {
+  const b = document.getElementById('hbg'), m = document.getElementById('mobMenu');
+  const open = (typeof force === 'boolean') ? force : !m.classList.contains('open');
+  b.classList.toggle('open', open);
+  m.classList.toggle('open', open);
+  b.setAttribute('aria-expanded', open);
+  const l = b.querySelector('.hbg-label'); if (l) l.textContent = open ? 'Close' : 'Menu';
 }
+/* close menu on link tap or tap outside */
+document.addEventListener('click', e => {
+  const m = document.getElementById('mobMenu');
+  if (!m || !m.classList.contains('open')) return;
+  if (e.target.closest('#mobMenu a') || !e.target.closest('#mobMenu, #hbg')) toggleMob(false);
+});
+/* highlight current page in bottom bar */
+(function(){
+  const seg = location.pathname.split('/').filter(Boolean).filter(x => !/\.html?$/.test(x));
+  const cur = seg.length ? seg[seg.length-1] : '';
+  document.querySelectorAll('.mob-bar a').forEach(a => {
+    if (a.dataset.p === cur && !a.classList.contains('cta')) a.classList.add('active');
+  });
+})();
 
 /* ═══ REVEAL ═══ */
 let _revealObs = null;
